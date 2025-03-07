@@ -1,7 +1,0 @@
-Apparecchi
-Clienti
-Direttore Sanitario
-Rappresentante Legale
-Sede Legale
-Switchboard Items
-VerificheApparecchi
