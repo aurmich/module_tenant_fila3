@@ -16,32 +16,12 @@ jobs:
       contents: write
 
     steps:
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
       - uses: actions/checkout@v3
-=======
-      - uses: actions/checkout@v4
->>>>>>> 946fdba366 (Squashed 'laravel/Modules/Notify/' content from commit 6aac1e028)
-=======
-      - uses: actions/checkout@v3
->>>>>>> 1c8d7d06e0 (Squashed 'laravel/Modules/Tenant/' content from commit be731f696)
-=======
-      - uses: actions/checkout@v3
->>>>>>> 660b6fffd2 (Squashed 'laravel/Modules/UI/' content from commit b14fdc133)
-=======
-      - uses: actions/checkout@v3
->>>>>>> ecd8d46956 (Squashed 'laravel/Modules/Gdpr/' content from commit d30cea3b2)
         with:
           ref: ${{ github.head_ref }}
 
       - name: "Duster Fix"
-<<<<<<< HEAD
         uses: tighten/duster-action@latest
-=======
-        uses: tighten/duster-action@v2
->>>>>>> ecd8d46956 (Squashed 'laravel/Modules/Gdpr/' content from commit d30cea3b2)
         with:
           args: fix
 

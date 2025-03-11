@@ -4,66 +4,16 @@ on:
   release:
     types: [released]
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
 permissions:
   contents: write
 
->>>>>>> 90bf7d5b85 (Squashed 'laravel/Modules/Job/' content from commit d3ea5c83e)
-=======
-permissions:
-  contents: write
-
->>>>>>> 946fdba366 (Squashed 'laravel/Modules/Notify/' content from commit 6aac1e028)
-=======
-permissions:
-  contents: write
-
->>>>>>> 1c8d7d06e0 (Squashed 'laravel/Modules/Tenant/' content from commit be731f696)
-=======
-permissions:
-  contents: write
-
->>>>>>> 660b6fffd2 (Squashed 'laravel/Modules/UI/' content from commit b14fdc133)
-=======
-permissions:
-  contents: write
-
->>>>>>> ecd8d46956 (Squashed 'laravel/Modules/Gdpr/' content from commit d30cea3b2)
-=======
->>>>>>> c1120baae0 (Squashed 'laravel/Modules/Lang/' content from commit 693742e073)
 jobs:
   update:
     runs-on: ubuntu-latest
 
     steps:
       - name: Checkout code
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
         uses: actions/checkout@v3
-=======
-        uses: actions/checkout@v4
->>>>>>> 946fdba366 (Squashed 'laravel/Modules/Notify/' content from commit 6aac1e028)
-=======
-        uses: actions/checkout@v3
->>>>>>> 1c8d7d06e0 (Squashed 'laravel/Modules/Tenant/' content from commit be731f696)
-=======
-        uses: actions/checkout@v3
->>>>>>> 660b6fffd2 (Squashed 'laravel/Modules/UI/' content from commit b14fdc133)
-=======
-        uses: actions/checkout@v3
->>>>>>> ecd8d46956 (Squashed 'laravel/Modules/Gdpr/' content from commit d30cea3b2)
-=======
-        uses: actions/checkout@v3
->>>>>>> c1120baae0 (Squashed 'laravel/Modules/Lang/' content from commit 693742e073)
         with:
           ref: main
 
@@ -74,11 +24,7 @@ jobs:
           release-notes: ${{ github.event.release.body }}
 
       - name: Commit updated CHANGELOG
-<<<<<<< HEAD
         uses: stefanzweifel/git-auto-commit-action@latest
-=======
-        uses: stefanzweifel/git-auto-commit-action@v4
->>>>>>> c1120baae0 (Squashed 'laravel/Modules/Lang/' content from commit 693742e073)
         with:
           branch: main
           commit_message: Update CHANGELOG

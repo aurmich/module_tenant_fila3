@@ -5,19 +5,7 @@ on:
     branches:
       - master
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
 permissions:
-=======
-permissions: 
->>>>>>> 660b6fffd2 (Squashed 'laravel/Modules/UI/' content from commit b14fdc133)
-=======
-permissions: 
->>>>>>> ecd8d46956 (Squashed 'laravel/Modules/Gdpr/' content from commit d30cea3b2)
-=======
-permissions:
->>>>>>> c1120baae0 (Squashed 'laravel/Modules/Lang/' content from commit 693742e073)
   contents: write
 
 jobs:
@@ -37,57 +25,15 @@ jobs:
 
     - name: Node
       run: cd docs && npm install
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> c1120baae0 (Squashed 'laravel/Modules/Lang/' content from commit 693742e073)
 
     - name: Production
       run: cd docs && npm run prod
 
     - name: CNAME
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-      run: cd docs && echo "laraxot.github.io/module_xot_fila3" > ./build_production/CNAME
-=======
-      run: cd docs && echo "laraxot.github.io/module_job" > ./build_production/CNAME
->>>>>>> 90bf7d5b85 (Squashed 'laravel/Modules/Job/' content from commit d3ea5c83e)
-=======
-      run: cd docs && echo "laraxot.github.io/module_user" > ./build_production/CNAME
->>>>>>> 3f813922dc (Squashed 'laravel/Modules/User/' content from commit edfbd6fa7)
-=======
-      run: cd docs && echo "laraxot.github.io/module_geo" > ./build_production/CNAME
->>>>>>> 946fdba366 (Squashed 'laravel/Modules/Notify/' content from commit 6aac1e028)
-=======
       run: cd docs && echo "laraxot.github.io/module_tenant" > ./build_production/CNAME
->>>>>>> 1c8d7d06e0 (Squashed 'laravel/Modules/Tenant/' content from commit be731f696)
 
-=======
-=======
->>>>>>> ecd8d46956 (Squashed 'laravel/Modules/Gdpr/' content from commit d30cea3b2)
-      
-    - name: Production
-      run: cd docs && npm run prod
-      
-    - name: CNAME
-      run: cd docs && echo "laraxot.github.io/module_activity" > ./build_production/CNAME
-    
-<<<<<<< HEAD
->>>>>>> 660b6fffd2 (Squashed 'laravel/Modules/UI/' content from commit b14fdc133)
-=======
->>>>>>> ecd8d46956 (Squashed 'laravel/Modules/Gdpr/' content from commit d30cea3b2)
     - name: gh-pages
       uses: JamesIves/github-pages-deploy-action@latest
-=======
-      run: cd docs && echo "laraxot.github.io/module_lang" > ./build_production/CNAME
-
-    - name: gh-pages
-      uses: JamesIves/github-pages-deploy-action@v4.5
->>>>>>> c1120baae0 (Squashed 'laravel/Modules/Lang/' content from commit 693742e073)
       with:
         branch: gh-pages
         folder: ./docs/build_production

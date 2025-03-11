@@ -1,65 +1,4 @@
 {
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-	"editor.formatOnSave": false,
-		"editor.formatOnType": true,
-		"php-cs-fixer.onsave": true,
-		"php-cs-fixer.formatHtml": true,
-		"php-cs-fixer.config": ".php-cs-fixer.php",
-		"php-cs-fixer.executablePath": "php-cs-fixer",
-		"php-cs-fixer.executablePathWindows": "php-cs-fixer.bat",
-		"php-cs-fixer.allowRisky": true,
-		"vscode-php-cs-fixer.allowRisky": true,
-		"vscode-php-cs-fixer.config": ".php-cs-fixer.php",
-		"phpmd.enabled": false,
-		"phpmd.validate.rulesets": "cleancode,codesize,controversial,design,naming,unusedcode",
-		"phpmd.SuppressWarnings":true,
-		"phpmd.verbose": false,
-		
-		"editor.defaultFormatter": "junstyle.php-cs-fixer",
-		"[php]": {
-			"editor.defaultFormatter": "junstyle.php-cs-fixer"
-		},
-		"editor.tokenColorCustomizations": {
-			"semanticHighlighting": true
-		},
-		"[blade]": {
-			"editor.defaultFormatter": "shufo.vscode-blade-formatter"
-		},
-		"vscode-php-cs-fixer.toolPath": ".",
-		"vscode-php-cs-fixer.useCache": true,
-		"editor.wordWrapColumn": 120,
-		"files.eol": "\n",
-		"git.autofetch": "all",
-		"files.watcherExclude": {
-    		"**/.git/objects/**": true,
-    		"**/.git/subtree-cache/**": true,
-    		"**/node_modules/*/**": true
-  		}
-=======
-=======
->>>>>>> 90bf7d5b85 (Squashed 'laravel/Modules/Job/' content from commit d3ea5c83e)
-=======
->>>>>>> 3f813922dc (Squashed 'laravel/Modules/User/' content from commit edfbd6fa7)
-=======
->>>>>>> 946fdba366 (Squashed 'laravel/Modules/Notify/' content from commit 6aac1e028)
-=======
->>>>>>> 1c8d7d06e0 (Squashed 'laravel/Modules/Tenant/' content from commit be731f696)
-=======
->>>>>>> 660b6fffd2 (Squashed 'laravel/Modules/UI/' content from commit b14fdc133)
-=======
->>>>>>> a27ba4e75b (Squashed 'laravel/Modules/Activity/' content from commit 05cc09d7b)
-=======
->>>>>>> ecd8d46956 (Squashed 'laravel/Modules/Gdpr/' content from commit d30cea3b2)
-=======
->>>>>>> c1120baae0 (Squashed 'laravel/Modules/Lang/' content from commit 693742e073)
 	"editor.formatOnType": true,
 	"php-cs-fixer.onsave": true,
 	"php-cs-fixer.formatHtml": true,
@@ -99,29 +38,4 @@
 	"[vue]": {
 		"editor.defaultFormatter": "octref.vetur"
 	}
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
->>>>>>> 87dbba6623 (Squashed 'laravel/Modules/Xot/' content from commit 5fa619c8)
-=======
->>>>>>> 90bf7d5b85 (Squashed 'laravel/Modules/Job/' content from commit d3ea5c83e)
-=======
->>>>>>> 3f813922dc (Squashed 'laravel/Modules/User/' content from commit edfbd6fa7)
-=======
->>>>>>> 946fdba366 (Squashed 'laravel/Modules/Notify/' content from commit 6aac1e028)
-=======
->>>>>>> 1c8d7d06e0 (Squashed 'laravel/Modules/Tenant/' content from commit be731f696)
-=======
->>>>>>> 660b6fffd2 (Squashed 'laravel/Modules/UI/' content from commit b14fdc133)
-=======
->>>>>>> a27ba4e75b (Squashed 'laravel/Modules/Activity/' content from commit 05cc09d7b)
-=======
->>>>>>> ecd8d46956 (Squashed 'laravel/Modules/Gdpr/' content from commit d30cea3b2)
-=======
->>>>>>> c1120baae0 (Squashed 'laravel/Modules/Lang/' content from commit 693742e073)
 }
