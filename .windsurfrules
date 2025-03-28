@@ -1,0 +1,28 @@
+# SaluteOra Installation Rules
+
+1. First command: composer global require laravel/installer
+2. Second command: cd /var/www/html/saluteora && laravel new laravel
+3. Third command: cd laravel && composer require nwidart/laravel-modules
+4. Fourth command: php artisan vendor:publish --provider="Nwidart\Modules\LaravelModulesServiceProvider"
+
+# Important Notes
+- Do NOT use variations like 'laravel new saluteora' or 'laravel new laravel --version=X.Y'
+- The project name MUST be exactly 'laravel'
+- The Laravel project MUST be installed directly in /var/www/html/saluteora/laravel
+- Do NOT create the Laravel project in /var/www/html/saluteora/public_html or any other location
+- All code MUST be strictly typed and robust
+- Follow PSR-12 coding standards
+- Use PHP 8.2+ features including enums and readonly properties
+
+# Directory Structure
+- /var/www/html/saluteora/laravel        # Laravel application (correct location)
+- /var/www/html/saluteora/laravel/Modules # Laravel Modules directory
+- /var/www/html/saluteora/docs           # Documentation
+- /var/www/html/saluteora/.cursor        # Cursor rules
+
+# Efficiency Rules
+- ALWAYS prefer simple system commands for corrections (e.g., use mv instead of reinstalling)
+- If Laravel is installed in the wrong directory, use: mv wrong_path/laravel /var/www/html/saluteora/laravel
+- Document all operations in the implementation diary
+- Reuse existing work whenever possible
+- Choose the most efficient approach to solve problems
