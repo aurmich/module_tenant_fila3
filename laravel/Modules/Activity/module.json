@@ -1,0 +1,12 @@
+{
+    "name": "Activity",
+    "alias": "activity",
+    "description": "",
+    "keywords": [],
+    "priority": 0,
+    "providers": [
+        "Modules\\Activity\\Providers\\ActivityServiceProvider",
+        "Modules\\Activity\\Providers\\Filament\\AdminPanelProvider"
+    ],
+    "files": []
+}
