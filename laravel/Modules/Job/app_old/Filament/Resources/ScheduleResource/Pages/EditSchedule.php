@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Modules\Job\Filament\Resources\ScheduleResource\Pages;
+namespace Modules\Job\app_old\Filament\Resources\ScheduleResource\Pages;
 
 use Filament\Forms\Form;
 use Filament\Notifications\Notification;

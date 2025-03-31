@@ -90,7 +90,27 @@ class Task extends BaseModel
     use HasFactory;
     use Notifiable;
 
-    /** @var list<string> */
+    /**
+     * Compila i parametri del task per l'esecuzione.
+     *
+     * @param bool $forScheduler Se true, i parametri vengono formattati per lo scheduler
+     * @return array<int, string>|string
+     */
+    public function compileParameters(bool $forScheduler = false): array|string
+    {
+        if (null === $this->parameters) {
+            return [];
+        }
+
+        $parameters = \Safe\json_decode($this->parameters, true);
+        Assert::isArray($parameters);
+
+        if ($forScheduler) {
+            return array_map(fn ($value) => is_bool($value) ? ($value ? '1' : '0') : (string) $value, $parameters);
+        }
+
+        return $parameters;
+    }
     protected $fillable = [
         'id',
         'description',

@@ -6,7 +6,7 @@ declare(strict_types=1);
  * ---.
  */
 
-namespace Modules\Job\Traits;
+namespace Modules\Job\app_old\Traits;
 
 trait FormatSeconds
 {

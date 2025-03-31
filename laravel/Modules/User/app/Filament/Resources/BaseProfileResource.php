@@ -15,7 +15,7 @@ use Modules\Xot\Filament\Resources\XotBaseResource;
 
 
 
-use Modules\Xot\Filament\Resources\RelationManagers\XotBaseRelationManager;
+use Modules\Xot\Filament\Resources\XotBaseResource\RelationManager\XotBaseRelationManager;
 
 
 
@@ -34,11 +34,11 @@ abstract class BaseProfileResource extends XotBaseResource
         return [
             // Forms\Components\TextInput::make('user_id'),
             // Forms\Components\TextInput::make('user_id')->readonly(),
-            Forms\Components\TextInput::make('user.name'),
-            Forms\Components\TextInput::make('email'),
-            Forms\Components\TextInput::make('first_name'),
-            Forms\Components\TextInput::make('last_name'),
-            SpatieMediaLibraryFileUpload::make('photo_profile')
+            'user_name' => Forms\Components\TextInput::make('user.name'),
+            'email' => Forms\Components\TextInput::make('email'),
+            'first_name' => Forms\Components\TextInput::make('first_name'),
+            'last_name' => Forms\Components\TextInput::make('last_name'),
+            'photo_profile' => SpatieMediaLibraryFileUpload::make('photo_profile')
                 // ->image()
                 // ->maxSize(5000)
                 // ->multiple()

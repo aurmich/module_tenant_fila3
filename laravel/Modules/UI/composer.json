@@ -1,39 +1,38 @@
 {
-    "name": "laraxot/module_gdpr_fila3",
+    "name": "laraxot/module_ui_fila3",
     "description": "",
-    "homepage": "https://github.com/laraxot/module_gdpr_fila3.git",
+    "homepage": "https://github.com/laraxot/module_ui_fila3.git",
     "license": "MIT",
     "authors": [
         {
             "name": "Marco Sottana",
-            "email": "marco.sottana@gmail.com",
-            "role": "Developer"
+            "email": "marco.sottana@gmail.com"
         }
     ],
     "extra": {
         "laravel": {
             "providers": [
-                "Modules\\Gdpr\\Providers\\GdprServiceProvider",
-                "Modules\\Gdpr\\Providers\\Filament\\AdminPanelProvider"
+                "Modules\\UI\\Providers\\UIServiceProvider",
+                "Modules\\UI\\Providers\\Filament\\AdminPanelProvider"
             ],
             "aliases": {}
         }
     },
     "autoload": {
         "psr-4": {
-            "Modules\\Gdpr\\": "app/",
-            "Modules\\Gdpr\\Database\\Factories\\": "database/factories/",
-            "Modules\\Gdpr\\Database\\Seeders\\": "database/seeders/"
+            "Modules\\UI\\": "app/",
+            "Modules\\UI\\Database\\Factories\\": "database/factories/",
+            "Modules\\UI\\Database\\Seeders\\": "database/seeders/"
         }
     },
     "require": {
-        "statikbe/laravel-cookie-consent": "*"
+        "owenvoke/blade-fontawesome": "*"
     },
     "require-dev": {},
     "repositories": [
         {
             "type": "path",
-            "url": "../Xot"
+            "url": "../User"
         },
         {
             "type": "path",
@@ -41,12 +40,12 @@
         },
         {
             "type": "path",
-            "url": "../UI"
+            "url": "../Xot"
         }
     ],
     "scripts": {
         "post-autoload-dump1": [
-            "@php artisan vendor:publish --provider='Statikbe\\CookieConsent\\CookieConsentServiceProvider' --tag='cookie-public'"
+            "@php vendor/bin/testbench package:discover --ansi"
         ],
         "post-update-cmd": [
             "Illuminate\\Foundation\\ComposerScripts::postUpdate"

@@ -22,27 +22,40 @@ class ExportXlsAction extends Action
     {
         parent::setUp();
         $this->translateLabel()
-
-            
             ->tooltip(__('xot::actions.export_xls'))
-
-            // ->icon('heroicon-o-cloud-arrow-down')
-            // ->icon('fas-file-excel')
             ->icon('heroicon-o-arrow-down-tray')
             ->action(static function (ListRecords $livewire) {
                 $filename = class_basename($livewire).'-'.collect($livewire->tableFilters)->flatten()->implode('-').'.xlsx';
                 $transKey = app(GetTransKeyAction::class)->execute($livewire::class);
                 $transKey .= '.fields';
                 $query = $livewire->getFilteredTableQuery();
-                // ->getQuery(); // Staudenmeir\LaravelCte\Query\Builder
                 $rows = $query->get();
                 $resource = $livewire->getResource();
+                
+                /** @var array<int, string> $fields */
                 $fields = [];
                 if (method_exists($resource, 'getXlsFields')) {
-                    Assert::isArray($fields = $resource::getXlsFields($livewire->tableFilters));
+                    $rawFields = $resource::getXlsFields($livewire->tableFilters);
+                    if (is_array($rawFields)) {
+                        $fields = array_map(static function ($field): string {
+                            if (is_object($field) && method_exists($field, '__toString')) {
+                                return $field->__toString();
+                            }
+                            if (is_scalar($field)) {
+                                return (string) $field;
+                            }
+                            return '';
+                        }, $rawFields);
+                    }
+                    Assert::isArray($fields);
                 }
 
-                return app(ExportXlsByCollection::class)->execute($rows, $filename, $transKey, $fields);
+                return app(ExportXlsByCollection::class)->execute(
+                    $rows, 
+                    $filename, 
+                    $transKey, 
+                    array_values($fields)
+                );
             });
     }
 

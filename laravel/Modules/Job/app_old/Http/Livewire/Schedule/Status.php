@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Modules\Job\Http\Livewire\Schedule;
+namespace Modules\Job\app_old\Http\Livewire\Schedule;
 
 use App\Console\Kernel;
 use Illuminate\Console\Scheduling\Schedule;

@@ -25,15 +25,25 @@ abstract class XotBaseServiceProvider extends ServiceProvider
 {
     use PathNamespace;
 
+    /**
+     * @var string
+     */
     public string $name = '';
 
-    public string $nameLower = '';
+    /**
+     * @var string
+     */
+    protected string $module_dir = '';
 
-    protected string $module_dir = __DIR__;
+    /**
+     * @var string
+     */
+    protected string $module_ns = '';
 
-    protected string $module_ns = __NAMESPACE__;
-
-    protected string $module_base_ns;
+    /**
+     * @var string
+     */
+    protected string $nameLower = '';
 
     /**
      * Boot the application events.
@@ -41,15 +51,10 @@ abstract class XotBaseServiceProvider extends ServiceProvider
     public function boot(): void
     {
         $this->registerTranslations();
-
         $this->registerConfig();
         $this->registerViews();
-        // $this->registerFactories();
         $this->loadMigrationsFrom($this->module_dir.'/../Database/Migrations');
-
-        // Illuminate\Contracts\Container\BindingResolutionException: Target class [livewire] does not exist.
         $this->registerLivewireComponents();
-        // Illuminate\Contracts\Container\BindingResolutionException: Target class [modules] does not exist.
         $this->registerBladeComponents();
         $this->registerCommands();
     }
@@ -61,8 +66,8 @@ abstract class XotBaseServiceProvider extends ServiceProvider
     {
         $this->nameLower = Str::lower($this->name);
         $this->module_ns = collect(explode('\\', $this->module_ns))->slice(0, -1)->implode('\\');
-        $this->app->register(''.$this->module_ns.'\Providers\RouteServiceProvider');
-        $this->app->register(''.$this->module_ns.'\Providers\EventServiceProvider');
+        $this->app->register($this->module_ns.'\Providers\RouteServiceProvider');
+        $this->app->register($this->module_ns.'\Providers\EventServiceProvider');
         $this->registerBladeIcons();
     }
 
@@ -76,17 +81,10 @@ abstract class XotBaseServiceProvider extends ServiceProvider
 
         try {
             $svgPath = module_path($this->name, $relativePath.'/../svg');
-            if (! is_string($svgPath)) {
-                throw new \Exception('Invalid SVG path');
-            }
-            // $resolvedPath = realpath($svgPath);
             $resolvedPath = $svgPath;
             $svgPath = $resolvedPath;
         } catch (\Error $e) {
             $svgPath = base_path('Modules/'.$this->name.'/'.$relativePath.'/../svg');
-            if (! is_string($svgPath)) {
-                throw new \Exception('Invalid fallback SVG path');
-            }
         }
 
         $basePath = base_path(DIRECTORY_SEPARATOR);
@@ -106,10 +104,6 @@ abstract class XotBaseServiceProvider extends ServiceProvider
         }
 
         $viewPath = module_path($this->name, 'resources/views');
-        if (! is_string($viewPath)) {
-            throw new \Exception('Invalid view path');
-        }
-
         $this->loadViewsFrom($viewPath, $this->nameLower);
     }
 
@@ -124,9 +118,6 @@ abstract class XotBaseServiceProvider extends ServiceProvider
 
         try {
             $langPath = module_path($this->name, 'lang');
-            if (! is_string($langPath)) {
-                throw new \Exception('Invalid language path');
-            }
             $this->loadTranslationsFrom($langPath, $this->nameLower);
         } catch (\Error $e) {
             $fallbackPath = base_path('Modules/'.$this->name.'/lang');
@@ -134,9 +125,6 @@ abstract class XotBaseServiceProvider extends ServiceProvider
         }
 
         $jsonLangPath = module_path($this->name, 'lang');
-        if (! is_string($jsonLangPath)) {
-            throw new \Exception('Invalid JSON language path');
-        }
         $this->loadJsonTranslationsFrom($jsonLangPath);
     }
 
@@ -158,7 +146,7 @@ abstract class XotBaseServiceProvider extends ServiceProvider
         try {
             Assert::string($relativePath = config('modules.paths.generator.config.path'));
             $configPath = module_path($this->name, $relativePath);
-            if (! is_string($configPath)) {
+            if (null === $configPath) {
                 return;
             }
 
@@ -179,8 +167,6 @@ abstract class XotBaseServiceProvider extends ServiceProvider
 
     public function registerBladeComponents(): void
     {
-        //Assert::string($relativePath = config('modules.paths.generator.component-class.path'));
-        //$componentClassPath = module_path($this->name, $relativePath);
         $componentClassPath = app(GetModulePathByGeneratorAction::class)->execute($this->name, 'component-class');
 
         $namespace = $this->module_ns.'\View\Components';
@@ -188,7 +174,6 @@ abstract class XotBaseServiceProvider extends ServiceProvider
 
         app(RegisterBladeComponentsAction::class)
             ->execute(
-                // $this->module_dir.'/../View/Components',
                 $componentClassPath,
                 $this->module_ns
             );
@@ -221,11 +206,16 @@ abstract class XotBaseServiceProvider extends ServiceProvider
         if (0 == $comps->count()) {
             return;
         }
-        $commands = Arr::map(
-            $comps->items(),
-            function (ComponentFileData $item) {
-                return $item->ns;
-            }
+        $commands = $comps->toArray();
+        /** @var array<int, array{ns: string}> $commands */
+        $commands = array_map(
+            static function (mixed $item): string {
+                Assert::isArray($item);
+                Assert::keyExists($item, 'ns');
+                Assert::string($item['ns']);
+                return $item['ns'];
+            },
+            $commands
         );
         $this->commands($commands);
     }

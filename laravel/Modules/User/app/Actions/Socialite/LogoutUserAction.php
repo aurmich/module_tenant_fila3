@@ -27,7 +27,7 @@ class LogoutUserAction
         Assert::notNull($accessToken = $user->token(), '['.__FILE__.']['.__LINE__.']');
         /*
             DB::table('oauth_refresh_tokens')
-                ->where('access_token_id', $accessToken->id)
+                ->where('access_token_id', $accessToken->)
                 ->delete();
             */
 
@@ -38,7 +38,7 @@ class LogoutUserAction
 
         if (method_exists($accessToken, 'delete')) {
             $accessToken->delete();
-            // $user->token()?->delete();
+            // $user->token()->delete();
         }
 
         /*

@@ -22,13 +22,13 @@ use Illuminate\Support\Carbon;
  * @property bool               $is_reclamed
  * @property bool               $table_enable
  * @property PivotContract|null $pivot
- * @property string             $tennant_name
- * @property string             $mail_subject
- * @property string             $mail_body
- * @property string             $sms_from
- * @property string             $mobile_phone
- * @property string             $sms_body
- * @property string             $sms_count
+ * @property string $tennant_name
+ * @property string $mail_subject
+ * @property string $mail_body
+ * @property string $sms_from
+ * @property string $mobile_phone
+ * @property string $sms_body
+ * @property string $sms_count
  *
  * @method mixed     getKey()
  * @method string    getRouteKey()
@@ -45,7 +45,6 @@ use Illuminate\Support\Carbon;
  * @method mixed     save($params)
  * @method array     treeLabel()
  * @method array     treeSons()
- * @method int       treeSonsCount()
  * @method array     toArray()
  * @method BelongsTo user()
  *

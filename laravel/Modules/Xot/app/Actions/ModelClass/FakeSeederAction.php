@@ -10,6 +10,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Collection;
 use Spatie\QueueableAction\QueueableAction;
+use Webmozart\Assert\Assert;
 
 class FakeSeederAction
 {
@@ -101,5 +102,15 @@ class FakeSeederAction
         app(self::class)
             ->onQueue()
             ->execute($modelClass, $qty - self::MAX_RECORDS);
+    }
+
+    private function getTableName(string $modelClass): string
+    {
+        Assert::classExists($modelClass, 'La classe del modello deve esistere');
+        
+        /** @var \Illuminate\Database\Eloquent\Model */
+        $model = app($modelClass);
+        
+        return $model->getTable();
     }
 }

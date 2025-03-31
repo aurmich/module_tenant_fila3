@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Modules\Job\Filament\Pages;
+namespace Modules\Job\app_old\Filament\Pages;
 
 use Filament\Pages\Page;
 use Illuminate\Support\Facades\Artisan;

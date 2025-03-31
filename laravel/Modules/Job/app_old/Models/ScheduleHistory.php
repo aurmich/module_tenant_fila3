@@ -6,7 +6,7 @@ declare(strict_types=1);
  * @see HusamTariq\FilamentDatabaseSchedule
  */
 
-namespace Modules\Job\Models;
+namespace Modules\Job\app_old\Models;
 
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 

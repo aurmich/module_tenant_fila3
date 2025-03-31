@@ -19,7 +19,7 @@ use Filament\Tables\Enums\FiltersLayout;
 use Filament\Tables\Table;
 use Modules\Cms\Filament\Resources\PageResource;
 use Modules\UI\Filament\Actions\Table\TableLayoutToggleTableAction;
-use Modules\Xot\Filament\Pages\XotBaseListRecords;
+use Modules\Xot\Filament\Resources\Pages\XotBaseListRecords;
 
 class ListPages extends XotBaseListRecords
 {
@@ -57,15 +57,22 @@ class ListPages extends XotBaseListRecords
         ];
     }
 
+    /**
+     * @return array<string, \Filament\Tables\Columns\Column>
+     */
     public function getListTableColumns(): array
     {
         return [
-            TextColumn::make('title')
+            'id' => Tables\Columns\TextColumn::make('id'),
+            'title' => Tables\Columns\TextColumn::make('title')
+                ->searchable()
+                ->sortable(),
+            'lang' => Tables\Columns\TextColumn::make('lang')
+                ->searchable()
+                ->sortable(),
+            'updated_at' => Tables\Columns\TextColumn::make('updated_at')
                 ->sortable()
-                ->searchable(),
-            TextColumn::make('slug')
-                ->sortable()
-                ->searchable(),
+                ->dateTime(),
         ];
     }
 
@@ -123,12 +130,7 @@ class ListPages extends XotBaseListRecords
         ];
     }
 
-    protected function getTableHeaderActions(): array
-    {
-        return [
-            // TableLayoutToggleTableAction::make(),
-        ];
-    }
+    
 
     protected function getPreviewModalView(): ?string
     {

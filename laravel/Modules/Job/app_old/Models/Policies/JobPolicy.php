@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Modules\Job\Models\Policies;
+namespace Modules\Job\app_old\Models\Policies;
 
 use Modules\User\Models\Policies\UserBasePolicy;
 use Modules\User\Models\Team;

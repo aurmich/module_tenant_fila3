@@ -1,5 +1,4 @@
 providers:
-  - Modules\Gdpr\Providers\GdprServiceProvider
+  - Modules\UI\Providers\UIServiceProvider
   - Nwidart\Modules\LaravelModulesServiceProvider
-  
 

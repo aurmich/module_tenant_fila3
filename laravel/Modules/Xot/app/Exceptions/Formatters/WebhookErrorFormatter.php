@@ -6,35 +6,37 @@ namespace Modules\Xot\Exceptions\Formatters;
 
 use Illuminate\Support\Facades\Auth;
 
-// use Symfony\Component\HttpFoundation\Request;
-
 class WebhookErrorFormatter
 {
-    // private Request $request;
+    public function __construct(
+        private \Throwable $exception
+    ) {}
 
-    public function __construct(private readonly \Throwable $exception)
-    {
-        // $this->request = $request;
-    }
-
+    /**
+     * @return array<string, mixed>
+     */
     public function format(): array
     {
         $user = Auth::user();
-        $email = 'CLI User';
-        if (null !== $user) {
-            $email = $user->email;
-        }
+        $email = $user->email ?? 'CLI User';
 
         return [
-            'exception' => '`'.$this->exception::class.sprintf('` (Code `%s`)', $this->exception->getCode()),
-            'thrown_in' => sprintf('`%s`:%d', $this->exception->getFile(), $this->exception->getLine()),
-            'user' => sprintf(
-                '%d <%s>',
-                Auth::id(),
-                $email
+            'message' => $this->exception->getMessage(),
+            'file' => $this->exception->getFile(),
+            'line' => $this->exception->getLine(),
+            'trace' => $this->exception->getTraceAsString(),
+            'exception' => sprintf(
+                '`%s` (Code `%s`)',
+                get_class($this->exception),
+                $this->exception->getCode()
             ),
+            'thrown_in' => sprintf(
+                '`%s`:%d',
+                $this->exception->getFile(),
+                $this->exception->getLine()
+            ),
+            'user' => sprintf('%d <%s>', Auth::id() ?? 0, $email),
             'ip' => request()->ip(),
-            // Request::ip();
             'thrown_while_calling' => sprintf(
                 '[%s] %s',
                 request()->getMethod(),
@@ -45,7 +47,7 @@ class WebhookErrorFormatter
             'exception_details' => sprintf(
                 "Trace:\n```json \n %s \n ```\n\n Previous: \n `%s`",
                 json_encode($this->exception->getTrace(), JSON_PRETTY_PRINT),
-                $this->exception->getPrevious() ? ('`'.get_class($this->exception->getPrevious()).'`') : 'None'
+                $this->exception->getPrevious() ? ('`' . get_class($this->exception->getPrevious()) . '`') : 'None'
             ),
             */
         ];

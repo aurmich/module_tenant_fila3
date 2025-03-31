@@ -22,9 +22,9 @@ use Spatie\ModelStatus\Status;
  * @property string|null              $updated_by
  * @property string|null              $title
  * @property PivotContract|null       $pivot
- * @property string                   $tennant_name
+ * @property string $tennant_name
  * @property UserContract|null        $user
- * @property string                   $status
+ * @property string $status
  * @property Collection|array<Status> $statuses
  * @property int|null                 $statuses_count
  * @property int|null                 $pos
@@ -44,7 +44,6 @@ use Spatie\ModelStatus\Status;
  * @method mixed     save($params)
  * @method array     treeLabel()
  * @method array     treeSons()
- * @method int       treeSonsCount()
  * @method array     toArray()
  * @method BelongsTo user()
  *
@@ -52,6 +51,4 @@ use Spatie\ModelStatus\Status;
  *
  * @mixin \Eloquent
  */
-interface ModelWithPosContract
-{
-}
+interface ModelWithPosContract {}

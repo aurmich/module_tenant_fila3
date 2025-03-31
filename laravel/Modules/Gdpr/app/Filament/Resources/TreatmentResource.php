@@ -19,23 +19,23 @@ class TreatmentResource extends XotBaseResource
     public static function getFormSchema(): array
     {
         return [
-            Forms\Components\Toggle::make('active')
+            'active' => Forms\Components\Toggle::make('active')
                 ->required(),
-            Forms\Components\Toggle::make('required')
+            'required' => Forms\Components\Toggle::make('required')
                 ->required(),
-            Forms\Components\TextInput::make('name')
+            'name' => Forms\Components\TextInput::make('name')
                 ->required()
                 ->maxLength(191),
-            Forms\Components\Textarea::make('description')
+            'description' => Forms\Components\Textarea::make('description')
                 ->required()
                 ->columnSpanFull(),
-            Forms\Components\TextInput::make('documentVersion')
+            'documentVersion' => Forms\Components\TextInput::make('documentVersion')
                 ->maxLength(191)
                 ->default(null),
-            Forms\Components\TextInput::make('documentUrl')
+            'documentUrl' => Forms\Components\TextInput::make('documentUrl')
                 ->maxLength(191)
                 ->default(null),
-            Forms\Components\TextInput::make('weight')
+            'weight' => Forms\Components\TextInput::make('weight')
                 ->required()
                 ->numeric(),
         ];

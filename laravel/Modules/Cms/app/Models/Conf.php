@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Modules\Cms\Models;
 
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
 use Modules\Tenant\Services\TenantService;
 use Sushi\Sushi;
@@ -14,11 +15,11 @@ use Sushi\Sushi;
  * @property int         $id
  * @property string|null $name
  *
- * @method static \Illuminate\Database\Eloquent\Builder|Conf newModelQuery()
- * @method static \Illuminate\Database\Eloquent\Builder|Conf newQuery()
- * @method static \Illuminate\Database\Eloquent\Builder|Conf query()
- * @method static \Illuminate\Database\Eloquent\Builder|Conf whereId($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Conf whereName($value)
+ * @method static Builder|Conf newModelQuery()
+ * @method static Builder|Conf newQuery()
+ * @method static Builder|Conf query()
+ * @method static Builder|Conf whereId($value)
+ * @method static Builder|Conf whereName($value)
  *
  * @mixin IdeHelperConf
  * @mixin \Eloquent

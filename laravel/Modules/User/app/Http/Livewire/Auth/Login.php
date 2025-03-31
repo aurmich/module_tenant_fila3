@@ -29,7 +29,7 @@ class Login extends Component implements HasForms
      *
      * @var array<string, array<string|object>>
      */
-    protected $rules = [
+    protected array $rules = [
         'email' => ['required', 'email'],
         'password' => ['required'],
         'remember' => ['boolean'],
@@ -37,22 +37,16 @@ class Login extends Component implements HasForms
 
     /**
      * Email dell'utente.
-     * 
-     * @var string
      */
     public string $email = '';
 
     /**
      * Password dell'utente.
-     * 
-     * @var string
      */
     public string $password = '';
 
     /**
      * Flag per ricordare l'utente.
-     * 
-     * @var bool
      */
     public bool $remember = false;
 
@@ -93,8 +87,6 @@ class Login extends Component implements HasForms
 
     /**
      * Crea il form.
-     *
-     * @return Form
      */
     public function form(): Form
     {
@@ -143,7 +135,8 @@ class Login extends Component implements HasForms
          */
         $view = 'pub_theme::livewire.auth.login';
 
-        return view($view)
-            ->extends('pub_theme::layouts.auth');
+        return view($view, [
+            'layout' => 'pub_theme::layouts.auth'
+        ]);
     }
 }

@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace Modules\Media\database\seeders;
 
-namespace Modules\Media\Database\Seeders;
 
 use Illuminate\Database\Seeder;
 

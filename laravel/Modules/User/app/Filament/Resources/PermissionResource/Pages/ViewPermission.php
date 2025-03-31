@@ -14,17 +14,20 @@ class ViewPermission extends \Modules\Xot\Filament\Resources\Pages\XotBaseViewRe
 {
     protected static string $resource = PermissionResource::class;
 
+    /**
+     * @return array<string, \Filament\Infolists\Components\Component>
+     */
     public function getInfolistSchema(): array
     {
         return [
-            TextEntry::make('name')
+            'name' => TextEntry::make('name')
                 ->label('Name'),
-            TextEntry::make('guard_name')
+            'guard_name' => TextEntry::make('guard_name')
                 ->label('Guard Name'),
-            TextEntry::make('active')
+            'active' => TextEntry::make('active')
                 ->label('Active')
                 ->formatStateUsing(fn ($state): string => $state ? 'Yes' : 'No'),
-            TextEntry::make('created_at')
+            'created_at' => TextEntry::make('created_at')
                 ->label('Created At')
                 ->dateTime(),
         ];

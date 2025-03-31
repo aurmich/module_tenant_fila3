@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Modules\User\Enums;
+namespace Modules\User\Enums\Enums;
 
 use Filament\Support\Contracts\HasLabel;
 

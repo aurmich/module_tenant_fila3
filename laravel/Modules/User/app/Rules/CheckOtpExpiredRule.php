@@ -4,42 +4,38 @@ declare(strict_types=1);
 
 namespace Modules\User\Rules;
 
+use Closure;
 use Illuminate\Contracts\Validation\ValidationRule;
-use Illuminate\Support\Facades\Auth;
 use Modules\User\Datas\PasswordData;
+use Modules\User\Models\User;
 
 /**
  * Regola di validazione per verificare se un codice OTP è scaduto.
  */
 class CheckOtpExpiredRule implements ValidationRule
 {
-    /**
-     * Determina se la regola di validazione si applica.
-     *
-     * @param string $attribute L'attributo che viene validato
-     * @param string|int $value Il valore dell'attributo
-     * @param \Closure(string): void $fail La closure da chiamare in caso di fallimento
-     */
-    public function validate(string $attribute, mixed $value, \Closure $fail): void
+    private string $message = 'Il codice OTP è scaduto. Richiedi un nuovo codice.';
+
+    public function __construct(private User $user)
     {
-        $user = Auth::user();
-        if ($user === null) {
-            $fail('utente non loggato');
+    }
 
+    /**
+     * Run the validation rule.
+     */
+    public function validate(string $attribute, mixed $value, Closure $fail): void
+    {
+        if ($this->user->updated_at === null) {
+            $fail($this->message);
             return;
         }
-        if ($user->updated_at === null) {
-            return;
-        }
 
-        // Get OTP expiration minutes from PasswordData
         $pwd_data = PasswordData::make();
         $otpExpirationMinutes = $pwd_data->otp_expiration_minutes;
-        $otp_expires_at = $user->updated_at->addMinutes($otpExpirationMinutes);
+        $otp_expires_at = $this->user->updated_at->addMinutes($otpExpirationMinutes);
 
-        // Check if OTP is expired using updated_at
         if (now()->greaterThan($otp_expires_at)) {
-            $fail($this->message());
+            $fail($this->message);
         }
     }
 

@@ -5,9 +5,11 @@ declare(strict_types=1);
 namespace Modules\User\Models\Traits;
 
 use Filament\Facades\Filament;
+use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Modules\User\Contracts\TeamContract;
 use Modules\User\Models\Scopes\TenantScope;
+use Modules\User\Models\Tenant;
 use Modules\Xot\Datas\XotData;
 
 /**
@@ -16,6 +18,13 @@ use Modules\Xot\Datas\XotData;
 trait InteractsWithTenant
 {
     /**
+     * Tenant corrente.
+     *
+     * @var Model|null
+     */
+    protected ?Model $currentTenant = null;
+
+    /**
      * Relazione con il tenant a cui appartiene il modello.
      *
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo<\Illuminate\Database\Eloquent\Model, self>
@@ -23,10 +32,41 @@ trait InteractsWithTenant
      */
     public function tenant(): BelongsTo
     {
-        /** @var class-string<\Illuminate\Database\Eloquent\Model> $class */
-        $class = XotData::make()->getTenantClass();
+        $tenant = $this->getTenant();
+        if ($tenant === null) {
+            $this->loadTenantFromSession();
+            $tenant = $this->getTenant();
+        }
 
-        return $this->belongsTo($class);
+        $tenantClass = config('tenant.tenant_model', Tenant::class);
+
+        // @phpstan-ignore-next-line
+        return $this->belongsTo($tenantClass, 'tenant_id');
+    }
+
+    /**
+     * Ottiene il tenant corrente.
+     *
+     * @return Model|null
+     */
+    protected function getTenant(): ?Model
+    {
+        return $this->currentTenant;
+    }
+
+    /**
+     * Carica il tenant dalla sessione.
+     *
+     * @return void
+     */
+    protected function loadTenantFromSession(): void
+    {
+        try {
+            $this->currentTenant = Filament::getTenant();
+        } catch (\Throwable $e) {
+            // Se Filament non è disponibile, lascia il tenant come null
+            $this->currentTenant = null;
+        }
     }
 
     /**
@@ -38,7 +78,12 @@ trait InteractsWithTenant
 
         static::creating(
             static function ($model): void {
-                $model->tenant_id = Filament::getTenant()?->getKey();
+                if ($model !== null) {
+                    $tenant = Filament::getTenant();
+                    if ($tenant !== null) {
+                        $model->tenant_id = $tenant->getKey();
+                    }
+                }
             }
         );
     }
@@ -48,9 +93,35 @@ trait InteractsWithTenant
      */
     protected function setTenantIdAttribute(?int $value): void
     {
-        if ($value === null) {
-            $value = Filament::getTenant()?->getKey();
+        $tenant = Filament::getTenant();
+        if ($value === null && $tenant !== null) {
+            $tenantId = $tenant->getKey();
+            if (is_int($tenantId)) {
+                $value = $tenantId;
+            }
         }
-        $this->attributes['tenant_id'] = $value;
+
+        if ($value !== null) {
+            $this->attributes['tenant_id'] = $value;
+        }
+    }
+
+    /**
+     * Applica lo scope del tenant.
+     */
+    protected function applyTenantScope(): void
+    {
+        $tenant = $this->getTenant();
+        if ($tenant === null) {
+            $this->loadTenantFromSession();
+            $tenant = $this->getTenant();
+        }
+
+        if ($tenant !== null) {
+            $tenantId = $tenant->getKey();
+            if ($tenantId !== null) {
+                static::addGlobalScope(new TenantScope());
+            }
+        }
     }
 }

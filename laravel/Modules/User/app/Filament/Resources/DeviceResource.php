@@ -13,7 +13,7 @@ use Modules\User\Filament\Resources\DeviceResource\Pages\ListDevices;
 use Modules\User\Filament\Resources\DeviceResource\RelationManagers\UsersRelationManager;
 use Modules\User\Models\Device;
 use Modules\Xot\Filament\Resources\XotBaseResource;
-use Modules\Xot\Filament\Resources\XotBaseResource\RelationManagers\XotBaseRelationManager;
+use Modules\Xot\Filament\Resources\XotBaseResource\RelationManager\XotBaseRelationManager;
 
 class DeviceResource extends XotBaseResource
 {
@@ -22,13 +22,13 @@ class DeviceResource extends XotBaseResource
     public static function getFormSchema(): array
     {
         return [
-            TextInput::make('uuid')
+            'uuid' => TextInput::make('uuid')
                 ->label('UUID')
                 ->maxLength(255),
-            TextInput::make('mobile_id')
+            'mobile_id' => TextInput::make('mobile_id')
                 ->label('Mobile ID')
                 ->maxLength(255),
-            TagsInput::make('languages')
+            'languages' => TagsInput::make('languages')
                 ->label('Languages')
                 ->suggestions([
                     'it' => 'Italiano',
@@ -41,27 +41,27 @@ class DeviceResource extends XotBaseResource
                 ->helperText('Select or type languages codes (e.g. it, en, es)')
                 ->separator(',')
                 ->reorderable(),
-            TextInput::make('device')
+            'device' => TextInput::make('device')
                 ->label('Device Name')
                 ->maxLength(255),
-            TextInput::make('platform')
+            'platform' => TextInput::make('platform')
                 ->maxLength(255),
-            TextInput::make('browser')
+            'browser' => TextInput::make('browser')
                 ->maxLength(255),
-            TextInput::make('version')
+            'version' => TextInput::make('version')
                 ->maxLength(255),
-            Toggle::make('is_robot')
+            'is_robot' => Toggle::make('is_robot')
                 ->label('Is Robot'),
-            TextInput::make('robot')
+            'robot' => TextInput::make('robot')
                 ->maxLength(255)
                 ->visible(fn (callable $get) => $get('is_robot')),
-            Toggle::make('is_desktop')
+            'is_desktop' => Toggle::make('is_desktop')
                 ->label('Is Desktop'),
-            Toggle::make('is_mobile')
+            'is_mobile' => Toggle::make('is_mobile')
                 ->label('Is Mobile'),
-            Toggle::make('is_tablet')
+            'is_tablet' => Toggle::make('is_tablet')
                 ->label('Is Tablet'),
-            Toggle::make('is_phone')
+            'is_phone' => Toggle::make('is_phone')
                 ->label('Is Phone'),
         ];
     }

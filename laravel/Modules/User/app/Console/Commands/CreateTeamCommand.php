@@ -37,7 +37,7 @@ class CreateTeamCommand extends Command
         $name = text(
             label: 'What is name of team?',
             placeholder: 'E.g. Moderator, ',
-            // default: $user?->name,
+            // default: $user->name,
             // hint: 'This will be displayed on your profile.'
         );
 

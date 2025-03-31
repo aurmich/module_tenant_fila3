@@ -12,7 +12,7 @@ use Filament\Forms\Components\TextInput;
 use Filament\Forms\Form;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Table;
-use Modules\Xot\Filament\Resources\RelationManagers\XotBaseRelationManager;
+use Modules\Xot\Filament\Resources\XotBaseResource\RelationManager\XotBaseRelationManager;
 
 
 
@@ -28,17 +28,16 @@ class RoleRelationManager extends XotBaseRelationManager
 
     protected static ?string $recordTitleAttribute = 'name';
 
+    /**
+     * @return array<string, \Filament\Forms\Components\Component>
+     */
     public function getFormSchema(): array
-{
-    
-        
-    return [
-              
-                    TextInput::make('name'),
-                    TextInput::make('guard_name'),
-                
-      ];
-}
+    {
+        return [
+            'name' => TextInput::make('name'),
+            'guard_name' => TextInput::make('guard_name'),
+        ];
+    }
 
     public function table(Table $table): Table
     {

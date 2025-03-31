@@ -20,6 +20,9 @@ class SocialProviderResource extends XotBaseResource
 {
     protected static ?string $model = SocialProvider::class;
 
+    /**
+     * @return array<string, \Filament\Forms\Components\Component>
+     */
     public static function getFormSchema(): array
     {
         return [
@@ -51,9 +54,27 @@ class SocialProviderResource extends XotBaseResource
                 ->placeholder(static::trans('fields.redirect.placeholder'))
                 ->helperText(static::trans('fields.redirect.helper_text')),
 
+            'parameters' => KeyValue::make('parameters')
+                // ->placeholder(static::trans('fields.parameters.placeholder'))
+                ->helperText(static::trans('fields.parameters.helper_text')),
+
             'additional_params' => Textarea::make('additional_params'),
 
+            'stateless' => Toggle::make('stateless')
+                ->helperText(static::trans('fields.stateless.helper_text')),
+
+            'active' => Toggle::make('active')
+                ->helperText(static::trans('fields.active.helper_text')),
+
+            'socialite' => Toggle::make('socialite')
+                ->helperText(static::trans('fields.socialite.helper_text')),
+
             'enabled' => Toggle::make('enabled'),
+
+            'svg' => Textarea::make('svg')
+                ->columnSpanFull()
+                ->placeholder(static::trans('fields.svg.placeholder'))
+                ->helperText(static::trans('fields.svg.helper_text')),
         ];
     }
 

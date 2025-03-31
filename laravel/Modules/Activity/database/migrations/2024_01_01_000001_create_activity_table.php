@@ -13,7 +13,7 @@ return new class extends XotBaseMigration
     {
         // -- CREATE --
         $this->tableCreate(
-            static function (Blueprint $table): void {
+            function (Blueprint $table): void {
                 $table->bigIncrements('id');
                 $table->string('log_name')->nullable();
                 $table->text('description');
@@ -22,9 +22,7 @@ return new class extends XotBaseMigration
                 $table->json('properties')->nullable();
                 $table->index('log_name');
                 $table->uuid('batch_uuid')->nullable();
-                // ->after('properties');
                 $table->string('event')->nullable();
-                // ->after('subject_type');
             }
         );
         // -- UPDATE --

@@ -72,7 +72,7 @@ Route::middleware('auth:api')
     Assert::notNull($user = $request->user(),'['.__LINE__.']['.class_basename($this).']');
     $accessToken = $user->token();
     DB::table('oauth_refresh_tokens')
-    ->where('access_token_id', $accessToken->id)
+    ->where('access_token_id', $accessToken->)
     ->delete();
     $user->token()->delete();
 

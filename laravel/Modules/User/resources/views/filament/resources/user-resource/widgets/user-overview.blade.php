@@ -10,6 +10,6 @@
             ]);
             */
         @endphp
-        {{ $record?->id }}
+        {{ $record-> }}
     </x-filament::card>
 </x-filament::widget>

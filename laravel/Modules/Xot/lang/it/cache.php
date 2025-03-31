@@ -57,6 +57,21 @@ return [
             'label' => 'Data Scadenza',
             'help' => 'Data di scadenza della cache',
         ],
+        'toggleColumns' => [
+            'label' => 'toggleColumns',
+        ],
+        'reorderRecords' => [
+            'label' => 'reorderRecords',
+        ],
+        'resetFilters' => [
+            'label' => 'resetFilters',
+        ],
+        'applyFilters' => [
+            'label' => 'applyFilters',
+        ],
+        'openFilters' => [
+            'label' => 'openFilters',
+        ],
     ],
     'actions' => [
         'clear' => [

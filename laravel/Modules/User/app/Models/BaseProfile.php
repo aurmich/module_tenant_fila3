@@ -25,6 +25,7 @@ use Spatie\SchemalessAttributes\SchemalessAttributesTrait;
  * @property string|null $first_name
  * @property string|null $full_name
  * @property string|null $last_name
+ * @property string|null $lang
  * @property \Spatie\MediaLibrary\MediaCollections\Models\Collections\MediaCollection<int, \Modules\Media\Models\Media> $media
  * @property int|null $media_count
  * @property \Illuminate\Database\Eloquent\Collection<int, DeviceUser> $mobileDeviceUsers
@@ -101,21 +102,25 @@ abstract class BaseProfile extends BaseModel implements ProfileContract
         return $this->extra->modelScope();
     }
 
+    /**
+     * Ottiene l'URL dell'avatar dell'utente.
+     * 
+     * @return string L'URL dell'avatar
+     */
     public function getAvatarUrl(): string
     {
-        // return filament()->getUserAvatarUrl($this);
-        $avatar = $this->getFirstMediaUrl();
-
-        if (mb_strlen($avatar) > 5) {
+        $avatar = $this->getFirstMediaUrl('avatar');
+        if ($avatar !== '') {
             return $avatar;
         }
 
+        // Corretto il controllo errato su $this
         $email = trim((string) $this->email);
         // 'MyEmailAddress@example.com'
         $email = mb_strtolower($email);
         // 'myemailaddress@example.com'
         $hash = hash('sha256', $email);
-        $avatar = 'https://gravatar.com/avatar/'.$hash.'?s=64';
+        $avatar = 'https://gravatar.com/avatar/' . $hash . '?s=64';
 
         return $avatar;
 
@@ -128,6 +133,29 @@ abstract class BaseProfile extends BaseModel implements ProfileContract
         // }
 
         // return $this->getFirstMediaUrl();
+    }
+
+    /**
+     * Ottiene la lingua dell'utente.
+     * 
+     * @return string Il codice della lingua
+     */
+    public function getUserLang(): string
+    {
+        $locale = config('app.locale');
+        $defaultLocale = 'it';
+
+        if ($locale === null || !is_string($locale)) {
+            $locale = $defaultLocale;
+        }
+
+        $userLang = $this->lang;
+
+        if ($userLang === null || !is_string($userLang)) {
+            return $locale;
+        }
+
+        return $userLang;
     }
 
     /** @return array<string, string> */

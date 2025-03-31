@@ -12,7 +12,7 @@ class AppLayout extends Component
     /**
      * Get the view / contents that represents the component.
      */
-    public function render(): View
+    public function render(): \Illuminate\Contracts\View\View
     {
         /*
         $view = 'pub_theme';

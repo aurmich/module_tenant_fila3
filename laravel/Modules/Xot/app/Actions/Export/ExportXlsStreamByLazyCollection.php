@@ -36,19 +36,20 @@ class ExportXlsStreamByLazyCollection
         ?array $fields = null,
     ): StreamedResponse {
         $headers = [
-            'Content-Disposition' => 'attachment; filename='.$filename,
+            'Content-Disposition' => 'attachment; filename=' . $filename,
         ];
         $head = $this->headings($data, $transKey);
 
         return response()->stream(
             static function () use ($data, $head): void {
                 $file = fopen('php://output', 'w+');
-                
+
                 // Assicuriamo che le intestazioni siano stringhe
                 $headStrings = array_map(function ($item) {
-                    return (string) $item;
+                    //return is_string($item) ? $item : (string) $item;
+                    return strval($item);
                 }, $head);
-                
+
                 fputcsv($file, $headStrings);
 
                 foreach ($data as $key => $value) {
@@ -63,18 +64,18 @@ class ExportXlsStreamByLazyCollection
                         // Se non è né un oggetto con toArray né un array, saltiamo
                         continue;
                     }
-                    
+
                     // Convertiamo tutti i valori in stringhe o null
                     $safeRowData = array_map(function ($item) {
                         if ($item === null) {
                             return null;
                         }
-                        return (string) $item;
+                        return is_string($item) ? $item : (string) $item;
                     }, $rowData);
-                    
+
                     fputcsv($file, $safeRowData);
                 }
-                
+
                 // Aggiungiamo righe vuote alla fine
                 $blanks = ["\t", "\t", "\t", "\t"];
                 fputcsv($file, $blanks);
@@ -102,21 +103,26 @@ class ExportXlsStreamByLazyCollection
         if (!is_array($first) && (!is_object($first) || !method_exists($first, 'toArray'))) {
             return []; // Ritorna intestazioni vuote se non c'è un primo elemento valido
         }
-        
+
         $headArray = is_array($first) ? $first : $first->toArray();
+
+        /** 
+         * @var array<string, mixed> $headArray 
+         * @var \Illuminate\Support\Collection<int, string> $headings 
+         */
         $headings = collect($headArray)->keys();
-        
+
         if (null !== $transKey) {
             $headings = $headings->map(
                 static function (string $item) use ($transKey) {
-                    $key = $transKey.'.fields.'.$item;
+                    $key = $transKey . '.fields.' . $item;
                     $trans = trans($key);
                     if ($trans !== $key) {
                         return $trans;
                     }
 
-                    Assert::string($item1 = Str::replace('.', '_', $item), '['.__LINE__.']['.__CLASS__.']');
-                    $key = $transKey.'.fields.'.$item1;
+                    Assert::string($item1 = Str::replace('.', '_', $item), '[' . __LINE__ . '][' . __CLASS__ . ']');
+                    $key = $transKey . '.fields.' . $item1;
                     $trans = trans($key);
                     if ($trans !== $key) {
                         return $trans;
@@ -128,6 +134,6 @@ class ExportXlsStreamByLazyCollection
         }
 
         /** @var array<string> */
-        return $headings->map(fn ($item) => (string)$item)->toArray();
+        return $headings->map(fn($item) => strval($item))->toArray();
     }
 }

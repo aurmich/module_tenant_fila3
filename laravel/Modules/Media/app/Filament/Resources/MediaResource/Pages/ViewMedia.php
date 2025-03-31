@@ -26,10 +26,15 @@ class ViewMedia extends \Modules\Xot\Filament\Resources\Pages\XotBaseViewRecord
 {
     protected static string $resource = MediaResource::class;
 
+    /**
+     * Restituisce lo schema dell'infolist per la visualizzazione dei dettagli del record.
+     *
+     * @return array<string, \Filament\Infolists\Components\Component>
+     */
     public function getInfolistSchema(): array
     {
         return [
-            Split::make([
+            'media_viewer' => Split::make([
                 Section::make()->schema([
                     ImageEntry::make('url')
                         ->defaultImageUrl(fn ($record) => $record->getUrl())
@@ -49,7 +54,7 @@ class ViewMedia extends \Modules\Xot\Filament\Resources\Pages\XotBaseViewRecord
                             ->form(MediaConvertResource::getFormSchema())
                             ->action(function ($record, array $data): void {
                                 $data['disk'] = $record->disk;
-                                $data['file'] = $record->id.'/'.$record->file_name;
+                                $data['file'] = $record->path.'/'.$record->file_name;
                                 $convert_data = ConvertData::from($data);
                                 $record->mediaConverts()->create($convert_data->toArray());
                             }),
@@ -62,7 +67,7 @@ class ViewMedia extends \Modules\Xot\Filament\Resources\Pages\XotBaseViewRecord
                 ])
             ]),
             
-            RepeatableEntry::make('entry_conversions')
+            'entry_conversions' => RepeatableEntry::make('entry_conversions')
                 ->schema([
                     TextEntry::make('name'),
                     TextEntry::make('src'),

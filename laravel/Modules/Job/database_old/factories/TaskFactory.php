@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Modules\Job\Database\Factories;
+namespace Modules\Job\database_old\Factories;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Modules\Job\Models\Task;

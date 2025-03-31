@@ -165,7 +165,7 @@ if (! function_exists('dddx')) {
         $file = str_replace('/', DIRECTORY_SEPARATOR, $file);
 
         Assert::string($doc_root = $_SERVER['DOCUMENT_ROOT']);
-        $doc_root = str_replace('/', DIRECTORY_SEPARATOR, (string) $doc_root);
+        $doc_root = str_replace('/', DIRECTORY_SEPARATOR, $doc_root);
 
         $dir_piece = explode(DIRECTORY_SEPARATOR, __DIR__);
         $dir_piece = array_slice($dir_piece, 0, -6);
@@ -403,7 +403,7 @@ if (! function_exists('params2ContainerItem')) {
             $pattern = '/(container|item)(\d+)/';
             preg_match($pattern, $k, $matches);
 
-            if (!empty($matches) && isset($matches[1]) && isset($matches[2])) {
+            if (!empty($matches) && isset($matches[1]) && isset($matches[2]) && is_string($matches[1]) && is_string($matches[2])) {
                 $sk = $matches[1];
                 $sv = $matches[2];
                 // @phpstan-ignore offsetAccess.nonOffsetAccessible
@@ -415,14 +415,13 @@ if (! function_exists('params2ContainerItem')) {
     }
 }
 
+
 if (! function_exists('getModelFields')) {
-    function getModelFields(Model $model): array
-    {
-        return $model->getConnection()
-            ->getSchemaBuilder()
-            ->getColumnListing($model->getTable());
+    function getModelFields(Model $model): array {
+        return $model->getConnection()->getSchemaBuilder()->getColumnListing($model->getTable());
     }
 }
+
 
 if (! function_exists('getModelByName')) {
     function getModelByName(string $name): Model
@@ -572,8 +571,8 @@ if (! function_exists('getAllModulesModels')) {
                 continue;
             }
 
-            $moduleName = $module->get('name');
-            if (! is_string($moduleName)) {
+            $moduleName = $module->getName();
+            if ($moduleName === '') {
                 continue;
             }
 
@@ -582,7 +581,7 @@ if (! function_exists('getAllModulesModels')) {
                 $moduleModels = getModuleModels($moduleName);
                 $res = array_merge($res, $moduleModels);
             } catch (Exception $e) {
-                Log::error('[Module:'.$moduleName.'] Error getting models: '.$e->getMessage());
+                \Illuminate\Support\Facades\Log::error('[Module:'.$moduleName.'] Error getting models: '.$e->getMessage());
 
                 continue;
             }
@@ -953,14 +952,19 @@ if (! function_exists('debugStack')) {
             throw new RuntimeException('XDebug must be installed to use this function');
         }
 
-        xdebug_set_filter(
-            XDEBUG_FILTER_TRACING,
-            XDEBUG_PATH_EXCLUDE,
-            // [LARAVEL_DIR.'/vendor/']
-            [__DIR__.'/../../vendor/']
-        );
+        if (function_exists('xdebug_set_filter') && defined('XDEBUG_FILTER_TRACING') && defined('XDEBUG_PATH_EXCLUDE')) {
+            @xdebug_set_filter(
+                @constant('XDEBUG_FILTER_TRACING'),
+                @constant('XDEBUG_PATH_EXCLUDE'),
+                [__DIR__.'/../../vendor/']
+            );
+        }
 
-        xdebug_print_function_stack();
+        if (function_exists('xdebug_print_function_stack')) {
+            @xdebug_print_function_stack();
+        } else {
+            debug_print_backtrace();
+        }
     }
 }
 
@@ -1110,19 +1114,46 @@ if (! function_exists('cssInLine')) {
 }
 
 if (! function_exists('authId')) {
+    /**
+     * Get the current authenticated user ID from Filament or Laravel auth.
+     */
     function authId(): ?string
     {
         try {
-            $id = Filament::auth()->id() ?? auth()->id();
-        } catch (Exception $e) {
-            return null;
-        } catch (Error $e) {
-            return null;
-        }
-        if (null === $id) {
-            return null;
-        }
+            $filamentAuth = Filament::auth();
+            $id = null;
+            
+            if ($filamentAuth && method_exists($filamentAuth, 'id')) {
+                $id = $filamentAuth->id();
+            }
+            
+            if ($id === null && auth()->check()) {
+                $id = auth()->id();
+            }
 
-        return (string) $id;
+            return $id === null ? null : (is_string($id) ? $id : (string) $id);
+        } catch (\Exception|\Error $e) {
+            return null;
+        }
     }
+}
+/**
+ * Esegue un controllo sicuro su un oggetto e chiama un metodo se l'oggetto esiste
+ *
+ * @template T
+ * @param T|null $object L'oggetto da controllare
+ * @param string $method Il nome del metodo da chiamare
+ * @param mixed ...$args Gli argomenti da passare al metodo
+ * @return mixed|null
+ */
+function safe_object_call($object, string $method, ...$args) {
+    if (!is_object($object)) {
+        return null;
+    }
+    
+    if (!method_exists($object, $method)) {
+        return null;
+    }
+    
+    return $object->$method(...$args);
 }

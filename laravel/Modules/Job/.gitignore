@@ -37,3 +37,4 @@ cache/
 .php-cs-fixer.cache
 *:Zone.Identifier
 .php-cs-fixer.cache
+.php-cs-fixer.cache

@@ -6,7 +6,7 @@
 
 declare(strict_types=1);
 
-namespace Modules\Job\Filament\Resources\JobManagerResource\Widgets;
+namespace Modules\Job\app_old\Filament\Resources\JobManagerResource\Widgets;
 
 use Filament\Widgets\StatsOverviewWidget as BaseWidget;
 use Filament\Widgets\StatsOverviewWidget\Stat;

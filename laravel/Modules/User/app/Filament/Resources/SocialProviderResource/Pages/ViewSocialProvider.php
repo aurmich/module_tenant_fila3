@@ -30,14 +30,14 @@ class ViewSocialProvider extends \Modules\Xot\Filament\Resources\Pages\XotBaseVi
                             if (is_array($state)) {
                                 return json_encode($state);
                             }
-                            return (string) $state;
+                            return is_string($state) ? $state : (string) $state;
                         }),
                     TextEntry::make('parameters')
                         ->formatStateUsing(function ($state): string {
                             if (is_array($state)) {
                                 return json_encode($state);
                             }
-                            return (string) $state;
+                            return is_string($state) ? $state : (string) $state;
                         }),
                     TextEntry::make('stateless')
                         ->badge()

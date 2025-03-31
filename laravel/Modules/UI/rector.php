@@ -5,8 +5,8 @@ declare(strict_types=1);
 use Rector\Config\RectorConfig;
 use Rector\PHPUnit\Set\PHPUnitLevelSetList;
 use Rector\Set\ValueObject\LevelSetList;
-use Rector\Set\ValueObject\SetList;
-use RectorLaravel\Rector\MethodCall\RedirectRouteToToRouteHelperRector;
+use Rector\TypeDeclaration\Rector\ClassMethod\ReturnTypeFromStrictNativeCallRector;
+use Rector\TypeDeclaration\Rector\ClassMethod\ReturnTypeFromStrictScalarReturnExprRector;
 use RectorLaravel\Set\LaravelSetList;
 
 return static function (RectorConfig $rectorConfig): void {
@@ -18,15 +18,21 @@ return static function (RectorConfig $rectorConfig): void {
 
     $rectorConfig->skip(
         [
-            './vendor/',
             '*/docs',
             '*/vendor',
+            './vendor/',
         ]
     );
 
     // register a single rule
     // $rectorConfig->rule(InlineConstructorDefaultToPropertyRector::class);
     // $rectorConfig->rule(RedirectRouteToToRouteHelperRector::class);
+    $rectorConfig->rules(
+        [
+            ReturnTypeFromStrictNativeCallRector::class,
+            ReturnTypeFromStrictScalarReturnExprRector::class,
+        ]
+    );
 
     // define sets of rules
     $rectorConfig->sets(
@@ -38,7 +44,7 @@ return static function (RectorConfig $rectorConfig): void {
             LaravelSetList::LARAVEL_100,
 
             // SetList::NAMING, //problemi con injuction
-            SetList::TYPE_DECLARATION,
+            // SetList::TYPE_DECLARATION,
             // SetList::CODING_STYLE,
             // SetList::PRIVATIZATION,//problemi con final
             // SetList::EARLY_RETURN,

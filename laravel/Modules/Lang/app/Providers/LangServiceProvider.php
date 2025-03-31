@@ -37,8 +37,6 @@ class LangServiceProvider extends XotBaseServiceProvider
     public function boot(): void
     {
         parent::boot();
-        // BladeService::registerComponents($this->module_dir.'/../View/Components', 'Modules\\Lang');
-        // $this->registerTranslator();
         $this->translatableComponents();
         $this->registerFilamentLabel();
     }
@@ -46,8 +44,6 @@ class LangServiceProvider extends XotBaseServiceProvider
     public function register(): void
     {
         parent::register();
-        // --dalla doc in register ... ma non funziona, funziona in boot
-        // $this->registerTranslator();
     }
 
     protected function translatableComponents(): void
@@ -69,7 +65,6 @@ class LangServiceProvider extends XotBaseServiceProvider
             Assert::isInstanceOf($component, Field::class);
             $validationMessages = __('user::validation');
             if (is_array($validationMessages)) {
-                // Convertiamo l'array generico in un array<string, string> per soddisfare il tipo richiesto
                 $typedMessages = [];
                 foreach ($validationMessages as $key => $value) {
                     if (is_string($key) && (is_string($value) || $value instanceof \Closure)) {
@@ -84,7 +79,6 @@ class LangServiceProvider extends XotBaseServiceProvider
 
         BaseFilter::configureUsing(function (BaseFilter $component) {
             $component = app(AutoLabelAction::class)->execute($component);
-
             return $component;
         });
 
@@ -95,24 +89,20 @@ class LangServiceProvider extends XotBaseServiceProvider
                 ->wrapHeader()
                 ->verticallyAlignStart()
                 ->grow();
-            // ->wrap()
 
             return $component;
         });
+
         Step::configureUsing(function (Step $component) {
             $component = app(AutoLabelAction::class)->execute($component);
-
-            // ->translateLabel()
             return $component;
         });
+
         Action::configureUsing(function (Action $component) {
             $component = app(AutoLabelAction::class)->execute($component);
-            // $component->tooltip('preso');
-
-            // $component->iconButton();
-            // ->translateLabel()
             return $component;
         });
+
         TableAction::configureUsing(function (TableAction $component) {
             $component = app(AutoLabelAction::class)->execute($component);
             if (method_exists($component, 'iconButton')) {
@@ -122,18 +112,8 @@ class LangServiceProvider extends XotBaseServiceProvider
                 $component->icon('heroicon-o-plus');
             }
 
-            // ->translateLabel()
             return $component;
         });
-        // Method Filament\Widgets\StatsOverviewWidget\Stat::configureUsing does not exist.
-        /*
-        Stat::configureUsing(function (Stat $component) {
-            $component = app(AutoLabelAction::class)->execute($component);
-
-            // ->translateLabel()
-            return $component;
-        });
-        */
     }
 
     public function registerTranslator(): void
@@ -141,21 +121,12 @@ class LangServiceProvider extends XotBaseServiceProvider
         $this->app->singleton('translator', function (Container $app): TranslatorService {
             $loader = $app['translation.loader'];
 
-            // When registering the translator component, we'll need to set the default
-            // locale as well as the fallback locale. So, we'll grab the application
-            // configuration so we can easily get both of these values from there.
             Assert::string($locale = $app['config']['app.locale']);
             Assert::string($fallback_locale = $app['config']['app.fallback_locale']);
 
             $translatorService = new TranslatorService($loader, $locale);
-
             $translatorService->setFallback($fallback_locale);
 
-            /*
-            if($app->bound('translation-manager')){
-                $trans->setTranslationManager($app['translation-manager']);
-            }
-            */
             return $translatorService;
         });
     }

@@ -1,3 +1,17 @@
 {
-    "Patient": true
+    "Patient": true,
+    "Xot": true,
+    "Dental": true,
+    "Reporting": true,
+    "Activity": true,
+    "Chart": true,
+    "Cms": true,
+    "Gdpr": true,
+    "Job": true,
+    "Lang": true,
+    "Media": true,
+    "Notify": true,
+    "Tenant": true,
+    "UI": true,
+    "User": true
 }

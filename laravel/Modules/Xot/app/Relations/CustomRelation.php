@@ -39,16 +39,17 @@ class CustomRelation extends Relation
         /**
          * The baseConstraints callback.
          */
-        protected \Closure $baseConstraints,
+        protected Closure $baseConstraints,
         /**
          * The eagerConstraints callback.
          */
-        protected ?\Closure $eagerConstraints,
+        protected ?Closure $eagerConstraints,
         /**
          * The eager constraints model matcher.
          */
-        protected ?\Closure $eagerMatcher,
+        protected ?Closure $eagerMatcher,
     ) {
+        $this->related = $query->getModel();
         parent::__construct($query, $model);
     }
 
@@ -57,7 +58,10 @@ class CustomRelation extends Relation
      */
     public function addConstraints(): void
     {
-        \call_user_func($this->baseConstraints, $this);
+        if (static::$constraints) {
+            Assert::isCallable($this->baseConstraints);
+            ($this->baseConstraints)($this);
+        }
     }
 
     /**
@@ -65,12 +69,10 @@ class CustomRelation extends Relation
      */
     public function addEagerConstraints(array $models): void
     {
-        // Parameter #1 $function of function call_user_func expects callable(): mixed, Closure|null given.
         if (! \is_callable($this->eagerConstraints)) {
-            throw new \Exception('eagerConstraints is not callable');
+            return;
         }
-
-        \call_user_func($this->eagerConstraints, $this, $models);
+        ($this->eagerConstraints)($models, $this);
     }
 
     /**
@@ -96,14 +98,13 @@ class CustomRelation extends Relation
      */
     public function match(array $models, Collection $collection, $relation): array
     {
-        // Trying to invoke Closure|null but it might not be a callable.
         if (! \is_callable($this->eagerMatcher)) {
             throw new \Exception('eagerMatcher is not callable');
         }
 
         Assert::isArray($res = ($this->eagerMatcher)($models, $collection, $relation, $this));
 
-        // @phpstan-ignore return.type
+        // @phpstan-ignore-next-line
         return $res;
     }
 
@@ -133,7 +134,11 @@ class CustomRelation extends Relation
         }
 
         $query = $this->query->applyScopes();
-        $models = $query->addSelect($columns)->getModels();
+        
+        // Utilizziamo get() invece di getModels() per compatibilità con PHPStan
+        $results = $query->addSelect($columns)->get();
+        $models = $results->all();
+        
         // If we actually found models we will also eager load any relationships that
         // have been specified as needing to be eager loaded. This will solve the
         // n + 1 query problem for the developer and also increase performance.
@@ -150,7 +155,7 @@ class CustomRelation extends Relation
      * @param \Closure|string|array|\Illuminate\Database\Query\Expression $column
      * @param mixed                                                       $operator
      * @param mixed                                                       $value
-     * @param string                                                      $boolean
+     * @param string $boolean
      *
      * @return \Illuminate\Database\Eloquent\Builder
      */

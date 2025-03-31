@@ -16,15 +16,14 @@ use Webmozart\Assert\Assert;
 
 class Reset extends Component
 {
-    public string $token;
+    public string $token = '';
 
-    public string $email;
+    public string $email = '';
 
-    public string $password;
+    public string $password = '';
 
-    public string $passwordConfirmation;
+    public string $passwordConfirmation = '';
 
-    // ricordarsi di configurare il file auth.php
     public function mount(string $token): void
     {
         Assert::string($email = request()->query('email', ''));
@@ -33,11 +32,10 @@ class Reset extends Component
     }
 
     /**
-     * Undocumented function.
+     * Reimposta la password dell'utente.
      */
     public function resetPassword(): \Livewire\Features\SupportRedirects\Redirector|RedirectResponse|null
     {
-        // $messages = __('xot::validation');
         $messages = __('user::validation');
 
         $this->validate([
@@ -54,9 +52,7 @@ class Reset extends Component
             ],
             function ($user, $password): void {
                 $user->password = Hash::make($password);
-
                 $user->setRememberToken(Str::random(60));
-
                 $user->save();
 
                 event(new PasswordReset($user));
@@ -70,12 +66,10 @@ class Reset extends Component
 
         if ($response === Password::PASSWORD_RESET) {
             session()->flash($response_lang);
-
             return redirect(route('home'));
         }
 
         $this->addError('email', $response_lang);
-
         return null;
     }
 
@@ -98,8 +92,9 @@ class Reset extends Component
          */
         $view = 'pub_theme::livewire.auth.passwords.reset';
 
-        return view($view)
-            ->extends('pub_theme::layouts.auth');
+        return view($view, [
+            'layout' => 'pub_theme::layouts.auth'
+        ]);
     }
 
     /**

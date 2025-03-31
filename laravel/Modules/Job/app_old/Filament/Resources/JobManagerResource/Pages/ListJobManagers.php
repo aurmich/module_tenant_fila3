@@ -6,7 +6,7 @@
 
 declare(strict_types=1);
 
-namespace Modules\Job\Filament\Resources\JobManagerResource\Pages;
+namespace Modules\Job\app_old\Filament\Resources\JobManagerResource\Pages;
 
 use Filament\Tables;
 use Filament\Tables\Columns\TextColumn;

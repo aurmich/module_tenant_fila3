@@ -18,35 +18,35 @@ class ProfileResource extends XotBaseResource
     public static function getFormSchema(): array
     {
         return [
-            Forms\Components\TextInput::make('type')
+            'type' => Forms\Components\TextInput::make('type')
                 ->maxLength(255)
                 ->default(null),
-            Forms\Components\TextInput::make('first_name')
+            'first_name' => Forms\Components\TextInput::make('first_name')
                 ->maxLength(191)
                 ->default(null),
-            Forms\Components\TextInput::make('last_name')
+            'last_name' => Forms\Components\TextInput::make('last_name')
                 ->maxLength(191)
                 ->default(null),
-            Forms\Components\TextInput::make('full_name')
+            'full_name' => Forms\Components\TextInput::make('full_name')
                 ->maxLength(191)
                 ->default(null),
-            Forms\Components\TextInput::make('email')
+            'email' => Forms\Components\TextInput::make('email')
                 ->email()
                 ->maxLength(191)
                 ->default(null),
-            Forms\Components\TextInput::make('user_id')
+            'user_id' => Forms\Components\TextInput::make('user_id')
                 ->maxLength(36)
                 ->default(null),
-            Forms\Components\TextInput::make('updated_by')
+            'updated_by' => Forms\Components\TextInput::make('updated_by')
                 ->maxLength(36)
                 ->default(null),
-            Forms\Components\TextInput::make('created_by')
+            'created_by' => Forms\Components\TextInput::make('created_by')
                 ->maxLength(36)
                 ->default(null),
-            Forms\Components\TextInput::make('deleted_by')
+            'deleted_by' => Forms\Components\TextInput::make('deleted_by')
                 ->maxLength(36)
                 ->default(null),
-            Forms\Components\Toggle::make('is_active')
+            'is_active' => Forms\Components\Toggle::make('is_active')
                 ->required(),
         ];
     }

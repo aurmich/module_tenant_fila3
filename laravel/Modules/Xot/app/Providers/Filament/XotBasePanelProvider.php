@@ -121,29 +121,7 @@ abstract class XotBasePanelProvider extends PanelProvider
                 ]
             );
 
-        $config_path = 'Modules/'.$this->module.'/config/config.php';
-        // $data = File::getRequire(base_path($config_path));
-        // $colors = Arr::get($data, 'colors', null);
-        /*
-        if (is_array($colors)) {
-            $colors = Arr::map($colors, function ($color) {
-                $all = Color::all();
-                $color = Arr::get($all, $color['value'], null);
-
-            });
-            dddx($colors);
-            // $panel = $panel->colors($colors);
-        }
-            */
-        $panel = $panel->colors(
-            [
-                // 'primary' => Color::hex('#ff0000'),
-                // 'primary' => Color::Blue,
-                // 'primary' => Color::rgb('rgb(255, 0, 0)'),
-                // 'indigo' => Color::Indigo,
-            ]
-        );
-
+       
         return $panel;
     }
 

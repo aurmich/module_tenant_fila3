@@ -16,7 +16,7 @@ use Modules\User\Filament\Resources\PermissionResource\Pages\EditPermission;
 use Modules\User\Filament\Resources\PermissionResource\Pages\ListPermissions;
 use Modules\User\Models\Permission;
 use Modules\Xot\Filament\Resources\XotBaseResource;
-use Modules\Xot\Filament\Resources\XotBaseResource\RelationManagers\XotBaseRelationManager;
+use Modules\Xot\Filament\Resources\XotBaseResource\RelationManager\XotBaseRelationManager;
 
 class PermissionResource extends XotBaseResource
 {
@@ -27,13 +27,13 @@ class PermissionResource extends XotBaseResource
     public static function getFormSchema(): array
     {
         return [
-            TextInput::make('name')
+            'name' => TextInput::make('name')
                 ->required()
                 ->maxLength(255),
-            TextInput::make('guard_name')
+            'guard_name' => TextInput::make('guard_name')
                 ->required()
                 ->maxLength(255),
-            Toggle::make('active')
+            'active' => Toggle::make('active')
                 ->required(),
         ];
     }

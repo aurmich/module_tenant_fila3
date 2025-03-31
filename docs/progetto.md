@@ -1,4 +1,6 @@
-﻿**Descrizione del progetto.**
+# Progetto SaluteOra
+
+## Descrizione del Progetto
 
 Il progetto “Promozione della salute orale per le gestanti in condizioni di vulnerabilità socio-economica” è un’iniziativa coordinata dall’INMP, con la collaborazione della Fondazione ETS e altri enti del terzo settore. Questo programma si rivolge specificamente a donne in gravidanza con un ISEE inferiore a 20.000 euro, mirando a migliorare la loro salute orale, la quale può influire significativamente sull’esito della gravidanza e sulla salute del nascituro.
 
@@ -262,7 +264,7 @@ Un appunto in merito alla Sicurezza, sulla base di un documento del DPO ANDI com
 
 
 
-# Presentazione del portale
+## Presentazione del Portale
 ![Intro](./images/0.png)
 
 L’accesso alla pagina principale della webapp / portale contiene titolo
@@ -489,7 +491,163 @@ deve motivare il rifiuto qualificandolo.
 
 
 
-Questa verrà recapitata alla paziente, al fine di assisterla
+Questa verrà recapitata alla paziente, al fine di assisterla.
+
+## Architettura Tecnica
+
+### Tecnologie Utilizzate
+
+- **Framework Backend**: Laravel 12 con architettura modulare
+- **Admin Panel**: Filament 3
+- **Multi-tenant**: Implementazione personalizzata tramite module_tenant_fila3
+- **Multilingua**: Gestito tramite module_lang_fila3
+- **Sistema di Moduli**: nwidart/laravel-modules con estensioni personalizzate
+- **Gestione Media**: Spatie Media Library
+- **Autenticazione**: Laravel Sanctum e Filament Shield
+- **GDPR & Privacy**: Modulo dedicato (module_gdpr_fila3)
+
+### Struttura dei Moduli
+
+Il sistema si basa su una architettura modulare che comprende:
+
+1. **Moduli Core**:
+   - `module_xot_fila3`: Modulo base con utility e configurazioni core
+   - `module_lang_fila3`: Gestione multilingua
+   - `module_tenant_fila3`: Supporto multi-tenant
+   - `module_user_fila3`: Gestione utenti e autenticazione
+
+2. **Moduli Frontend**:
+   - `module_ui_fila3`: Interfaccia utente base
+   - `theme_one_fila3`: Tema per Filament 3
+
+3. **Moduli Funzionali**:
+   - `module_media_fila3`: Gestione media e file
+   - `module_activity_fila3`: Logging e monitoraggio attività
+   - `module_gdpr_fila3`: Gestione privacy e GDPR
+   - `module_notify_fila3`: Sistema di notifiche
+   - `module_cms_fila3`: Gestione contenuti
+   - `module_job_fila3`: Gestione job in background
+
+### Architettura dei Namespace
+
+I moduli Laraxot utilizzano una struttura particolare per i namespace:
+
+1. **Struttura fisica**: I file si trovano nella sottodirectory `app/` del modulo
+   - Esempio: `Modules/Chart/app/Providers/ChartServiceProvider.php`
+
+2. **Namespace logico**: Nonostante la posizione fisica, il namespace NON include "App"
+   - Esempio: `Modules\Chart\Providers\ChartServiceProvider`
+
+3. **Configurazione autoload**: Nel composer.json di ogni modulo è specificato:
+   ```json
+   "autoload": {
+       "psr-4": {
+           "Modules\\ModuleName\\": "app/"
+       }
+   }
+   ```
+
+4. **Registrazione service provider**: Nei file module.json, i provider devono essere registrati con:
+   ```json
+   "providers": [
+       "Modules\\ModuleName\\Providers\\ModuleNameServiceProvider"
+   ]
+   ```
+
+## Stato Attuale del Progetto
+
+- ✅ Core system implementato (Xot, Lang, Tenant)
+- ✅ Multi-tenant configurato
+- ✅ Autenticazione e autorizzazione
+- ✅ Admin panel Filament integrato
+- ✅ Gestione pazienti base
+- ✅ Struttura moduli definita
+- ✅ Documentazione tecnica
+
+## Roadmap di Sviluppo
+
+### Q2 2024 (Aprile-Giugno)
+- 🚧 Completamento moduli core (Xot, Lang, Tenant, User)
+- 🚧 Implementazione frontend (UI, Theme One)
+- 🚧 Integrazione ISEE
+- 🚧 Piano terapeutico base
+- 🚧 API pubbliche essenziali
+
+### Q3 2024 (Luglio-Settembre)
+- 📅 Moduli funzionali (Media, Activity, GDPR, Notify, CMS, Job)
+- 📅 Testing completo (unit, feature, browser, performance)
+- 📅 Documentazione utente
+- 📅 Telemedicina base
+- 📅 Pagamenti online
+
+### Q4 2024 (Ottobre-Dicembre)
+- 📅 Deployment e monitoraggio (staging, CI/CD, Sentry)
+- 📅 Ottimizzazioni (frontend, database, cache, queue)
+- 📅 App mobile MVP
+- 📅 Integrazione SSN
+- 📅 Analytics base
+
+### Q1 2025 (Gennaio-Marzo)
+- 📅 Funzionalità avanzate (AI, blockchain, marketplace)
+- 📅 Sicurezza avanzata (audit, penetration testing)
+- 📅 Integrazione completa PEC
+- 📅 Dashboard personalizzabili
+
+## Piano di Implementazione
+
+### Fase 1: Completamento Infrastruttura Base
+- Finalizzazione moduli core
+- Ottimizzazione performance
+- Implementazione test automatizzati
+- Completamento documentazione tecnica
+
+### Fase 2: Implementazione Funzionalità Cliniche
+- Sviluppo modulo per anamnesi
+- Implementazione piano terapeutico
+- Integrazione con sistemi ISEE
+- Sviluppo sistema di referti
+
+### Fase 3: Estensione Funzionalità
+- Implementazione notifiche multicanale
+- Sviluppo dashboard per operatori sanitari
+- Creazione reportistica per INMP e COI
+- Integrazione con sistemi esterni
+
+### Fase 4: Scale-up e Ottimizzazione
+- Preparazione per gestione volumi elevati
+- Ottimizzazione database
+- Implementazione cache avanzata
+- Monitoraggio e alerting proattivo
+
+## Parametri di Qualità
+
+### Sicurezza e Conformità
+- Audit di sicurezza periodici
+- Conformità GDPR completa
+- Validazione NIS2 e DORA (dove applicabile)
+- Procedura di data breach management
+
+### Performance
+- Tempo di risposta < 200ms per operazioni critiche
+- Gestione di almeno 100 richieste/secondo
+- Disponibilità sistema 99.9%
+- Recovery time < 1 ora
+
+### Manutenibilità
+- Copertura test > 80%
+- Standard di codice PSR-12
+- Documentazione completa API e moduli
+- CI/CD pipeline completa
+
+## Rischi e Mitigazioni
+
+| Rischio | Probabilità | Impatto | Mitigazione |
+|---------|------------|---------|-------------|
+| Ritardi sviluppo moduli | Media | Alto | Prioritizzazione moduli essenziali, sviluppo parallelo |
+| Problemi integrazione ISEE | Alta | Alto | Sviluppo mock system, test anticipati |
+| Conformità GDPR | Bassa | Molto Alto | Audit continui, consulenza specializzata |
+| Performance inadeguata | Media | Medio | Monitoraggio precoce, benchmark periodici |
+| Usabilità interfacce | Media | Alto | Test con utenti reali, iterazioni rapide |
 nell’organizzare al meglio la sua successiva prenotazione.
 
 

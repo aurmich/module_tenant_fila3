@@ -18,7 +18,6 @@ class SmsService
     public ?string $from = null;
 
     public ?string $body = null;
-    
     /**
      * Variabili per il template SMS.
      *
@@ -46,6 +45,29 @@ class SmsService
     }
 
     /**
+     * Factory method to create an instance.
+     */
+    public static function make(): self
+    {
+        return static::getInstance();
+    }
+
+    /**
+     * Sets local variables and merges them with the vars array.
+     * 
+     * @param array<string, mixed> $vars
+     */
+    public function setLocalVars(array $vars): self
+    {
+        foreach ($vars as $k => $v) {
+            $this->{$k} = $v;
+        }
+        $this->vars = array_merge($this->vars, $vars);
+
+        return $this;
+    }
+
+    /**
      * Unisce le variabili con quelle esistenti.
      *
      * @param array<string, mixed> $vars
@@ -62,7 +84,7 @@ class SmsService
      */
     public function send(): self
     {
-        $engineClassName = '\Modules\Notify\Services\SmsEngines\\'.Str::studly($this->driver).'Engine';
+        $engineClassName = '\\Modules\\Notify\\Services\\SmsEngines\\' . Str::studly($this->driver) . 'Engine';
         
         // Verifichiamo che la classe esista
         if (!class_exists($engineClassName)) {
@@ -125,15 +147,5 @@ class SmsService
         }
 
         return $this;
-    }
-
-    /**
-     * Ottiene le variabili.
-     *
-     * @return array<string, mixed>
-     */
-    public function getVars(): array
-    {
-        return $this->vars;
     }
 }

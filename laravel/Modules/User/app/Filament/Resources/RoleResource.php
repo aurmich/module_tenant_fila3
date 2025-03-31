@@ -11,12 +11,10 @@ use Modules\User\Filament\Resources\RoleResource\Pages\EditRole;
 use Modules\User\Filament\Resources\RoleResource\Pages\ListRoles;
 use Modules\User\Models\Role;
 use Modules\Xot\Filament\Resources\XotBaseResource;
-use Modules\Xot\Filament\Resources\XotBaseResource\RelationManagers\XotBaseRelationManager;
+use Modules\Xot\Filament\Resources\XotBaseResource\RelationManager\XotBaseRelationManager;
 
 class RoleResource extends XotBaseResource
 {
-    protected static ?string $navigationIcon = 'heroicon-o-shield-check';
-
     protected static ?string $model = Role::class;
 
     public static function getFormSchema(): array
@@ -28,7 +26,8 @@ class RoleResource extends XotBaseResource
             'guard_name' => TextInput::make('guard_name')
                 ->required()
                 ->maxLength(255),
-            'enabled' => Toggle::make('enabled'),
+            'enabled' => Toggle::make('enabled')
+                ->required(),
         ];
     }
 

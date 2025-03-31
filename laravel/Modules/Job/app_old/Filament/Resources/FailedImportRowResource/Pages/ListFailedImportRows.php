@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Modules\Job\Filament\Resources\FailedImportRowResource\Pages;
+namespace Modules\Job\app_old\Filament\Resources\FailedImportRowResource\Pages;
 
 use Filament\Tables\Columns\TextColumn;
 use Modules\Job\Filament\Resources\FailedImportRowResource;

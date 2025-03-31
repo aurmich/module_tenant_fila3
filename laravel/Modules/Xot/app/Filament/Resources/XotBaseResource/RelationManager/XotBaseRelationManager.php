@@ -49,7 +49,7 @@ abstract class XotBaseRelationManager extends RelationManager
         return static::transFunc(__FUNCTION__);
     }
 
-    public function form(Form $form): Form
+    final public function form(Form $form): Form
     {
         return $form
             ->schema($this->getFormSchema());
@@ -58,7 +58,7 @@ abstract class XotBaseRelationManager extends RelationManager
     /**
      * Get form schema.
      *
-     * @return array<string, \Filament\Forms\Components\Component>
+     * @return array<string|int, \Filament\Forms\Components\Component>
      */
     public function getFormSchema(): array
     {
@@ -67,8 +67,21 @@ abstract class XotBaseRelationManager extends RelationManager
 
     public function getListTableColumns(): array
     {
-        $index = Arr::get($this->getResource()::getPages(), 'index');
+        $pages = $this->getResource()::getPages();
+        if (!is_array($pages) || !isset($pages['index'])) {
+            return [];
+        }
+
+        $index = $pages['index'];
+        if (!is_object($index) || !method_exists($index, 'getPage')) {
+            return [];
+        }
+
         $index_page = $index->getPage();
+        if (!is_string($index_page) || !class_exists($index_page)) {
+            return [];
+        }
+
         $columns = app($index_page)->getListTableColumns();
 
         return $columns;

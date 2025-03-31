@@ -1,243 +1,198 @@
-# Filosofia e Regole di SaluteOra
+# Filosofia di Sviluppo dei Moduli
 
-## 1. Type Safety e Modern PHP
+## Struttura Base
 
-### 1.1 Type Hints e Null Safety
-```php
-// ❌ Da evitare
-public function process($obj) {
-    if (is_object($obj)) {
-        $obj->process();
-    }
-}
+### Modelli
+- Ogni modulo ha una classe base `BaseModel` che estende `Model` di Laravel
+- I modelli base implementano:
+  - `HasMedia` per la gestione dei media
+  - `SoftDeletes` per il soft delete
+  - `HasFactory` per i factory
+  - `Updater` trait per il tracciamento delle modifiche
+- Configurazioni standard:
+  - `$snakeAttributes = true`
+  - `$incrementing = true`
+  - `$timestamps = true`
+  - `$perPage = 30`
+  - `$connection = 'module_name'`
+  - `$primaryKey = 'id'`
+  - `$keyType = 'string'`
 
-// ✅ Corretto
-public function process(?ProcessableInterface $obj): void {
-    $obj?->process();
-}
+### Migrazioni
+- Ogni modulo ha il proprio database
+- Le migrazioni seguono la convenzione:
+  - Nome: `YYYY_MM_DD_HHMMSS_create_table_name_table.php`
+  - Uso di `Schema::create()` per nuove tabelle
+  - Uso di `Schema::table()` per modifiche
+  - Indici per le performance
+  - Chiavi esterne per le relazioni
+  - Soft delete dove appropriato
+
+### Filament Resources
+- Struttura organizzata in:
+  - `Resources/`: Risorse principali
+  - `Pages/`: Pagine personalizzate
+  - `Widgets/`: Widget per la dashboard
+  - `Actions/`: Azioni personalizzate
+  - `Fields/`: Campi personalizzati
+  - `Blocks/`: Blocchi di contenuto
+
+## Pattern di Sviluppo
+
+### Models
+1. **Base Model**
+   ```php
+   abstract class BaseModel extends Model implements HasMedia
+   {
+       use HasFactory;
+       use InteractsWithMedia;
+       use SoftDeletes;
+       use Updater;
+   }
+   ```
+
+2. **Model Concreto**
+   ```php
+   class Article extends BaseModel implements Feedable, HasRatingContract, HasTranslationsContract
+   {
+       use HasChildren;
+       use HasTags;
+       use HasRating;
+       use HasStrictTranslations;
+   }
+   ```
+
+### Relazioni
+- Uso di type hints per le relazioni
+- Documentazione PHPDoc completa
+- Relazioni polimorfe dove appropriato
+- Eager loading ottimizzato
+
+### Traits
+- Separazione delle responsabilità in traits
+- Traits per funzionalità comuni:
+  - `HasRating`
+  - `HasStrictTranslations`
+  - `HasTags`
+  - `Updater`
+
+### Actions
+- Pattern Action per operazioni complesse
+- Azioni separate per ogni operazione
+- Type hints e return types
+- Gestione errori
+
+### Data Objects
+- DTO per il trasferimento dati
+- Immutabilità dei dati
+- Validazione integrata
+- Type hints
+
+## Best Practices
+
+### Naming Conventions
+- Classi: PascalCase
+- Metodi: camelCase
+- Variabili: camelCase
+- Costanti: UPPER_SNAKE_CASE
+- Namespace: PascalCase
+
+### Type Safety
+- Strict types dichiarati
+- Type hints per parametri
+- Return types dichiarati
+- PHPDoc completo
+
+### Testing
+- Test unitari per modelli
+- Test feature per controller
+- Test per actions
+- Test per policies
+
+### Documentazione
+- PHPDoc per classi
+- PHPDoc per metodi
+- README per moduli
+- CHANGELOG per versioni
+
+### Performance
+- Indici database
+- Eager loading
+- Caching dove appropriato
+- Query ottimizzate
+
+### Sicurezza
+- Validazione input
+- Sanitizzazione output
+- CSRF protection
+- XSS prevention
+
+## Struttura Directory
+
 ```
-
-### 1.2 Union Types e Return Types
-```php
-// ❌ Da evitare
-public function handle($obj) {
-    return $obj->toString();
-}
-
-// ✅ Corretto
-public function handle(object|null $obj): string|null {
-    return $obj?->toString();
-}
-```
-
-## 2. Convenzioni Filament
-
-### 2.1 Visibilità dei Metodi
-```php
-class PatientResource extends XotBaseResource
-{
-    // ✅ Metodi pubblici per configurazione
-    public function getListTableColumns(): array
-    public function getTableFilters(): array
-    public function getTableActions(): array
-    
-    // ✅ Metodi protected per configurazioni di default
-    protected function getDefaultTableSortColumn(): ?string
-    protected function getDefaultTableSortDirection(): ?string
-}
-```
-
-### 2.2 Tipizzazione delle Colonne
-```php
-/**
- * @return array<string, Tables\Columns\Column>
- */
-public function getListTableColumns(): array
-{
-    return [
-        'nome' => TextColumn::make('nome')
-            ->searchable()
-            ->sortable(),
-    ];
-}
-```
-
-## 3. Struttura del Progetto
-
-### 3.1 Namespace
-- Core: `Modules\Core`
-- Patient: `Modules\Patient`
-- Dental: `Modules\Dental`
-- ISEE: `Modules\ISEE`
-
-### 3.2 Organizzazione dei File
-```
-modules/
-├── core/
+Module/
+├── app/
+│   ├── Actions/
+│   ├── Broadcasting/
+│   ├── Casts/
+│   ├── Classes/
+│   ├── Console/
+│   ├── DataObjects/
+│   ├── Datas/
+│   ├── Enums/
+│   ├── Events/
+│   ├── Exceptions/
 │   ├── Filament/
-│   │   ├── Resources/
+│   │   ├── Actions/
+│   │   ├── Blocks/
+│   │   ├── Fields/
 │   │   ├── Pages/
-│   │   └── Widgets/
-│   └── Models/
-├── patient/
-│   ├── Filament/
 │   │   ├── Resources/
-│   │   ├── Pages/
 │   │   └── Widgets/
-│   └── Models/
-└── ...
+│   ├── Http/
+│   ├── Models/
+│   │   └── Concerns/
+│   ├── Providers/
+│   ├── Services/
+│   └── View/
+├── config/
+├── database/
+│   ├── factories/
+│   ├── migrations/
+│   └── seeders/
+├── lang/
+├── resources/
+│   ├── assets/
+│   └── views/
+├── routes/
+└── tests/
 ```
 
-## 4. Documentazione
+## Workflow di Sviluppo
 
-### 4.1 PHPDoc Requirements
-```php
-/**
- * Patient Resource
- * 
- * Gestisce le operazioni CRUD sui pazienti.
- * 
- * @property string $nome Nome del paziente
- * @property string $cognome Cognome del paziente
- * @property string $codice_fiscale Codice fiscale del paziente
- * 
- * @see \Modules\Patient\Models\Patient
- */
-class PatientResource extends XotBaseResource
-{
-    // ...
-}
-```
+1. **Setup Iniziale**
+   - Creare il modulo
+   - Configurare il database
+   - Setup Filament
 
-### 4.2 Documentazione delle API
-- Ogni endpoint deve essere documentato con OpenAPI/Swagger
-- Includere esempi di request/response
-- Documentare gli errori possibili
+2. **Sviluppo**
+   - Creare migrazioni
+   - Implementare modelli
+   - Creare Filament resources
+   - Implementare actions
+   - Aggiungere test
 
-## 5. Testing
+3. **Testing**
+   - Eseguire test
+   - Verificare performance
+   - Controllare sicurezza
 
-### 5.1 Test Requirements
-- Test unitari per ogni modello
-- Test di integrazione per le risorse Filament
-- Test e2e per i flussi critici
+4. **Documentazione**
+   - Aggiornare PHPDoc
+   - Documentare API
+   - Aggiornare README
 
-### 5.2 Esempio di Test
-```php
-class PatientResourceTest extends TestCase
-{
-    public function test_can_list_patients(): void
-    {
-        $this->get(route('filament.resources.patient.index'))
-            ->assertSuccessful();
-    }
-}
-```
-
-## 6. Performance
-
-### 6.1 Query Optimization
-```php
-class PatientResource extends XotBaseResource
-{
-    public static function getEloquentQuery(): Builder
-    {
-        return parent::getEloquentQuery()
-            ->with(['visits', 'isee'])
-            ->latest();
-    }
-}
-```
-
-### 6.2 Cache Implementation
-```php
-class PatientStatsWidget extends XotBaseWidget
-{
-    public function getData(): array
-    {
-        return Cache::remember('patient_stats', 3600, function () {
-            return [
-                'total' => Patient::count(),
-                'active' => Patient::active()->count(),
-            ];
-        });
-    }
-}
-```
-
-## 7. Sicurezza
-
-### 7.1 Permessi
-```php
-class PatientResource extends XotBaseResource
-{
-    public static function canViewAny(): bool
-    {
-        return auth()?->user()?->can('view_patients');
-    }
-}
-```
-
-### 7.2 Validazione
-```php
-class PatientForm extends XotBaseForm
-{
-    public static function getFormSchema(): array
-    {
-        return [
-            TextInput::make('codice_fiscale')
-                ->required()
-                ->unique(Patient::class)
-                ->rules(['regex:/^[A-Z]{6}\d{2}[A-Z]\d{2}[A-Z]\d{3}[A-Z]$/']),
-        ];
-    }
-}
-```
-
-## 8. Localizzazione
-
-### 8.1 File di Traduzione
-```php
-// patient.php
-return [
-    'resources' => [
-        'patient' => [
-            'title' => 'Paziente',
-            'navigation' => [
-                'group' => 'Gestione Pazienti',
-                'label' => 'Pazienti',
-            ],
-        ],
-    ],
-];
-```
-
-### 8.2 Uso delle Traduzioni
-```php
-class PatientResource extends XotBaseResource
-{
-    public function getTitle(): string
-    {
-        return $this->trans('patient.title');
-    }
-}
-```
-
-## 9. Best Practices
-
-### 9.1 Codice
-- Utilizzare strict types: `declare(strict_types=1);`
-- Definire sempre i tipi di ritorno
-- Utilizzare type hints per i parametri
-- Utilizzare null-safe operator quando appropriato
-
-### 9.2 Git
-- Commit atomici e descrittivi
-- Branch naming: feature/, bugfix/, hotfix/
-- Pull request con descrizione dettagliata
-- Code review obbligatoria
-
-### 9.3 Deployment
-- CI/CD pipeline automatizzata
-- Test automatici prima del deploy
-- Backup automatici del database
-- Monitoraggio delle performance 
+5. **Deployment**
+   - Verificare compatibilità
+   - Eseguire migrazioni
+   - Aggiornare dipendenze 

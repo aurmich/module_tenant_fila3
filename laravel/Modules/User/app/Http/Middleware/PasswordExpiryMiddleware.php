@@ -33,7 +33,7 @@ class PasswordExpiryMiddleware
     {
         return 'errors.password-expired';
         /*
-        $route = Filament::getCurrentPanel()?->generateRouteName(
+        $route = Filament::getCurrentPanel()->generateRouteName(
             // config('password-expiry.password_expiry_route')
             // 'password-expiry.reset-password'
             // 'password.expired'

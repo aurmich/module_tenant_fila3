@@ -4,12 +4,11 @@ declare(strict_types=1);
 
 namespace Modules\Cms\Models;
 
+use Illuminate\Database\Eloquent\Builder;
 use Modules\Cms\Database\Factories\ModuleFactory;
 use Modules\Xot\Contracts\ProfileContract;
 use Nwidart\Modules\Facades\Module as NwModule;
-use Nwidart\Modules\Laravel\Module as LaravelModule;
 use Sushi\Sushi;
-use Webmozart\Assert\Assert;
 
 /**
  * Modules\Cms\Models\Module.
@@ -19,12 +18,12 @@ use Webmozart\Assert\Assert;
  * @property ProfileContract|null $creator
  * @property ProfileContract|null $updater
  *
- * @method static ModuleFactory                                factory($count = null, $state = [])
- * @method static \Illuminate\Database\Eloquent\Builder|Module newModelQuery()
- * @method static \Illuminate\Database\Eloquent\Builder|Module newQuery()
- * @method static \Illuminate\Database\Eloquent\Builder|Module query()
- * @method static \Illuminate\Database\Eloquent\Builder|Module whereId($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Module whereName($value)
+ * @method static ModuleFactory  factory($count = null, $state = [])
+ * @method static Builder|Module newModelQuery()
+ * @method static Builder|Module newQuery()
+ * @method static Builder|Module query()
+ * @method static Builder|Module whereId($value)
+ * @method static Builder|Module whereName($value)
  *
  * @mixin IdeHelperModule
  * @mixin \Eloquent
@@ -44,7 +43,6 @@ class Module extends BaseModel
         $rows = [];
         $i = 1;
         foreach ($modules as $module) {
-            Assert::isInstanceOf($module, LaravelModule::class);
             $tmp = [
                 'id' => $i++,
                 'name' => $module->getName(),

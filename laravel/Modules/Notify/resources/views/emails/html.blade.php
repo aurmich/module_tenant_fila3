@@ -41,10 +41,10 @@
 <body>
     <div class="container">
         <div class="header">
-            <h1>{{ $email_data->subject }}</h1>
+            <h1>{{ optional($email_data)->subject }}</h1>
         </div>
         <div class="content">
-            {!! $email_data->body_html !!}
+            {!! optional($email_data)->body_html !!}
         </div>
         <div class="footer">
             <p>&copy; {{ date('Y') }} Your Company Name. All rights reserved.</p>

@@ -17,10 +17,13 @@ class ViewTenant extends \Modules\Xot\Filament\Resources\Pages\XotBaseViewRecord
 {
     protected static string $resource = TenantResource::class;
 
+    /**
+     * @return array<string, \Filament\Infolists\Components\Component>
+     */
     public function getInfolistSchema(): array
     {
         return [
-            Section::make()
+            'tenant_info' => Section::make()
                 ->schema([
                     TextEntry::make('id'),
                     TextEntry::make('name'),

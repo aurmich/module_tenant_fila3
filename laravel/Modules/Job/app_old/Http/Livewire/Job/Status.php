@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Modules\Job\Http\Livewire\Job;
+namespace Modules\Job\app_old\Http\Livewire\Job;
 
 use Exception;
 use Illuminate\Contracts\Support\Renderable;

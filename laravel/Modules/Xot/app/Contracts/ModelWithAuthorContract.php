@@ -20,7 +20,7 @@ use Illuminate\Support\Carbon;
  * @property string|null        $updated_by
  * @property string|null        $title
  * @property PivotContract|null $pivot
- * @property string             $tennant_name
+ * @property string $tennant_name
  * @property int|null           $author_id
  * @property UserContract|null  $user
  * @property UserContract|null  $author
@@ -40,7 +40,6 @@ use Illuminate\Support\Carbon;
  * @method mixed     save($params)
  * @method array     treeLabel()
  * @method array     treeSons()
- * @method int       treeSonsCount()
  * @method array     toArray()
  * @method BelongsTo user()
  *
@@ -48,6 +47,4 @@ use Illuminate\Support\Carbon;
  *
  * @mixin \Eloquent
  */
-interface ModelWithAuthorContract
-{
-}
+interface ModelWithAuthorContract {}

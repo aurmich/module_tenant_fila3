@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Modules\Gdpr\Providers;
+namespace Modules\UI\Providers;
 
 use Illuminate\Foundation\Support\Providers\EventServiceProvider as BaseEventServiceProvider;
 

@@ -14,12 +14,18 @@ final class EmailDomainAnalyzer
 
     public function __construct(
         private readonly string $ssoProvider,
-    ) {}
+    ) {
+        if (empty($ssoProvider)) {
+            throw new \InvalidArgumentException('Il provider SSO non può essere vuoto');
+        }
+    }
 
     public function setUser(User $ssoUser): self
     {
+        //if ($ssoUser === null) {
+        //    throw new \InvalidArgumentException('L\'utente SSO non può essere null');
+        //}
         $this->ssoUser = $ssoUser;
-
         return $this;
     }
 
@@ -30,51 +36,63 @@ final class EmailDomainAnalyzer
 
     public function hasFirstPartyDomain(): bool
     {
-        return Str::of((string) $this->firstPartyDomain())
-            ->after('@')
-            ->exactly(
-                Str::of((string) $this->ssoUser->getEmail())->after('@'),
-            );
+        if (!isset($this->ssoUser)) {
+            throw new \RuntimeException('L\'utente SSO non è stato impostato. Utilizzare setUser() prima di chiamare questo metodo.');
+        }
+
+        $email = $this->ssoUser->getEmail();
+        if (!is_string($email) || empty($email)) {
+            return false;
+        }
+
+        $domain = $this->firstPartyDomain();
+        if ($domain === null || empty($domain)) {
+            return false;
+        }
+
+        $emailDomain = Str::of($email)->after('@')->toString();
+        $configDomain = Str::of($domain)->after('@')->toString();
+
+        return $emailDomain === $configDomain;
     }
 
     public function hasClientDomain(): bool
     {
-        $clientEmailDomain = $this->clientDomain();
+        if (!isset($this->ssoUser)) {
+            throw new \RuntimeException('L\'utente SSO non è stato impostato. Utilizzare setUser() prima di chiamare questo metodo.');
+        }
 
-        if ($clientEmailDomain === null || $clientEmailDomain === '') {
+        $email = $this->ssoUser->getEmail();
+        if (!is_string($email) || empty($email)) {
             return false;
         }
 
-        return Str::of($clientEmailDomain)
-            ->after('@')
-            ->exactly(
-                Str::of((string) $this->ssoUser->getEmail())->after('@'),
-            );
+        $clientEmailDomain = $this->clientDomain();
+        if ($clientEmailDomain === null || empty($clientEmailDomain)) {
+            return false;
+        }
+
+        $emailDomain = Str::of($email)->after('@')->toString();
+        $configDomain = Str::of($clientEmailDomain)->after('@')->toString();
+
+        return $emailDomain === $configDomain;
     }
 
     private function firstPartyDomain(): ?string
     {
-        Assert::nullOrString($res = config(sprintf('services.%s.email_domains.first_party.tld', $this->ssoProvider)));
-
+        $res = config(sprintf('services.%s.email_domains.first_party.tld', $this->ssoProvider));
+        if (!is_string($res) && $res !== null) {
+            return null;
+        }
         return $res;
     }
 
     private function clientDomain(): ?string
     {
         $domain = config(sprintf('services.%s.email_domains.client.tld', $this->ssoProvider));
-        if (is_string($domain)) {
-            return $domain;
+        if (!is_string($domain) && $domain !== null) {
+            return null;
         }
-
-        if (is_null($domain)) {
-            return $domain;
-        }
-
-        throw new \Exception('wip');
-        /*
-        return empty($domain)
-            ? null
-            : $domain;
-            */
+        return $domain;
     }
 }

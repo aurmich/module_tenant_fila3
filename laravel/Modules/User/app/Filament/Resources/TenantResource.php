@@ -19,21 +19,16 @@ use Modules\User\Filament\Resources\TenantResource\Pages\ViewTenant;
 use Modules\User\Filament\Resources\TenantResource\RelationManagers;
 use Modules\Xot\Datas\XotData;
 use Modules\Xot\Filament\Resources\XotBaseResource;
+use Filament\Forms\Form;
+use Filament\Resources\Resource;
+use Filament\Tables\Table;
+use Modules\Xot\Services\XotService;
 
-
-
-
-use Modules\Xot\Filament\Resources\RelationManagers\XotBaseRelationManager;
-
-
-
-
+use Modules\Xot\Filament\Resources\XotBaseResource\RelationManager\XotBaseRelationManager;
 
 class TenantResource extends XotBaseResource
 {
-    // protected static ?string $model = Tenant::class;
-
-    protected static ?string $navigationIcon = 'heroicon-o-user-group';
+    protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
 
     /**
      * Get the model class name for this resource.
@@ -42,71 +37,86 @@ class TenantResource extends XotBaseResource
      */
     public static function getModel(): string
     {
-        $xot = XotData::make();
-
-        /** @var class-string<\Illuminate\Database\Eloquent\Model> */
+        $xot = app(XotService::class);
         return $xot->getTenantClass();
     }
 
     public static function getFormSchema(): array
     {
         return [
-            'tenant_section' => Section::make()
+            Section::make()
                 ->schema([
-                    TextInput::make('name')
-                        ->required()
-                        ->unique(table: 'tenants', ignoreRecord: true)
-                        ->live(onBlur: true)
-                        ->afterStateUpdated(function (callable $set, $state) {
-                            $set('slug', Str::slug($state));
-                            $set('domain', Str::slug($state));
-                        })
-                        ->columnSpanFull()
-                        ->placeholder(static::trans('fields.name.placeholder'))
-                        ->helperText(static::trans('fields.name.helper_text')),
+                        TextInput::make('name')
+                            ->required()
+                            ->unique(table: 'tenants', ignoreRecord: true)
+                            ->live(onBlur: true)
+                            ->afterStateUpdated(function (callable $set, $state) {
+                                $set('slug', Str::slug($state));
+                                $set('domain', Str::slug($state));
+                            })
+                            ->columnSpanFull()
+                            ->placeholder('Nome del tenant')
+                            ->helperText('Inserisci il nome del tenant'),
 
-                    TextInput::make('slug')
-                        ->required()
-                        ->disabled(fn ($context) => $context !== 'create')
-                        ->unique(table: 'tenants', ignoreRecord: true)
-                        ->helperText(static::trans('fields.slug.helper_text')),
+                        TextInput::make('slug')
+                            ->required()
+                            ->disabled(fn ($context) => $context !== 'create')
+                            ->unique(table: 'tenants', ignoreRecord: true)
+                            ->helperText('Lo slug verrà generato automaticamente dal nome'),
 
-                    TextInput::make('domain')
-                        ->required()
-                        ->visible(fn ($context) => $context === 'create')
-                        ->unique(table: 'domains', ignoreRecord: true)
-                        ->prefix('https://')
-                        ->suffix('.'.request()->getHost())
-                        ->placeholder(static::trans('fields.domain.placeholder'))
-                        ->helperText(static::trans('fields.domain.helper_text')),
+                        TextInput::make('domain')
+                            ->required()
+                            ->visible(fn ($context) => $context === 'create')
+                            ->unique(table: 'domains', ignoreRecord: true)
+                            ->prefix('https://')
+                            ->suffix('.'.request()->getHost())
+                            ->placeholder('dominio')
+                            ->helperText('Il dominio del tenant'),
 
-                    TextInput::make('email_address')
-                        ->email()
-                        ->placeholder(static::trans('fields.email_address.placeholder'))
-                        ->helperText(static::trans('fields.email_address.helper_text')),
+                        TextInput::make('email_address')
+                            ->email()
+                            ->placeholder('email@example.com')
+                            ->helperText('Indirizzo email del tenant'),
 
-                    TextInput::make('phone')
-                        ->tel()
-                        ->placeholder(static::trans('fields.phone.placeholder'))
-                        ->helperText(static::trans('fields.phone.helper_text')),
+                        TextInput::make('phone')
+                            ->tel()
+                            ->placeholder('Telefono')
+                            ->helperText('Numero di telefono del tenant'),
 
-                    TextInput::make('mobile')
-                        ->tel()
-                        ->placeholder(static::trans('fields.mobile.placeholder'))
-                        ->helperText(static::trans('fields.mobile.helper_text')),
+                        TextInput::make('mobile')
+                            ->tel()
+                            ->placeholder('Cellulare')
+                            ->helperText('Numero di cellulare del tenant'),
 
-                    TextInput::make('address')
-                        ->placeholder(static::trans('fields.address.placeholder'))
-                        ->helperText(static::trans('fields.address.helper_text')),
+                        TextInput::make('address')
+                            ->placeholder('Indirizzo')
+                            ->helperText('Indirizzo del tenant'),
 
-                    ColorPicker::make('primary_color')
-                        ->helperText(static::trans('fields.primary_color.helper_text')),
+                        ColorPicker::make('primary_color')
+                            ->helperText('Colore primario del tenant'),
 
-                    ColorPicker::make('secondary_color')
-                        ->helperText(static::trans('fields.secondary_color.helper_text')),
-                ])
-                ->columns(2),
+                        ColorPicker::make('secondary_color')
+                            ->helperText('Colore secondario del tenant'),
+                    ])
+                    ->columns(2)
         ];
+    }
+
+    public static function table(Table $table): Table
+    {
+        return $table
+            ->columns([
+                //
+            ])
+            ->filters([
+                //
+            ])
+            ->actions([
+                //
+            ])
+            ->bulkActions([
+                //
+            ]);
     }
 
     public static function getRelations(): array

@@ -34,7 +34,7 @@ class CreateTenant extends XotBaseCreateRecord
     //     $record = new Tenant(collect($data)->except('domain')->toArray());
     //     $record->saveOrFail();
     //     \Log::info('Saving Domains');
-    //     $record = $record::find($record->id);
+    //     $record = $record::find($record->);
     //     $record->domains()->create(['domain' => collect($data)->get('domain')]);
 
     //     return $record;

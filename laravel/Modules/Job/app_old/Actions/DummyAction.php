@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Modules\Job\Actions;
+namespace Modules\Job\app_old\Actions;
 
 use Spatie\QueueableAction\QueueableAction;
 

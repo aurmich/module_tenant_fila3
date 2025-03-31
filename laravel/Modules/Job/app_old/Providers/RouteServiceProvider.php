@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Modules\Job\Providers;
+namespace Modules\Job\app_old\Providers;
 
 use Modules\Xot\Providers\XotBaseRouteServiceProvider;
 

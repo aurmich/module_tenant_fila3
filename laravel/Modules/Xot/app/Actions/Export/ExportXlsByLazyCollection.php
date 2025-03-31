@@ -31,7 +31,7 @@ class ExportXlsByLazyCollection
     ): BinaryFileResponse {
         // Assicuriamo che $fields sia un array di stringhe
         $stringFields = array_map(function ($field) {
-            return (string) $field;
+            return strval($field);
         }, array_values($fields));
 
         $export = new LazyCollectionExport(

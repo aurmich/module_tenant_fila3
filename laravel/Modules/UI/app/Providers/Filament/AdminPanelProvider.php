@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Modules\Gdpr\Providers\Filament;
+namespace Modules\UI\Providers\Filament;
 
 use Filament\Panel;
 use Filament\Support\Assets\Css;
@@ -12,16 +12,18 @@ use Modules\Xot\Providers\Filament\XotBasePanelProvider;
 
 class AdminPanelProvider extends XotBasePanelProvider
 {
-    protected string $module = 'Gdpr';
+    protected string $module = 'UI';
 
     public function panel(Panel $panel): Panel
     {
-        $panel = parent::panel($panel);
-        FilamentAsset::register([
-            Css::make('gdpr-styles', asset('/vendor/cookie-consent/css/cookie-consent.css')),
-            // Js::make('gdpr-scripts', __DIR__.'/../../resources/dist/assets/app2.js'),
-        ], 'gdpr');
+        // FilamentAsset::register(
+        //     [
+        //         Css::make('filament-navigation-styles', __DIR__.'/../../resources/dist/plugin.css'),
+        //         Js::make('filament-navigation-scripts', __DIR__.'/../../resources/dist/plugin.js'),
+        //     ],
+        //     'filament-navigation'
+        // );
 
-        return $panel;
+        return parent::panel($panel);
     }
 }

@@ -20,16 +20,16 @@ class UpgradeController extends Controller
         $users = $user_class::get();
         /* da id a uuid
                 foreach ($users as $user) {
-                    if (strlen((string) $user->id) >= 32) { // gia' convertito
+                    if (strlen(is_string($user) ? $user : (string) $user->) >= 32) { // gia' convertito
                         continue;
                     }
-                    $old_id = $user->id;
+                    $old_id = $user->;
                     $new_id = Str::uuid();
                     $where = ['user_id' => $old_id];
                     $morph = ['model_type' => 'user', 'model_id' => $old_id];
                     $rows = ModelHasRole::where($morph)->update(['model_id' => $new_id]);
                     $rows = TeamUser::where($where)->update(['user_id' => $new_id]);
-                    $user->id = $new_id;
+                    $user-> = $new_id;
                     $user->save();
                     echo '<br> from :'.$old_id.' => '.$new_id;
                 }

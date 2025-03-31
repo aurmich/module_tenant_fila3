@@ -1,0 +1,90 @@
+# Documentazione del Progetto SaluteOra
+
+## Panoramica
+Il progetto "Promozione della salute orale per le gestanti in condizioni di vulnerabilità socio-economica" è un'iniziativa coordinata dall'INMP, con la collaborazione della Fondazione ETS e altri enti del terzo settore.
+
+Ultimo aggiornamento: Fri Mar 28 18:55:21 CET 2025
+
+## Indice della Documentazione
+
+### Progetto
+1. [Descrizione del Progetto](./descrizione.md)
+2. [Flussi dei Dati](./flussi-dati.md)
+3. [Privacy e Sicurezza](./privacy-sicurezza.md)
+4. [Caratteristiche della Piattaforma](./piattaforma.md)
+5. [Valutazione di Impatto sulla Protezione dei Dati (DPIA)](./dpia.md)
+6. [Introduzione](introduzione.md)
+
+### Tecnica
+7. [Architettura](architettura.md)
+8. [Struttura del Progetto](struttura-progetto.md)
+9. [Installazione Iniziale](installazione-iniziale.md)
+10. [Installazione Moduli](installazione.md)
+11. [Configurazione](configurazione.md)
+12. [Struttura dei Moduli](modules.md)
+13. [API](api.md)
+14. [Testing](testing.md)
+15. [Deployment](deployment.md)
+16. [Manutenzione](manutenzione.md)
+17. [Gestione Migrazioni](migrazione-struttura.md)
+18. [Standard del Codice](standard-codice.md)
+19. [Filosofia di Sviluppo](filosofia.md)
+20. [Linee Guida Documentazione](linee-guida-documentazione.md)
+21. [Aggiornamento Documentazione](aggiornamento-documentazione.md)
+
+### Filament
+22. [Introduzione a Filament](filament.md)
+23. [Filament Resources](filament-resources.md)
+24. [Filament Optimizations](filament-optimizations.md)
+25. [Filament Updates](filament-updates.md)
+26. [Filament Philosophy](filament-philosophy.md)
+
+### Implementazione
+27. [Implementazione](implementazione.md)
+28. [Diario di Implementazione](diario_implementazione.md)
+29. [Ordine di Implementazione](ordine_implementazione.md)
+30. [Stime](stime.md)
+31. [Roadmap](roadmap.md)
+32. [Stato Finale del Progetto](stato-finale-progetto.md)
+
+### Avanzato
+33. [Database](database.md) 
+34. [Enums](enums.md)
+35. [Bash Scripts](bashscripts.md)
+36. [Namespace Structure](namespace-structure.md)
+37. [Themes Structure](themes-structure.md)
+
+## Obiettivi del Progetto
+- Migliorare la salute orale delle gestanti con ISEE inferiore a 20.000 euro
+- Fornire visite odontoiatriche e sessioni di igiene orale
+- Educare le pazienti sulle pratiche di cura dentale a casa
+- Integrare servizi odontoiatrici con servizi sociali e di assistenza alla gravidanza
+
+## Partner del Progetto
+- INMP (Coordinatore)
+- Fondazione ETS
+- Altri enti del terzo settore
+
+## Note Importanti
+
+### Gestione Migrazioni
+⚠️ **ATTENZIONE**: Tutte le migrazioni sono contenute all'interno dei moduli. Prima di eseguire qualsiasi comando di migrazione, è necessario rimuovere le migrazioni centrali:
+
+```bash
+rm -rf database/migrations
+```
+
+Questo è necessario perché:
+- Evita conflitti con le migrazioni dei moduli
+- Mantiene una struttura pulita e organizzata
+- Permette una gestione indipendente delle migrazioni per modulo
+- Facilita il rollback e l'aggiornamento dei moduli
+
+Per maggiori dettagli, consultare [Gestione Migrazioni](migrazione-struttura.md).
+
+### Installazione Iniziale
+Per iniziare da zero, seguire la guida [Installazione Iniziale](installazione-iniziale.md) che include:
+- Installazione di Laravel Installer
+- Creazione del progetto base
+- Configurazione iniziale
+- Gestione delle migrazioni 

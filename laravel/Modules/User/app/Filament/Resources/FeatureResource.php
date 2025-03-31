@@ -11,7 +11,7 @@ use Modules\User\Filament\Resources\FeatureResource\Pages\EditFeature;
 use Modules\User\Filament\Resources\FeatureResource\Pages\ListFeatures;
 use Modules\User\Models\Feature;
 use Modules\Xot\Filament\Resources\XotBaseResource;
-use Modules\Xot\Filament\Resources\XotBaseResource\RelationManagers\XotBaseRelationManager;
+use Modules\Xot\Filament\Resources\XotBaseResource\RelationManager\XotBaseRelationManager;
 
 /**
  * @property Feature $record
@@ -23,13 +23,13 @@ class FeatureResource extends XotBaseResource
     public static function getFormSchema(): array
     {
         return [
-            TextInput::make('name')
+            'name' => TextInput::make('name')
                 ->required()
                 ->maxLength(255),
-            TextInput::make('type')
+            'type' => TextInput::make('type')
                 ->required()
                 ->maxLength(255),
-            Toggle::make('active')
+            'active' => Toggle::make('active')
                 ->required(),
         ];
     }

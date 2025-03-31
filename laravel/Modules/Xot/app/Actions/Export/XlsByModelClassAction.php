@@ -74,7 +74,13 @@ class XlsByModelClassAction
 
         // Nascondiamo i campi esclusi
         if ([] !== $excludes) {
-            $rows = $rows->makeHidden($excludes);
+            $rows = $rows->map(function ($item) use ($excludes) {
+                if (is_object($item) && method_exists($item, 'makeHidden')) {
+                    /** @var Model $item */
+                    return $item->makeHidden($excludes);
+                }
+                return $item;
+            });
         }
 
         // Applichiamo il callback se fornito
@@ -102,7 +108,7 @@ class XlsByModelClassAction
         $with = [];
         foreach ($includes as $include) {
             // Assicuriamo che $include sia una stringa
-            $includeStr = (string) $include;
+            $includeStr = is_string($include) ? $include : (string) $include;
             
             // Verifichiamo se contiene un punto (indicatore di relazione)
             if (!Str::contains($includeStr, '.')) {

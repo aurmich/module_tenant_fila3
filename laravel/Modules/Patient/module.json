@@ -1,11 +1,28 @@
 {
     "name": "Patient",
     "alias": "patient",
-    "description": "",
-    "keywords": [],
-    "priority": 0,
+    "description": "Gestione dei pazienti",
+    "keywords": ["pazienti", "isee", "anamnesi"],
+    "priority": 10,
+    "active": 1,
+    "order": 10,
     "providers": [
         "Modules\\Patient\\Providers\\PatientServiceProvider"
     ],
-    "files": []
+    "aliases": {
+        "Patient": "Modules\\Patient\\Entities\\Patient",
+        "Document": "Modules\\Patient\\Entities\\Document",
+        "Anamnesis": "Modules\\Patient\\Entities\\Anamnesis"
+    },
+    "files": [],
+    "requires": [
+        "Xot",
+        "User",
+        "Media",
+        "Gdpr"
+    ],
+    "dependencies": [
+        "Core",
+        "Tenant"
+    ]
 }

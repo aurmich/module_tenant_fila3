@@ -11,12 +11,12 @@ use Modules\Xot\Contracts\ProfileContract;
 /**
  * Modules\Gdpr\Models\Consent.
  *
- * @property string                          $id
- * @property string                          $treatment_id
- * @property string                          $subject_id
- * @property string                          $id
- * @property string                          $treatment_id
- * @property string                          $subject_id
+ * @property string $id
+ * @property string $treatment_id
+ * @property string $subject_id
+ * @property string $id
+ * @property string $treatment_id
+ * @property string $subject_id
  * @property \Illuminate\Support\Carbon|null $created_at
  * @property \Illuminate\Support\Carbon|null $updated_at
  * @property string|null                     $updated_by

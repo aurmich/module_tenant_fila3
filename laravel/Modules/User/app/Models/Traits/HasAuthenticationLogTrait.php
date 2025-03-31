@@ -16,8 +16,16 @@ use Modules\User\Models\AuthenticationLog;
  * It includes methods for retrieving the latest authentication logs, login timestamps, IP addresses,
  * and other related information, including tracking consecutive login days.
  *
- * property MorphMany<AuthenticationLog, static> $authentications      The authentication logs related to the model.
- * property MorphOne<AuthenticationLog, static>  $latestAuthentication The most recent authentication log entry.
+ * @property MorphMany<AuthenticationLog, static> $authentications      The authentication logs related to the model.
+ * @property MorphOne<AuthenticationLog, static>  $latestAuthentication The most recent authentication log entry.
+ * @property-read string|null $login_at The timestamp of the last login.
+ * @property-read string|null $ip_address The IP address of the last login.
+ */
+/**
+ * @property MorphMany<AuthenticationLog> $authentications
+ * @property MorphOne<AuthenticationLog> $latestAuthentication
+ * @property \Illuminate\Support\Carbon|null $login_at
+ * @property string|null $ip_address
  */
 trait HasAuthenticationLogTrait
 {
@@ -28,7 +36,6 @@ trait HasAuthenticationLogTrait
      */
     public function authentications(): MorphMany
     {
-        // @phpstan-ignore return.type
         return $this->morphMany(AuthenticationLog::class, 'authenticatable')
             ->latest('login_at');
     }
@@ -61,7 +68,9 @@ trait HasAuthenticationLogTrait
      */
     public function lastLoginAt(): ?Carbon
     {
-        return $this->authentications()->first()?->login_at;
+        /** @var AuthenticationLog|null $auth */
+        $auth = $this->authentications()->first();
+        return $auth !== null ? $auth->login_at : null;
     }
 
     /**
@@ -71,7 +80,9 @@ trait HasAuthenticationLogTrait
      */
     public function lastSuccessfulLoginAt(): ?Carbon
     {
-        return $this->authentications()->where('login_successful', true)->first()?->login_at;
+        /** @var AuthenticationLog|null $auth */
+        $auth = $this->authentications()->where('login_successful', true)->first();
+        return $auth !== null ? $auth->login_at : null;
     }
 
     /**
@@ -81,7 +92,9 @@ trait HasAuthenticationLogTrait
      */
     public function lastLoginIp(): ?string
     {
-        return $this->authentications()->first()?->ip_address;
+        /** @var AuthenticationLog|null $auth */
+        $auth = $this->authentications()->first();
+        return $auth !== null ? $auth->ip_address : null;
     }
 
     /**
@@ -91,7 +104,9 @@ trait HasAuthenticationLogTrait
      */
     public function lastSuccessfulLoginIp(): ?string
     {
-        return $this->authentications()->where('login_successful', true)->first()?->ip_address;
+        /** @var AuthenticationLog|null $auth */
+        $auth = $this->authentications()->where('login_successful', true)->first();
+        return $auth !== null ? $auth->ip_address : null;
     }
 
     /**
@@ -101,7 +116,9 @@ trait HasAuthenticationLogTrait
      */
     public function previousLoginAt(): ?Carbon
     {
-        return $this->authentications()->skip(1)->first()?->login_at;
+        /** @var AuthenticationLog|null $auth */
+        $auth = $this->authentications()->skip(1)->first();
+        return $auth !== null ? $auth->login_at : null;
     }
 
     /**
@@ -111,7 +128,9 @@ trait HasAuthenticationLogTrait
      */
     public function previousLoginIp(): ?string
     {
-        return $this->authentications()->skip(1)->first()?->ip_address;
+        /** @var AuthenticationLog|null $auth */
+        $auth = $this->authentications()->skip(1)->first();
+        return $auth !== null ? $auth->ip_address : null;
     }
 
     /**

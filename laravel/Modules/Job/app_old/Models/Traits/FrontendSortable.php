@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Modules\Job\Models\Traits;
+namespace Modules\Job\app_old\Models\Traits;
 
 use Illuminate\Database\Eloquent\Builder;
 

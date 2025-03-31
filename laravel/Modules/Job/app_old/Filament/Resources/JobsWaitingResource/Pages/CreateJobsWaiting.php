@@ -1,6 +1,6 @@
 <?php
 
-namespace Modules\Job\Filament\Resources\JobsWaitingResource\Pages;
+namespace Modules\Job\app_old\Filament\Resources\JobsWaitingResource\Pages;
 
 use Modules\Job\Filament\Resources\JobsWaitingResource;
 use Modules\Xot\Filament\Resources\Pages\XotBaseCreateRecord;

@@ -5,24 +5,19 @@ declare(strict_types=1);
 namespace Modules\Cms\Filament\Resources;
 
 use Filament\Forms;
-use Filament\Forms\Components\SpatieMediaLibraryFileUpload;
-use Filament\Forms\Form;
 use Filament\Tables;
+use Filament\Forms\Form;
 use Filament\Tables\Table;
-use Illuminate\Support\HtmlString;
-use Modules\Cms\Filament\Resources\MenuResource\Pages;
 use Modules\Cms\Models\Menu;
+use Illuminate\Support\HtmlString;
+use Modules\Xot\Filament\Resources\XotBaseResource;
 use Modules\UI\Filament\Forms\Components\IconPicker;
+use Modules\Cms\Filament\Resources\MenuResource\Pages;
+use Filament\Forms\Components\SpatieMediaLibraryFileUpload;
 
-class MenuResource extends \Modules\Xot\Filament\Resources\XotBaseResource
+class MenuResource extends XotBaseResource
 {
     protected static ?string $model = Menu::class;
-
-    protected static ?string $navigationIcon = 'heroicon-o-clipboard-document-list';
-
-    protected static ?string $navigationGroup = 'Site';
-
-    protected static ?string $navigationLabel = 'Navigation';
 
     /**
      * @return array<Forms\Components\Component>
@@ -30,13 +25,13 @@ class MenuResource extends \Modules\Xot\Filament\Resources\XotBaseResource
     public static function getFormSchema(): array
     {
         return [
-            Forms\Components\TextInput::make('title')
+            'title' => Forms\Components\TextInput::make('title')
                 ->required()
                 ->maxLength(2048)
             // ->reactive()
             // ->unique()
             ,
-            Forms\Components\Repeater::make('items')
+            'items' => Forms\Components\Repeater::make('items')
                 ->schema([
                     Forms\Components\Grid::make(2)->schema([
                         Forms\Components\TextInput::make('title')
@@ -97,39 +92,5 @@ class MenuResource extends \Modules\Xot\Filament\Resources\XotBaseResource
         ];
     }
 
-    public static function form(Form $form): Form
-    {
-        return $form->schema(static::getFormSchema());
-    }
-
-    // public static function table(Table $table): Table
-    // {
-    //     return $table
-    //         ->columns([
-    //             Tables\Columns\TextColumn::make('title'),
-    //         ])
-    //         ->actions([
-    //             Tables\Actions\ActionGroup::make([
-    //                 Tables\Actions\EditAction::make(),
-    //                 Tables\Actions\DeleteAction::make(),
-    //             ]),
-    //         ])
-    //         ->filters([])
-    //         ->bulkActions([]);
-    // }
-
-    public static function getRelations(): array
-    {
-        return [
-        ];
-    }
-
-    public static function getPages(): array
-    {
-        return [
-            'index' => Pages\ListMenus::route('/'),
-            'edit' => Pages\EditMenu::route('/{record}/edit'),
-            // 'create' => Pages\CreateMenu::route('/create'),
-        ];
-    }
+  
 }

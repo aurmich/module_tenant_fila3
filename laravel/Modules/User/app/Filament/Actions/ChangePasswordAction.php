@@ -41,7 +41,7 @@ class ChangePasswordAction extends Action
                         ->required()
                         ->rule(Password::default()),
                     */
-                PasswordData::make()->getPasswordFormComponent(),
+                PasswordData::make()->getPasswordFormComponent('new_password'),
                 TextInput::make('new_password_confirmation')
                     ->password()
 

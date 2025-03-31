@@ -419,7 +419,7 @@ class GeoLogger
             ->info('Geocoding request', [
                 'address' => $address,
                 'success' => $result !== null,
-                'coordinates' => $result?->toArray()
+                'coordinates' => $result->toArray()
             ]);
     }
 
@@ -553,7 +553,7 @@ class ModuleList extends Component
     
     public function delete(int $id): void
     {
-        Module::find($id)?->delete();
+        Module::find($id)->delete();
         $this->emit('moduleDeleted');
     }
 }
@@ -845,7 +845,7 @@ class ClientMapWidget extends Widget
     protected function getViewData(): array
     {
         return [
-            'clients' => $this->listClients?->getTableQuery()
+            'clients' => $this->listClients->getTableQuery()
                 ->get(['latitude', 'longitude', 'name'])
                 ->toArray(),
         ];
@@ -891,7 +891,7 @@ class ClientMapWidget extends Widget
     protected function getViewData(): array
     {
         return [
-            'clients' => $this->listClients?->getTableQuery()
+            'clients' => $this->listClients->getTableQuery()
                 ->get(['latitude', 'longitude', 'name'])
                 ->toArray(),
         ];
@@ -1644,11 +1644,7 @@ return [
 ✅ **USARE** invece:
 - Un file di traduzione dedicato per ogni componente
 - Struttura standardizzata con chiave 'navigation'
-- Definizione completa di gruppo, label, icona e ordinamento 
-
-
-=======
->>>>>>> origin/dev
+- Definizione completa di gruppo, label, icona e ordinamento
 # Laraxot Framework
 
 ## Panoramica
@@ -8819,4 +8815,4 @@ class ClientMapWidget extends Widget
 3. Implementare sempre controlli di tipo
 4. Gestire i casi di errore in modo graceful
 5. La reattività funziona automaticamente con Livewire 3
-  - Contact section 
+  - Contact section

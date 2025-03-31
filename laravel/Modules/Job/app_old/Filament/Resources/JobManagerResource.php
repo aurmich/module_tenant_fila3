@@ -6,7 +6,7 @@ declare(strict_types=1);
  * @see https://github.com/mooxphp/jobs/tree/main
  */
 
-namespace Modules\Job\Filament\Resources;
+namespace Modules\Job\app_old\Filament\Resources;
 
 use Filament\Forms\Components\DateTimePicker;
 use Filament\Forms\Components\Textarea;

@@ -173,6 +173,74 @@ public function validate(string $attribute, mixed $value, \Closure $fail): void
        $data = $this->validate();
    ```
 
+### 6. Metodo `authentications()` non trovato in Listeners
+
+**Problema**: I Listener come `FailedLoginListener`, `LoginListener`, `LogoutListener`, e `OtherDeviceLogoutListener` tentano di richiamare il metodo `authentications()` su un oggetto di tipo `Illuminate\Contracts\Auth\Authenticatable`, ma questo metodo non è definito nell'interfaccia `Authenticatable`.
+
+```php
+// In FailedLoginListener.php
+$log = $event->user->authentications()->create([...]);
+```
+
+**Soluzione**:
+1. Creazione di un'interfaccia `HasAuthentications` che definisce il metodo `authentications()` e la relazione tra User e Authentication:
+
+```php
+namespace Modules\User\Contracts;
+
+use Illuminate\Database\Eloquent\Relations\MorphMany;
+
+interface HasAuthentications
+{
+    /**
+     * Ottiene tutti i log di autenticazione associati all'utente.
+     *
+     * @return MorphMany
+     */
+    public function authentications(): MorphMany;
+}
+```
+
+2. Assicurarsi che il modello User implementi questa interfaccia:
+
+```php
+use Modules\User\Contracts\HasAuthentications;
+
+class User extends BaseUser implements HasAuthentications
+{
+    // ...
+}
+```
+
+3. Aggiunta di type casting nei Listener per verificare che l'utente implementi l'interfaccia `HasAuthentications`:
+
+```php
+public function handle(Failed $event): void
+{
+    if ($event->user instanceof HasAuthentications) {
+        $ip = $this->request->ip();
+        $userAgent = $this->request->userAgent();
+        $location = [];
+
+        $log = $event->user->authentications()->create([
+            'ip_address' => $ip,
+            'user_agent' => $userAgent,
+            'login_at' => now(),
+            'login_successful' => false,
+            'location' => $location,
+        ]);
+    }
+}
+```
+
+**Benefici**:
+- Tipo corretto definito con un'interfaccia dedicata
+- Controllo esplicito del tipo prima di chiamare il metodo
+- Separazione delle responsabilità chiara tramite interfacce
+- Evitato l'uso di `mixed` o suppression di errori
+
+**Pattern applicato**: _Interface Segregation_ - Creazione di interfacce specifiche per comportamenti specifici, anziché interfacce generiche troppo ampie.
+
 ## Principi Applicati
 
 1. **Specificazione dei tipi**: Evitato l'uso del tipo `mixed` quando possibile, o almeno documentato i tipi effettivi attraverso PHPDoc.

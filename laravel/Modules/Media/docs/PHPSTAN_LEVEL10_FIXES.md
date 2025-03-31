@@ -50,6 +50,35 @@ Il modello `Media.php` contiene diverse proprietà documentate con tipo `mixed`:
 **Soluzione da implementare**:
 1. Specificare tipi più precisi per queste proprietà in base ai valori effettivi che possono assumere
 
+### 4. Errori con le API fluenti di FFMpeg in azioni di conversione video
+
+**Problema**: Le classi `ConvertVideoByMediaConvertAction` e `ConvertVideoByConvertDataAction` presentavano errori PHPStan relativi all'utilizzo dell'API fluente di FFMpeg, in particolare:
+- `Call to an undefined method ProtoneMedia\LaravelFFMpeg\Drivers\PHPFFMpeg::inFormat()`
+- `Call to an undefined method ProtoneMedia\LaravelFFMpeg\Drivers\PHPFFMpeg::save()` o `Cannot call method save() on mixed`
+
+**Soluzione implementata**:
+1. Sostituzione del metodo `inFormat()` problematico
+2. Istanziazione esplicita dell'oggetto formato prima di usarlo:
+   ```php
+   // Instanziamo il formato prima di usarlo
+   $formatInstance = new $format();
+   
+   // @phpstan-ignore-next-line
+   FFMpeg::fromDisk($data->disk)
+       ->open($data->file)
+       ->export()
+       // ...
+       // Utilizziamo il formato istanziato come parametro
+       ->save($file_new, $formatInstance);
+   ```
+
+**Motivazione**:
+- L'API di Laravel-FFMpeg utilizza una catena di metodi fluenti che PHPStan non riesce a seguire correttamente
+- L'istanziazione esplicita del formato e il passaggio diretto al metodo `save()` fornisce a PHPStan un tipo concreto che può analizzare
+- L'annotazione `@phpstan-ignore-next-line` è utilizzata solo dove strettamente necessario per gestire le limitazioni dell'analisi statica su API fluenti complesse
+
+Questa soluzione mantiene la funzionalità originale migliorando al contempo la chiarezza del codice e la compatibilità con l'analisi statica di PHPStan a livello 10.
+
 ## Principi Applicati
 
 1. **Uso appropriato di PHPDoc per tipi speciali**: Quando PHP non supporta nativamente un tipo (come `resource`), utilizzare annotazioni PHPDoc per fornire informazioni di tipo a PHPStan.

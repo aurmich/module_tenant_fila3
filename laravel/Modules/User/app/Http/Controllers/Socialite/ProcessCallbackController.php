@@ -26,6 +26,7 @@ use Modules\User\Events\RegistrationNotEnabled;
 use Modules\User\Events\UserNotAllowed;
 use Modules\User\Exceptions\ProviderNotConfigured;
 use Modules\Xot\Datas\XotData;
+use Illuminate\Support\Facades\Auth;
 
 class ProcessCallbackController extends Controller
 {
@@ -56,7 +57,8 @@ class ProcessCallbackController extends Controller
         // Try to find a socialite user
         $socialiteUser = app(RetrieveSocialiteUserAction::class)->execute($provider, $oauthUser);
         if ($socialiteUser) {
-            if (! $socialiteUser->user?->canAccessSocialite()) {
+            $socialiteUserObj = $socialiteUser->user;
+            if ($socialiteUserObj === null || !$socialiteUserObj->canAccessSocialite()) {
                 return app(RedirectToLoginAction::class)->execute('auth.user-not-allowed');
             }
             // Associate default roles to the existing "real" user, if needed
@@ -65,7 +67,7 @@ class ProcessCallbackController extends Controller
                 [
                     'provider' => $provider,
                 ]
-            )->execute($socialiteUser->user, $oauthUser);
+            )->execute($socialiteUserObj, $oauthUser);
 
             return app(LoginUserAction::class)->execute($socialiteUser);
         }
@@ -80,7 +82,7 @@ class ProcessCallbackController extends Controller
         $user_class = XotData::make()->getUserClass();
         // See if a user already exists, but not for this socialite provider
         // $user = app()->call($this->socialite->getUserResolver(), ['provider' => $provider, 'oauthUser' => $oauthUser, 'socialite' => $this->socialite]);
-        /** @var \Modules\Xot\Contracts\UserContract */
+        /** @var \Modules\Xot\Contracts\UserContract|null */
         $user = $user_class::query()->firstWhere(['email' => $oauthUser->getEmail()]);
 
         // Handle registration
@@ -90,8 +92,18 @@ class ProcessCallbackController extends Controller
             $socialiteUser = app(RegisterOauthUserAction::class)->execute($provider, $oauthUser);
         }
 
-        if (! $socialiteUser->user?->canAccessSocialite()) {
+        $socialiteUserObj = $socialiteUser->user;
+        if ($socialiteUserObj === null || !$socialiteUserObj->canAccessSocialite()) {
             return app(RedirectToLoginAction::class)->execute('auth.user-not-allowed');
+        }
+
+        // Verifichiamo prima se l'utente può accedere al socialite
+        /** @var \Modules\Xot\Contracts\UserContract|null $authUser */
+        $authUser = Auth::user();
+        if ($authUser !== null && method_exists($authUser, 'canAccessSocialite') && !$authUser->canAccessSocialite()) {
+            return redirect()->route(
+                optional(Auth::check()) ? 'filament.user.pages.dashboard' : 'filament.user.auth.login'
+            );
         }
 
         return app(LoginUserAction::class)->execute($socialiteUser);

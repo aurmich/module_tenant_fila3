@@ -118,12 +118,22 @@ class PasswordExpired extends Page implements HasForms
         // get password expiry date and time
         $passwordExpiryDateTime = now()->addDays($pwd->expires_in);
 
+        // Verificare che l'utente esistante e che sia un modello Eloquent
+        if (!($user instanceof \Illuminate\Database\Eloquent\Model)) {
+            throw new \InvalidArgumentException('L\'utente deve essere un modello Eloquent con il metodo update');
+        }
+
         // set password expiry date and time
         $user->update([
             'password_expires_at' => $passwordExpiryDateTime,
             'is_otp' => false,
             'password' => Hash::make($password),
         ]);
+
+        // Verificare che l'utente implementi l'interfaccia UserContract prima di passarlo all'evento
+        if (!$user instanceof \Modules\Xot\Contracts\UserContract) {
+            throw new \InvalidArgumentException('L\'utente deve implementare l\'interfaccia UserContract');
+        }
 
         event(new NewPasswordSet($user));
 

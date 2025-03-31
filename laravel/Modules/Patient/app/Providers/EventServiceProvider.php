@@ -6,6 +6,9 @@ use Illuminate\Foundation\Support\Providers\EventServiceProvider as ServiceProvi
 
 class EventServiceProvider extends ServiceProvider
 {
+    protected string $module_dir = __DIR__;
+
+    protected string $module_ns = __NAMESPACE__;
     /**
      * The event handler mappings for the application.
      *

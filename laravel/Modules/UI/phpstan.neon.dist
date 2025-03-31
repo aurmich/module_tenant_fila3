@@ -24,7 +24,7 @@ parameters:
         - ./vendor/*
         - ./*/vendor/*
         - ./docs/*
-        - ./Tests/*
+        # - ./Tests/*
         - ./_ide_helper.php
 
     bootstrapFiles:

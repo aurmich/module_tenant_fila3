@@ -37,7 +37,7 @@ class CreateTenantCommand extends Command
         $name = text(
             label: 'What is name of tenant?',
             placeholder: 'E.g. Tabacchi belli',
-            // default: $user?->name,
+            // default: $user->name,
             // hint: 'This will be displayed on your profile.'
         );
 

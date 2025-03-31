@@ -6,6 +6,7 @@ namespace Modules\Cms\Models;
 
 use Modules\Tenant\Models\Traits\SushiToJsons;
 use Modules\Xot\Actions\Tree\GetTreeOptionsByModelClassAction;
+use Staudenmeir\LaravelAdjacencyList\Eloquent\HasRecursiveRelationships;
 
 /**
  * Modules\Cms\Models\Menu.
@@ -92,6 +93,8 @@ use Modules\Xot\Actions\Tree\GetTreeOptionsByModelClassAction;
  * @method static \Staudenmeir\LaravelAdjacencyList\Eloquent\Collection<int, static> get($columns = ['*'])
  * @method static \Staudenmeir\LaravelAdjacencyList\Eloquent\Collection<int, static> all($columns = ['*'])
  * @method static \Staudenmeir\LaravelAdjacencyList\Eloquent\Collection<int, static> get($columns = ['*'])
+ * @method static \Staudenmeir\LaravelAdjacencyList\Eloquent\Collection<int, static> all($columns = ['*'])
+ * @method static \Staudenmeir\LaravelAdjacencyList\Eloquent\Collection<int, static> get($columns = ['*'])
  *
  * @property \Modules\Xot\Contracts\ProfileContract|null $creator
  * @property \Modules\Xot\Contracts\ProfileContract|null $updater
@@ -122,14 +125,12 @@ use Modules\Xot\Actions\Tree\GetTreeOptionsByModelClassAction;
  * @method static \Staudenmeir\LaravelAdjacencyList\Eloquent\Collection<int, static> get($columns = ['*'])
  * @method static \Staudenmeir\LaravelAdjacencyList\Eloquent\Collection<int, static> all($columns = ['*'])
  * @method static \Staudenmeir\LaravelAdjacencyList\Eloquent\Collection<int, static> get($columns = ['*'])
- * @method static \Staudenmeir\LaravelAdjacencyList\Eloquent\Collection<int, static> all($columns = ['*'])
- * @method static \Staudenmeir\LaravelAdjacencyList\Eloquent\Collection<int, static> get($columns = ['*'])
- * @method static \Modules\Cms\Database\Factories\MenuFactory                        factory($count = null, $state = [])
  *
  * @mixin \Eloquent
  */
-class Menu extends BaseTreeModel
+class Menu extends BaseModel
 {
+    use HasRecursiveRelationships;
     use SushiToJsons;
 
     /** @var list<string> */
@@ -150,9 +151,14 @@ class Menu extends BaseTreeModel
         'updated_by' => 'string',
     ];
 
+    /**
+     * @return array<string, string>
+     */
     public static function getTreeMenuOptions(): array
     {
-        return app(GetTreeOptionsByModelClassAction::class)->execute(Menu::class);
+        /** @var class-string<\Modules\Xot\Contracts\HasRecursiveRelationshipsContract> $className */
+        $className = Menu::class;
+        return app(GetTreeOptionsByModelClassAction::class)->execute($className);
     }
 
     public function getRows(): array
@@ -168,10 +174,5 @@ class Menu extends BaseTreeModel
             'uuid' => 'string',
             'items' => 'array',
         ];
-    }
-
-    public function getLabel(): string
-    {
-        return $this->title;
     }
 }

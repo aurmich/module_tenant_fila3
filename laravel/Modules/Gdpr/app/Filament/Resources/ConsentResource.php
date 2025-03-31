@@ -19,10 +19,10 @@ class ConsentResource extends XotBaseResource
     public static function getFormSchema(): array
     {
         return [
-            Forms\Components\Select::make('treatment_id')
+            'treatment_id' => Forms\Components\Select::make('treatment_id')
                 ->relationship('treatment', 'name')
                 ->required(),
-            Forms\Components\TextInput::make('subject_id')
+            'subject_id' => Forms\Components\TextInput::make('subject_id')
                 ->required()
                 ->maxLength(191),
         ];
