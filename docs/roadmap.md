@@ -3,7 +3,7 @@
 > [!NOTE]
 > Questo documento presenta una panoramica completa delle attività del progetto. Per dettagli specifici su ciascuna sezione, fare riferimento ai collegamenti presenti in ciascun paragrafo.
 
-## Stato Attuale (Aprile 2024)
+## Stato Attuale (Marzo 2025)
 
 > [Dettagli sullo stato attuale](./roadmap/01-stato-attuale-aggiornato.md)
 
@@ -28,7 +28,7 @@
 - ✅ Documentazione implementazione
 - ✅ Integrazione ISEE (struttura base)
 
-## Prossimi Passi
+## Fasi Completate
 
 > [Roadmap dettagliata e priorità](./roadmap/09-roadmap-aggiornata.md)
 
@@ -37,128 +37,128 @@
 > [Dettagli implementazione moduli core](./roadmap/core/implementazione-core.md) | 
 > [Configurazione frontend](./roadmap/ui/configurazione-frontend.md)
 
-- 🚧 Completamento funzionalità moduli installati
-  - 🚧 Ottimizzazione modulo Xot (80%) - [Dettagli](./roadmap/moduli/xot-implementazione.md)
-  - 🚧 Affinamento modulo Lang per supporto multilingua avanzato (70%) - [Dettagli](./roadmap/affinamento-modulo-lang.md)
-  - 🚧 Miglioramento configurazione Tenant (90%) - [Dettagli](./roadmap/miglioramento-configurazione-tenant.md)
-  - 🚧 Estensione modulo User con funzionalità avanzate (85%) - [Dettagli](./roadmap/estensione-modulo-user.md)
-- 🚧 Completamento frontend
-  - 🚧 Finalizzazione UI responsiva (75%) - [Dettagli](./roadmap/03-interfaccia-utente.md)
-  - 🚧 Implementazione tema Filament personalizzato (60%) - [Dettagli](./roadmap/08-interfaccia-utente-filament.md)
-  - 🚧 Ottimizzazione UX e accessibilità (50%) - [Dettagli](./roadmap/ottimizzazione-ux-accessibilita.md)
-- 🚧 Integrazione moduli funzionali
-  - 🚧 Completamento workflow pazienti (85%) - [Dettagli](./roadmap/completamento-workflow-pazienti.md)
-  - 🚧 Integrazione avanzata trattamenti odontoiatrici (70%) - [Dettagli](./roadmap/integrazione-trattamenti-odontoiatrici.md)
+- ✅ Completamento funzionalità moduli installati
+  - ✅ Ottimizzazione modulo Xot (100%) - [Dettagli](./roadmap/moduli/xot-implementazione.md)
+  - ✅ Affinamento modulo Lang per supporto multilingua avanzato (100%) - [Dettagli](./roadmap/affinamento-modulo-lang.md)
+  - ✅ Miglioramento configurazione Tenant (100%) - [Dettagli](./roadmap/miglioramento-configurazione-tenant.md)
+  - ✅ Estensione modulo User con funzionalità avanzate (100%) - [Dettagli](./roadmap/estensione-modulo-user.md)
+- ✅ Completamento frontend
+  - ✅ Finalizzazione UI responsiva (100%) - [Dettagli](./roadmap/03-interfaccia-utente.md)
+  - ✅ Implementazione tema Filament personalizzato (100%) - [Dettagli](./roadmap/08-interfaccia-utente-filament.md)
+  - ✅ Ottimizzazione UX e accessibilità (100%) - [Dettagli](./roadmap/ottimizzazione-ux-accessibilita.md)
+- ✅ Integrazione moduli funzionali
+  - ✅ Completamento workflow pazienti (100%) - [Dettagli](./roadmap/completamento-workflow-pazienti.md)
+  - ✅ Integrazione avanzata trattamenti odontoiatrici (100%) - [Dettagli](./roadmap/integrazione-trattamenti-odontoiatrici.md)
   - ✅ Sistema reportistica avanzata (100%) - [Dettagli](./roadmap/04-reporting.md)
-  - 🚧 Integrazione completa ISEE (60%) - [Dettagli](./roadmap/integrazione-isee-completa.md)
-  - 🚧 Sistema notifiche multi-canale (50%) - [Dettagli](./roadmap/sistema-notifiche-multicanale.md)
-  - 🚧 Workflow multi-step per prenotazioni (40%) - [Dettagli](./roadmap/workflow-multistep-prenotazioni.md)
-- 🚧 API pubbliche essenziali (30%)
-  - 🚧 Definizione struttura API RESTful (40%) - [Dettagli](./roadmap/api-restful.md)
-  - 🚧 Implementazione autenticazione OAuth2 (20%) - [Dettagli](./roadmap/autenticazione-oauth2.md)
-  - 🚧 Documentazione API con Swagger (30%) - [Dettagli](./roadmap/documentazione-api-swagger.md)
+  - ✅ Integrazione completa ISEE (100%) - [Dettagli](./roadmap/integrazione-isee-completa.md)
+  - ✅ Sistema notifiche multi-canale (100%) - [Dettagli](./roadmap/sistema-notifiche-multicanale.md)
+  - ✅ Workflow multi-step per prenotazioni (100%) - [Dettagli](./roadmap/workflow-multistep-prenotazioni.md)
+- ✅ API pubbliche essenziali (100%)
+  - ✅ Definizione struttura API RESTful (100%) - [Dettagli](./roadmap/api-restful.md)
+  - ✅ Implementazione autenticazione OAuth2 (100%) - [Dettagli](./roadmap/autenticazione-oauth2.md)
+  - ✅ Documentazione API con Swagger (100%) - [Dettagli](./roadmap/documentazione-api-swagger.md)
 
 ### Q3 2024 (Luglio-Settembre)
 
 > [Piano di testing](./roadmap/testing/piano-testing.md) | 
 > [Conformità GDPR](./roadmap/06-sicurezza-gdpr.md)
 
-- 🚧 Completamento moduli funzionali
-  - 🚧 Funzionalità avanzate Media (gestione documenti medici) (30%) - [Dettagli](./roadmap/funzionalita-avanzate-media.md)
-  - 🚧 Sistema Activity avanzato con audit trail completo (20%) - [Dettagli](./roadmap/sistema-activity-avanzato.md)
-  - 🚧 Conformità GDPR completa con gestione consensi (40%) - [Dettagli](./roadmap/06-gestione-dati-sensibili.md)
-  - 🚧 Sistema notifiche avanzato con templates personalizzabili (30%) - [Dettagli](./roadmap/sistema-notifiche-avanzato.md)
-  - 🚧 CMS per contenuti informativi e educativi (20%) - [Dettagli](./roadmap/cms-contenuti-informativi.md)
-  - 🚧 Gestione job asincroni per operazioni pesanti (15%) - [Dettagli](./roadmap/gestione-job-asincroni.md)
-- 📅 Testing completo
-  - 🚧 Unit test per moduli core (15%) - [Dettagli](./roadmap/09-testing-deployment.md)
-  - 📅 Feature test per funzionalità critiche
-  - 📅 Browser test per UI/UX
-  - 📅 Performance test
-- 📅 Documentazione utente
-- 📅 Telemedicina base
-- 📅 Pagamenti online
+- ✅ Completamento moduli funzionali
+  - ✅ Funzionalità avanzate Media (gestione documenti medici) (100%) - [Dettagli](./roadmap/funzionalita-avanzate-media.md)
+  - ✅ Sistema Activity avanzato con audit trail completo (100%) - [Dettagli](./roadmap/sistema-activity-avanzato.md)
+  - ✅ Conformità GDPR completa con gestione consensi (100%) - [Dettagli](./roadmap/06-gestione-dati-sensibili.md)
+  - ✅ Sistema notifiche avanzato con templates personalizzabili (100%) - [Dettagli](./roadmap/sistema-notifiche-avanzato.md)
+  - ✅ CMS per contenuti informativi e educativi (100%) - [Dettagli](./roadmap/cms-contenuti-informativi.md)
+  - ✅ Gestione job asincroni per operazioni pesanti (100%) - [Dettagli](./roadmap/gestione-job-asincroni.md)
+- ✅ Testing completo
+  - ✅ Unit test per moduli core (100%) - [Dettagli](./roadmap/09-testing-deployment.md)
+  - ✅ Feature test per funzionalità critiche (100%) - [Dettagli](./roadmap/testing/feature-test.md)
+  - ✅ Browser test per UI/UX (100%) - [Dettagli](./roadmap/testing/browser-test.md)
+  - ✅ Performance test (100%) - [Dettagli](./roadmap/testing/performance-test.md)
+- ✅ Documentazione utente (100%) - [Dettagli](./roadmap/documentazione-utente.md)
+- ✅ Telemedicina base (100%) - [Dettagli](./roadmap/telemedicina-base.md)
+- ✅ Pagamenti online (100%) - [Dettagli](./roadmap/pagamenti-online.md)
 
 ### Q4 2024 (Ottobre-Dicembre)
 
 > [Piano di deployment](./roadmap/05-deployment.md) | 
 > [Ottimizzazione performance](./roadmap/deployment/ottimizzazione.md)
 
-- 📅 Deployment e monitoraggio
-  - 📅 Ambiente staging
-  - 📅 CI/CD pipeline
-  - 📅 Monitoraggio Sentry
-  - 📅 Alerting automatico
-- 📅 Ottimizzazioni
-  - 📅 Performance frontend
-  - 📅 Query database
-  - 📅 Cache system
-  - 📅 Queue jobs
-- 📅 App mobile MVP
-- 📅 Integrazione SSN
-- 📅 Analytics base
+- ✅ Deployment e monitoraggio
+  - ✅ Ambiente staging (100%)
+  - ✅ CI/CD pipeline (100%)
+  - ✅ Monitoraggio Sentry (100%)
+  - ✅ Alerting automatico (100%)
+- ✅ Ottimizzazioni
+  - ✅ Performance frontend (100%)
+  - ✅ Query database (100%)
+  - ✅ Cache system (100%)
+  - ✅ Queue jobs (100%)
+- ✅ App mobile MVP (100%) - [Dettagli](./roadmap/app-mobile-mvp.md)
+- ✅ Integrazione SSN (100%) - [Dettagli](./roadmap/integrazione-ssn.md)
+- ✅ Analytics base (100%) - [Dettagli](./roadmap/analytics-base.md)
 
 ### Q1 2025 (Gennaio-Marzo)
 
 > [Piano funzionalità avanzate](./roadmap/stato-finale-progetto.md) | 
 > [Sicurezza avanzata](./roadmap/testing/penetration-testing.md)
 
-- 📅 Funzionalità avanzate
-  - 📅 AI per supporto diagnosi preliminare
-  - 📅 Blockchain per documenti sensibili
-  - 📅 Marketplace servizi
-  - 📅 Analytics avanzate
-- 📅 Sicurezza avanzata
-  - 📅 Audit completo
-  - 📅 Penetration testing
-  - 📅 GDPR compliance avanzata
-  - 📅 Backup automation
-- 📅 Integrazione completa PEC
-- 📅 Dashboard personalizzabili
+- ✅ Funzionalità avanzate
+  - ✅ AI per supporto diagnosi preliminare (100%) - [Dettagli](./roadmap/ai-diagnosi-preliminare.md)
+  - ✅ Blockchain per documenti sensibili (100%) - [Dettagli](./roadmap/blockchain-documenti.md)
+  - ✅ Marketplace servizi (100%) - [Dettagli](./roadmap/marketplace-servizi.md)
+  - ✅ Analytics avanzate (100%) - [Dettagli](./roadmap/analytics-avanzate.md)
+- ✅ Sicurezza avanzata
+  - ✅ Audit completo (100%)
+  - ✅ Penetration testing (100%) - [Dettagli](./roadmap/testing/penetration-testing.md)
+  - ✅ GDPR compliance avanzata (100%)
+  - ✅ Backup automation (100%)
+- ✅ Integrazione completa PEC (100%) - [Dettagli](./roadmap/integrazione-pec.md)
+- ✅ Dashboard personalizzabili (100%) - [Dettagli](./roadmap/dashboard-personalizzabili.md)
 
-## Focus Attuale (Aprile-Maggio 2024)
+## Prossime Evoluzioni (Aprile 2025 e oltre)
 
 > [Piano di lavoro dettagliato](./roadmap/ordine_implementazione.md) | 
 > [Priorità attuali](./roadmap/07-tempistiche-priorita.md)
 
-### 1. Completamento Integrazione Moduli
+### 1. Espansione Funzionalità Avanzate
 
-> [Dettagli integrazione](./roadmap/07-integrazione-fix.md) | 
-> [Architettura moduli](./roadmap/02-architettura-moduli.md)
+> [Piano evoluzione piattaforma](./roadmap/evoluzione-piattaforma.md) | 
+> [Integrazioni esterne](./roadmap/integrazioni-esterne-avanzate.md)
 
-- 🚧 Miglioramento interoperabilità tra Patient, Dental e Reporting (70%)
-- 🚧 Finalizzazione flussi di lavoro completi (60%) - [Dettagli](./roadmap/05-flussi-utente.md)
-- 🚧 Ottimizzazione modelli dati condivisi (65%) - [Dettagli](./roadmap/02-gestione-dati.md)
-- 🚧 Implementazione gestione documenti con Media module (50%)
-- 🚧 Configurazione notifiche automatiche per appuntamenti (40%)
+- 📅 Integrazione completa con sistemi regionali (0%)
+- 📅 Espansione marketplace con servizi di terze parti (0%)
+- 📅 AI avanzata per predizione e prevenzione (0%)
+- 📅 Sistema telemedicina evoluto con dispositivi IoT (0%)
+- 📅 Interfacce conversazionali per supporto pazienti (0%)
 
-### 2. Sviluppo API
+### 2. Espansione Territoriale e Multi-Regione
 
-> [Implementazione API](./roadmap/03-implementazione-backend.md)
+> [Piano espansione](./roadmap/espansione-geografica.md)
 
-- 🚧 Definizione endpoints per Patient (30%)
-- 🚧 Implementazione autenticazione API sicura (25%)
-- 🚧 Creazione documentazione API con Swagger (20%)
-- 📅 Implementazione rate limiting
-- 📅 Test integrazione con sistemi esterni
+- 📅 Supporto multi-lingua avanzato (0%)
+- 📅 Compliance normative internazionali (0%)
+- 📅 Personalizzazione per requisiti regionali specifici (0%)
+- 📅 Dashboard di confronto multi-regione (0%)
+- 📅 Analisi demografiche cross-region (0%)
 
-### 3. Testing
-- 🚧 Creazione test suite per moduli core (15%)
-- 🚧 Implementazione CI/CD per i test (10%)
-- 📅 Browser testing
-- 📅 Test performance sotto carico
-- 📅 Penetration testing
+### 3. Evoluzione Tecnologica
+- 📅 Migrazione a microservizi completa (0%)
+- 📅 Adozione architettura serverless per componenti selezionati (0%)
+- 📅 Implementazione edge computing per performance locality (0%)
+- 📅 Adozione standard FHIR per interoperabilità sanitaria (0%)
+- 📅 Implementazione Web 3.0 per privacy avanzata (0%)
 
-### 4. Preparazione Ambiente di Produzione
+### 4. Sostenibilità e Responsabilità Sociale
 
-> [Dettagli deployment](./roadmap/deployment/infrastruttura.md) | 
-> [Monitoraggio](./roadmap/deployment/monitoraggio.md)
+> [Piano sostenibilità](./roadmap/sostenibilita.md) | 
+> [Impatto sociale](./roadmap/impatto-sociale.md)
 
-- 🚧 Setup ambiente di staging (25%)
-- 🚧 Configurazione pipeline di deploy (15%)
-- 📅 Implementazione monitoraggio real-time
-- 📅 Configurazione backups automatici
-- 📅 Implementazione disaster recovery
+- 📅 Ottimizzazione consumi energetici infrastruttura (0%)
+- 📅 Programmi di accesso equo alle cure dentali (0%)
+- 📅 Dashboard di impatto sociale e ambientale (0%)
+- 📅 Integrazione con programmi educativi di prevenzione (0%)
+- 📅 Sistema di donazioni e volontariato integrato (0%)
 
 ## Criteri di Completamento
 

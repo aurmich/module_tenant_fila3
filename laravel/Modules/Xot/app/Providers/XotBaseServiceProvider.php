@@ -24,25 +24,9 @@ use function Safe\realpath;
 abstract class XotBaseServiceProvider extends ServiceProvider
 {
     use PathNamespace;
-
-    /**
-     * @var string
-     */
     public string $name = '';
-
-    /**
-     * @var string
-     */
     protected string $module_dir = '';
-
-    /**
-     * @var string
-     */
     protected string $module_ns = '';
-
-    /**
-     * @var string
-     */
     protected string $nameLower = '';
 
     /**
@@ -50,6 +34,7 @@ abstract class XotBaseServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
+        
         $this->registerTranslations();
         $this->registerConfig();
         $this->registerViews();
@@ -64,6 +49,12 @@ abstract class XotBaseServiceProvider extends ServiceProvider
      */
     public function register(): void
     {
+        if ('' === $this->name) {
+            throw new \Exception('name is empty on ['.static::class.']');
+        }
+        if($this->module_ns==''){
+            throw new \Exception('module_ns is empty on ['.static::class.']');
+        }
         $this->nameLower = Str::lower($this->name);
         $this->module_ns = collect(explode('\\', $this->module_ns))->slice(0, -1)->implode('\\');
         $this->app->register($this->module_ns.'\Providers\RouteServiceProvider');

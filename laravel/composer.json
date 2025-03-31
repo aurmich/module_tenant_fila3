@@ -18,7 +18,7 @@
         "wikimedia/composer-merge-plugin": "^2.1"
     },
     "require-dev": {
-        
+        "nunomaduro/phpinsights": "*"
     },
     "autoload": {
         "psr-4": {
@@ -75,6 +75,7 @@
         "preferred-install": "dist",
         "sort-packages": true,
         "allow-plugins": {
+            "dealerdirect/phpcodesniffer-composer-installer": true,
             "pestphp/pest-plugin": true,
             "php-http/discovery": true,
             "wikimedia/composer-merge-plugin": true

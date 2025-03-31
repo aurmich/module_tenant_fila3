@@ -11,6 +11,12 @@ use Illuminate\Foundation\Support\Providers\RouteServiceProvider as ServiceProvi
 
 class RouteServiceProvider extends XotBaseServiceProvider
 {
+    /**
+     * Nome del modulo - OBBLIGATORIO per XotBaseServiceProvider
+     * Deve corrispondere esattamente al nome della cartella del modulo
+     */
+    public string $name = 'Patient';
+    
     protected $moduleNamespace = 'Modules\Patient\Http\Controllers';
     protected string $module_dir = __DIR__;
 

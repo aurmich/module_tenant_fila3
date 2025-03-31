@@ -1,5 +1,10 @@
 # Regole per le Risorse Filament
 
+## Principi Fondamentali
+- **MAI utilizzare** il metodo `->label()` nei componenti Filament
+- Le etichette sono gestite automaticamente dal `LangServiceProvider`
+- Utilizzare i file di traduzione per definire le etichette dei campi
+
 ## Struttura Base
 - Tutte le risorse Filament devono essere nella directory `app/Filament/Resources`
 - Ogni risorsa deve estendere `Filament\Resources\Resource`
@@ -43,4 +48,4 @@ class PatientResource extends Resource
 - Verificare che tutte le risorse siano registrate nel service provider
 - Controllare che i modelli referenziati esistano
 - Assicurarsi che le pagine CRUD siano implementate
-- Verificare i permessi e le policy 
+- Verificare i permessi e le policy

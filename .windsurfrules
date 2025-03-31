@@ -27,6 +27,14 @@
 - Reuse existing work whenever possible
 - Choose the most efficient approach to solve problems
 
+# Regole per le Traduzioni
+
+- MAI utilizzare il metodo `->label()` nei componenti Filament
+- Le etichette sono gestite automaticamente dal LangServiceProvider
+- Utilizzare la struttura espansa per i campi nei file di traduzione
+- Seguire la convenzione di naming per le chiavi di traduzione: `modulo::risorsa.fields.campo.label`
+- Verificare sempre che il LangServiceProvider sia registrato correttamente
+
 # Regole per Filament
 
 ## XotBaseResource

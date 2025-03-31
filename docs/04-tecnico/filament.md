@@ -4,6 +4,15 @@
 
 Filament è il framework di amministrazione utilizzato in SaluteOra per creare interfacce di gestione potenti e intuitive. Questa documentazione descrive l'implementazione e le best practices per l'utilizzo di Filament nel contesto del progetto.
 
+## Regole Fondamentali
+
+### Traduzioni e Localizzazione
+
+- **MAI utilizzare** il metodo `->label()` nei componenti Filament
+- Le etichette sono gestite automaticamente dal `LangServiceProvider`
+- L'uso di `->label()` interferisce con il meccanismo di traduzione automatica
+- Utilizzare i file di traduzione seguendo la struttura espansa (vedi sezione Traduzioni)
+
 ## XotBaseResource
 
 Quando si estende `XotBaseResource`, seguire queste linee guida:

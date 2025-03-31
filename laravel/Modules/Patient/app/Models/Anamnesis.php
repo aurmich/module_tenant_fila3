@@ -1,11 +1,13 @@
 <?php
 
-namespace Modules\Patient\Models;
+declare(strict_types=1);
+
+namespace Modules\Patient\app\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\SoftDeletes;
-use Modules\Tenant\Traits\BelongsToTenant;
+use Modules\Tenant\app\Traits\BelongsToTenant;
 
 class Anamnesis extends BaseModel
 {

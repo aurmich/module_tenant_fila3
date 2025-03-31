@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Modules\Patient\Models;
+namespace Modules\Patient\app\Models;
 
 use Illuminate\Database\Eloquent\Model;
 

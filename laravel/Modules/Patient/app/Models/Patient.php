@@ -21,10 +21,12 @@ class Patient extends BaseModel
         'birth_date',
         'phone',
         'email',
+        'isee_expiry_date',
     ];
 
     protected $casts = [
         'birth_date' => 'date',
+        'isee_expiry_date' => 'date',
     ];
 
     public function documents(): HasMany
