@@ -23,7 +23,11 @@ declare(strict_types=1);
  * Nota: Questo comando viene registrato automaticamente tramite il metodo registerCommands()
  * nel XotBaseServiceProvider. Affinché appaia nell'elenco dei comandi, è necessario che:
  * 1. Il modulo Xot sia correttamente installato e registrato in Laravel
- * 2. Il namespace Modules\Xot\Console\Commands;
+ * 2. Il namespace e il percorso del file siano corretti
+ * 3. La classe estenda XotBaseCommand
+ */
+
+namespace Modules\Xot\Console\Commands;
 
 use Illuminate\Support\Facades\Process;
 use Symfony\Component\Console\Input\InputArgument;

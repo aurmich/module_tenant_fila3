@@ -5,17 +5,9 @@ declare(strict_types=1);
 namespace Modules\Patient\Filament\Resources\PatientResource\Pages;
 
 use Modules\Patient\Filament\Resources\PatientResource;
-use Filament\Actions;
-use Filament\Resources\Pages\EditRecord;
+use Modules\Xot\Filament\Resources\XotBaseResource\Pages\XotBaseEditRecord;
 
-class EditPatient extends EditRecord
+class EditPatient extends XotBaseEditRecord
 {
     protected static string $resource = PatientResource::class;
-
-    protected function getHeaderActions(): array
-    {
-        return [
-            Actions\DeleteAction::make(),
-        ];
-    }
-} 
+}

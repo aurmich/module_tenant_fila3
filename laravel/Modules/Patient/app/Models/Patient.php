@@ -9,25 +9,46 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Modules\Tenant\Traits\BelongsToTenant;
+use Modules\Xot\Models\XotBaseModel;
 
-class Patient extends BaseModel
+class Patient extends XotBaseModel
 {
     use HasFactory, SoftDeletes, BelongsToTenant;
 
     protected $fillable = [
+        'tenant_id',
         'name',
         'surname',
         'fiscal_code',
         'birth_date',
         'phone',
         'email',
+        'address',
+        'city',
+        'postal_code',
+        'province',
+        'country',
+        'is_pregnant',
+        'isee_code',
+        'isee_value',
         'isee_expiry_date',
+        'notes',
     ];
 
-    protected $casts = [
-        'birth_date' => 'date',
-        'isee_expiry_date' => 'date',
-    ];
+    /**
+     * Get the attributes that should be cast.
+     *
+     * @return array<string, string>
+     */
+    public function casts(): array
+    {
+        return array_merge(parent::casts(), [
+            'birth_date' => 'date',
+            'isee_expiry_date' => 'date',
+            'is_pregnant' => 'boolean',
+            'isee_value' => 'decimal:2',
+        ]);
+    }
 
     public function documents(): HasMany
     {
@@ -58,4 +79,4 @@ class Patient extends BaseModel
     {
         return $this->isee_expiry_date && $this->isee_expiry_date->isPast();
     }
-} 
+}

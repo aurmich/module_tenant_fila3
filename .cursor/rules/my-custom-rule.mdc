@@ -6,6 +6,63 @@ alwaysApply: true
 
 # Regole del Progetto SaluteOra
 
+## Metodologia di Lavoro
+
+### Analisi Iniziale
+- Analizzare TUTTA la documentazione esistente prima di qualsiasi modifica
+- Verificare file di configurazione e struttura del progetto
+- Controllare presenza di file specifici (composer.json, module.json, ecc.)
+- Leggere attentamente i file README.md nelle sottocartelle
+
+### Verifica Struttura
+- Usare `list_dir` per verificare la struttura effettiva
+- Confrontare con la documentazione esistente
+- Verificare la presenza di directory specifiche
+- Controllare la struttura dei namespace
+
+### Lettura Completa
+- Leggere TUTTI i file README.md nelle sottocartelle
+- Analizzare i file di configurazione
+- Verificare i file di migrazione e struttura
+- Controllare le dipendenze tra moduli
+
+### Verifica Dipendenze
+- Verificare le dipendenze tra i moduli
+- Controllare l'ordine corretto di installazione
+- Assicurarsi di non omettere moduli essenziali
+- Verificare le versioni compatibili
+
+### Comandi Specifici
+- Usare sempre i comandi specifici del framework/modulo
+- Verificare i comandi corretti nella documentazione
+- Non assumere comandi standard
+- Testare i comandi prima dell'uso
+
+### Namespace e Struttura
+- Verificare la struttura corretta dei namespace
+- Controllare la differenza tra struttura fisica e logica
+- Seguire le convenzioni specifiche del progetto
+- Mantenere la coerenza dei namespace
+
+### Test di Verifica
+- Fare una verifica completa prima di applicare modifiche
+- Confrontare con la documentazione esistente
+- Assicurarsi che non ci siano contraddizioni
+- Verificare la coerenza delle modifiche
+
+### Documentazione
+- Mantenere la coerenza con la documentazione esistente
+- Seguire lo stile e il formato corretto
+- Assicurarsi che le modifiche siano allineate con il progetto
+- Aggiornare tutti i file correlati
+
+### Filament
+- NON estendere mai direttamente le classi di Filament
+- Creare sempre wrapper personalizzati
+- Utilizzare traits per funzionalità riutilizzabili
+- Seguire il pattern di composizione invece dell'ereditarietà
+- Mantenere la compatibilità con gli aggiornamenti di Filament
+
 ## Struttura del Progetto
 
 ### Moduli

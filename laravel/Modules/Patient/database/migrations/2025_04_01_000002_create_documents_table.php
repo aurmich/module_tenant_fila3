@@ -3,8 +3,8 @@
 declare(strict_types=1);
 
 use Illuminate\Database\Schema\Blueprint;
-use Modules\Tenant\Models\Tenant;
 use Modules\Patient\Models\Patient;
+use Modules\Tenant\Models\Tenant;
 use Modules\Xot\Database\Migrations\XotBaseMigration;
 
 return new class extends XotBaseMigration
@@ -14,7 +14,7 @@ return new class extends XotBaseMigration
      *
      * @var string
      */
-    protected string $table = 'pregnancies';
+    protected string $table = 'documents';
 
     /**
      * Run the migrations.
@@ -29,15 +29,16 @@ return new class extends XotBaseMigration
                     ->onDelete('cascade')->onUpdate('cascade');
                 $table->foreignIdFor(Patient::class)->constrained()
                     ->onDelete('cascade')->onUpdate('cascade');
-                $table->date('expected_delivery_date')->nullable();
-                $table->integer('weeks_pregnant')->nullable();
-                $table->tinyInteger('trimester')->nullable();
-                $table->boolean('high_risk')->default(false);
+                $table->string('type');
+                $table->string('title');
+                $table->text('description')->nullable();
+                $table->string('file_path');
+                $table->string('file_name');
+                $table->bigInteger('file_size')->nullable();
+                $table->string('mime_type')->nullable();
+                $table->date('expiry_date')->nullable();
+                $table->string('status')->default('active');
                 $table->text('notes')->nullable();
-                $table->date('last_checkup_date')->nullable();
-                $table->date('next_checkup_date')->nullable();
-                $table->string('healthcare_provider')->nullable();
-                $table->string('healthcare_facility')->nullable();
             }
         );
         

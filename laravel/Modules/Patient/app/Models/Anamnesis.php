@@ -2,14 +2,15 @@
 
 declare(strict_types=1);
 
-namespace Modules\Patient\app\Models;
+namespace Modules\Patient\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\SoftDeletes;
-use Modules\Tenant\app\Traits\BelongsToTenant;
+use Modules\Tenant\Traits\BelongsToTenant;
+use Modules\Xot\Models\XotBaseModel;
 
-class Anamnesis extends BaseModel
+class Anamnesis extends XotBaseModel
 {
     use HasFactory, SoftDeletes, BelongsToTenant;
 
@@ -24,13 +25,21 @@ class Anamnesis extends BaseModel
         'notes',
     ];
 
-    protected $casts = [
-        'allergies' => 'array',
-        'chronic_diseases' => 'array',
-        'medications' => 'array',
-        'family_history' => 'array',
-        'lifestyle' => 'array',
-    ];
+    /**
+     * Get the attributes that should be cast.
+     *
+     * @return array<string, string>
+     */
+    public function casts(): array
+    {
+        return array_merge(parent::casts(), [
+            'allergies' => 'array',
+            'chronic_diseases' => 'array',
+            'medications' => 'array',
+            'family_history' => 'array',
+            'lifestyle' => 'array',
+        ]);
+    }
 
     public function patient(): BelongsTo
     {
@@ -51,4 +60,4 @@ class Anamnesis extends BaseModel
     {
         return !empty($this->medications);
     }
-} 
+}

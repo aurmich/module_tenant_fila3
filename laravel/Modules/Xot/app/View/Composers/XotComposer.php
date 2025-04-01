@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace Modules\Xot\View\Composers;
 
-
 use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Str;
@@ -21,21 +20,41 @@ use Webmozart\Assert\Assert;
 class XotComposer
 {
     /**
-     * __call.
+     * Undocumented function.
+     *
+     * @param array<mixed|void> $arguments
      */
     public function __call(string $name, array $arguments): mixed
     {
-        if (inAdmin()) {
-            $prefix = 'adm_';
-        } else {
-            $prefix = 'pub_';
+        $modules = Module::getOrdered();
+
+        $module = Arr::first(
+            $modules,
+            static function ($module) use ($name): bool {
+                // Ensure the module is an instance of LaravelModule
+                if (! $module instanceof LaravelModule) {
+                    return false;
+                }
+
+                Assert::string($moduleName = $module->getName());
+                $class = '\Modules\\'.$moduleName.'\View\Composers\ThemeComposer';
+
+                return method_exists($class, $name);
+            }
+        );
+
+        if (! \is_object($module)) {
+            throw new \Exception('Create a View\Composers\ThemeComposer.php inside a module with ['.$name.'] method');
         }
-        $name = $prefix.$name;
-        $auth_user = auth()->user();
-        if (method_exists($auth_user, $name)) {
-            return $auth_user->{$name}();
-        }
-        return null;
+
+        Assert::isInstanceOf($module, LaravelModule::class, '['.__LINE__.']['.class_basename($this).']');
+        $class = '\Modules\\'.$module->getName().'\View\Composers\ThemeComposer';
+
+        $app = app($class);
+        $callback = [$app, $name];
+        Assert::isCallable($callback);
+
+        return call_user_func_array($callback, $arguments);
     }
 
     /**
@@ -47,7 +66,7 @@ class XotComposer
         $view->with('lang', $lang);
         $view->with('_theme', $this);
 
-        if (Auth::guard()->check()) {
+        if (Auth::check()) {
             $profile = XotData::make()->getProfileModel();
             $view->with('_profile', $profile);
             $view->with('_user', auth()->user());
@@ -59,20 +78,16 @@ class XotComposer
         return asset(app(\Modules\Xot\Actions\File\AssetAction::class)->execute($str));
     }
 
-    /**
-     * Ottiene un metatag dal MetatagData.
-     *
-     * @param string $str Nome del metatag da ottenere
-     * @return string|bool|null Valore del metatag
-     */
     public function metatag(string $str): string|bool|null
     {
         $metatag = MetatagData::make();
         $fun = 'get'.Str::studly($str);
         if (method_exists($metatag, $fun)) {
+            // @phpstan-ignore return.type
             return $metatag->{$fun}();
         }
 
+        // @phpstan-ignore return.type
         return $metatag->{$str};
     }
 }

@@ -36,9 +36,9 @@ abstract class XotBaseMainPanelProvider extends PanelProvider
             ->id('admin')
             ->path('admin');
 
-        //if (! Module::has('Cms')) {
+        if (! Module::has('Cms')) {
             $panel->login();
-        //}
+        }
 
         $panel = $panel
             ->passwordReset()

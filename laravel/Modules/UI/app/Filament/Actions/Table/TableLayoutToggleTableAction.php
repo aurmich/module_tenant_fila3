@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Modules\UI\Filament\Actions\Table;
+namespace Modules\UI\app\Filament\Actions\Table;
 
 use Filament\Resources\Pages\ListRecords;
 use Filament\Tables\Actions\Action;

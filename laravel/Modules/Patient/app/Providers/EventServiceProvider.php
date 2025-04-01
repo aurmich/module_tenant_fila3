@@ -1,14 +1,13 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Modules\Patient\Providers;
 
-use Illuminate\Foundation\Support\Providers\EventServiceProvider as ServiceProvider;
+use Modules\Xot\Providers\XotBaseEventServiceProvider;
 
-class EventServiceProvider extends ServiceProvider
+class EventServiceProvider extends XotBaseEventServiceProvider
 {
-    protected string $module_dir = __DIR__;
-
-    protected string $module_ns = __NAMESPACE__;
     /**
      * The event handler mappings for the application.
      *
@@ -24,7 +23,17 @@ class EventServiceProvider extends ServiceProvider
     protected static $shouldDiscoverEvents = true;
 
     /**
+     * Boot the service provider.
+     */
+    public function boot(): void
+    {
+        parent::boot();
+    }
+
+    /**
      * Configure the proper event listeners for email verification.
      */
-    protected function configureEmailVerification(): void {}
+    protected function configureEmailVerification(): void
+    {
+    }
 }

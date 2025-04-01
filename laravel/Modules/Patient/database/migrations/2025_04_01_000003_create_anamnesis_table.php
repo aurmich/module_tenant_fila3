@@ -3,8 +3,8 @@
 declare(strict_types=1);
 
 use Illuminate\Database\Schema\Blueprint;
-use Modules\Tenant\Models\Tenant;
 use Modules\Patient\Models\Patient;
+use Modules\Tenant\Models\Tenant;
 use Modules\Xot\Database\Migrations\XotBaseMigration;
 
 return new class extends XotBaseMigration
@@ -14,7 +14,7 @@ return new class extends XotBaseMigration
      *
      * @var string
      */
-    protected string $table = 'isees';
+    protected string $table = 'anamnesis';
 
     /**
      * Run the migrations.
@@ -29,13 +29,11 @@ return new class extends XotBaseMigration
                     ->onDelete('cascade')->onUpdate('cascade');
                 $table->foreignIdFor(Patient::class)->constrained()
                     ->onDelete('cascade')->onUpdate('cascade');
-                $table->string('isee_code')->nullable();
-                $table->decimal('isee_value', 10, 2)->nullable();
-                $table->date('isee_expiry_date')->nullable();
-                $table->date('isee_issue_date')->nullable();
-                $table->string('isee_type')->nullable();
-                $table->string('isee_document_path')->nullable();
-                $table->boolean('is_valid')->default(true);
+                $table->json('allergies')->nullable();
+                $table->json('chronic_diseases')->nullable();
+                $table->json('medications')->nullable();
+                $table->json('family_history')->nullable();
+                $table->json('lifestyle')->nullable();
                 $table->text('notes')->nullable();
             }
         );

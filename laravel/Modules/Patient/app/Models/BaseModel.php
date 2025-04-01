@@ -2,61 +2,86 @@
 
 declare(strict_types=1);
 
-namespace Modules\Patient\app\Models;
+namespace Modules\Patient\Models;
 
+use Illuminate\Database\Eloquent\Factories\Factory;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Modules\Xot\Traits\Updater;
+use Spatie\MediaLibrary\HasMedia;
+use Spatie\MediaLibrary\InteractsWithMedia;
 
 /**
- * BaseModel per il modulo Patient.
- * 
- * Estende le funzionalità di Eloquent Model con
- * metodi e proprietà specifiche per il contesto Patient.
+ * Class BaseModel.
  */
-class BaseModel extends Model
+abstract class BaseModel extends Model implements HasMedia
 {
+    // use Searchable;
+    use HasFactory;
+    use InteractsWithMedia;
+    use Updater;
+
     /**
-     * Indica se il modello deve utilizzare timestamp.
+     * Indicates whether attributes are snake cased on arrays.
+     *
+     * @see https://laravel-news.com/6-eloquent-secrets
      *
      * @var bool
      */
+    public static $snakeAttributes = true;
+
+    /** @var bool */
+    public $incrementing = true;
+
+    /** @var bool */
     public $timestamps = true;
 
-    /**
-     * Il formato per i timestamp del modello.
-     *
-     * @var string
-     */
-    protected $dateFormat = 'Y-m-d H:i:s';
+    /** @var int */
+    protected $perPage = 30;
+
+    /** @var string */
+    protected $connection = 'patient';
+
+    /** @var list<string> */
+    protected $appends = [];
+
+    /** @var string */
+    protected $primaryKey = 'id';
+
+    /** @var string */
+    protected $keyType = 'string';
+
+    /** @var list<string> */
+    protected $hidden = [
+        // 'password'
+    ];
 
     /**
-     * Costruttore.
+     * Create a new factory instance for the model.
      *
-     * @param array $attributes
+     * @return \Illuminate\Database\Eloquent\Factories\Factory<static>
      */
-    public function __construct(array $attributes = [])
+    protected static function newFactory()
     {
-        parent::__construct($attributes);
+        return app(\Modules\Xot\Actions\Factory\GetFactoryAction::class)->execute(static::class);
     }
 
-    /**
-     * Esegue l'override del metodo boot.
-     *
-     * @return void
-     */
-    protected static function boot(): void
+    /** @return array<string, string> */
+    public function casts(): array
     {
-        parent::boot();
-    }
+        return [
+            'id' => 'string',
+            'uuid' => 'string',
+            'published_at' => 'datetime',
 
-    /**
-     * Imposta il tenant ID per il modello.
-     *
-     * @param int $tenantId
-     * @return $this
-     */
-    public function setTenantId(int $tenantId): self
-    {
-        $this->tenant_id = $tenantId;
-        return $this;
+            'verified_at' => 'datetime',
+            'created_at' => 'datetime',
+            'updated_at' => 'datetime',
+            'deleted_at' => 'datetime',
+
+            'updated_by' => 'string',
+            'created_by' => 'string',
+            'deleted_by' => 'string',
+        ];
     }
 }

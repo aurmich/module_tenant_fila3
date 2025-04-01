@@ -1,11 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Modules\Patient\Http\Controllers\PatientController;
 
-Route::middleware(['api', 'auth:sanctum'])
-    ->prefix('api/v1/patient')
-    ->group(function () {
-        Route::apiResource('patients', 'Api\PatientController');
-        Route::apiResource('patients.documents', 'Api\DocumentController');
-        Route::apiResource('patients.anamnesis', 'Api\AnamnesisController');
-    }); 
+Route::middleware(['auth:sanctum'])->prefix('v1')->group(function () {
+    Route::apiResource('patient', PatientController::class)->names('patient');
+});
