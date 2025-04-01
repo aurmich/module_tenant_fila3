@@ -2,9 +2,58 @@
 
 > [Torna alla Roadmap Principale](../roadmap.md#q2-2024-aprile-giugno)
 
-## Stato Attuale
+## Stato Attuale (70%)
 
-L'affinamento del modulo Lang per il supporto multilingua avanzato è attualmente completato al 70%. Questo modulo è fondamentale per garantire l'accessibilità della piattaforma SaluteOra a pazienti e operatori di diverse nazionalità.
+### Completato ✅
+
+1. **Sistema Base**
+   - Installazione e configurazione
+   - Integrazione con Laravel core
+   - Sistema di traduzioni base
+
+2. **Gestione Lingue**
+   - Supporto italiano e inglese
+   - Sistema di fallback
+   - Gestione locale
+
+3. **Integrazione Frontend**
+   - Componenti base
+   - Sistema di traduzione dinamica
+   - Cache delle traduzioni
+
+### In Corso 🚧
+
+1. **Funzionalità Avanzate**
+   - Pluralizzazione avanzata
+   - Formattazione date e numeri
+   - Gestione RTL
+
+2. **Performance**
+   - Ottimizzazione cache
+   - Lazy loading traduzioni
+   - Precaricamento lingue
+
+3. **UI/UX**
+   - Selettore lingua
+   - Persistenza preferenze
+   - Rilevamento automatico
+
+## Prossimi Passi
+
+1. **Funzionalità**
+   - Implementare pluralizzazione avanzata
+   - Aggiungere formattazione locale
+   - Supportare lingue RTL
+
+2. **Performance**
+   - Ottimizzare sistema di cache
+   - Implementare lazy loading
+   - Migliorare precaricamento
+
+3. **UI/UX**
+   - Sviluppare selettore lingua
+   - Implementare persistenza
+   - Aggiungere rilevamento automatico
 
 ## Obiettivi dell'Implementazione
 
@@ -198,3 +247,9 @@ Per garantire performance ottimali con il supporto multilingua:
 - Tempo di caricamento aggiuntivo < 50ms
 - Soddisfazione utenti internazionali > 4.5/5
 - Riduzione richieste supporto lingua del 70%
+
+## Collegamenti
+
+- [Stato Attuale](../01-stato-attuale.md)
+- [Roadmap Principale](../roadmap.md)
+- [Implementazione Core](../core/implementazione-core.md)

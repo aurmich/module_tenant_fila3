@@ -493,163 +493,6 @@ deve motivare il rifiuto qualificandolo.
 
 Questa verrà recapitata alla paziente, al fine di assisterla.
 
-## Architettura Tecnica
-
-### Tecnologie Utilizzate
-
-- **Framework Backend**: Laravel 12 con architettura modulare
-- **Admin Panel**: Filament 3
-- **Multi-tenant**: Implementazione personalizzata tramite module_tenant_fila3
-- **Multilingua**: Gestito tramite module_lang_fila3
-- **Sistema di Moduli**: nwidart/laravel-modules con estensioni personalizzate
-- **Gestione Media**: Spatie Media Library
-- **Autenticazione**: Laravel Sanctum e Filament Shield
-- **GDPR & Privacy**: Modulo dedicato (module_gdpr_fila3)
-
-### Struttura dei Moduli
-
-Il sistema si basa su una architettura modulare che comprende:
-
-1. **Moduli Core**:
-   - `module_xot_fila3`: Modulo base con utility e configurazioni core
-   - `module_lang_fila3`: Gestione multilingua
-   - `module_tenant_fila3`: Supporto multi-tenant
-   - `module_user_fila3`: Gestione utenti e autenticazione
-
-2. **Moduli Frontend**:
-   - `module_ui_fila3`: Interfaccia utente base
-   - `theme_one_fila3`: Tema per Filament 3
-
-3. **Moduli Funzionali**:
-   - `module_media_fila3`: Gestione media e file
-   - `module_activity_fila3`: Logging e monitoraggio attività
-   - `module_gdpr_fila3`: Gestione privacy e GDPR
-   - `module_notify_fila3`: Sistema di notifiche
-   - `module_cms_fila3`: Gestione contenuti
-   - `module_job_fila3`: Gestione job in background
-
-### Architettura dei Namespace
-
-I moduli Laraxot utilizzano una struttura particolare per i namespace:
-
-1. **Struttura fisica**: I file si trovano nella sottodirectory `app/` del modulo
-   - Esempio: `Modules/Chart/app/Providers/ChartServiceProvider.php`
-
-2. **Namespace logico**: Nonostante la posizione fisica, il namespace NON include "App"
-   - Esempio: `Modules\Chart\Providers\ChartServiceProvider`
-
-3. **Configurazione autoload**: Nel composer.json di ogni modulo è specificato:
-   ```json
-   "autoload": {
-       "psr-4": {
-           "Modules\\ModuleName\\": "app/"
-       }
-   }
-   ```
-
-4. **Registrazione service provider**: Nei file module.json, i provider devono essere registrati con:
-   ```json
-   "providers": [
-       "Modules\\ModuleName\\Providers\\ModuleNameServiceProvider"
-   ]
-   ```
-
-## Stato Attuale del Progetto
-
-- ✅ Core system implementato (Xot, Lang, Tenant)
-- ✅ Multi-tenant configurato
-- ✅ Autenticazione e autorizzazione
-- ✅ Admin panel Filament integrato
-- ✅ Gestione pazienti base
-- ✅ Struttura moduli definita
-- ✅ Documentazione tecnica
-
-## Roadmap di Sviluppo
-
-### Q2 2024 (Aprile-Giugno)
-- 🚧 Completamento moduli core (Xot, Lang, Tenant, User)
-- 🚧 Implementazione frontend (UI, Theme One)
-- 🚧 Integrazione ISEE
-- 🚧 Piano terapeutico base
-- 🚧 API pubbliche essenziali
-
-### Q3 2024 (Luglio-Settembre)
-- 📅 Moduli funzionali (Media, Activity, GDPR, Notify, CMS, Job)
-- 📅 Testing completo (unit, feature, browser, performance)
-- 📅 Documentazione utente
-- 📅 Telemedicina base
-- 📅 Pagamenti online
-
-### Q4 2024 (Ottobre-Dicembre)
-- 📅 Deployment e monitoraggio (staging, CI/CD, Sentry)
-- 📅 Ottimizzazioni (frontend, database, cache, queue)
-- 📅 App mobile MVP
-- 📅 Integrazione SSN
-- 📅 Analytics base
-
-### Q1 2025 (Gennaio-Marzo)
-- 📅 Funzionalità avanzate (AI, blockchain, marketplace)
-- 📅 Sicurezza avanzata (audit, penetration testing)
-- 📅 Integrazione completa PEC
-- 📅 Dashboard personalizzabili
-
-## Piano di Implementazione
-
-### Fase 1: Completamento Infrastruttura Base
-- Finalizzazione moduli core
-- Ottimizzazione performance
-- Implementazione test automatizzati
-- Completamento documentazione tecnica
-
-### Fase 2: Implementazione Funzionalità Cliniche
-- Sviluppo modulo per anamnesi
-- Implementazione piano terapeutico
-- Integrazione con sistemi ISEE
-- Sviluppo sistema di referti
-
-### Fase 3: Estensione Funzionalità
-- Implementazione notifiche multicanale
-- Sviluppo dashboard per operatori sanitari
-- Creazione reportistica per INMP e COI
-- Integrazione con sistemi esterni
-
-### Fase 4: Scale-up e Ottimizzazione
-- Preparazione per gestione volumi elevati
-- Ottimizzazione database
-- Implementazione cache avanzata
-- Monitoraggio e alerting proattivo
-
-## Parametri di Qualità
-
-### Sicurezza e Conformità
-- Audit di sicurezza periodici
-- Conformità GDPR completa
-- Validazione NIS2 e DORA (dove applicabile)
-- Procedura di data breach management
-
-### Performance
-- Tempo di risposta < 200ms per operazioni critiche
-- Gestione di almeno 100 richieste/secondo
-- Disponibilità sistema 99.9%
-- Recovery time < 1 ora
-
-### Manutenibilità
-- Copertura test > 80%
-- Standard di codice PSR-12
-- Documentazione completa API e moduli
-- CI/CD pipeline completa
-
-## Rischi e Mitigazioni
-
-| Rischio | Probabilità | Impatto | Mitigazione |
-|---------|------------|---------|-------------|
-| Ritardi sviluppo moduli | Media | Alto | Prioritizzazione moduli essenziali, sviluppo parallelo |
-| Problemi integrazione ISEE | Alta | Alto | Sviluppo mock system, test anticipati |
-| Conformità GDPR | Bassa | Molto Alto | Audit continui, consulenza specializzata |
-| Performance inadeguata | Media | Medio | Monitoraggio precoce, benchmark periodici |
-| Usabilità interfacce | Media | Alto | Test con utenti reali, iterazioni rapide |
-nell’organizzare al meglio la sua successiva prenotazione.
-
 
 
 
@@ -795,6 +638,1015 @@ progetto, e potrà scaricare dei file csv che li riassumono.
 
 Le numeriche registrate saranno organizzati secondo logiche (quesiti)
 da concordare.
+
+
+#Informativa di Fondazione ANDI ETS dedicata alle gestanti (nome file:  Informativa progetto Salute Ora dedicata alle gestanti) da pubblicare unitamente al form che compilano le gestanti quando richiedono di partecipare al progetto e caricano i dati relativi allo stato di gravidanza e all’ISEE. Non ci sono consensi da raccogliere.
+
+**INFORMATIVA SUL TRATTAMENTO DEI DATI PERSONALI**
+
+**Dedicata alle gestanti**
+
+#  {#section .unnumbered}
+
+# Premessa {#premessa .unnumbered}
+
+L'informativa descrive le caratteristiche dei trattamenti svolti da
+Fondazione ANDI E.T.S. sui suoi dati personali nell'ambito del Progetto
+"Salute Ora" e le indica i diritti che la normativa le garantisce.
+
+**Dati personali**
+
+# Quali dati personali raccogliamo?
+
+Fondazione ANDI ETS raccoglie i seguenti dati:
+
+- dati identificativi e di contatto;
+
+- dati relativi all'ISEE e ai relativi indicatori;
+
+- dati relativi alla sua condizione di gravidanza;
+
+- Dati relativi all'anamnesi;
+
+- Dati relativi alla sua salute orale;
+
+- Dati relativi alle sue abitudini di prevenzione e cura dell'igiene
+  orale.
+
+# Per quali finalità utilizziamo i suoi dati personali?
+
+Trattiamo i dati personali per le seguenti finalità:
+
+- Valutare i requisiti per la partecipazione al progetto "Salute Ora"
+  (la legittimazione del trattamento si fonda sull'esecuzione di
+  obblighi normativi e sull'articolo 9, par. 2 lettera g, ovvero per il
+  perseguimento di interessi pubblici)
+
+- Procedere al pagamento del compenso dell'odontoiatra (la
+  legittimazione del trattamento si fonda sull'esecuzione di obblighi
+  normativi)
+
+- Raccogliere i dati relativi all'anamnesi e alle prestazioni svolte
+  dall'odontoiatra per verificare il corretto svolgimento del progetto e
+  per anonimizzare i dati perché poi vengano utilizzati per motivi di
+  studio e di ricerca (la legittimazione del trattamento si fonda
+  sull'articolo 9, par. 2 lettera g, ovvero per il perseguimento di
+  interessi pubblici).
+
+# Con quali modalità Fondazione ANDI ETS tratta i suoi dati personali e per quanto tempo li conserva?
+
+I suoi dati personali sono trattati sia in modalità cartacea che
+elettronica (servers, database in cloud, software applicativi etc.).
+Fondazione ANDI E.T.S. conserva i suoi dati in forma personale solo per
+il tempo necessario al conseguimento delle finalità per le quali sono
+stati raccolti e per i tempi fissati in base a criteri dettati da
+normative di settore. Trascorso il termine, i dati conservati su
+supporto cartaceo sono materialmente distrutti, i dati contenuti su
+supporto digitale sono eliminati con procedura informatica, a meno che
+non esistano obblighi di legge specifici che ne impongano la
+conservazione ulteriore. I tempi di conservazione specifici possono
+essere richiesti in ogni momento al Titolare.
+
+# A chi comunichiamo i suoi dati personali?
+
+Possono accedere ai Suoi dati personali i dipendenti e collaboratori che
+ne abbiano necessità per svolgere le attività previste dal Progetto a
+cui sta partecipando. In particolare:
+
+> \- il personale assegnato ai servizi amministrativi,
+>
+> \- il personale nominato Responsabile o incaricato del trattamento,
+> nei limiti delle funzioni assegnate (tra cui la società ANDI Lab srl).
+
+I dipendenti e collaboratori di Fondazione ANDI E.T.S. sono informati
+sulla importanza della tutela della riservatezza dei dati personali,
+sulla necessità di mantenere il massimo riserbo nel trattamento dei dati
+personali, sugli obblighi di utilizzo delle misure di sicurezza fisiche
+e informatiche disponibili, sulle responsabilità in tema di protezione
+dei dati personali. Alcuni suoi dati personali potranno essere
+comunicati a soggetti esterni per la realizzazione del progetto "Salute
+Ora". Fornitori e consulenti esterni sono vincolati, tramite apposite
+clausole contrattuali, al rispetto delle specifiche istruzioni impartite
+da Fondazione ANDI E.T.S. nonché della normativa vigente in materia di
+protezione dei dati personali. Inoltre, i suoi dati personali potranno
+essere comunicati ad Autorità, Enti ed Istituzioni qualora tale
+comunicazione avvenga in esecuzione di un obbligo normativo.
+
+# Quali sono i suoi diritti come interessato al trattamento e come può esercitarli?
+
+Il Regolamento europeo in materia di protezione dei dati personali
+(2016/679) Le garantisce, come interessato al trattamento, specifici
+diritti, in particolare: il diritto di accesso ai Suoi dati personali
+(art. 15 ), il diritto di rettifica (art. 16), il diritto di
+cancellazione (diritto all'oblio) (art. 17), il diritto di limitazione
+di trattamento (art. 18), il diritto alla portabilità dei dati (art.
+20), il diritto di opposizione (art. 21), il diritto di opporsi a una
+decisione basata unicamente sul trattamento automatizzato (art. 22), il
+diritto di revocare il consenso prestato, il diritto di proporre reclamo
+all'Autorità Garante della protezione dei dati qualora ritenga che il
+trattamento dei suoi dati sia contrario alla normativa in vigore.
+
+# Come può contattarci?
+
+La presente informativa ha lo scopo di informarLa su quali siano i Suoi
+dati personali raccolti da Fondazione ANDI E.T.S. e come siano trattati.
+Se avesse bisogno di qualsiasi tipo di chiarimento, o qualora volesse
+esercitare i diritti sopra esposti, può contattarci ai seguenti
+indirizzi:
+
+Fondazione ANDI E.T.S. con sede legale in Roma, Lungotevere Sanzio 9;
+indirizzo di posta elettronica:
+[[dpo@fondazioneandi.org]{.underline}](mailto:dpo@fondazioneandi.org)
+
+Il Titolare del Trattamento ha designato, ai sensi dell'art. 37 del
+GDPR, il Responsabile per la Protezione dei Dati, i cui dati di contatto
+sono: <dpo@fondazioneandi.org>
+
+
+
+#Informativa di Fondazione ANDI ETS dedicata agli odontoiatri (nome file: INFORMATIVA per odontoiatri che aderiscono al progetto "Salute Ora"): da sottoporre all’odontoiatra quando viene arruolato nel progetto. Non ci sono consensi da raccogliere.
+
+**INFORMATIVA SUL TRATTAMENTO DEI DATI PERSONALI**
+
+**dedicata agli odontoiatri che aderiscono al progetto "Salute Ora"**
+
+#  {#section .unnumbered}
+
+# Premessa {#premessa .unnumbered}
+
+L'informativa descrive le caratteristiche dei trattamenti svolti da
+Fondazione ANDI E.T.S. sui suoi dati personali nell'ambito del Progetto
+"Salute Ora" e le indica i diritti che la normativa le garantisce.
+
+**Dati personali**
+
+# Quali dati personali raccogliamo?
+
+Fondazione ANDI ETS raccoglie i seguenti dati:
+
+- dati identificativi e di contatto;
+
+- dati relativi alla sua professione;
+
+- dati fiscali e contabili;
+
+- dati relativi alle visite svolte nell'ambito del progetto "Salute
+  Ora".
+
+# Per quali finalità utilizziamo i suoi dati personali?
+
+Trattiamo i dati personali per le seguenti finalità:
+
+- Valutare i requisiti per la partecipazione al progetto "Salute Ora"
+  (la legittimazione del trattamento si fonda sull'esecuzione di
+  obblighi normativi e precontrattuali);
+
+- Consentirle di accedere in modo sicuro (tramite credenziali di
+  autenticazione) alla piattaforma dedicata al Progetto "Salute Ora"
+  messa a disposizione da Fondazione ANDI ETS (la legittimazione del
+  trattamento si fonda sull'esecuzione di obblighi contrattuali);
+
+- Procedere al pagamento del compenso per le visite che effettua
+  nell'ambito del progetto (la legittimazione del trattamento si fonda
+  sull'esecuzione di obblighi normativi e contrattuali)
+
+# Con quali modalità Fondazione ANDI ETS tratta i suoi dati personali e per quanto tempo li conserva?
+
+I suoi dati personali sono trattati sia in modalità cartacea che
+elettronica (servers, database in cloud, software applicativi etc.).
+Fondazione ANDI E.T.S. conserva i suoi dati in forma personale solo per
+il tempo necessario al conseguimento delle finalità per le quali sono
+stati raccolti e per i tempi fissati in base a criteri dettati da
+normative di settore. Trascorso il termine, i dati conservati su
+supporto cartaceo sono materialmente distrutti, i dati contenuti su
+supporto digitale sono eliminati con procedura informatica, a meno che
+non esistano obblighi di legge specifici che ne impongano la
+conservazione ulteriore. I tempi di conservazione specifici possono
+essere richiesti in ogni momento al Titolare.
+
+# A chi comunichiamo i suoi dati personali?
+
+Possono accedere ai Suoi dati personali i dipendenti e collaboratori che
+ne abbiano necessità per svolgere le attività previste dal Progetto a
+cui sta partecipando. In particolare:
+
+> \- il personale assegnato ai servizi amministrativi,
+>
+> \- il personale nominato Responsabile o incaricato del trattamento,
+> nei limiti delle funzioni assegnate (tra cui la società ANDI Lab).
+
+I dipendenti e collaboratori di Fondazione ANDI E.T.S. sono informati
+sulla importanza della tutela della riservatezza dei dati personali,
+sulla necessità di mantenere il massimo riserbo nel trattamento dei dati
+personali, sugli obblighi di utilizzo delle misure di sicurezza fisiche
+e informatiche disponibili, sulle responsabilità in tema di protezione
+dei dati personali. Alcuni suoi dati personali potranno essere
+comunicati a soggetti esterni per la realizzazione del progetto "Salute
+Ora", in particolare INMP. Fornitori e consulenti esterni sono
+vincolati, tramite apposite clausole contrattuali, al rispetto delle
+specifiche istruzioni impartite da Fondazione ANDI E.T.S. nonché della
+normativa vigente in materia di tutela della riservatezza dei dati
+personali. Inoltre, i suoi dati personali potranno essere comunicati ad
+Autorità, Enti ed Istituzioni qualora tale comunicazione avvenga in
+esecuzione di un obbligo normativo.
+
+# Quali sono i suoi diritti come interessato al trattamento e come può esercitarli?
+
+Il Regolamento europeo in materia di protezione dei dati personali
+(2016/679) Le garantisce, come interessato al trattamento, specifici
+diritti, in particolare: il diritto di accesso ai Suoi dati personali
+(art. 15 ), il diritto di rettifica (art. 16), il diritto di
+cancellazione (diritto all'oblio) (art. 17), il diritto di limitazione
+di trattamento (art. 18), il diritto alla portabilità dei dati (art.
+20), il diritto di opposizione (art. 21), il diritto di opporsi a una
+decisione basata unicamente sul trattamento automatizzato (art. 22), il
+diritto di revocare il consenso prestato, il diritto di proporre reclamo
+all'Autorità Garante della protezione dei dati qualora ritenga che il
+trattamento dei suoi dati sia contrario alla normativa in vigore.
+
+# Come può contattarci?
+
+La presente informativa ha lo scopo di informarLa su quali siano i Suoi
+dati personali raccolti da Fondazione ANDI E.T.S. e come siano trattati.
+Se avesse bisogno di qualsiasi tipo di chiarimento, o qualora volesse
+esercitare i diritti sopra esposti, può contattarci ai seguenti
+indirizzi:
+
+Fondazione ANDI E.T.S. con sede legale in Roma, Lungotevere Sanzio 9;
+indirizzo di posta elettronica:
+[[dpo@fondazioneandi.org]{.underline}](mailto:dpo@fondazioneandi.org)
+
+Il Titolare del Trattamento ha designato, ai sensi dell'art. 37 del
+GDPR, il Responsabile per la Protezione dei Dati, i cui dati di contatto
+sono: <dpo@fondazioneandi.org>
+
+#Atto con cui la Fondazione ANDI ETS nomina l’odontoiatra responsabile per la raccolta dei dati (nome file: F ANDI ETS_odontoiatra_Addendum nomina progetto Salute Ora INMP): da sottoporre all’odontoiatra al momento dell’arruolamento nel progetto. L’ultima pagina prevede l’inserimento del nominativo dell’odontoiatra e la firma della Fondazione (che potrà essere preinserita) e dell’odontoiatra che potremo anche far fare in modo diverso se a distanza, poi lo decidiamo insieme
+
+**CONTRATTO CON IL RESPONSABILE DEL TRATTAMENTO**
+
+**ex art. 28 DEL REGOLAMENTO 2016/679**
+
+CLAUSOLE CONTRATTUALI PER DISCIPLINARE GLI ASPETTI RELATIVI ALLA
+PROTEZIONE DEI DATI PERSONALI
+
+ 
+
+**CONTRATTO RELATIVO ALLA PROTEZIONE DEI DATI PERSONALI**
+
+***Clausola 1***
+
+***Scopo e ambito di applicazione***
+
+a\) Scopo delle presenti clausole contrattuali tipo (di seguito
+"clausole") è garantire il rispetto richiesto dalle leggi nazionali ed
+europee in relazione al trattamento dei dati personali e alla libera
+circolazione di tali dati, tra cui il Regolamento UE 2016/679 (c.d.
+"GDPR") e il D.Lgs. 196 del 30 giugno 2003, così come modificato dal
+D.Lgs. 101/2018.
+
+b\) I titolari del trattamento e i responsabili del trattamento di cui
+all\'allegato I hanno accettato le presenti clausole al fine di
+garantire il rispetto dell\'articolo 28, paragrafi 3 e 4, del
+regolamento (UE) 2016/679.
+
+c\) Le presenti clausole si applicano al trattamento dei dati personali
+specificato all\'allegato I.
+
+d\) L'allegato I costituisce parte integrante delle presenti clausole.
+
+e\) Le presenti clausole lasciano impregiudicati gli obblighi cui è
+soggetto il titolare del trattamento a norma del regolamento (UE)
+2016/679.
+
+f\) Le presenti clausole non garantiscono, di per sé, il rispetto degli
+obblighi connessi ai trasferimenti internazionali conformemente al capo
+V del regolamento (UE) 2016/679.
+
+***Clausola 2***
+
+***Invariabilità delle clausole***
+
+a\) Le parti si impegnano a non modificare le clausole se non per
+aggiungere o aggiornare informazioni nell' allegato.
+
+***Clausola 3***
+
+***Descrizione del trattamento***
+
+I dettagli dei trattamenti, in particolare le categorie di dati
+personali e le finalità del trattamento per le quali i dati personali
+sono trattati per conto del titolare del trattamento, sono specificati
+nell\'allegato I.
+
+***Clausola 4***
+
+***Obblighi delle parti***
+
+4.1. Istruzioni
+
+a\) Il responsabile del trattamento tratta i dati personali soltanto su
+istruzione documentata del titolare del trattamento, salvo che lo
+richieda il diritto dell\'Unione o nazionale cui è soggetto il
+responsabile del trattamento. In tal caso, il responsabile del
+trattamento informa il titolare del trattamento circa tale obbligo
+giuridico prima del trattamento, a meno che il diritto lo vieti per
+rilevanti motivi di interesse pubblico. Il titolare del trattamento può
+anche impartire istruzioni successive per tutta la durata del
+trattamento dei dati personali. Tali istruzioni sono sempre documentate.
+
+4.2. Limitazione delle finalità
+
+Il responsabile del trattamento tratta i dati personali soltanto per le
+finalità specifiche del trattamento di cui all\'allegato I, salvo
+ulteriori istruzioni del titolare del trattamento.
+
+4.3. Durata del trattamento dei dati personali
+
+Il responsabile del trattamento tratta i dati personali soltanto per la
+durata corrispondente alla efficacia del contratto principale in essere
+tra le parti.
+
+4.4. Sicurezza del trattamento
+
+a\) Il responsabile del trattamento mette in atto almeno le misure
+tecniche e organizzative adeguate al livello di rischio del trattamento
+per garantire la sicurezza dei dati personali, tra cui:
+
+• misure di pseudonimizzazione e cifratura dei dati personali;
+
+• misure per assicurare su base permanente la riservatezza,
+l\'integrità, la disponibilità e la resilienza dei sistemi e dei servizi
+di trattamento;
+
+• misure per assicurare la capacità di ripristinare tempestivamente la
+disponibilità e l\'accesso dei dati personali in caso di incidente
+fisico o tecnico;
+
+• procedure per testare, verificare e valutare regolarmente l\'efficacia
+delle misure tecniche e organizzative al fine di garantire la sicurezza
+del trattamento;
+
+• misure di identificazione e autorizzazione dell\'utente;
+
+• misure per garantire la minimizzazione dei dati;
+
+• misure per garantire la qualità dei dati;
+
+• misure per garantire la conservazione limitata dei dati.
+
+b\) Il responsabile del trattamento concede l\'accesso ai dati personali
+oggetto di trattamento ai membri del suo personale soltanto nella misura
+strettamente necessaria per l\'attuazione, la gestione del contratto. Il
+responsabile del trattamento garantisce che le persone autorizzate al
+trattamento dei dati personali ricevuti si siano impegnate alla
+riservatezza o abbiano un adeguato obbligo legale di riservatezza.
+
+4.5. Dati sensibili
+
+Se il trattamento riguarda dati personali che rivelino l\'origine
+razziale o etnica, le opinioni politiche, le convinzioni religiose o
+filosofiche o l\'appartenenza sindacale, dati genetici o dati biometrici
+intesi a identificare in modo univoco una persona fisica, dati relativi
+alla salute o alla vita sessuale o all\'orientamento sessuale della
+persona, o dati relativi a condanne penali e a reati ("dati
+particolari"), il responsabile del trattamento applica limitazioni
+specifiche e/o misure di sicurezza e garanzie supplementari.
+
+4.6. Documentazione e rispetto
+
+a\) Le parti devono essere in grado di dimostrare il rispetto delle
+presenti clausole.
+
+b\) Il responsabile del trattamento risponde prontamente e adeguatamente
+alle richieste di informazioni del titolare del trattamento relative
+alla conformità del trattamento operato alle presenti clausole.
+
+c\) Il responsabile del trattamento mette a disposizione del titolare
+del trattamento tutte le informazioni necessarie a dimostrare il
+rispetto degli obblighi stabiliti nelle presenti clausole e che derivano
+direttamente dal regolamento (UE) 2016/679 e/o dal regolamento (UE)
+2018/1725. Su richiesta del titolare del trattamento, il responsabile
+del trattamento consente e contribuisce alle attività di audit sulle
+attività di trattamento di cui alle presenti clausole, a intervalli
+ragionevoli o se vi sono indicazioni di inosservanza. Nel decidere se
+svolgere un riesame o un\'attività di audit, il titolare del trattamento
+può tenere conto delle pertinenti certificazioni in possesso del
+responsabile del trattamento.
+
+d\) Il titolare del trattamento può scegliere di condurre l\'attività di
+audit autonomamente o incaricare un soggetto indipendente. Le attività
+di audit possono comprendere anche ispezioni nei locali o nelle
+strutture fisiche del responsabile del trattamento e, se del caso, sono
+effettuate con un preavviso ragionevole.
+
+4.7. Ricorso a sub-responsabili del trattamento
+
+a\) Il responsabile del trattamento non può subcontrattare a un
+sub-responsabile del trattamento i trattamenti da effettuare per conto
+del titolare del trattamento conformemente alle presenti clausole senza
+la previa autorizzazione specifica scritta del titolare del trattamento.
+L\'elenco dei sub-responsabili del trattamento autorizzati dal titolare
+del trattamento figura nell\'allegato I. Le parti tengono aggiornato
+tale allegato.
+
+In alternativa da quanto sopra previsto, il responsabile del trattamento
+può ottenere l\'autorizzazione generale del titolare del trattamento per
+ricorrere a sub-responsabili del trattamento sulla base di un elenco
+concordato.
+
+b\) Qualora il responsabile del trattamento ricorra a un
+sub-responsabile del trattamento per l\'esecuzione di specifiche
+attività di trattamento (per conto del responsabile del trattamento),
+stipula un contratto che impone al sub-responsabile del trattamento,
+nella sostanza, gli stessi obblighi in materia di protezione dei dati
+imposti al responsabile del trattamento conformemente alle presenti
+clausole. Il responsabile del trattamento si assicura che il
+sub-responsabile del trattamento rispetti gli obblighi cui il
+responsabile del trattamento è soggetto a norma delle presenti clausole
+e del regolamento (UE) 2016/679 e/o del regolamento (UE) 2018/1725.
+
+c\) Il responsabile del trattamento rimane pienamente responsabile nei
+confronti del titolare del trattamento dell\'adempimento degli obblighi
+del sub-responsabile del trattamento derivanti dal contratto che questi
+ha stipulato con il responsabile del trattamento. Il responsabile del
+trattamento notifica al titolare del trattamento qualunque
+inadempimento, da parte del sub-responsabile del trattamento, degli
+obblighi contrattuali.
+
+4.8. Trasferimenti internazionali
+
+a\) Qualunque trasferimento di dati verso un paese terzo o
+un\'organizzazione internazionale da parte del responsabile del
+trattamento è effettuato soltanto su istruzione documentata del titolare
+del trattamento o per adempiere a un requisito specifico a norma del
+diritto dell\'Unione o degli Stati membri cui è soggetto il responsabile
+del trattamento, e nel rispetto del capo V del regolamento (UE) 2016/679
+o del regolamento (UE) 2018/1725.
+
+b\) Il titolare del trattamento conviene che, qualora il responsabile
+del trattamento ricorra a un sub-responsabile del trattamento
+conformemente alla clausola 7.7 per l\'esecuzione di specifiche attività
+di trattamento (per conto del titolare del trattamento) e tali attività
+di trattamento comportino il trasferimento di dati personali ai sensi
+del capo V del regolamento (UE) 2016/679, il responsabile del
+trattamento e il sub-responsabile del trattamento possono garantire il
+rispetto del capo V del regolamento (UE) 2016/679 utilizzando le
+clausole contrattuali tipo adottate dalla Commissione conformemente
+all\'articolo 46, paragrafo 2, del regolamento (UE) 2016/679, purché le
+condizioni per l\'uso di tali clausole contrattuali tipo siano
+soddisfatte.
+
+***Clausola 5***
+
+***Assistenza al titolare del trattamento***
+
+a\) Il responsabile del trattamento notifica prontamente al titolare del
+trattamento qualunque richiesta ricevuta dall\'interessato. Non risponde
+egli stesso alla richiesta, a meno che sia stato autorizzato in tal
+senso dal titolare del trattamento.
+
+b\) Il responsabile del trattamento assiste il titolare del trattamento
+nell\'adempimento degli obblighi di rispondere alle richieste degli
+interessati per l\'esercizio dei loro diritti, tenuto conto della natura
+del trattamento. Nell\'adempiere agli obblighi di cui alle lettere a) e
+b), il responsabile del trattamento si attiene alle istruzioni del
+titolare del trattamento.
+
+c\) Oltre all\'obbligo di assistere il titolare del trattamento in
+conformità della clausola 8, lettera b), il responsabile del trattamento
+assiste il titolare del trattamento anche nel garantire il rispetto dei
+seguenti obblighi, tenuto conto della natura del trattamento dei dati e
+delle informazioni a disposizione del responsabile del trattamento:
+
+1\) l\'obbligo di effettuare una valutazione dell\'impatto dei
+trattamenti previsti sulla protezione dei dati personali ("valutazione
+d\'impatto sulla protezione dei dati") qualora un tipo di trattamento
+possa presentare un rischio elevato per i diritti e le libertà delle
+persone fisiche;
+
+2\) l\'obbligo di garantire che i dati personali siano esatti e
+aggiornati, informando senza indugio il titolare del trattamento qualora
+il responsabile del trattamento venga a conoscenza del fatto che i dati
+personali che sta trattando sono inesatti o obsoleti.
+
+***Clausola 6***
+
+***Notifica di una violazione dei dati personali***
+
+In caso di violazione dei dati personali, il responsabile del
+trattamento coopera con il titolare del trattamento e lo assiste
+nell\'adempimento degli obblighi che incombono a quest\'ultimo a norma
+degli articoli 33 e 34 del regolamento (UE) 2016/679 o degli articoli 34
+e 35 del regolamento (UE) 2018/1725, ove applicabile, tenuto conto della
+natura del trattamento e delle informazioni a disposizione del
+responsabile del trattamento.
+
+In caso di una violazione dei dati personali trattati dal responsabile
+del trattamento, quest\'ultimo ne dà notifica al titolare del
+trattamento senza ingiustificato ritardo dopo esserne venuto a
+conoscenza, descrivendo la natura della violazione (compresi, ove
+possibile, le categorie e il numero approssimativo di interessati e di
+registrazioni dei dati in questione); le possibili conseguenze e
+fornendo recapiti utili per ottenere maggiori informazioni.
+
+Qualora, e nella misura in cui, non sia possibile fornire tutte le
+informazioni contemporaneamente, la notifica iniziale contiene le
+informazioni disponibili in quel momento, e le altre informazioni sono
+fornite successivamente, non appena disponibili, senza ingiustificato
+ritardo.
+
+***Clausola 7***
+
+***Inosservanza delle clausole e risoluzione***
+
+a\) Fatte salve le disposizioni del regolamento (UE) 2016/679 e/o del
+regolamento (UE) 2018/1725, qualora il responsabile del trattamento
+violi gli obblighi che gli incombono a norma delle presenti clausole, il
+titolare del trattamento può dare istruzione al responsabile del
+trattamento di sospendere il trattamento dei dati personali fino a
+quando quest\'ultimo non rispetti le presenti clausole o non sia risolto
+il contratto. Il responsabile del trattamento informa prontamente il
+titolare del trattamento qualora, per qualunque motivo, non sia in grado
+di rispettare le presenti clausole.
+
+b\) Il titolare del trattamento ha diritto di risolvere il contratto per
+quanto riguarda il trattamento dei dati personali conformemente alle
+presenti clausole qualora:
+
+> 1\) il trattamento dei dati personali da parte del responsabile del
+> trattamento sia stato sospeso dal titolare del trattamento in
+> conformità della lettera a) e il rispetto delle presenti clausole non
+> sia ripristinato entro un termine ragionevole e in ogni caso entro un
+> mese dalla sospensione;
+>
+> 2\) il responsabile del trattamento violi in modo sostanziale o
+> persistente le presenti clausole o gli obblighi che gli incombono a
+> norma del regolamento (UE) 2016/679 e/o del regolamento (UE)
+> 2018/1725;
+>
+> 3\) il responsabile del trattamento non rispetti una decisione
+> vincolante di un organo giurisdizionale competente o della o delle
+> autorità di controllo competenti per quanto riguarda i suoi obblighi
+> in conformità delle presenti clausole o del regolamento (UE) 2016/679
+> e/o del regolamento (UE) 2018/1725.
+
+c\) Il responsabile del trattamento ha diritto di risolvere il contratto
+per quanto riguarda il trattamento dei dati personali a norma delle
+presenti clausole qualora, dopo aver informato il titolare del
+trattamento che le sue istruzioni violano i requisiti giuridici
+applicabili in conformità della clausola 7.1, lettera b), il titolare
+del trattamento insista sul rispetto delle istruzioni.
+
+d\) Dopo la risoluzione del contratto il responsabile del trattamento, a
+scelta del titolare del trattamento, cancella tutti i dati personali
+trattati per conto del titolare del trattamento e certifica a
+quest\'ultimo di averlo fatto, oppure restituisce al titolare del
+trattamento tutti i dati personali e cancella le copie esistenti, a meno
+che il diritto dell\'Unione o dello Stato membro non richieda la
+conservazione dei dati personali. Finché i dati non sono cancellati o
+restituiti, il responsabile del trattamento continua ad assicurare il
+rispetto delle presenti clausole.
+
+***ALLEGATO I***
+
+***Elenco delle parti***
+
+***Titolare/i del trattamento*** Denominazione: FONDAZIONE ANDI ETS
+
+- DPO: SLCDPO srls
+
+***Responsabile/i del trattamento*** Denominazione: NOME E COGNOME
+DELL'ODONTOIATRA
+
+- **Descrizione del trattamento**
+
+<!-- -->
+
+- Categorie di interessati i cui dati personali sono trattati:
+
+<!-- -->
+
+- Gestanti che partecipano al Progetto Salute Ora
+
+<!-- -->
+
+- Categorie di dati personali trattati:
+
+dati personali identificativi, di contatto, dati relativi all'ISEE, dati
+di natura particolare relativi all'anamnesi, allo stato di gestazione e
+alla partecipazione al progetto.
+
+- Finalità per le quali i dati personali sono trattati per conto del
+  titolare del trattamento:
+
+Fornitura dei seguenti servizi, così come dettagliati nel contratto
+principale, in conformità alle istruzioni impartite dal Titolare ed
+escludendo qualsiasi altra finalità:
+
+a)  Raccolta dei dati e registrazione degli stessi all'interno della
+    piattaforma fornita da Fondazione ANDI ETS
+
+Luogo e Data: \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
+
+Il Titolare del trattamento Il Responsabile del Trattamento
+
+\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
+\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
+
+
+#Atto con cui la Fondazione ANDI ETS nomina ANDI Lab responsabile esterno per le attività che le competono (nome file: F ANDI ETS_ANDI Lab_Addendum nomina progetto Salute Ora INMP)  al cui interno è prevista anche già la presenza di Exabyte come sub fornitore: questo atto lo firmate tra voi all’interno.
+
+**CONTRATTO CON IL RESPONSABILE DEL TRATTAMENTO**
+
+**ex art. 28 DEL REGOLAMENTO 2016/679**
+
+CLAUSOLE CONTRATTUALI PER DISCIPLINARE GLI ASPETTI RELATIVI ALLA
+PROTEZIONE DEI DATI PERSONALI
+
+ 
+
+**CONTRATTO RELATIVO ALLA PROTEZIONE DEI DATI PERSONALI**
+
+***Clausola 1***
+
+***Scopo e ambito di applicazione***
+
+a\) Scopo delle presenti clausole contrattuali tipo (di seguito
+"clausole") è garantire il rispetto richiesto dalle leggi nazionali ed
+europee in relazione al trattamento dei dati personali e alla libera
+circolazione di tali dati, tra cui il Regolamento UE 2016/679 (c.d.
+"GDPR") e il D.Lgs. 196 del 30 giugno 2003, così come modificato dal
+D.Lgs. 101/2018.
+
+b\) I titolari del trattamento e i responsabili del trattamento di cui
+all\'allegato I hanno accettato le presenti clausole al fine di
+garantire il rispetto dell\'articolo 28, paragrafi 3 e 4, del
+regolamento (UE) 2016/679.
+
+c\) Le presenti clausole si applicano al trattamento dei dati personali
+specificato all\'allegato I.
+
+d\) L'allegato I costituisce parte integrante delle presenti clausole.
+
+e\) Le presenti clausole lasciano impregiudicati gli obblighi cui è
+soggetto il titolare del trattamento a norma del regolamento (UE)
+2016/679.
+
+f\) Le presenti clausole non garantiscono, di per sé, il rispetto degli
+obblighi connessi ai trasferimenti internazionali conformemente al capo
+V del regolamento (UE) 2016/679.
+
+***Clausola 2***
+
+***Invariabilità delle clausole***
+
+a\) Le parti si impegnano a non modificare le clausole se non per
+aggiungere o aggiornare informazioni nell' allegato.
+
+***Clausola 3***
+
+***Descrizione del trattamento***
+
+I dettagli dei trattamenti, in particolare le categorie di dati
+personali e le finalità del trattamento per le quali i dati personali
+sono trattati per conto del titolare del trattamento, sono specificati
+nell\'allegato I.
+
+***Clausola 4***
+
+***Obblighi delle parti***
+
+4.1. Istruzioni
+
+a\) Il responsabile del trattamento tratta i dati personali soltanto su
+istruzione documentata del titolare del trattamento, salvo che lo
+richieda il diritto dell\'Unione o nazionale cui è soggetto il
+responsabile del trattamento. In tal caso, il responsabile del
+trattamento informa il titolare del trattamento circa tale obbligo
+giuridico prima del trattamento, a meno che il diritto lo vieti per
+rilevanti motivi di interesse pubblico. Il titolare del trattamento può
+anche impartire istruzioni successive per tutta la durata del
+trattamento dei dati personali. Tali istruzioni sono sempre documentate.
+
+4.2. Limitazione delle finalità
+
+Il responsabile del trattamento tratta i dati personali soltanto per le
+finalità specifiche del trattamento di cui all\'allegato I, salvo
+ulteriori istruzioni del titolare del trattamento.
+
+4.3. Durata del trattamento dei dati personali
+
+Il responsabile del trattamento tratta i dati personali soltanto per la
+durata corrispondente alla efficacia del contratto principale in essere
+tra le parti.
+
+4.4. Sicurezza del trattamento
+
+a\) Il responsabile del trattamento mette in atto almeno le misure
+tecniche e organizzative adeguate al livello di rischio del trattamento
+per garantire la sicurezza dei dati personali, tra cui:
+
+• misure di pseudonimizzazione e cifratura dei dati personali;
+
+• misure per assicurare su base permanente la riservatezza,
+l\'integrità, la disponibilità e la resilienza dei sistemi e dei servizi
+di trattamento;
+
+• misure per assicurare la capacità di ripristinare tempestivamente la
+disponibilità e l\'accesso dei dati personali in caso di incidente
+fisico o tecnico;
+
+• procedure per testare, verificare e valutare regolarmente l\'efficacia
+delle misure tecniche e organizzative al fine di garantire la sicurezza
+del trattamento;
+
+• misure di identificazione e autorizzazione dell\'utente;
+
+• misure per garantire la minimizzazione dei dati;
+
+• misure per garantire la qualità dei dati;
+
+• misure per garantire la conservazione limitata dei dati.
+
+b\) Il responsabile del trattamento concede l\'accesso ai dati personali
+oggetto di trattamento ai membri del suo personale soltanto nella misura
+strettamente necessaria per l\'attuazione, la gestione del contratto. Il
+responsabile del trattamento garantisce che le persone autorizzate al
+trattamento dei dati personali ricevuti si siano impegnate alla
+riservatezza o abbiano un adeguato obbligo legale di riservatezza.
+
+4.5. Dati sensibili
+
+Se il trattamento riguarda dati personali che rivelino l\'origine
+razziale o etnica, le opinioni politiche, le convinzioni religiose o
+filosofiche o l\'appartenenza sindacale, dati genetici o dati biometrici
+intesi a identificare in modo univoco una persona fisica, dati relativi
+alla salute o alla vita sessuale o all\'orientamento sessuale della
+persona, o dati relativi a condanne penali e a reati ("dati
+particolari"), il responsabile del trattamento applica limitazioni
+specifiche e/o misure di sicurezza e garanzie supplementari.
+
+4.6. Documentazione e rispetto
+
+a\) Le parti devono essere in grado di dimostrare il rispetto delle
+presenti clausole.
+
+b\) Il responsabile del trattamento risponde prontamente e adeguatamente
+alle richieste di informazioni del titolare del trattamento relative
+alla conformità del trattamento operato alle presenti clausole.
+
+c\) Il responsabile del trattamento mette a disposizione del titolare
+del trattamento tutte le informazioni necessarie a dimostrare il
+rispetto degli obblighi stabiliti nelle presenti clausole e che derivano
+direttamente dal regolamento (UE) 2016/679 e/o dal regolamento (UE)
+2018/1725. Su richiesta del titolare del trattamento, il responsabile
+del trattamento consente e contribuisce alle attività di audit sulle
+attività di trattamento di cui alle presenti clausole, a intervalli
+ragionevoli o se vi sono indicazioni di inosservanza. Nel decidere se
+svolgere un riesame o un\'attività di audit, il titolare del trattamento
+può tenere conto delle pertinenti certificazioni in possesso del
+responsabile del trattamento.
+
+d\) Il titolare del trattamento può scegliere di condurre l\'attività di
+audit autonomamente o incaricare un soggetto indipendente. Le attività
+di audit possono comprendere anche ispezioni nei locali o nelle
+strutture fisiche del responsabile del trattamento e, se del caso, sono
+effettuate con un preavviso ragionevole.
+
+4.7. Ricorso a sub-responsabili del trattamento
+
+a\) Il responsabile del trattamento non può subcontrattare a un
+sub-responsabile del trattamento i trattamenti da effettuare per conto
+del titolare del trattamento conformemente alle presenti clausole senza
+la previa autorizzazione specifica scritta del titolare del trattamento.
+L\'elenco dei sub-responsabili del trattamento autorizzati dal titolare
+del trattamento figura nell\'allegato I. Le parti tengono aggiornato
+tale allegato.
+
+In alternativa da quanto sopra previsto, il responsabile del trattamento
+può ottenere l\'autorizzazione generale del titolare del trattamento per
+ricorrere a sub-responsabili del trattamento sulla base di un elenco
+concordato.
+
+b\) Qualora il responsabile del trattamento ricorra a un
+sub-responsabile del trattamento per l\'esecuzione di specifiche
+attività di trattamento (per conto del responsabile del trattamento),
+stipula un contratto che impone al sub-responsabile del trattamento,
+nella sostanza, gli stessi obblighi in materia di protezione dei dati
+imposti al responsabile del trattamento conformemente alle presenti
+clausole. Il responsabile del trattamento si assicura che il
+sub-responsabile del trattamento rispetti gli obblighi cui il
+responsabile del trattamento è soggetto a norma delle presenti clausole
+e del regolamento (UE) 2016/679 e/o del regolamento (UE) 2018/1725.
+
+c\) Il responsabile del trattamento rimane pienamente responsabile nei
+confronti del titolare del trattamento dell\'adempimento degli obblighi
+del sub-responsabile del trattamento derivanti dal contratto che questi
+ha stipulato con il responsabile del trattamento. Il responsabile del
+trattamento notifica al titolare del trattamento qualunque
+inadempimento, da parte del sub-responsabile del trattamento, degli
+obblighi contrattuali.
+
+4.8. Trasferimenti internazionali
+
+a\) Qualunque trasferimento di dati verso un paese terzo o
+un\'organizzazione internazionale da parte del responsabile del
+trattamento è effettuato soltanto su istruzione documentata del titolare
+del trattamento o per adempiere a un requisito specifico a norma del
+diritto dell\'Unione o degli Stati membri cui è soggetto il responsabile
+del trattamento, e nel rispetto del capo V del regolamento (UE) 2016/679
+o del regolamento (UE) 2018/1725.
+
+b\) Il titolare del trattamento conviene che, qualora il responsabile
+del trattamento ricorra a un sub-responsabile del trattamento
+conformemente alla clausola 7.7 per l\'esecuzione di specifiche attività
+di trattamento (per conto del titolare del trattamento) e tali attività
+di trattamento comportino il trasferimento di dati personali ai sensi
+del capo V del regolamento (UE) 2016/679, il responsabile del
+trattamento e il sub-responsabile del trattamento possono garantire il
+rispetto del capo V del regolamento (UE) 2016/679 utilizzando le
+clausole contrattuali tipo adottate dalla Commissione conformemente
+all\'articolo 46, paragrafo 2, del regolamento (UE) 2016/679, purché le
+condizioni per l\'uso di tali clausole contrattuali tipo siano
+soddisfatte.
+
+***Clausola 5***
+
+***Assistenza al titolare del trattamento***
+
+a\) Il responsabile del trattamento notifica prontamente al titolare del
+trattamento qualunque richiesta ricevuta dall\'interessato. Non risponde
+egli stesso alla richiesta, a meno che sia stato autorizzato in tal
+senso dal titolare del trattamento.
+
+b\) Il responsabile del trattamento assiste il titolare del trattamento
+nell\'adempimento degli obblighi di rispondere alle richieste degli
+interessati per l\'esercizio dei loro diritti, tenuto conto della natura
+del trattamento. Nell\'adempiere agli obblighi di cui alle lettere a) e
+b), il responsabile del trattamento si attiene alle istruzioni del
+titolare del trattamento.
+
+c\) Oltre all\'obbligo di assistere il titolare del trattamento in
+conformità della clausola 8, lettera b), il responsabile del trattamento
+assiste il titolare del trattamento anche nel garantire il rispetto dei
+seguenti obblighi, tenuto conto della natura del trattamento dei dati e
+delle informazioni a disposizione del responsabile del trattamento:
+
+1\) l\'obbligo di effettuare una valutazione dell\'impatto dei
+trattamenti previsti sulla protezione dei dati personali ("valutazione
+d\'impatto sulla protezione dei dati") qualora un tipo di trattamento
+possa presentare un rischio elevato per i diritti e le libertà delle
+persone fisiche;
+
+2\) l\'obbligo di garantire che i dati personali siano esatti e
+aggiornati, informando senza indugio il titolare del trattamento qualora
+il responsabile del trattamento venga a conoscenza del fatto che i dati
+personali che sta trattando sono inesatti o obsoleti.
+
+***Clausola 6***
+
+***Notifica di una violazione dei dati personali***
+
+In caso di violazione dei dati personali, il responsabile del
+trattamento coopera con il titolare del trattamento e lo assiste
+nell\'adempimento degli obblighi che incombono a quest\'ultimo a norma
+degli articoli 33 e 34 del regolamento (UE) 2016/679 o degli articoli 34
+e 35 del regolamento (UE) 2018/1725, ove applicabile, tenuto conto della
+natura del trattamento e delle informazioni a disposizione del
+responsabile del trattamento.
+
+In caso di una violazione dei dati personali trattati dal responsabile
+del trattamento, quest\'ultimo ne dà notifica al titolare del
+trattamento senza ingiustificato ritardo dopo esserne venuto a
+conoscenza, descrivendo la natura della violazione (compresi, ove
+possibile, le categorie e il numero approssimativo di interessati e di
+registrazioni dei dati in questione); le possibili conseguenze e
+fornendo recapiti utili per ottenere maggiori informazioni.
+
+Qualora, e nella misura in cui, non sia possibile fornire tutte le
+informazioni contemporaneamente, la notifica iniziale contiene le
+informazioni disponibili in quel momento, e le altre informazioni sono
+fornite successivamente, non appena disponibili, senza ingiustificato
+ritardo.
+
+***Clausola 7***
+
+***Inosservanza delle clausole e risoluzione***
+
+a\) Fatte salve le disposizioni del regolamento (UE) 2016/679 e/o del
+regolamento (UE) 2018/1725, qualora il responsabile del trattamento
+violi gli obblighi che gli incombono a norma delle presenti clausole, il
+titolare del trattamento può dare istruzione al responsabile del
+trattamento di sospendere il trattamento dei dati personali fino a
+quando quest\'ultimo non rispetti le presenti clausole o non sia risolto
+il contratto. Il responsabile del trattamento informa prontamente il
+titolare del trattamento qualora, per qualunque motivo, non sia in grado
+di rispettare le presenti clausole.
+
+b\) Il titolare del trattamento ha diritto di risolvere il contratto per
+quanto riguarda il trattamento dei dati personali conformemente alle
+presenti clausole qualora:
+
+> 1\) il trattamento dei dati personali da parte del responsabile del
+> trattamento sia stato sospeso dal titolare del trattamento in
+> conformità della lettera a) e il rispetto delle presenti clausole non
+> sia ripristinato entro un termine ragionevole e in ogni caso entro un
+> mese dalla sospensione;
+>
+> 2\) il responsabile del trattamento violi in modo sostanziale o
+> persistente le presenti clausole o gli obblighi che gli incombono a
+> norma del regolamento (UE) 2016/679 e/o del regolamento (UE)
+> 2018/1725;
+>
+> 3\) il responsabile del trattamento non rispetti una decisione
+> vincolante di un organo giurisdizionale competente o della o delle
+> autorità di controllo competenti per quanto riguarda i suoi obblighi
+> in conformità delle presenti clausole o del regolamento (UE) 2016/679
+> e/o del regolamento (UE) 2018/1725.
+
+c\) Il responsabile del trattamento ha diritto di risolvere il contratto
+per quanto riguarda il trattamento dei dati personali a norma delle
+presenti clausole qualora, dopo aver informato il titolare del
+trattamento che le sue istruzioni violano i requisiti giuridici
+applicabili in conformità della clausola 7.1, lettera b), il titolare
+del trattamento insista sul rispetto delle istruzioni.
+
+d\) Dopo la risoluzione del contratto il responsabile del trattamento, a
+scelta del titolare del trattamento, cancella tutti i dati personali
+trattati per conto del titolare del trattamento e certifica a
+quest\'ultimo di averlo fatto, oppure restituisce al titolare del
+trattamento tutti i dati personali e cancella le copie esistenti, a meno
+che il diritto dell\'Unione o dello Stato membro non richieda la
+conservazione dei dati personali. Finché i dati non sono cancellati o
+restituiti, il responsabile del trattamento continua ad assicurare il
+rispetto delle presenti clausole.
+
+***ALLEGATO I***
+
+***Elenco delle parti***
+
+***Titolare/i del trattamento*** Denominazione: FONDAZIONE ANDI ETS
+
+- DPO: SLCDPO srls
+
+***Responsabile/i del trattamento*** Denominazione: ANDI Lab srl
+
+- DPO: SLCDPO srls
+
+<!-- -->
+
+- **Descrizione del trattamento**
+
+<!-- -->
+
+- Categorie di interessati i cui dati personali sono trattati:
+
+<!-- -->
+
+- Odontoiatri coinvolti nel Progetto Salute Ora
+
+- Gestanti che partecipano al Progetto Salute Ora
+
+- Dati di ulteriori soggetti che a vario titolo partecipano al progetto
+  Salute Ora
+
+<!-- -->
+
+- Categorie di dati personali trattati:
+
+dati personali identificativi, di contatto, dati relativi all'ISEE, dati
+di natura particolare relativi all'anamnesi, allo stato di gestazione e
+alla partecipazione al progetto.
+
+- Finalità per le quali i dati personali sono trattati per conto del
+  titolare del trattamento:
+
+Fornitura dei seguenti servizi, così come dettagliati nel contratto
+principale, in conformità alle istruzioni impartite dal Titolare ed
+escludendo qualsiasi altra finalità:
+
+a)  gestione della piattaforma tramite la quale vengono raccolti i dati
+    nell'ambito del progetto "Salute Ora"
+
+b)  anonimizzazione dei dati dei partecipanti
+
+c)  gestione dei dati degli odontoiatri
+
+***Elenco dei sub-responsabili del trattamento (compilazione a cura del
+Responsabile del trattamento)***
+
+Il titolare del trattamento ha autorizzato il ricorso ai seguenti
+sub-responsabili del trattamento:
+
+Denominazione: EXABYTE srl per le attività di natura informatica
+implicate dall'affidamento fatto da Fondazione ANDI ETS a ANDI Lab.
+
+Luogo e Data: \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
+
+Il Titolare del trattamento Il Responsabile del Trattamento
+
+\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
+\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
 
 
 

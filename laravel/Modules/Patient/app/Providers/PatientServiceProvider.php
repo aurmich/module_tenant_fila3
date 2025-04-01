@@ -20,44 +20,5 @@ class PatientServiceProvider extends XotBaseServiceProvider
     protected string $module_dir = __DIR__;
     protected string $module_ns = __NAMESPACE__;
     
-    /**
-     * Boot the application events.
-     */
-    public function boot(): void
-    {
-        parent::boot();
-        
-        $this->loadMigrationsFrom(module_path($this->name, 'database/migrations'));
-        $this->loadTranslationsFrom(module_path($this->name, 'resources/lang'), $this->nameLower);
-        $this->loadViewsFrom(module_path($this->name, 'resources/views'), $this->nameLower);
-        
-        // Registra le risorse Filament
-        Resource::registerResources([
-            PatientResource::class,
-        ]);
-    }
     
-    /**
-     * Register the service provider.
-     */
-    public function register(): void
-    {
-        parent::register();
-        
-        $this->app->register(RouteServiceProvider::class);
-        
-        $this->mergeConfigFrom(
-            module_path($this->name, 'config/config.php'), $this->nameLower
-        );
-    }
-    
-    /**
-     * Get the services provided by the provider.
-     *
-     * @return array<int, string>
-     */
-    public function provides(): array
-    {
-        return [];
-    }
 }
