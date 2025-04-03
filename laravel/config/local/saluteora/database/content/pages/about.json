@@ -1,0 +1,111 @@
+{
+    "id": "about",
+    "title": {
+        "it": "Chi Siamo - SaluteOra"
+    },
+    "slug": "about",
+    "content": null,
+    "content_blocks": {
+        "it": [
+            {
+                "type": "hero",
+                "data": {
+                    "view": "ui::components.blocks.hero.simple",
+                    "title": "Chi Siamo",
+                    "subtitle": "Scopri la nostra storia e la nostra missione",
+                    "image": "/img/about-hero.jpg",
+                    "cta_text": "Contattaci",
+                    "cta_link": "/it/contact",
+                    "background_color": "bg-white",
+                    "text_color": "text-gray-900",
+                    "cta_color": "bg-primary-600 hover:bg-primary-700"
+                }
+            },
+            {
+                "type": "feature_sections",
+                "data": {
+                    "view": "ui::components.blocks.feature_sections.v1",
+                    "title": "La Nostra Missione",
+                    "sections": [
+                        {
+                            "title": "Qualità",
+                            "description": "Offriamo servizi sanitari di eccellenza con personale altamente qualificato",
+                            "icon": "star"
+                        },
+                        {
+                            "title": "Accessibilità",
+                            "description": "Rendiamo i servizi sanitari accessibili a tutti attraverso soluzioni innovative",
+                            "icon": "heart"
+                        },
+                        {
+                            "title": "Innovazione",
+                            "description": "Utilizziamo le tecnologie più avanzate per migliorare l'esperienza del paziente",
+                            "icon": "lightbulb"
+                        }
+                    ]
+                }
+            },
+            {
+                "type": "team",
+                "data": {
+                    "view": "ui::components.blocks.team.v1",
+                    "title": "Il Nostro Team",
+                    "description": "Professionisti dedicati al tuo benessere",
+                    "members": [
+                        {
+                            "name": "Dr. Mario Rossi",
+                            "role": "Direttore Sanitario",
+                            "image": "/img/team/mario-rossi.jpg",
+                            "bio": "Esperto in gestione sanitaria con oltre 20 anni di esperienza"
+                        },
+                        {
+                            "name": "Dr. Laura Bianchi",
+                            "role": "Responsabile Servizi",
+                            "image": "/img/team/laura-bianchi.jpg",
+                            "bio": "Specialista in organizzazione dei servizi sanitari"
+                        }
+                    ]
+                }
+            },
+            {
+                "type": "stats",
+                "data": {
+                    "view": "ui::components.blocks.stats.v1",
+                    "title": "I Nostri Numeri",
+                    "stats": [
+                        {
+                            "number": "10+",
+                            "label": "Anni di Esperienza"
+                        },
+                        {
+                            "number": "50+",
+                            "label": "Professionisti"
+                        },
+                        {
+                            "number": "1000+",
+                            "label": "Pazienti Soddisfatti"
+                        }
+                    ]
+                }
+            },
+            {
+                "type": "cta",
+                "data": {
+                    "view": "ui::components.blocks.cta.v1",
+                    "title": "Pronto a Iniziare?",
+                    "description": "Contattaci per una consulenza personalizzata",
+                    "button_text": "Contattaci",
+                    "button_link": "/it/contact"
+                }
+            }
+        ]
+    },
+    "sidebar_blocks": {
+        "it": []
+    },
+    "footer_blocks": null,
+    "created_at": "2024-04-02T16:46:21.000000Z",
+    "updated_at": "2024-04-02T17:08:25.000000Z",
+    "created_by": "9c63325e-ce65-4632-bc54-1ef576839de5",
+    "updated_by": "9c63325e-ce65-4632-bc54-1ef576839de5"
+}

@@ -268,4 +268,117 @@ class ArticleFormTest extends TestCase
 4. **Documentazione**
    - PHPDoc
    - README
-   - CHANGELOG 
+   - CHANGELOG
+
+## Form Wizard
+
+### 1. Struttura Base
+```php
+use Filament\Forms\Components\Wizard;
+use Filament\Forms\Components\Wizard\Step;
+
+class PatientRegistrationWizard extends Component
+{
+    use InteractsWithForms;
+
+    public ?array $data = [];
+
+    protected function getFormSchema(): array
+    {
+        return [
+            Wizard::make([
+                Step::make('Dati Personali')
+                    ->icon('heroicon-o-user')
+                    ->description('Inserisci i tuoi dati personali')
+                    ->schema([
+                        TextInput::make('name')
+                            ->label('Nome')
+                            ->required(),
+                        TextInput::make('surname')
+                            ->label('Cognome')
+                            ->required(),
+                    ]),
+                Step::make('Indirizzo')
+                    ->icon('heroicon-o-home')
+                    ->description('Inserisci il tuo indirizzo')
+                    ->schema([
+                        TextInput::make('address')
+                            ->label('Indirizzo')
+                            ->required(),
+                    ]),
+            ])
+        ];
+    }
+}
+```
+
+### 2. Best Practices
+- Utilizzare icone appropriate per ogni step
+- Fornire descrizioni chiare
+- Raggruppare i campi correlati nello stesso step
+- Validare i dati per step
+- Gestire la navigazione tra gli step
+- Salvare i dati progressivamente
+- Gestire gli errori appropriatamente
+
+### 3. Validazione per Step
+```php
+Step::make('Dati Personali')
+    ->schema([
+        TextInput::make('name')
+            ->required()
+            ->maxLength(255)
+            ->unique(Patient::class),
+    ])
+    ->afterStateUpdated(function ($state) {
+        // Validazione aggiuntiva
+    })
+```
+
+### 4. Salvataggio Progressivo
+```php
+Step::make('Dati Personali')
+    ->afterStateUpdated(function ($state) {
+        // Salva i dati dello step
+        $this->saveStepData('personal', $state);
+    })
+```
+
+### 5. Navigazione
+```php
+Wizard::make([
+    // ... steps
+])
+->nextAction(
+    fn (Action $action) => $action->label('Avanti')
+)
+->previousAction(
+    fn (Action $action) => $action->label('Indietro')
+)
+->submitAction(
+    fn (Action $action) => $action->label('Completa')
+)
+```
+
+### 6. Testing
+```php
+class PatientRegistrationWizardTest extends TestCase
+{
+    public function test_can_navigate_steps()
+    {
+        $wizard = new PatientRegistrationWizard();
+        $wizard->nextStep();
+        $this->assertEquals(1, $wizard->currentStep);
+    }
+
+    public function test_can_validate_step()
+    {
+        $wizard = new PatientRegistrationWizard();
+        $wizard->data = [
+            'name' => '',
+            'surname' => '',
+        ];
+        $this->assertFalse($wizard->validateStep(0));
+    }
+}
+``` 

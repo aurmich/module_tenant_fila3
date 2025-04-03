@@ -1,0 +1,59 @@
+{
+    "id": "3",
+    "title": {
+        "it": "Prenota Appuntamento - SaluteOra"
+    },
+    "slug": "prenota-appuntamento",
+    "content": null,
+    "content_blocks": {
+        "it": [
+            {
+                "type": "hero",
+                "data": {
+                    "title": "Prenota il tuo appuntamento",
+                    "subtitle": "Scegli la data e l'orario più adatto alle tue esigenze",
+                    "image": "/img/appointment-bg.jpg",
+                    "cta_text": "Inizia la prenotazione",
+                    "cta_link": "#booking-form"
+                }
+            },
+            {
+                "type": "feature_sections",
+                "data": {
+                    "title": "Come funziona la prenotazione",
+                    "sections": [
+                        {
+                            "title": "Scegli la data",
+                            "description": "Seleziona la data preferita dal calendario disponibile",
+                            "icon": "calendar"
+                        },
+                        {
+                            "title": "Seleziona l'orario",
+                            "description": "Scegli l'orario più adatto tra quelli disponibili",
+                            "icon": "clock"
+                        },
+                        {
+                            "title": "Conferma",
+                            "description": "Riceverai una conferma via email e SMS",
+                            "icon": "check-circle"
+                        }
+                    ]
+                }
+            },
+            {
+                "type": "paragraph",
+                "data": {
+                    "content": "La prenotazione è semplice e veloce. Se hai bisogno di assistenza, il nostro team di supporto è sempre disponibile per aiutarti."
+                }
+            }
+        ]
+    },
+    "sidebar_blocks": {
+        "it": []
+    },
+    "footer_blocks": null,
+    "created_at": "2024-12-09T16:46:21.000000Z",
+    "updated_at": "2024-12-09T17:08:25.000000Z",
+    "created_by": "9c63325e-ce65-4632-bc54-1ef576839de5",
+    "updated_by": "9c63325e-ce65-4632-bc54-1ef576839de5"
+} 

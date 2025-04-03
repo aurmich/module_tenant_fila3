@@ -41,7 +41,7 @@ class Blocks extends Component
             'blocks' => $this->blocks,
             'model' => $this->model,
         ];
-
+        
         return view($view, $view_params);
     }
 }

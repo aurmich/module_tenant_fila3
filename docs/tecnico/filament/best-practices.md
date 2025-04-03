@@ -285,4 +285,104 @@ class ListYourRecordsTest extends TestCase
 - Log errori
 - Performance metrics
 - Usage statistics
-- Security alerts 
+- Security alerts
+
+## Wizard Forms
+
+### 1. Struttura
+```php
+declare(strict_types=1);
+
+namespace Modules\YourModule\Filament\Widgets;
+
+use Livewire\Component;
+use Filament\Forms\Concerns\InteractsWithForms;
+use Filament\Forms\Form;
+use Filament\Forms\Components\Wizard;
+use Filament\Forms\Components\Wizard\Step;
+
+class YourWizard extends Component
+{
+    use InteractsWithForms;
+
+    public ?array $data = [];
+
+    public function mount(): void
+    {
+        $this->form->fill();
+    }
+
+    public function form(Form $form): Form
+    {
+        return $form
+            ->schema($this->getFormSchema())
+            ->statePath('data');
+    }
+}
+```
+
+### 2. Best Practices
+- Utilizzare il trait `InteractsWithForms`
+- Definire `$data` come array nullable
+- Implementare `mount()` per inizializzare il form
+- Separare lo schema in `getFormSchema()`
+- Utilizzare icone e descrizioni per ogni step
+- Validare i dati per step
+- Gestire la navigazione tra gli step
+- Salvare i dati progressivamente
+- Gestire gli errori appropriatamente
+
+### 3. Struttura Directory
+```
+Module/
+├── app/
+│   └── Filament/
+│       └── Widgets/
+│           └── YourWizard.php
+└── resources/
+    └── views/
+        └── widgets/
+            └── your-wizard.blade.php
+```
+
+### 4. Views
+```blade
+<div>
+    <form wire:submit="submit">
+        {{ $this->form }}
+    </form>
+</div>
+
+@script
+<script>
+    $wire.on('wizard-completed', (data) => {
+        // Gestione completamento wizard
+    });
+</script>
+@endscript
+```
+
+### 5. Testing
+```php
+declare(strict_types=1);
+
+namespace Modules\YourModule\Tests\Filament\Widgets;
+
+use Tests\TestCase;
+
+class YourWizardTest extends TestCase
+{
+    public function test_can_render_wizard()
+    {
+        $wizard = new YourWizard();
+        $this->assertInstanceOf(Form::class, $wizard->form(new Form()));
+    }
+
+    public function test_can_navigate_steps()
+    {
+        $wizard = new YourWizard();
+        $wizard->nextStep();
+        $this->assertEquals(1, $wizard->currentStep);
+    }
+}
+``` 

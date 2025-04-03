@@ -227,4 +227,110 @@ class ArticleStatsWidgetTest extends TestCase
 4. **Documentazione**
    - PHPDoc
    - README
-   - CHANGELOG 
+   - CHANGELOG
+
+## Wizard Widgets
+
+### 1. Patient Registration Wizard
+```php
+class PatientRegistrationWizard extends Component
+{
+    use InteractsWithForms;
+
+    public ?array $data = [];
+
+    public function mount(): void
+    {
+        $this->form->fill();
+    }
+
+    public function form(Form $form): Form
+    {
+        return $form
+            ->schema($this->getFormSchema())
+            ->statePath('data');
+    }
+
+    protected function getFormSchema(): array
+    {
+        return [
+            Wizard::make([
+                Step::make('Dati Personali')
+                    ->icon('heroicon-o-user')
+                    ->description('Inserisci i tuoi dati personali')
+                    ->schema([
+                        // ... schema fields
+                    ]),
+                // ... other steps
+            ])
+        ];
+    }
+}
+```
+
+### 2. Best Practices per Wizard
+- Utilizzare `InteractsWithForms` trait
+- Definire `$data` come array nullable
+- Implementare `mount()` per inizializzare il form
+- Utilizzare `form()` per configurare il form
+- Separare lo schema in `getFormSchema()`
+- Utilizzare icone e descrizioni per ogni step
+- Validare i dati prima del submit
+- Gestire gli errori appropriatamente
+
+### 3. Struttura Directory
+```
+Module/
+└── app/
+    └── Filament/
+        └── Widgets/
+            └── PatientRegistrationWizard.php
+└── resources/
+    └── views/
+        └── widgets/
+            └── patient-registration-wizard.blade.php
+```
+
+### 4. View Blade
+```blade
+<div>
+    <form wire:submit="submit">
+        {{ $this->form }}
+    </form>
+</div>
+
+@script
+<script>
+    $wire.on('patient-registered', (patientId) => {
+        window.location.href = `/patient/${patientId}`;
+    });
+</script>
+@endscript
+```
+
+### 5. Testing
+```php
+class PatientRegistrationWizardTest extends TestCase
+{
+    public function test_can_render_wizard()
+    {
+        $wizard = new PatientRegistrationWizard();
+        $this->assertInstanceOf(Form::class, $wizard->form(new Form()));
+    }
+
+    public function test_can_submit_form()
+    {
+        $wizard = new PatientRegistrationWizard();
+        $wizard->data = [
+            'name' => 'Test',
+            'surname' => 'User',
+            // ... other required fields
+        ];
+        $wizard->submit();
+        $this->assertDatabaseHas('patients', [
+            'name' => 'Test',
+            'surname' => 'User',
+        ]);
+    }
+}
+``` 
