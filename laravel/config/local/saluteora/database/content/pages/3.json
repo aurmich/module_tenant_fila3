@@ -10,6 +10,7 @@
             {
                 "type": "hero",
                 "data": {
+                    "view": "pub_theme::components.blocks.hero.simple",
                     "title": "Prenota il tuo appuntamento",
                     "subtitle": "Scegli la data e l'orario più adatto alle tue esigenze",
                     "image": "/img/appointment-bg.jpg",
@@ -20,6 +21,7 @@
             {
                 "type": "feature_sections",
                 "data": {
+                    "view": "pub_theme::components.blocks.feature_sections.simple",
                     "title": "Come funziona la prenotazione",
                     "sections": [
                         {
@@ -43,17 +45,264 @@
             {
                 "type": "paragraph",
                 "data": {
+                    "view": "pub_theme::components.blocks.paragraph.simple",
                     "content": "La prenotazione è semplice e veloce. Se hai bisogno di assistenza, il nostro team di supporto è sempre disponibile per aiutarti."
+                }
+            },
+            {
+                "type": "booking_form",
+                "data": {
+                    "view": "pub_theme::components.blocks.booking_form.multi_step",
+                    "title": "Prenota ora",
+                    "id": "booking-form",
+                    "form_intro": "Compila i campi sottostanti per prenotare il tuo appuntamento",
+                    "steps": [
+                        {
+                            "title": "Informazioni personali",
+                            "fields": [
+                                {
+                                    "type": "text",
+                                    "name": "name",
+                                    "label": "Nome",
+                                    "required": true,
+                                    "placeholder": "Inserisci il tuo nome"
+                                },
+                                {
+                                    "type": "text",
+                                    "name": "surname",
+                                    "label": "Cognome",
+                                    "required": true,
+                                    "placeholder": "Inserisci il tuo cognome"
+                                },
+                                {
+                                    "type": "email",
+                                    "name": "email",
+                                    "label": "Email",
+                                    "required": true,
+                                    "placeholder": "esempio@email.com"
+                                },
+                                {
+                                    "type": "tel",
+                                    "name": "phone",
+                                    "label": "Telefono",
+                                    "required": true,
+                                    "placeholder": "+39 xxx xxx xxxx"
+                                }
+                            ]
+                        },
+                        {
+                            "title": "Tipo di appuntamento",
+                            "fields": [
+                                {
+                                    "type": "select",
+                                    "name": "appointment_type",
+                                    "label": "Tipologia visita",
+                                    "required": true,
+                                    "options": [
+                                        {
+                                            "value": "prima_visita",
+                                            "label": "Prima visita"
+                                        },
+                                        {
+                                            "value": "visita_controllo",
+                                            "label": "Visita di controllo"
+                                        },
+                                        {
+                                            "value": "emergenza",
+                                            "label": "Emergenza"
+                                        },
+                                        {
+                                            "value": "altro",
+                                            "label": "Altro"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "type": "textarea",
+                                    "name": "notes",
+                                    "label": "Note",
+                                    "required": false,
+                                    "placeholder": "Inserisci eventuali note o specifiche sulla visita"
+                                }
+                            ]
+                        },
+                        {
+                            "title": "Data e orario",
+                            "fields": [
+                                {
+                                    "type": "date",
+                                    "name": "appointment_date",
+                                    "label": "Data",
+                                    "required": true
+                                },
+                                {
+                                    "type": "time_slots",
+                                    "name": "appointment_time",
+                                    "label": "Orario",
+                                    "required": true
+                                }
+                            ]
+                        }
+                    ],
+                    "submit_text": "Conferma prenotazione",
+                    "privacy_text": "Acconsento al trattamento dei dati personali secondo la normativa sulla privacy",
+                    "success_message": "Prenotazione effettuata con successo! Riceverai una conferma via email."
+                }
+            },
+            {
+                "type": "faq_accordion",
+                "data": {
+                    "view": "pub_theme::components.blocks.faq_accordion.simple",
+                    "title": "Domande frequenti",
+                    "description": "Trova risposte alle domande più comuni sulla prenotazione degli appuntamenti",
+                    "questions": [
+                        {
+                            "question": "Come posso modificare o cancellare un appuntamento?",
+                            "answer": "Puoi gestire i tuoi appuntamenti accedendo alla tua area personale. Dalla dashboard, seleziona l'appuntamento che desideri modificare o cancellare e segui le istruzioni. Le cancellazioni devono essere effettuate con almeno 24 ore di anticipo."
+                        },
+                        {
+                            "question": "Quali documenti devo portare al mio appuntamento?",
+                            "answer": "Ti consigliamo di portare un documento d'identità valido, la tessera sanitaria, eventuali impegnative mediche e documentazione relativa a precedenti visite o esami."
+                        },
+                        {
+                            "question": "Quanto tempo prima devo arrivare per il mio appuntamento?",
+                            "answer": "Ti consigliamo di arrivare 15 minuti prima dell'orario fissato per completare eventuali procedure amministrative. In caso di prima visita, potrebbe essere necessario più tempo."
+                        },
+                        {
+                            "question": "Cosa succede se non riesco a presentarmi all'appuntamento?",
+                            "answer": "Se non puoi presentarti all'appuntamento, ti preghiamo di avvisarci il prima possibile. Gli appuntamenti non disdetti con almeno 24 ore di anticipo potrebbero comportare l'addebito di una penale."
+                        }
+                    ]
+                }
+            },
+            {
+                "type": "testimonial_carousel",
+                "data": {
+                    "view": "pub_theme::components.blocks.testimonial_carousel.simple",
+                    "title": "Cosa dicono i nostri pazienti",
+                    "testimonials": [
+                        {
+                            "quote": "Il sistema di prenotazione è molto semplice e intuitivo. Ho apprezzato particolarmente la possibilità di scegliere l'orario più adatto alle mie esigenze.",
+                            "author": "Maria R.",
+                            "role": "Paziente",
+                            "image": "/img/testimonials/patient1.jpg"
+                        },
+                        {
+                            "quote": "Ottimo servizio di prenotazione online. Ho ricevuto subito la conferma via email e un promemoria il giorno prima dell'appuntamento.",
+                            "author": "Giovanni B.",
+                            "role": "Paziente",
+                            "image": "/img/testimonials/patient2.jpg"
+                        },
+                        {
+                            "quote": "La possibilità di vedere tutti gli orari disponibili ha reso la prenotazione molto più semplice rispetto alle chiamate telefoniche.",
+                            "author": "Lucia T.",
+                            "role": "Paziente",
+                            "image": "/img/testimonials/patient3.jpg"
+                        }
+                    ]
+                }
+            },
+            {
+                "type": "cta_section",
+                "data": {
+                    "view": "pub_theme::components.blocks.cta.centered",
+                    "title": "Hai bisogno di assistenza?",
+                    "description": "Il nostro team è a tua disposizione per aiutarti con la prenotazione o per rispondere a qualsiasi domanda.",
+                    "cta_primary_text": "Contattaci",
+                    "cta_primary_link": "/contatti",
+                    "cta_secondary_text": "Leggi le FAQ",
+                    "cta_secondary_link": "#faq-section",
+                    "background_color": "bg-accent",
+                    "text_color": "text-white"
                 }
             }
         ]
     },
     "sidebar_blocks": {
-        "it": []
+        "it": [
+            {
+                "type": "contact_info",
+                "data": {
+                    "view": "pub_theme::components.blocks.sidebar.contact_info",
+                    "title": "Contattaci",
+                    "description": "Hai bisogno di aiuto con la prenotazione?",
+                    "phone": "+39 012 345 6789",
+                    "email": "prenotazioni@saluteora.it",
+                    "hours": [
+                        {
+                            "days": "Lunedì - Venerdì",
+                            "hours": "9:00 - 18:00"
+                        },
+                        {
+                            "days": "Sabato",
+                            "hours": "9:00 - 13:00"
+                        },
+                        {
+                            "days": "Domenica",
+                            "hours": "Chiuso"
+                        }
+                    ]
+                }
+            },
+            {
+                "type": "info_card",
+                "data": {
+                    "view": "pub_theme::components.blocks.sidebar.info_card",
+                    "title": "Prenotazione telefonica",
+                    "content": "Se preferisci, puoi anche prenotare chiamando il nostro numero dedicato negli orari di apertura.",
+                    "icon": "phone",
+                    "button_text": "Chiama ora",
+                    "button_link": "tel:+390123456789"
+                }
+            },
+            {
+                "type": "emergency_info",
+                "data": {
+                    "view": "pub_theme::components.blocks.sidebar.emergency_info",
+                    "title": "Emergenze",
+                    "content": "Per situazioni di emergenza, contatta immediatamente il numero di emergenza o recati al pronto soccorso più vicino.",
+                    "emergency_number": "112",
+                    "icon": "alert-circle"
+                }
+            }
+        ]
     },
-    "footer_blocks": null,
+    "footer_blocks": {
+        "it": [
+            {
+                "type": "related_services",
+                "data": {
+                    "view": "pub_theme::components.blocks.footer.related_services",
+                    "title": "Servizi correlati",
+                    "services": [
+                        {
+                            "title": "Visite specialistiche",
+                            "link": "/servizi/visite-specialistiche"
+                        },
+                        {
+                            "title": "Esami diagnostici",
+                            "link": "/servizi/esami-diagnostici"
+                        },
+                        {
+                            "title": "Telemedicina",
+                            "link": "/servizi/telemedicina"
+                        }
+                    ]
+                }
+            },
+            {
+                "type": "privacy_notice",
+                "data": {
+                    "view": "pub_theme::components.blocks.footer.privacy_notice",
+                    "content": "I dati personali forniti durante la prenotazione saranno trattati nel rispetto della normativa sulla privacy. Per maggiori informazioni, consulta la nostra Informativa sulla Privacy.",
+                    "link_text": "Informativa sulla Privacy",
+                    "link_url": "/privacy-policy"
+                }
+            }
+        ]
+    },
     "created_at": "2024-12-09T16:46:21.000000Z",
     "updated_at": "2024-12-09T17:08:25.000000Z",
     "created_by": "9c63325e-ce65-4632-bc54-1ef576839de5",
     "updated_by": "9c63325e-ce65-4632-bc54-1ef576839de5"
-} 
+}
