@@ -8,7 +8,8 @@ Questo documento descrive come sono organizzate e gestite le pagine utilizzando 
 3. [Nomenclatura dei File](#nomenclatura-dei-file)
 4. [Pagine Dinamiche](#pagine-dinamiche)
 5. [Integrazione con il CMS](#integrazione-con-il-cms)
-6. [Best Practices](#best-practices)
+6. [Localizzazione](#localizzazione)
+7. [Best Practices](#best-practices)
 
 ## Introduzione
 
@@ -100,7 +101,7 @@ Il file `index.blade.php` nella directory `pages/` serve come punto di ingresso 
 
 1. Recuperare l'elenco delle pagine disponibili dal modello `Page`
 2. Mostrarle in un formato adeguato (ad esempio, una griglia di card o un elenco)
-3. Fornire link alle singole pagine
+3. Fornire link alle singole pagine, includendo la locale corrente
 
 ## Integrazione con il CMS
 
@@ -123,6 +124,49 @@ Il tema One fornisce due helper per renderizzare il contenuto delle pagine:
 - `$_theme->showPageSidebarContent($slug)`: Renderizza i blocchi della sidebar della pagina
 
 Questi helper gestiscono l'interpretazione dei dati JSON dei blocchi e li convertono in HTML renderizzato.
+
+## Localizzazione
+
+### Struttura degli URL Localizzati
+
+In SaluteOra, tutti gli URL devono includere il prefisso della lingua corrente. La struttura corretta è:
+
+```
+/{locale}/sezione/pagina
+```
+
+Esempi:
+- `/it/pages/chi-siamo`
+- `/en/pages/about-us`
+
+### Generazione Corretta dei Link
+
+Quando si generano link alle pagine, è fondamentale includere sempre la locale corrente:
+
+```php
+// CORRETTO
+<a href="{{ url('/' . app()->getLocale() . '/pages/' . $page->slug) }}">{{ $page->title }}</a>
+
+// ERRATO - manca la locale
+<a href="{{ url('/pages/' . $page->slug) }}">{{ $page->title }}</a>
+```
+
+### Recupero della Locale
+
+La locale corrente può essere recuperata usando:
+
+```php
+$locale = app()->getLocale();
+```
+
+### Cambio Lingua
+
+Per link di cambio lingua, generare URL con la stessa struttura ma diverso prefisso lingua:
+
+```php
+<a href="{{ url('/it/pages/' . $page->slug) }}">Italiano</a>
+<a href="{{ url('/en/pages/' . $page->slug) }}">English</a>
+```
 
 ## Best Practices
 

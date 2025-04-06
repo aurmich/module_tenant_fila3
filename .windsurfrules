@@ -89,3 +89,72 @@ class MyResource extends XotBaseResource
     }
 }
 ```
+
+# Localizzazione degli URL in SaluteOra
+
+## Regola Fondamentale
+
+Tutti gli URL in SaluteOra devono includere il prefisso della lingua come primo segmento del percorso:
+
+```
+/{locale}/{sezione}/{risorsa}
+```
+
+## Implementazione
+
+### 1. Recuperare la Locale Corrente
+
+Usare sempre la funzione `app()->getLocale()` per ottenere la lingua corrente:
+
+```php
+$locale = app()->getLocale();
+```
+
+Non utilizzare valori hardcoded come 'it' o 'en'.
+
+### 2. Generare Link Localizzati
+
+Quando si generano link, includere sempre la locale:
+
+```php
+// CORRETTO
+<a href="{{ url('/' . app()->getLocale() . '/pages/' . $page->slug) }}">{{ $page->title }}</a>
+
+// ERRATO
+<a href="{{ url('/pages/' . $page->slug) }}">{{ $page->title }}</a>
+```
+
+### 3. Nelle Pagine Folio
+
+Nelle pagine Folio, recuperare e passare sempre la locale alla vista:
+
+```php
+render(function (View $view) {
+    $locale = app()->getLocale();
+    // altre operazioni...
+    return $view->with([
+        'data' => $data,
+        'locale' => $locale,
+    ]);
+});
+```
+
+## Errori Comuni
+
+1. **URL senza prefisso lingua**: `/pages/chi-siamo` invece di `/it/pages/chi-siamo`
+2. **URL mal formati**: `it/pages/chi-siamo` (manca lo slash iniziale)
+3. **Link generati senza locale**: `url('/pages/' . $slug)` invece di `url('/' . $locale . '/pages/' . $slug)`
+
+## Esempi Corretti
+
+- `/it/pages/chi-siamo`
+- `/en/services/cardiology`
+- `/it/doctors/rossi-mario`
+
+## Test e Verifica
+
+Quando si testano le route e i link:
+
+1. Verificare sempre che l'URL contenga il prefisso lingua corretto
+2. Controllare che tutti i link nella pagina includano la locale
+3. Testare la navigazione tra pagine in lingue diverse

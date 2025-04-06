@@ -4,6 +4,9 @@ use Illuminate\View\View;
 use function Laravel\Folio\render;
 
 render(function (View $view) {
+    // Recuperiamo la locale corrente
+    $locale = app()->getLocale();
+
     // Verifichiamo se esiste la colonna category nel modello Page
     $hasCategory = \Schema::hasColumn('pages', 'category');
 
@@ -35,7 +38,8 @@ render(function (View $view) {
     return $view->with([
         'pages' => $pages,
         'categories' => $categories,
-        'hasCategory' => $hasCategory
+        'hasCategory' => $hasCategory,
+        'locale' => $locale,
     ]);
 });
 ?>
@@ -45,7 +49,7 @@ render(function (View $view) {
         <nav class="flex py-3 text-sm text-gray-500" aria-label="Breadcrumb">
             <ol class="inline-flex items-center space-x-1 md:space-x-3">
                 <li class="inline-flex items-center">
-                    <a href="/" class="inline-flex items-center hover:text-primary-600 transition-colors">
+                    <a href="/{{ $locale }}" class="inline-flex items-center hover:text-primary-600 transition-colors">
                         <svg class="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
                             <path d="M10.707 2.293a1 1 0 00-1.414 0l-7 7a1 1 0 001.414 1.414L4 10.414V17a1 1 0 001 1h2a1 1 0 001-1v-2a1 1 0 011-1h2a1 1 0 011 1v2a1 1 0 001 1h2a1 1 0 001-1v-6.586l.293.293a1 1 0 001.414-1.414l-7-7z"></path>
                         </svg>
@@ -148,7 +152,7 @@ render(function (View $view) {
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             @forelse($pages as $page)
                 <a
-                    href="{{ url('/pages/' . $page->slug) }}"
+                    href="{{ url('/' . $locale . '/pages/' . $page->slug) }}"
                     class="group flex flex-col h-full overflow-hidden bg-white rounded-lg shadow hover:shadow-md transition duration-300"
                 >
                     @if(isset($page->featured_image) && $page->featured_image)

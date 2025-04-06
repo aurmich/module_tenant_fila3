@@ -61,8 +61,9 @@ use Illuminate\View\View;
 use function Laravel\Folio\render;
 
 render(function (View $view) {
+    $locale = app()->getLocale();
     $pages = Page::all();
-    return $view->with('pages', $pages);
+    return $view->with(['pages' => $pages, 'locale' => $locale]);
 });
 ?>
 
@@ -76,7 +77,7 @@ render(function (View $view) {
         
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             @foreach($pages as $page)
-                <a href="{{ url('/pages/' . $page->slug) }}" class="block p-6 bg-white shadow-sm rounded-lg hover:shadow-md transition">
+                <a href="{{ url('/' . $locale . '/pages/' . $page->slug) }}" class="block p-6 bg-white shadow-sm rounded-lg hover:shadow-md transition">
                     <h2 class="text-xl font-semibold mb-2">{{ $page->title }}</h2>
                     <!-- Eventuale descrizione o anteprima -->
                 </a>
@@ -84,6 +85,38 @@ render(function (View $view) {
         </div>
     </div>
 </x-layouts.marketing>
+```
+
+## Gestione della Localizzazione
+
+### Prefissi di Lingua negli URL
+
+SaluteOra utilizza prefissi di lingua negli URL. Tutti i link devono includere la locale corrente:
+
+```
+/{locale}/percorso/pagina
+```
+
+### Generazione dei Link Localizzati
+
+Quando si generano link alle pagine, utilizzare sempre la locale corrente:
+
+```php
+// CORRETTO
+<a href="{{ url('/' . $locale . '/pages/' . $page->slug) }}">{{ $page->title }}</a>
+
+// ERRATO - manca la locale
+<a href="{{ url('/pages/' . $page->slug) }}">{{ $page->title }}</a>
+```
+
+### Ricordare di recuperare la locale
+
+```php
+// Nel blocco render() di Folio
+$locale = app()->getLocale();
+
+// Passarlo alla vista
+return $view->with(['pages' => $pages, 'locale' => $locale]);
 ```
 
 ## Integrazione con il CMS
@@ -99,6 +132,7 @@ Il tema One utilizza questi helper per renderizzare i contenuti delle pagine:
 2. Seguire le convenzioni di nomenclatura di Laravel Folio
 3. Gestire correttamente i casi in cui la pagina non viene trovata
 4. Utilizzare responsive design per tutte le pagine
+5. **Includere sempre la locale negli URL** per garantire il funzionamento corretto della navigazione
 
 ## Creazione di Nuove Pagine
 
@@ -110,6 +144,7 @@ Per creare una nuova pagina nel tema One:
 
 ## Troubleshooting
 
-- Se una pagina non viene visualizzata, verificare che il percorso URL sia corretto
+- Se una pagina non viene visualizzata, verificare che il percorso URL sia corretto e includa la locale
 - Verificare che il modello `Page` contenga lo slug corretto
-- Controllare i logs per eventuali errori 
+- Controllare i logs per eventuali errori
+- Se i link non funzionano, assicurarsi che includano la locale corrente (ad es. `/it/pages/pagina`)
