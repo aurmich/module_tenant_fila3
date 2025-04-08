@@ -36,12 +36,9 @@ pull_subtree() {
     git add -A
     git commit -am "."
     git push -u origin "$REMOTE_BRANCH"
-<<<<<<< HEAD
-=======
 
     git config core.ignorecase false
     git config core.fileMode false
->>>>>>> 11386e8e (.)
     
     git fetch "$REMOTE_REPO" "$REMOTE_BRANCH" --depth=1
     git subtree merge --prefix="$LOCAL_PATH" FETCH_HEAD
