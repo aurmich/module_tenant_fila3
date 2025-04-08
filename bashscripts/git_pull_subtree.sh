@@ -44,6 +44,7 @@ pull_subtree() {
 >>>>>>> 11386e8e (.)
     
     git fetch "$REMOTE_REPO" "$REMOTE_BRANCH" --depth=1
+    git subtree merge --prefix="$LOCAL_PATH" FETCH_HEAD
     if(! git subtree pull -P "$LOCAL_PATH" "$REMOTE_REPO" "$REMOTE_BRANCH"  --squash)
     then
         if(! git subtree pull -P "$LOCAL_PATH" "$REMOTE_REPO" "$REMOTE_BRANCH")    
