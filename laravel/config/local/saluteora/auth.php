@@ -69,8 +69,8 @@ return [
     'providers' => [
         'users' => [
             'driver' => 'eloquent',
-            // 'model' => Modules\User\Models\User::class,
-            'model' => Modules\Broker\Models\User::class,
+            'model' => Modules\User\Models\User::class,
+            // 'model' => Modules\Patient\Models\User::class,
         ],
 
         // 'users' => [

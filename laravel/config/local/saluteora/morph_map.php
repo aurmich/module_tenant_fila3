@@ -14,7 +14,7 @@ return [
     'question_chart' => 'Modules\Quaeris\Models\QuestionChart',
     'rating' => 'Modules\Rating\Models\Rating',
     'survey_pdf' => 'Modules\Quaeris\Models\SurveyPdf',
-    'user' => 'Modules\Broker\Models\User',
+    
     'article' => 'Modules\Blog\Models\Article',
     'banner' => 'Modules\Blog\Models\Banner',
     'customer' => 'Modules\Quaeris\Models\Customer',
@@ -26,5 +26,5 @@ return [
     'question_chart' => 'Modules\Quaeris\Models\QuestionChart',
     'rating' => 'Modules\Rating\Models\Rating',
     'survey_pdf' => 'Modules\Quaeris\Models\SurveyPdf',
-    'user' => 'Modules\Broker\Models\User',
+    
 ];

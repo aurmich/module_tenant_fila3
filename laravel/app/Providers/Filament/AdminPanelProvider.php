@@ -15,7 +15,8 @@ class AdminPanelProvider extends XotBaseMainPanelProvider
     {
 
         return parent::panel($panel)
-          // ->default()
+          ->default()
+          ->login()
             ;
     }
 }

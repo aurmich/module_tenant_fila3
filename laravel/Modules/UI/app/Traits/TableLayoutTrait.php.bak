@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Modules\UI\app\Traits;
+namespace Modules\UI\Traits;
 
 use Illuminate\Support\Facades\Session;
 use Modules\UI\Enums\TableLayout;

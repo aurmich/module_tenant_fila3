@@ -14,14 +14,9 @@ use Modules\User\Models\User;
  */
 class Tenant extends BaseModel
 {
-    use HasFactory, SoftDeletes;
+    // use SoftDeletes;
 
-    /**
-     * La tabella associata al modello.
-     *
-     * @var string
-     */
-    protected $table = 'tenants';
+   
 
     /**
      * Gli attributi che sono mass assignable.

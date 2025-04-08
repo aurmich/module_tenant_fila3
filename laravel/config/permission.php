@@ -13,7 +13,7 @@ return [
          * `Spatie\Permission\Contracts\Permission` contract.
          */
 
-        'permission' => Spatie\Permission\Models\Permission::class,
+        'permission' => Modules\User\Models\Permission::class,
 
         /*
          * When using the "HasRoles" trait from this package, we need to know which
@@ -24,7 +24,7 @@ return [
          * `Spatie\Permission\Contracts\Role` contract.
          */
 
-        'role' => Spatie\Permission\Models\Role::class,
+        'role' => Modules\User\Models\Role::class,
 
     ],
 
@@ -52,7 +52,7 @@ return [
          * basic default value but you may easily change it to any table you like.
          */
 
-        'model_has_permissions' => 'model_has_permissions',
+        'model_has_permissions' => 'model_has_permission',
 
         /*
          * When using the "HasRoles" trait from this package, we need to know which
@@ -60,7 +60,7 @@ return [
          * basic default value but you may easily change it to any table you like.
          */
 
-        'model_has_roles' => 'model_has_roles',
+        'model_has_roles' => 'model_has_role',
 
         /*
          * When using the "HasRoles" trait from this package, we need to know which
@@ -68,7 +68,7 @@ return [
          * basic default value but you may easily change it to any table you like.
          */
 
-        'role_has_permissions' => 'role_has_permissions',
+        'role_has_permissions' => 'role_has_permission',
     ],
 
     'column_names' => [
@@ -131,7 +131,7 @@ return [
      * (view the latest version of this package's migration file)
      */
 
-    'teams' => false,
+    'teams' => true,
 
     /*
      * The class to use to resolve the permissions team id

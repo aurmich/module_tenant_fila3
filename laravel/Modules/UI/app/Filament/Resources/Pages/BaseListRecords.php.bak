@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace Modules\UI\app\Filament\Resources\Pages;
+namespace Modules\UI\Filament\Resources\Pages;
 
-use Modules\UI\app\Traits\TableLayoutTrait;
+use Modules\UI\Traits\TableLayoutTrait;
 
 use Modules\Xot\Filament\Resources\Pages\XotBaseListRecords;
 

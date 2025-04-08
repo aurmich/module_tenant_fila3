@@ -2,19 +2,17 @@
 
 declare(strict_types=1);
 
-use Illuminate\Database\Schema\Blueprint;
-use Modules\Patient\Models\Patient;
 use Modules\Tenant\Models\Tenant;
+use Modules\Patient\Models\Patient;
+use Modules\Patient\Models\Anamnesis;
+use Illuminate\Database\Schema\Blueprint;
 use Modules\Xot\Database\Migrations\XotBaseMigration;
 
 return new class extends XotBaseMigration
 {
-    /**
-     * Nome della tabella.
-     *
-     * @var string
-     */
-    protected string $table = 'anamnesis';
+    
+    //protected string $table = 'anamnesis';
+    protected ?string $model_class = Anamnesis::class;
 
     /**
      * Run the migrations.

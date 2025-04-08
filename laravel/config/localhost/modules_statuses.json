@@ -6,7 +6,7 @@
     "Cms": true,
     "Geo": true,
     "Forum": true,
-    "Broker": true,
+    "Patient": true,
     "Setting": true,
     "Blog": true,
     "Tenant": true,

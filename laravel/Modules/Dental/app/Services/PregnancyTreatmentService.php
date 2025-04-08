@@ -166,8 +166,8 @@ class PregnancyTreatmentService
                     'avoid_treatments' => ['implant', 'whitening', 'orthodontic'],
                     'recommendations' => [
                         'Periodo ideale per trattamenti dentali necessari',
-                        'Mantenere un'igiene orale rigorosa',
-                        'Possibile aumento dell'infiammazione gengivale',
+                        'Mantenere un\'igiene orale rigorosa',
+                        'Possibile aumento dell\'infiammazione gengivale',
                     ],
                 ];
             case 3:
@@ -187,7 +187,7 @@ class PregnancyTreatmentService
                     'recommendations' => [
                         'Consultare il ginecologo prima di qualsiasi trattamento',
                         'Informare il dentista della gravidanza',
-                        'Mantenere un'igiene orale rigorosa',
+                        'Mantenere un\'igiene orale rigorosa',
                     ],
                 ];
         }

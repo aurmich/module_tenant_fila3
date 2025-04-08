@@ -29,6 +29,7 @@ class GetModulesNavigationItems
         $navs = [];
 
         $modules = TenantService::allModules();
+       
         Assert::isArray($modules, 'TenantService::allModules() deve restituire un array');
 
         foreach ($modules as $module) {
@@ -81,7 +82,7 @@ class GetModulesNavigationItems
             $navigation_sort = $config['navigation_sort'] ?? 1;
             Assert::integerish($navigation_sort, 'navigation_sort deve essere un intero');
             $navigation_sort = (int) $navigation_sort;
-            
+            //dddx(auth()->user());
             // Creiamo l'elemento di navigazione
             $nav = NavigationItem::make($module)
                 ->url('/'.$module_low.'/admin')
@@ -90,7 +91,9 @@ class GetModulesNavigationItems
                 ->sort($navigation_sort)
                 ->visible(
                     static function () use ($role): bool {
+                        
                         $user = Filament::auth()->user();
+                        
                         if (null === $user) {
                             return false;
                         }
