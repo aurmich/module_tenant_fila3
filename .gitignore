@@ -58,11 +58,14 @@ laravel/Themes/One/vendor/
 =======
 =======
 <<<<<<< HEAD
+<<<<<<< HEAD
 *:Zone.Identifier
 *.phar
 *.lock
 =======
 >>>>>>> 4bd5ca8f (.)
+=======
+>>>>>>> e9350e11 (up)
 .git-rewrite
 .fuse_hidden*
 .fuse_hidden**.lock
