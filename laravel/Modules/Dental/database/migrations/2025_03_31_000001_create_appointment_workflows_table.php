@@ -2,18 +2,21 @@
 
 declare(strict_types=1);
 
-use Illuminate\Database\Migrations\Migration;
-use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Database\Migrations\Migration;
+use Modules\Xot\Database\Migrations\XotBaseMigration;
 
-return new class extends Migration
+return new class extends XotBaseMigration
 {
     /**
      * Run the migrations.
      */
     public function up(): void
     {
-        Schema::create('appointment_workflows', function (Blueprint $table) {
+        // -- CREATE --
+        $this->tableCreate(
+            static function (Blueprint $table): void {
             $table->id();
             $table->foreignId('tenant_id')->constrained('tenants')->onDelete('cascade');
             $table->foreignId('appointment_id')->nullable()->constrained('appointments')->onDelete('set null');
@@ -33,14 +36,16 @@ return new class extends Migration
             $table->index('session_id');
             $table->index(['tenant_id', 'status']);
             $table->index(['tenant_id', 'created_at']);
-        });
+        }
+    );
+         // -- UPDATE --
+         $this->tableUpdate(
+            function (Blueprint $table): void {
+                // Aggiunta dei timestamp e soft delete
+                $this->updateTimestamps($table, true);
+            }
+        );
     }
 
-    /**
-     * Reverse the migrations.
-     */
-    public function down(): void
-    {
-        Schema::dropIfExists('appointment_workflows');
-    }
+    
 };

@@ -5,9 +5,9 @@ declare(strict_types=1);
 return [
     'adm_theme' => 'AdminLTE', //non serve piu
     'enable_ads' => '1',
-    'main_module' => 'Blog',
+    'main_module' => 'Patient',
     'primary_lang' => 'it',
-    'pub_theme' => 'TwentyOne',
+    'pub_theme' => 'One',
     'show_trans_key' => false,
     'disable_admin_dynamic_route' => true, //dovremmo cancellarlo
     'disable_frontend_dynamic_route' => false,

@@ -2,13 +2,15 @@
 
 declare(strict_types=1);
 
-use Illuminate\Database\Schema\Blueprint;
 use Modules\Reporting\Models\Report;
+use Modules\Reporting\Models\ReportData;
+use Illuminate\Database\Schema\Blueprint;
 use Modules\Xot\Database\Migrations\XotBaseMigration;
 
 return new class extends XotBaseMigration
 {
-    protected string $table = 'report_data';
+    //protected string $table = 'report_data';
+    protected ?string $model_class = ReportData::class;
 
     public function up(): void
     {

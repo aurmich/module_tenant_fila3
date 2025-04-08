@@ -11,9 +11,9 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 use Modules\Tenant\Traits\BelongsToTenant;
 use Modules\Xot\Models\XotBaseModel;
 
-class Patient extends XotBaseModel
+class Patient extends BaseModel
 {
-    use HasFactory, SoftDeletes, BelongsToTenant;
+    use SoftDeletes, BelongsToTenant;
 
     protected $fillable = [
         'tenant_id',

@@ -12,7 +12,7 @@ return new class extends XotBaseMigration
      *
      * @var string
      */
-    protected string $table = 'tenants';
+    //protected string $table = 'tenants';
 
     /**
      * Run the migrations.

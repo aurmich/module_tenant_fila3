@@ -36,7 +36,7 @@ abstract class BaseModel extends Model
     protected $perPage = 30;
 
     /** @var string */
-    protected $connection = 'setting';
+    protected $connection = 'tenant';
 
     /** @var list<string> */
     protected $appends = [];

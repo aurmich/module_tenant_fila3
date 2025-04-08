@@ -5,7 +5,7 @@ declare(strict_types=1);
 return [
     'adm_home' => '01',
     'enable_ads' => '1',
-    'main_module' => 'Broker',
+    'main_module' => 'Patient',
     'primary_lang' => 'it',
     'pub_theme' => 'One',
     'search_action' => 'it/videos',

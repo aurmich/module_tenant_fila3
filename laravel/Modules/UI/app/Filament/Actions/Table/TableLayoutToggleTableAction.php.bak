@@ -2,13 +2,13 @@
 
 declare(strict_types=1);
 
-namespace Modules\UI\app\Filament\Actions\Table;
+namespace Modules\UI\Filament\Actions\Table;
 
 use Filament\Resources\Pages\ListRecords;
 use Filament\Tables\Actions\Action;
 use Illuminate\Support\Facades\Session;
 use Modules\UI\Enums\TableLayout;
-use Modules\UI\app\Traits\TableLayoutTrait;
+use Modules\UI\Traits\TableLayoutTrait;
 
 class TableLayoutToggleTableAction extends Action
 {

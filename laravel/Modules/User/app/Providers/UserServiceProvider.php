@@ -96,7 +96,7 @@ class UserServiceProvider extends XotBaseServiceProvider
 
     protected function registerEventListener(): void
     {
-        $this->app->register(EventServiceProvider::class);
+       // $this->app->register(EventServiceProvider::class);
     }
 
     private function registerSocialite(): void
