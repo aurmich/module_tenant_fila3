@@ -1,6 +1,9 @@
+<<<<<<< HEAD
 *:Zone.Identifier
 *.phar
 *.lock
+=======
+>>>>>>> 4bd5ca8f (.)
 .git-rewrite
 .fuse_hidden*
 .fuse_hidden**.lock
