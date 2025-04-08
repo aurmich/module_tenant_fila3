@@ -22,19 +22,7 @@
         <!-- Fonts -->
         <link rel="stylesheet" href="https://rsms.me/inter/inter.css">
         @filamentStyles
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
         @vite(['resources/sass/app.scss'],'themes/One/dist')
-=======
-        @vite(['Resources/sass/app.scss'],'themes/One/dist')
->>>>>>> abea231 (up)
-=======
-        @vite(['Resources/sass/app.scss'],'themes/One/dist')
->>>>>>> d703c8f (up)
-=======
-        @vite(['resources/sass/app.scss'],'themes/One/dist')
->>>>>>> bc5f829 (up)
 
         <!-- CSRF Token -->
         <meta name="csrf-token" content="{{ csrf_token() }}">
@@ -46,18 +34,6 @@
         @livewire('notifications')
 
         @filamentScripts
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
         @vite(['resources/js/app.js'],'themes/One/dist')
-=======
-        @vite(['Resources/js/app.js'],'themes/One/dist')
->>>>>>> abea231 (up)
-=======
-        @vite(['Resources/js/app.js'],'themes/One/dist')
->>>>>>> d703c8f (up)
-=======
-        @vite(['resources/js/app.js'],'themes/One/dist')
->>>>>>> bc5f829 (up)
     </body>
 </html>
