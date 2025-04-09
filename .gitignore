@@ -35,3 +35,4 @@ cache/
 .php-cs-fixer.cache
 **/*.Zone.Identifier
 *.log
+*.log
