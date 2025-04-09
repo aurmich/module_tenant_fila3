@@ -11,14 +11,20 @@
                 "type": "hero",
                 "data": {
                     "view": "ui::components.blocks.hero.simple",
-                    "title": "Promozione della salute orale per le gestanti",
-                    "subtitle": "Un progetto dedicato alla salute orale delle gestanti in condizioni di vulnerabilità socio-economica",
+                    "title": "Benvenuta su Salute Orale,",
+                    "subtitle": "il portale che vuole garantire alle pazienti vulnerabili in stato di gravidanza la possibilità di accedere a servizi odontoiatrici di prevenzione a titolo completamente gratuito.",
                     "image": "/img/hero-bg.jpg",
-                    "cta_text": "Scopri di più",
-                    "cta_link": "#about",
+                    "cta_text": "INIZIA ORA",
+                    "cta_link": "{{ route('register') }}",
                     "background_color": "bg-white",
                     "text_color": "text-gray-900",
                     "cta_color": "bg-indigo-600 hover:bg-indigo-700"
+                }
+            },
+            {
+                "type": "paragraph",
+                "data": {
+                    "content": "Se sei una donna in stato di gravidanza residente in Italia o in attesa di permesso di soggiorno, con un valore ISEE pari a euro 20,000 o inferiore, e vuoi partecipare a questa iniziativa clicca il pulsante qui sotto:"
                 }
             },
             {

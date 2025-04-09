@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Modules\User\App\Models;
+namespace Modules\User\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\MorphTo;

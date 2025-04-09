@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Modules\User\App\Contracts;
+namespace Modules\User\Contracts;
 
 use Illuminate\Database\Eloquent\Relations\MorphMany;
 
@@ -17,4 +17,4 @@ interface HasAuthentications
      * @return MorphMany
      */
     public function authentications(): MorphMany;
-} 
+}

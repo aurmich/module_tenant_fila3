@@ -1,7 +1,5 @@
 <x-layouts.main>
-    
-    <x-ui.app.header />
-
+    <x-ui.marketing.header />
     <!-- Page Heading -->
     @if (isset($header))
         <header class="mb-5 bg-white border-b border-gray-200/80 dark:border-gray-200/10 dark:bg-gray-900/40">
@@ -16,5 +14,5 @@
             {{ $slot }}
         </div>
     </div>
-
+    
 </x-layouts.main>

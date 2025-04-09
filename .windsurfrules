@@ -158,3 +158,87 @@ Quando si testano le route e i link:
 1. Verificare sempre che l'URL contenga il prefisso lingua corretto
 2. Controllare che tutti i link nella pagina includano la locale
 3. Testare la navigazione tra pagine in lingue diverse
+
+# Regole per la Gestione dei Contenuti Statici
+
+## Struttura dei Contenuti
+- I contenuti statici sono gestiti in `/laravel/config/local/saluteora/database/content/`
+- Le pagine sono definite in file JSON numerati
+- Ogni pagina ha un file JSON corrispondente nella struttura `pages/{id}.json`
+
+## Analisi dei Contenuti
+- PRIMA di analizzare qualsiasi contenuto, verificare sempre:
+  1. La presenza di file JSON nella cartella content
+  2. La struttura del file JSON corrispondente
+  3. Le relazioni tra i contenuti statici e il codice
+
+## Gestione dei Contenuti
+- I contenuti sono versionati e gestiti tramite file JSON
+- Ogni modifica ai contenuti deve essere tracciata
+- La struttura dei contenuti deve essere mantenuta coerente
+
+## Verifica dei Contenuti
+- Controllare sempre la fonte primaria dei contenuti
+- Verificare la coerenza tra contenuti statici e visualizzazione
+- Documentare eventuali discrepanze
+
+## Pattern di Gestione
+- Laravel gestisce i contenuti statici tramite file JSON
+- I contenuti sono organizzati gerarchicamente
+- Ogni modifica deve rispettare la struttura esistente
+
+## Documentazione
+- Mantenere aggiornata la documentazione dei contenuti
+- Tracciare i cambiamenti nella gestione
+- Verificare la coerenza tra documentazione e implementazione
+
+# Regole per la Gestione dei Contenuti e Documentazione
+
+## Analisi dei Contenuti
+- PRIMA di analizzare qualsiasi contenuto, verificare:
+  1. File di configurazione
+  2. Documentazione correlata
+  3. File di testo e immagini
+  4. Struttura del progetto
+
+## Pattern di Documentazione
+- La documentazione è parte integrante del sistema
+- I file .md possono contenere testo esatto da utilizzare
+- Verificare sempre la documentazione correlata
+
+## Gestione dei Contenuti
+- I contenuti sono gestiti in più punti:
+  1. File di configurazione JSON
+  2. Documentazione Markdown
+  3. File di testo e immagini
+
+## Verifica dei Contenuti
+- Controllare tutte le fonti di informazione
+- Verificare la coerenza tra documentazione e implementazione
+- Documentare eventuali discrepanze
+
+## Documentazione
+- Mantenere aggiornata la documentazione
+- Tracciare le relazioni tra file
+- Verificare la coerenza tra documentazione e implementazione
+
+## Considerazioni Architetturali
+- La struttura riflette la separazione tra codice e contenuti
+- La documentazione è parte integrante del sistema
+- Ogni ambiente può avere la propria configurazione
+
+## Best Practices
+1. **Analisi**
+   - Verificare tutte le fonti di informazione
+   - Considerare la documentazione come parte integrante
+   - Implementare controlli incrociati
+
+2. **Documentazione**
+   - Mantenere aggiornata
+   - Tracciare le relazioni
+   - Verificare la coerenza
+
+3. **Implementazione**
+   - Seguire le best practices
+   - Verificare la coerenza
+   - Documentare le modifiche
