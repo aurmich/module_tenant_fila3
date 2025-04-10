@@ -40,6 +40,7 @@ Abbiamo completato la maggior parte delle correzioni necessarie per portare il m
 - Utilizzare `property_exists()` per verificare l'esistenza di proprietà
 - Utilizzare `method_exists()` per verificare l'esistenza di metodi
 - Implementare gestione degli errori con try/catch o controlli condizionali
+- Utilizzare tipi di ritorno e parametri espliciti nelle firme dei metodi
 - Utilizzare Reflection API per interagire con oggetti di tipo sconosciuto
 
 ### 3. Parametri di tipo incompatibile
@@ -136,6 +137,27 @@ if (!is_object($item) || !property_exists($item, 'profile') ||
 $fullName = $item->profile->full_name;
 ```
 
+### Esempio 3: Correzione di parametri di tipo incompatibile
+
+```php
+// Prima
+->options(NotifyThemeResource::fieldOptions('lang'))
+
+// Dopo
+->options(function (): array {
+    return NotifyThemeResource::fieldOptions('lang');
+})
+```
+
+## Risultati
+
+Dopo aver implementato tutte le correzioni, PHPStan al livello 10 non riporta più errori nei moduli Lang e Notify. Questo garantisce un codice più robusto e tipizzato, riducendo il rischio di errori a runtime.
+
+## Prossimi Passi
+
+1. Continuare a correggere gli errori rimanenti nel modulo Notify
+2. Eseguire PHPStan al livello 10 per verificare che tutti gli errori siano stati risolti
+3. Documentare pattern comuni per evitare errori simili in futuro 
 ### Esempio 3: Utilizzare Reflection API per chiamate metodo sicure
 
 ```php

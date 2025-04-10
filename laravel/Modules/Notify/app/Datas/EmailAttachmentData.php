@@ -8,21 +8,11 @@ use Spatie\LaravelData\Data;
 
 class EmailAttachmentData extends Data
 {
-    public string $name;
-
-    public string $contentType;
-
-    private string $content;
-
     public function __construct(
-        string $content,
-        string $name = 'attachment.pdf',
-        string $contentType = 'application/pdf'
-    ) {
-        $this->content = $content;
-        $this->name = $name;
-        $this->contentType = $contentType;
-    }
+        private string $content,
+        public string $name,
+        public string $contentType = 'application/octet-stream'
+    ) {}
 
     public function getContent(): string
     {

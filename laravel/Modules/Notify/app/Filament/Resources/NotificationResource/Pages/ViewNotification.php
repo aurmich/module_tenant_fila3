@@ -4,16 +4,15 @@ declare(strict_types=1);
 
 namespace Modules\Notify\Filament\Resources\NotificationResource\Pages;
 
-<<<<<<< HEAD
-use Filament\Infolists\Components\TextEntry;
 use Filament\Infolists\Components\Section;
+use Filament\Infolists\Components\TextEntry;
 use Modules\Notify\Filament\Resources\NotificationResource;
 use Modules\Xot\Filament\Resources\Pages\XotBaseViewRecord;
 
-class ViewNotification extends \Modules\Xot\Filament\Resources\Pages\XotBaseViewRecord
+class ViewNotification extends XotBaseViewRecord
 {
     protected static string $resource = NotificationResource::class;
-    
+
     /**
      * @return array<\Filament\Infolists\Components\Component>
      */
@@ -27,18 +26,13 @@ class ViewNotification extends \Modules\Xot\Filament\Resources\Pages\XotBaseView
                     TextEntry::make('notifiable_type'),
                     TextEntry::make('notifiable_id'),
                     TextEntry::make('data'),
-                    TextEntry::make('read_at'),
-                    TextEntry::make('created_at'),
-                    TextEntry::make('updated_at'),
+                    TextEntry::make('read_at')
+                        ->dateTime(),
+                    TextEntry::make('created_at')
+                        ->dateTime(),
+                    TextEntry::make('updated_at')
+                        ->dateTime(),
                 ])
         ];
     }
-=======
-use Modules\Notify\Filament\Resources\NotificationResource;
-use Modules\Xot\Filament\Resources\Pages\XotBaseViewRecord;
-
-class ViewNotification extends XotBaseViewRecord
-{
-    protected static string $resource = NotificationResource::class;
->>>>>>> origin/dev
 }

@@ -6,12 +6,9 @@ namespace Modules\Notify\Filament\Resources\NotificationResource\Pages;
 
 use Filament\Tables;
 use Filament\Tables\Columns\TextColumn;
-<<<<<<< HEAD
 use Filament\Tables\Filters\Filter;
 use Filament\Tables\Filters\SelectFilter;
 use Illuminate\Database\Eloquent\Builder;
-=======
->>>>>>> origin/dev
 use Modules\Notify\Filament\Resources\NotificationResource;
 use Modules\Xot\Filament\Resources\Pages\XotBaseListRecords;
 
@@ -48,7 +45,6 @@ class ListNotifications extends XotBaseListRecords
     public function getTableFilters(): array
     {
         return [
-<<<<<<< HEAD
             'read' => Filter::make('is_read')
                 ->query(function (Builder $query): Builder {
                     return $query->where('read_at', '!=', null);
@@ -60,15 +56,6 @@ class ListNotifications extends XotBaseListRecords
                 })
                 ->label('Unread'),
             'type' => SelectFilter::make('type')
-=======
-            'read' => Tables\Filters\Filter::make('is_read')
-                ->query(fn ($query) => $query->where('read_at', '!=', null))
-                ->label('Read'),
-            'unread' => Tables\Filters\Filter::make('is_unread')
-                ->query(fn ($query) => $query->whereNull('read_at'))
-                ->label('Unread'),
-            'type' => Tables\Filters\SelectFilter::make('type')
->>>>>>> origin/dev
                 ->options([
                     'info' => 'Info',
                     'success' => 'Success',
