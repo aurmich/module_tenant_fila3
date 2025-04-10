@@ -16,20 +16,19 @@ class MediaResource extends XotBaseResource
 {
     protected static ?string $model = Media::class;
 
-    /**
-     * @return array<string, \Filament\Forms\Components\Component>
-     */
+    protected static ?string $navigationIcon = 'fas-photo-film';
+
     public static function getFormSchema(): array
     {
         return [
-            'file' => FileUpload::make('file')
+            FileUpload::make('file')
                 ->hint(static::trans('fields.file_hint'))
                 ->storeFileNamesIn('original_file_name')
                 ->visibility('private')
                 ->required()
                 ->columnSpanFull(),
-            'attachment_type' => Radio::make('attachment_type'),
-            'name' => TextInput::make('name')
+            Radio::make('attachment_type'),
+            TextInput::make('name')
                 ->translateLabel()
                 ->hint(static::trans('fields.name.hint'))
                 ->autocomplete(false)
