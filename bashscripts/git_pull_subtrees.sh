@@ -24,8 +24,8 @@ for ((i=0; i<total; i++)); do
     sed -i -e 's/\r$//' "$script"
     
     # Chiamata esterna allo script di sincronizzazione
-    log "🔄 Sincronizzazione modulo: $path"
+    log "🔄 Pull modulo: $path"
     if ! "$script" "$path" "$url" ; then
-        log "⚠️ Sincronizzazione fallita per $path."
+        log "⚠️ Pull fallita per $path."
     fi
 done
