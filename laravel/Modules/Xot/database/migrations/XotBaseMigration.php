@@ -351,7 +351,7 @@ abstract class XotBaseMigration extends Migration
     /**
      * Determine if the migration should run.
      */
-    protected function shouldRun(): bool
+    public function shouldRun(): bool
     {
         if (in_array($this->driver(), ['mariadb', 'mysql', 'pgsql', 'sqlite'])) {
             return true;
@@ -371,7 +371,7 @@ abstract class XotBaseMigration extends Migration
     /**
      * Get the database connection driver.
      */
-    protected function driver(): string
+    public function driver(): string
     {
         return DB::connection($this->getConnection())->getDriverName();
     }

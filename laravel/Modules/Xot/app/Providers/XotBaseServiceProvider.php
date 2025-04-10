@@ -160,10 +160,11 @@ abstract class XotBaseServiceProvider extends ServiceProvider
                 return;
             }
 
+            /*
             $this->publishes([
                 $configPath => config_path($this->nameLower.'.php'),
             ], 'config');
-
+            */
             $this->mergeConfigFrom($configPath, $this->nameLower);
         } catch (\Exception $e) {
             // Ignore missing configuration

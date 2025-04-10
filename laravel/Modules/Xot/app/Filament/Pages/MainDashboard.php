@@ -4,9 +4,10 @@ declare(strict_types=1);
 
 namespace Modules\Xot\Filament\Pages;
 
-use Filament\Pages\Dashboard;
 use Illuminate\Support\Str;
 use Webmozart\Assert\Assert;
+use Filament\Pages\Dashboard;
+use Modules\User\Models\Role;
 
 /**
  * Class Modules\Xot\Filament\Pages\MainDashboard.
@@ -32,6 +33,7 @@ class MainDashboard extends Dashboard
             }
         );
 
+       
         if (1 === $modules->count()) {
             Assert::notNull($module_first = $modules->first(), '['.__LINE__.']['.class_basename($this).']');
             $panel_name = $module_first->name;
