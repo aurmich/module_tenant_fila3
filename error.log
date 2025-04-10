@@ -116,5 +116,17 @@
 [Wed Apr 09 15:56:20.504522 2025] [ssl:warn] [pid 256] AH01909: saluteora.local:443:0 server certificate does NOT include an ID which matches the server name
 [Wed Apr 09 15:56:20.606528 2025] [ssl:warn] [pid 363] AH01909: saluteora.local:443:0 server certificate does NOT include an ID which matches the server name
 [Wed Apr 09 15:56:20.855512 2025] [ssl:warn] [pid 363] AH01909: saluteora.local:443:0 server certificate does NOT include an ID which matches the server name
+<<<<<<< bb800e0693a975f52f72076abb186bc783d4caaf
 >>>>>>> 0cecfb1f437084d217e4fafd99fdc3511a221aec
+<<<<<<< HEAD
 >>>>>>> bb800e06 (.)
+=======
+=======
+[Wed Apr 09 19:25:57.657358 2025] [proxy_fcgi:error] [pid 461] [client 172.18.0.1:65531] AH01071: Got error 'PHP message: PHP Fatal error:  Trait "Laravel\\Sanctum\\HasApiTokens" not found in /var/www/html/saluteora/laravel/app/Models/User.php on line 10', referer: http://saluteora.local/it
+[Wed Apr 09 19:32:51.097635 2025] [proxy_fcgi:error] [pid 54704] [client 172.18.0.1:50455] AH01071: Got error 'PHP message: PHP Fatal error:  Trait "Laravel\\Sanctum\\HasApiTokens" not found in /var/www/html/saluteora/laravel/app/Models/User.php on line 10', referer: http://saluteora.local/it
+[Wed Apr 09 21:10:31.439347 2025] [proxy_fcgi:error] [pid 54705] [client 172.18.0.1:51697] AH01071: Got error 'PHP message: PHP Fatal error:  Trait "Laravel\\Sanctum\\HasApiTokens" not found in /var/www/html/saluteora/laravel/app/Models/User.php on line 10', referer: http://saluteora.local/it
+[Wed Apr 09 21:11:01.231577 2025] [proxy_fcgi:error] [pid 460] [client 172.18.0.1:51698] AH01071: Got error 'PHP message: PHP Fatal error:  Trait "Laravel\\Sanctum\\HasApiTokens" not found in /var/www/html/saluteora/laravel/app/Models/User.php on line 10', referer: http://saluteora.local/it
+[Wed Apr 09 21:16:36.291163 2025] [proxy_fcgi:error] [pid 54695] [client 172.18.0.1:56543] AH01071: Got error 'PHP message: PHP Fatal error:  Cannot redeclare non static Filament\\Support\\Components\\ViewComponent::$view as static Modules\\User\\Filament\\Widgets\\RegistrationWidget::$view in /var/www/html/saluteora/laravel/Modules/User/app/Filament/Widgets/RegistrationWidget.php on line 20', referer: http://saluteora.local/it
+[Wed Apr 09 21:17:44.755795 2025] [proxy_fcgi:error] [pid 54696] [client 172.18.0.1:56621] AH01071: Got error 'PHP message: PHP Fatal error:  Cannot redeclare non static Filament\\Support\\Components\\ViewComponent::$view as static Modules\\User\\Filament\\Widgets\\RegistrationWidget::$view in /var/www/html/saluteora/laravel/Modules/User/app/Filament/Widgets/RegistrationWidget.php on line 20', referer: http://saluteora.local/it
+>>>>>>> 2eb69be31b0333bcfd204e1d5ef979815cc5da04
+>>>>>>> f25a0df8 (.)

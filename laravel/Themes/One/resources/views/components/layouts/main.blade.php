@@ -23,6 +23,7 @@
         </script>
 
 <<<<<<< HEAD
+<<<<<<< HEAD
         <!-- Styles -->
         @filamentStyles
         @vite(['resources/css/app.css', 'resources/js/app.js'],'themes/One')
@@ -103,6 +104,9 @@
         @vite(['resources/js/app.js'],'themes/One')
 =======
 @filamentStyles
+=======
+        @filamentStyles
+>>>>>>> f25a0df8 (.)
         @vite(['resources/css/app.css', 'resources/js/app.js'],'themes/One')
 
         <title>{{ $title ?? 'Genesis' }}</title>
