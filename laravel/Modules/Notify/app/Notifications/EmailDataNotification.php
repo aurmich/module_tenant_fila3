@@ -9,17 +9,13 @@ use Illuminate\Notifications\Messages\MailMessage;
 use Illuminate\Notifications\Notification;
 use Modules\Notify\Datas\EmailData;
 
-<<<<<<< HEAD
 /**
  * Classe per inviare notifiche email utilizzando EmailData.
  */
-=======
->>>>>>> origin/dev
 class EmailDataNotification extends Notification
 {
     use Queueable;
 
-<<<<<<< HEAD
     /**
      * I dati dell'email da inviare.
      *
@@ -32,10 +28,6 @@ class EmailDataNotification extends Notification
      *
      * @param EmailData $emailData I dati dell'email da inviare
      */
-=======
-    protected EmailData $emailData;
-
->>>>>>> origin/dev
     public function __construct(EmailData $emailData)
     {
         $this->emailData = $emailData;
@@ -44,32 +36,21 @@ class EmailDataNotification extends Notification
     /**
      * Get the notification's delivery channels.
      *
-<<<<<<< HEAD
      * @param object $notifiable The entity to be notified
      * @return array<string>
      */
     public function via(object $notifiable): array
-=======
-     * @return array<string>
-     */
-    public function via(mixed $notifiable): array
->>>>>>> origin/dev
     {
         return ['mail'];
     }
 
     /**
      * Get the mail representation of the notification.
-<<<<<<< HEAD
      *
      * @param object $notifiable The entity to be notified
      * @return MailMessage
      */
     public function toMail(object $notifiable): MailMessage
-=======
-     */
-    public function toMail(mixed $notifiable): MailMessage
->>>>>>> origin/dev
     {
         $mailMessage = (new MailMessage())
             ->subject($this->emailData->subject)
@@ -91,16 +72,10 @@ class EmailDataNotification extends Notification
     /**
      * Get the array representation of the notification.
      *
-<<<<<<< HEAD
      * @param object $notifiable The entity to be notified
      * @return array<string, string|null>
      */
     public function toArray(object $notifiable): array
-=======
-     * @return array<string, mixed>
-     */
-    public function toArray(mixed $notifiable): array
->>>>>>> origin/dev
     {
         return [
             'to' => $this->emailData->to,

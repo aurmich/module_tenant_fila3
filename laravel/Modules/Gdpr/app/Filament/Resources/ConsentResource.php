@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace Modules\Gdpr\Filament\Resources;
 
 use Filament\Forms;
-use Filament\Forms\Form;
 use Filament\Tables;
 use Modules\Gdpr\Filament\Resources\ConsentResource\Pages;
 use Modules\Gdpr\Models\Consent;
@@ -17,19 +16,16 @@ class ConsentResource extends XotBaseResource
 
     protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
 
-    public static function form(Form $form): Form
+    public static function getFormSchema(): array
     {
-        return $form
-            ->schema(
-                [
-                    Forms\Components\Select::make('treatment_id')
-                        ->relationship('treatment', 'name')
-                        ->required(),
-                    Forms\Components\TextInput::make('subject_id')
-                        ->required()
-                        ->maxLength(191),
-                ]
-            );
+        return [
+            'treatment_id' => Forms\Components\Select::make('treatment_id')
+                ->relationship('treatment', 'name')
+                ->required(),
+            'subject_id' => Forms\Components\TextInput::make('subject_id')
+                ->required()
+                ->maxLength(191),
+        ];
     }
 
     public function getListTableColumns(): array

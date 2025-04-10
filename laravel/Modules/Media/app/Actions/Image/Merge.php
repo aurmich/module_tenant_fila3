@@ -29,35 +29,25 @@ class Merge
 
     public function execute(array $filenames, string $filenameOut): void
     {
+        $manager = app(ImageManager::class);
         $width = 0;
         $height = 0;
-        $imgs = [];
-        foreach ($filenames as $filename) {
-            // $img = Image::make(public_path($filename));
-            if (! is_string($filename)) {
-                continue;
-            }
-            $manager = new ImageManager(new Driver);
-            $img = $manager->read(public_path($filename));
 
-            $imgs[] = $img;
+        // Prima passata per calcolare le dimensioni totali
+        foreach ($filenames as $filename) {
+            $img = $manager->read(public_path($filename));
             $width += $img->width();
             $height = max($height, $img->height());
         }
 
-        if (! is_numeric($height)) {
-            throw new \Exception('['.__LINE__.']['.class_basename(self::class).']');
-        }
-        $height = (int) $height;
-        // $img_canvas = Image::canvas($width, $height);
-
-        $manager = new ImageManager(Driver::class);
+        // Crea un'immagine vuota con le dimensioni calcolate
         $img_canvas = $manager->create($width, $height);
 
+        // Seconda passata per inserire le immagini
         $delta = 0;
-        foreach ($imgs as $img) {
-            // $img_canvas->insert($img, 'top-left ', $delta, 0);
-            $img_canvas->place($img, 'top-left ', $delta, 0);
+        foreach ($filenames as $filename) {
+            $img = $manager->read(public_path($filename));
+            $img_canvas->place($img, 'top-left', $delta, 0);
             $delta += $img->width();
         }
 

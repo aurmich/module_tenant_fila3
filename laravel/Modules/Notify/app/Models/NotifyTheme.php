@@ -36,10 +36,6 @@ use Spatie\MediaLibrary\MediaCollections\Models\Collections\MediaCollection;
  * @property Model|\Eloquent $linkable
  * @property MediaCollection<int, \Modules\Media\Models\Media> $media
  * @property int|null $media_count
-<<<<<<< HEAD
-=======
- *
->>>>>>> origin/dev
  * @method static \Modules\Notify\Database\Factories\NotifyThemeFactory factory($count = null, $state = [])
  * @method static \Illuminate\Database\Eloquent\Builder|NotifyTheme newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|NotifyTheme newQuery()
@@ -63,7 +59,6 @@ use Spatie\MediaLibrary\MediaCollections\Models\Collections\MediaCollection;
  * @method static \Illuminate\Database\Eloquent\Builder|NotifyTheme whereUpdatedAt($value)
  * @method static \Illuminate\Database\Eloquent\Builder|NotifyTheme whereUpdatedBy($value)
  * @method static \Illuminate\Database\Eloquent\Builder|NotifyTheme whereViewParams($value)
-<<<<<<< HEAD
  * @property \Modules\Xot\Contracts\ProfileContract|null $creator
  * @property \Modules\Xot\Contracts\ProfileContract|null $updater
  * @mixin \Eloquent
@@ -71,20 +66,6 @@ use Spatie\MediaLibrary\MediaCollections\Models\Collections\MediaCollection;
  * @property string|null $deleted_by
  * @method static \Illuminate\Database\Eloquent\Builder<static>|NotifyTheme whereDeletedAt($value)
  * @method static \Illuminate\Database\Eloquent\Builder<static>|NotifyTheme whereDeletedBy($value)
-=======
- *
- * @property \Modules\Xot\Contracts\ProfileContract|null $creator
- * @property \Modules\Xot\Contracts\ProfileContract|null $updater
- *
- * @mixin \Eloquent
- *
- * @property Carbon|null $deleted_at
- * @property string|null $deleted_by
- *
- * @method static \Illuminate\Database\Eloquent\Builder<static>|NotifyTheme whereDeletedAt($value)
- * @method static \Illuminate\Database\Eloquent\Builder<static>|NotifyTheme whereDeletedBy($value)
- *
->>>>>>> origin/dev
  * @mixin Eloquent
  */
 class NotifyTheme extends BaseModel

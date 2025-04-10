@@ -7,15 +7,14 @@ namespace Modules\Cms\Filament\Resources;
 use Filament\Forms;
 use Filament\Forms\Components\SpatieMediaLibraryFileUpload;
 use Filament\Forms\Form;
-use Filament\Resources\Resource;
 use Filament\Tables;
 use Filament\Tables\Table;
 use Illuminate\Support\HtmlString;
 use Modules\Cms\Filament\Resources\MenuResource\Pages;
 use Modules\Cms\Models\Menu;
-use Modules\UI\Filament\Forms\Components\IconPicker;
+use Modules\Xot\Filament\Resources\XotBaseResource;
 
-class MenuResource extends Resource
+class MenuResource extends XotBaseResource
 {
     protected static ?string $model = Menu::class;
 
@@ -30,10 +29,7 @@ class MenuResource extends Resource
         return [
             Forms\Components\TextInput::make('title')
                 ->required()
-                ->maxLength(2048)
-            // ->reactive()
-            // ->unique()
-            ,
+                ->maxLength(2048),
             Forms\Components\Repeater::make('items')
                 ->schema([
                     Forms\Components\Grid::make(2)->schema([
@@ -42,7 +38,6 @@ class MenuResource extends Resource
                             ->columnSpan(1),
 
                         Forms\Components\TextInput::make('url')
-                            // ->helperText('Se di tipo internal inserisci lo slug del titolo, se external inserisci l\'url completo (https://dominio)')
                             ->required()
                             ->columnSpan(1),
                     ]),
@@ -53,68 +48,28 @@ class MenuResource extends Resource
                             'external' => 'external',
                             'route_name' => 'route name',
                         ])
-                        ->helperText(new HtmlString('- "page slug" inserire nel campo Url lo slug del titolo di una pagina creata, 
-                                                    <br> - "external" inserire nel campo Url il l\'intero link di un sito esterno, 
+                        ->helperText(new HtmlString('- "page slug" inserire nel campo Url lo slug del titolo di una pagina creata,
+                                                    <br> - "external" inserire nel campo Url il l\'intero link di un sito esterno,
                                                     <br> - "route name" inserire nel campo Url il nome della route'))
                         ->default('internal')
                         ->required()
                         ->inline(),
 
                     SpatieMediaLibraryFileUpload::make('image')
-                        // ->image()
-                        // ->maxSize(5000)
-                        // ->multiple()
-                        // ->enableReordering()
                         ->openable()
                         ->downloadable()
                         ->columnSpanFull()
-                        // ->collection('avatars')
-                        // ->conversion('thumbnail')
                         ->disk('uploads')
                         ->directory('photos')
-                        ->collection('menu')
-                    // ->preserveFilenames()
-                    ,
-                    // Forms\Components\Select::make('parent_id')
-                    //     ->label('link/menu Padre')
-                    //     ->options(
-                    //         Menu::getTreeMenuOptions()
-                    //     )
-                    //     ->searchable(),
-                    IconPicker::make('icon')
-                        ->helperText('Visualizza le icone disponibili di https://heroicons.com/')
-                        ->columns([
-                            'default' => 1,
-                            'lg' => 3,
-                            '2xl' => 5,
-                        ])
-                    // ->layout(\Guava\FilamentIconPicker\Layout::ON_TOP)
-                    ,
+                        ->collection('menu'),
+
+                    Forms\Components\TextInput::make('icon')
+                        ->helperText('Inserisci il nome dell\'icona da https://heroicons.com/')
+                        ->columnSpanFull(),
                 ])
                 ->columnSpanFull(),
         ];
     }
-
-    public static function form(Form $form): Form
-    {
-        return $form->schema(static::getFormSchema());
-    }
-
-    // public static function table(Table $table): Table
-    // {
-    //     return $table
-    //         ->columns([
-    //             Tables\Columns\TextColumn::make('title'),
-    //         ])
-    //         ->actions([
-    //             Tables\Actions\ActionGroup::make([
-    //                 Tables\Actions\EditAction::make(),
-    //                 Tables\Actions\DeleteAction::make(),
-    //             ]),
-    //         ])
-    //         ->filters([])
-    //         ->bulkActions([]);
-    // }
 
     public static function getRelations(): array
     {
@@ -126,8 +81,8 @@ class MenuResource extends Resource
     {
         return [
             'index' => Pages\ListMenus::route('/'),
+            'create' => Pages\CreateMenu::route('/create'),
             'edit' => Pages\EditMenu::route('/{record}/edit'),
-            // 'create' => Pages\CreateMenu::route('/create'),
         ];
     }
 }

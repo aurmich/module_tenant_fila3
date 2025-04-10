@@ -26,10 +26,6 @@ use Webmozart\Assert\Assert;
  * @property \Illuminate\Support\Carbon|null $updated_at
  * @property \Spatie\MediaLibrary\MediaCollections\Models\Collections\MediaCollection<int, Media> $media
  * @property int|null $media_count
-<<<<<<< HEAD
-=======
- *
->>>>>>> origin/dev
  * @method static \Illuminate\Database\Eloquent\Builder<static>|TemporaryUpload newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder<static>|TemporaryUpload newQuery()
  * @method static \Illuminate\Database\Eloquent\Builder<static>|TemporaryUpload query()
@@ -37,26 +33,14 @@ use Webmozart\Assert\Assert;
  * @method static \Illuminate\Database\Eloquent\Builder<static>|TemporaryUpload whereId($value)
  * @method static \Illuminate\Database\Eloquent\Builder<static>|TemporaryUpload whereSessionId($value)
  * @method static \Illuminate\Database\Eloquent\Builder<static>|TemporaryUpload whereUpdatedAt($value)
-<<<<<<< HEAD
-=======
- *
->>>>>>> origin/dev
  * @property string|null $updated_by
  * @property string|null $created_by
  * @property string|null $deleted_at
  * @property string|null $deleted_by
-<<<<<<< HEAD
-=======
- *
->>>>>>> origin/dev
  * @method static \Illuminate\Database\Eloquent\Builder<static>|TemporaryUpload whereCreatedBy($value)
  * @method static \Illuminate\Database\Eloquent\Builder<static>|TemporaryUpload whereDeletedAt($value)
  * @method static \Illuminate\Database\Eloquent\Builder<static>|TemporaryUpload whereDeletedBy($value)
  * @method static \Illuminate\Database\Eloquent\Builder<static>|TemporaryUpload whereUpdatedBy($value)
-<<<<<<< HEAD
-=======
- *
->>>>>>> origin/dev
  * @mixin \Eloquent
  */
 class TemporaryUpload extends Model implements HasMedia

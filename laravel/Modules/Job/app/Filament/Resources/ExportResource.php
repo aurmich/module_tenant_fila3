@@ -17,10 +17,10 @@ class ExportResource extends XotBaseResource
     public static function getFormSchema(): array
     {
         return [
-            \Filament\Forms\Components\TextInput::make('name')
+            'name' => \Filament\Forms\Components\TextInput::make('name')
                 ->required()
                 ->maxLength(255),
-            \Filament\Forms\Components\Select::make('type')
+            'type' => \Filament\Forms\Components\Select::make('type')
                 ->required()
                 ->options([
                     'csv' => 'CSV',
@@ -28,7 +28,7 @@ class ExportResource extends XotBaseResource
                     'pdf' => 'PDF',
                 ])
                 ->default('csv'),
-            \Filament\Forms\Components\Select::make('status')
+            'status' => \Filament\Forms\Components\Select::make('status')
                 ->required()
                 ->options([
                     'pending' => 'Pending',
@@ -37,24 +37,13 @@ class ExportResource extends XotBaseResource
                     'failed' => 'Failed',
                 ])
                 ->default('pending'),
-            \Filament\Forms\Components\Textarea::make('error_message')
-                ->maxLength(65535),
-            \Filament\Forms\Components\TextInput::make('total_records')
-                ->numeric(),
-            \Filament\Forms\Components\TextInput::make('processed_records')
-                ->numeric(),
-            \Filament\Forms\Components\TextInput::make('file_path')
-                ->maxLength(255),
-            \Filament\Forms\Components\DateTimePicker::make('completed_at'),
-        ];
-    }
-
-    public static function getPages(): array
-    {
-        return [
-            'index' => Pages\ListExports::route('/'),
-            'create' => Pages\CreateExport::route('/create'),
-            'edit' => Pages\EditExport::route('/{record}/edit'),
+            'error_message' => \Filament\Forms\Components\Textarea::make('error_message')
+                ->maxLength(65535)
+                ->columnSpanFull(),
+            'created_at' => \Filament\Forms\Components\DateTimePicker::make('created_at')
+                ->disabled(),
+            'updated_at' => \Filament\Forms\Components\DateTimePicker::make('updated_at')
+                ->disabled(),
         ];
     }
 }

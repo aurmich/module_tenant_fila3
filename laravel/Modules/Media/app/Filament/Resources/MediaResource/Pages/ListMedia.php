@@ -11,13 +11,9 @@ use Filament\Tables\Actions\ViewAction;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Filters\SelectFilter;
 use Modules\Media\Filament\Resources\MediaResource;
-<<<<<<< HEAD
 use Modules\Media\Models\Media;
 use Modules\Xot\Filament\Resources\Pages\XotBaseListRecords;
 use Webmozart\Assert\Assert;
-=======
-use Modules\Xot\Filament\Resources\Pages\XotBaseListRecords;
->>>>>>> origin/dev
 
 class ListMedia extends XotBaseListRecords
 {
@@ -32,7 +28,6 @@ class ListMedia extends XotBaseListRecords
             'id' => TextColumn::make('id')
                 ->sortable()
                 ->searchable(),
-<<<<<<< HEAD
             'model_type' => TextColumn::make('model_type')
                 ->searchable(),
             'model_id' => TextColumn::make('model_id')
@@ -51,16 +46,6 @@ class ListMedia extends XotBaseListRecords
                 ->formatStateUsing(fn (string $state): string => number_format((int) $state / 1024, 2).' KB'),
             'created_at' => TextColumn::make('created_at')
                 ->dateTime(),
-=======
-            'name' => TextColumn::make('name')
-                ->sortable()
-                ->searchable(),
-            'size' => TextColumn::make('size')
-                ->formatStateUsing(fn (string $state): string => number_format((int) $state / 1024, 2).' KB'),
-            'mime_type' => TextColumn::make('mime_type')
-                ->sortable()
-                ->searchable(),
->>>>>>> origin/dev
         ];
     }
 
@@ -70,19 +55,10 @@ class ListMedia extends XotBaseListRecords
     public function getTableFilters(): array
     {
         return [
-<<<<<<< HEAD
             'collection_name' => SelectFilter::make('collection_name')
                 ->options(fn () => Media::distinct()->pluck('collection_name', 'collection_name')->toArray()),
             'mime_type' => SelectFilter::make('mime_type')
                 ->options(fn () => Media::distinct()->pluck('mime_type', 'mime_type')->toArray()),
-=======
-            'type' => SelectFilter::make('mime_type')
-                ->options([
-                    'image/jpeg' => 'JPEG',
-                    'image/png' => 'PNG',
-                    'application/pdf' => 'PDF',
-                ]),
->>>>>>> origin/dev
         ];
     }
 
@@ -92,7 +68,6 @@ class ListMedia extends XotBaseListRecords
     public function getTableActions(): array
     {
         return [
-<<<<<<< HEAD
             'view' => ViewAction::make()
                 ,
             'view_attachment' => Action::make('view_attachment')
@@ -122,19 +97,6 @@ class ListMedia extends XotBaseListRecords
                         return $res;
                     }
                 )->openUrlInNewTab(true),
-=======
-            'view' => ViewAction::make(),
-            'download' => Action::make('download')
-                ->url(fn ($record) => route('media.download', $record))
-                ->openUrlInNewTab(),
-            'delete' => DeleteAction::make(),
-            'preview' => Action::make('preview')
-                ->url(fn ($record) => route('media.preview', $record))
-                ->openUrlInNewTab(),
-            'stream' => Action::make('stream')
-                ->url(fn ($record) => route('media.stream', $record))
-                ->openUrlInNewTab(),
->>>>>>> origin/dev
         ];
     }
 }

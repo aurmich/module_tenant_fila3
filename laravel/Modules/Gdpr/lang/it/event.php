@@ -4,69 +4,29 @@ declare(strict_types=1);
 
 return [
     'navigation' => [
-        'name' => 'Evento',
-        'plural' => 'Eventi',
+        'name' => 'Eventi Privacy',
+        'plural' => 'Eventi Privacy',
         'group' => [
-            'name' => 'Admin',
+            'name' => 'GDPR',
+            'description' => 'Registro degli eventi relativi alla privacy',
         ],
-    ],
-    'pages' => [
-        'create' => 'Nuovo Tecnico',
-        'edit' => 'Modifica Tecnico',
-        'view' => 'Tecnico',
-        'list_technicians' => [
-            'navigation' => [
-                'name' => 'Tecnici',
-                'plural' => 'Tecnici',
-                'group' => [
-                    'name' => 'Gestione Utenti',
-                ],
-            ],
-            'fields' => [
-                'user_name' => 'Nome Utente',
-                'name' => 'Nome Utente',
-                'first_name' => 'Nome',
-                'last_name' => 'Cognome',
-                'email' => 'Email',
-                'is_active' => 'Stato account',
-                'color' => 'Colore',
-                'asset_id_root' => 'Abitazione',
-                'asset_id' => 'Asset',
-                'type' => 'Tipo',
-            ],
-        ],
+        'label' => 'Eventi Privacy',
+        'sort' => 27,
+        'icon' => 'gdpr-event',
     ],
     'fields' => [
-        'name' => 'Nome Utente',
-        'first_name' => 'Nome',
-        'last_name' => 'Cognome',
-        'email' => 'Email',
-        'is_active' => 'Stato account',
-        'color' => 'Colore',
-        'asset_id_root' => 'Abitazione',
-        'asset_id' => 'Asset',
-        'type' => 'tipo',
-        'user_name' => 'nome utente',
+        'event_type' => 'Tipo Evento',
+        'description' => 'Descrizione',
+        'user' => 'Utente',
+        'timestamp' => 'Data e Ora',
+        'data' => 'Dati',
+        'source' => 'Sorgente',
     ],
-    'filters' => [
-        'is_active' => [
-            'all' => 'Tutti i tecnici',
-            'active' => 'Solo attivi',
-            'inactive' => 'Solo inattivi',
-        ],
-    ],
-    'actions' => [
-        'bulk_activate' => [
-            'cta' => 'Attiva selezionati',
-        ],
-        'bulk_inactivate' => [
-            'cta' => 'Disattiva selezionati',
-        ],
-        'is_active_on' => [
-            'cta' => 'Abilita account',
-        ],
-        'is_active_off' => [
-            'cta' => 'Disabilita account',
-        ],
+    'event_types' => [
+        'consent_granted' => 'Consenso Concesso',
+        'consent_withdrawn' => 'Consenso Revocato',
+        'data_access' => 'Accesso ai Dati',
+        'data_modified' => 'Dati Modificati',
+        'data_deleted' => 'Dati Eliminati',
     ],
 ];

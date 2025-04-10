@@ -62,11 +62,13 @@ class ScheduleObserver
      *
      * @return void
      */
-    protected function clearCache()
+    protected function clearCache(): void
     {
         if (config('job::cache.enabled')) {
             $scheduleService = app(ScheduleService::class);
-            $scheduleService->clearCache();
+            if ($scheduleService !== null) {
+                $scheduleService->clearCache();
+            }
         }
     }
 }

@@ -19,10 +19,6 @@ use Illuminate\Support\Carbon;
  * @property Carbon|null $created_at
  * @property Carbon|null $updated_at
  * @property Frequency|null $task
-<<<<<<< HEAD
-=======
- *
->>>>>>> origin/dev
  * @method static \Modules\Job\Database\Factories\ParameterFactory factory($count = null, $state = [])
  * @method static \Illuminate\Database\Eloquent\Builder|Parameter newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|Parameter newQuery()
@@ -35,15 +31,8 @@ use Illuminate\Support\Carbon;
  * @method static \Illuminate\Database\Eloquent\Builder|Parameter whereUpdatedAt($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Parameter whereUpdatedBy($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Parameter whereValue($value)
-<<<<<<< HEAD
  * @property \Modules\Xot\Contracts\ProfileContract|null $creator
  * @property \Modules\Xot\Contracts\ProfileContract|null $updater
-=======
- *
- * @property \Modules\Xot\Contracts\ProfileContract|null $creator
- * @property \Modules\Xot\Contracts\ProfileContract|null $updater
- *
->>>>>>> origin/dev
  * @mixin \Eloquent
  */
 class Parameter extends BaseModel

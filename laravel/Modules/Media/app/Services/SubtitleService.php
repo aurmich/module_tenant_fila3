@@ -125,7 +125,7 @@ class SubtitleService
     }
 
     /**
-     * @return (float|int|mixed|string)[][]
+     * @return array<int, array<string, float|int|string|mixed>>
      *
      * @psalm-return list{0?: array{sentence_i: int<0, max>, item_i: int<0, max>, start: float|int, end: float|int, time: string, text: mixed},...}
      */
@@ -172,8 +172,8 @@ class SubtitleService
     /**
      * Undocumented function.
      *
-     * @param  string  $srtFile
-     * @param  string  $webVttFile
+     * @param  string $srtFile
+     * @param  string $webVttFile
      */
     public function srtToVtt($srtFile, $webVttFile): void
     {

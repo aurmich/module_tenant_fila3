@@ -31,18 +31,14 @@ class VideoStream
 
     private ?int $fileModifiedTime = null; // Last modified time of the video file
 
-<<<<<<< HEAD
     /** @var resource|null */
     private $stream = null; // File stream resource
-=======
-    private mixed $stream; // File stream resource
->>>>>>> origin/dev
 
     /**
      * Initialize the video stream.
      *
-     * @param  string  $disk  The disk storage name
-     * @param  string  $path  The path to the video file
+     * @param  string $disk  The disk storage name
+     * @param  string $path  The path to the video file
      *
      * @throws Exception If the file does not exist or other errors
      */
@@ -50,17 +46,20 @@ class VideoStream
     {
         $filesystem = Storage::disk($disk);
 
-        if (! $filesystem->exists($path)) {
+        if (!$filesystem->exists($path)) {
             throw new Exception("File does not exist at path: {$path}");
         }
 
-        Assert::string($mime = $filesystem->mimeType($path));
+        $mime = $filesystem->mimeType($path);
+        if($mime==false){
+            throw new Exception('Unable to determine MIME type.');
+        }
         $this->stream = $filesystem->readStream($path);
         $this->mime = $mime;
         $this->fileModifiedTime = $filesystem->lastModified($path);
         $this->size = $filesystem->size($path);
 
-        if (! is_string($this->mime)) {
+        if (!is_string($this->mime)) {
             throw new Exception('Unable to determine MIME type.');
         }
     }
@@ -81,10 +80,10 @@ class VideoStream
     private function setHeaders(): void
     {
         ob_end_clean(); // Clean any previous output
-        header('Content-Type: '.$this->mime);
+        header('Content-Type: ' . $this->mime);
         header('Cache-Control: max-age=2592000, public'); // 30 days cache
-        header('Expires: '.gmdate('D, d M Y H:i:s', time() + 2592000).' GMT'); // 30 days in the future
-        header('Last-Modified: '.gmdate('D, d M Y H:i:s', $this->fileModifiedTime).' GMT');
+        header('Expires: ' . gmdate('D, d M Y H:i:s', time() + 2592000) . ' GMT'); // 30 days in the future
+        header('Last-Modified: ' . gmdate('D, d M Y H:i:s', $this->fileModifiedTime) . ' GMT');
 
         $this->end = $this->size - 1;
         header('Accept-Ranges: bytes');
@@ -93,7 +92,7 @@ class VideoStream
         if ($rangeHeader !== null) {
             $this->processRangeHeader($rangeHeader);
         } else {
-            header('Content-Length: '.$this->size);
+            header('Content-Length: ' . $this->size);
         }
     }
 
@@ -125,7 +124,7 @@ class VideoStream
 
         $length = $this->end - $this->start + 1;
         header('HTTP/1.1 206 Partial Content');
-        header('Content-Length: '.$length);
+        header('Content-Length: ' . $length);
         header(sprintf('Content-Range: bytes %d-%d/%d', $this->start, $this->end, $this->size));
     }
 
@@ -143,7 +142,6 @@ class VideoStream
         fseek($this->stream, $this->start);
         while (! feof($this->stream) && $this->start <= $this->end) {
             $bytesToRead = min($this->bufferSize, $this->end - $this->start + 1);
-<<<<<<< HEAD
             if ($bytesToRead > 0) {
                 $data = fread($this->stream, $bytesToRead);
                 echo $data;
@@ -152,12 +150,6 @@ class VideoStream
             } else {
                 break; // Evita loop infiniti se $bytesToRead <= 0
             }
-=======
-            $data = fread($this->stream, $bytesToRead);
-            echo $data;
-            flush();
-            $this->start += $bytesToRead;
->>>>>>> origin/dev
         }
     }
 

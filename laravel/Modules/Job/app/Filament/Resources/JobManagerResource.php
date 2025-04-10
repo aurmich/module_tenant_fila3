@@ -21,25 +21,23 @@ class JobManagerResource extends XotBaseResource
 {
     protected static ?string $model = JobManager::class;
 
-    protected static ?string $navigationIcon = 'heroicon-o-play';
-
     public static function getFormSchema(): array
     {
         return [
-            TextInput::make('job_id')
+            'job_id' => TextInput::make('job_id')
                 ->required()
                 ->maxLength(255),
-            TextInput::make('name')
+            'name' => TextInput::make('name')
                 ->maxLength(255),
-            TextInput::make('queue')
+            'queue' => TextInput::make('queue')
                 ->maxLength(255),
-            DateTimePicker::make('started_at'),
-            DateTimePicker::make('finished_at'),
-            Toggle::make('failed')
+            'started_at' => DateTimePicker::make('started_at'),
+            'finished_at' => DateTimePicker::make('finished_at'),
+            'failed' => Toggle::make('failed')
                 ->required(),
-            TextInput::make('attempt')
+            'attempt' => TextInput::make('attempt')
                 ->required(),
-            Textarea::make('exception_message')
+            'exception_message' => Textarea::make('exception_message')
                 ->maxLength(65535),
         ];
     }

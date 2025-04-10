@@ -11,11 +11,8 @@ namespace Modules\Media\Models;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 /**
-<<<<<<< HEAD
  * 
  *
-=======
->>>>>>> origin/dev
  * @property int $id
  * @property int $media_id
  * @property string|null $codec_video
@@ -41,10 +38,6 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
  * @property string|null $disk
  * @property string|null $file
  * @property Media|null $media
-<<<<<<< HEAD
-=======
- *
->>>>>>> origin/dev
  * @method static \Modules\Media\Database\Factories\MediaConvertFactory factory($count = null, $state = [])
  * @method static \Illuminate\Database\Eloquent\Builder|MediaConvert newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|MediaConvert newQuery()
@@ -70,15 +63,8 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
  * @method static \Illuminate\Database\Eloquent\Builder|MediaConvert whereUpdatedAt($value)
  * @method static \Illuminate\Database\Eloquent\Builder|MediaConvert whereUpdatedBy($value)
  * @method static \Illuminate\Database\Eloquent\Builder|MediaConvert whereWidth($value)
-<<<<<<< HEAD
  * @property-read \Modules\Xot\Contracts\ProfileContract|null $creator
  * @property-read \Modules\Xot\Contracts\ProfileContract|null $updater
-=======
- *
- * @property-read \Modules\Xot\Contracts\ProfileContract|null $creator
- * @property-read \Modules\Xot\Contracts\ProfileContract|null $updater
- *
->>>>>>> origin/dev
  * @mixin \Eloquent
  */
 class MediaConvert extends BaseModel
@@ -108,22 +94,31 @@ class MediaConvert extends BaseModel
 
     public function getDiskAttribute(?string $value): ?string
     {
-        return $this->media?->disk;
+        if($this->media==null){
+            return null;
+        }
+        return $this->media->disk;
     }
 
     public function getFileAttribute(?string $value): ?string
     {
-        return $this->media?->id.'/'.$this->media?->file_name;
+        if($this->media==null){
+            return null;
+        }
+        return $this->media->path . '/' . $this->media->file_name;
     }
 
     public function getConvertedFileAttribute(?string $value): ?string
     {
-        $info = pathinfo((string) $this->media?->file_name);
+        if($this->media==null){
+            return null;
+        }
+        $info = pathinfo($this->media->file_name);
         // "dirname" => "."
         // "basename" => "20600550-uhd_3840_2160_30fps.mp4"
         // "extension" => "mp4"
         // "filename" => "20600550-uhd_3840_2160_30fps"
 
-        return $this->media?->id.'/conversions/'.$info['filename'].'_'.$this->id.'.'.$this->format;
+        return $this->media->path . '/conversions/' . $info['filename'] . '_' . $this->id . '.' . $this->format;
     }
 }

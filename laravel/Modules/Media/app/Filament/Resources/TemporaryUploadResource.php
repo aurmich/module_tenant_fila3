@@ -20,20 +20,21 @@ class TemporaryUploadResource extends XotBaseResource
 {
     protected static ?string $model = TemporaryUpload::class;
 
-    protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
-
+    /**
+     * @return array<string, \Filament\Forms\Components\Component>
+     */
     public static function getFormSchema(): array
     {
         return [
-            \Filament\Forms\Components\FileUpload::make('file')
+            'file' => \Filament\Forms\Components\FileUpload::make('file')
                 ->required()
                 ->preserveFilenames()
                 ->acceptedFileTypes(['image/*', 'application/pdf', 'application/msword'])
                 ->maxSize(10240),
-            \Filament\Forms\Components\TextInput::make('folder')
+            'folder' => \Filament\Forms\Components\TextInput::make('folder')
                 ->required()
                 ->maxLength(255),
-            \Filament\Forms\Components\DateTimePicker::make('expires_at')
+            'expires_at' => \Filament\Forms\Components\DateTimePicker::make('expires_at')
                 ->required(),
         ];
     }

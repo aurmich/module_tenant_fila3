@@ -57,10 +57,6 @@ use Spatie\MediaLibrary\MediaCollections\Models\Media as SpatieMedia;
  * @property \Modules\Xot\Contracts\UserContract|null $creator
  * @property \Illuminate\Database\Eloquent\Model|Eloquent $model
  * @property TemporaryUpload|null $temporaryUpload
-<<<<<<< HEAD
-=======
- *
->>>>>>> origin/dev
  * @method static \Spatie\MediaLibrary\MediaCollections\Models\Collections\MediaCollection<int, static> all($columns = ['*'])
  * @method static \Spatie\MediaLibrary\MediaCollections\Models\Collections\MediaCollection<int, static> get($columns = ['*'])
  * @method static \Illuminate\Database\Eloquent\Builder|Media newModelQuery()
@@ -100,18 +96,10 @@ use Spatie\MediaLibrary\MediaCollections\Models\Media as SpatieMedia;
  * @method static \Illuminate\Database\Eloquent\Builder|Media whereUserId($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Media whereUuid($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Media whereWidth($value)
-<<<<<<< HEAD
-=======
- *
->>>>>>> origin/dev
  * @property mixed $extension
  * @property mixed $human_readable_size
  * @property mixed $original_url
  * @property mixed $preview_url
-<<<<<<< HEAD
-=======
- *
->>>>>>> origin/dev
  * @method static \Spatie\MediaLibrary\MediaCollections\Models\Collections\MediaCollection<int, static> all($columns = ['*'])
  * @method static \Spatie\MediaLibrary\MediaCollections\Models\Collections\MediaCollection<int, static> get($columns = ['*'])
  * @method static \Spatie\MediaLibrary\MediaCollections\Models\Collections\MediaCollection<int, static> all($columns = ['*'])
@@ -120,15 +108,8 @@ use Spatie\MediaLibrary\MediaCollections\Models\Media as SpatieMedia;
  * @method static \Spatie\MediaLibrary\MediaCollections\Models\Collections\MediaCollection<int, static> get($columns = ['*'])
  * @method static \Spatie\MediaLibrary\MediaCollections\Models\Collections\MediaCollection<int, static> all($columns = ['*'])
  * @method static \Spatie\MediaLibrary\MediaCollections\Models\Collections\MediaCollection<int, static> get($columns = ['*'])
-<<<<<<< HEAD
  * @property string|null $deleted_at
  * @property string|null $deleted_by
-=======
- *
- * @property string|null $deleted_at
- * @property string|null $deleted_by
- *
->>>>>>> origin/dev
  * @method static \Spatie\MediaLibrary\MediaCollections\Models\Collections\MediaCollection<int, static> all($columns = ['*'])
  * @method static \Spatie\MediaLibrary\MediaCollections\Models\Collections\MediaCollection<int, static> get($columns = ['*'])
  * @method static \Illuminate\Database\Eloquent\Builder|Media whereDeletedAt($value)
@@ -145,17 +126,9 @@ use Spatie\MediaLibrary\MediaCollections\Models\Media as SpatieMedia;
  * @method static \Spatie\MediaLibrary\MediaCollections\Models\Collections\MediaCollection<int, static> get($columns = ['*'])
  * @method static \Spatie\MediaLibrary\MediaCollections\Models\Collections\MediaCollection<int, static> all($columns = ['*'])
  * @method static \Spatie\MediaLibrary\MediaCollections\Models\Collections\MediaCollection<int, static> get($columns = ['*'])
-<<<<<<< HEAD
  * @property array $entry_conversions
  * @property EloquentCollection<int, \Modules\Media\Models\MediaConvert> $mediaConverts
  * @property int|null $media_converts_count
-=======
- *
- * @property array $entry_conversions
- * @property EloquentCollection<int, \Modules\Media\Models\MediaConvert> $mediaConverts
- * @property int|null $media_converts_count
- *
->>>>>>> origin/dev
  * @method static \Spatie\MediaLibrary\MediaCollections\Models\Collections\MediaCollection<int, static> all($columns = ['*'])
  * @method static \Spatie\MediaLibrary\MediaCollections\Models\Collections\MediaCollection<int, static> get($columns = ['*'])
  * @method static \Spatie\MediaLibrary\MediaCollections\Models\Collections\MediaCollection<int, static> all($columns = ['*'])
@@ -202,13 +175,7 @@ use Spatie\MediaLibrary\MediaCollections\Models\Media as SpatieMedia;
  * @method static \Spatie\MediaLibrary\MediaCollections\Models\Collections\MediaCollection<int, static> get($columns = ['*'])
  * @method static \Spatie\MediaLibrary\MediaCollections\Models\Collections\MediaCollection<int, static> all($columns = ['*'])
  * @method static \Spatie\MediaLibrary\MediaCollections\Models\Collections\MediaCollection<int, static> get($columns = ['*'])
-<<<<<<< HEAD
  * @property \Modules\Xot\Contracts\ProfileContract|null $updater
-=======
- *
- * @property \Modules\Xot\Contracts\ProfileContract|null $updater
- *
->>>>>>> origin/dev
  * @method static \Spatie\MediaLibrary\MediaCollections\Models\Collections\MediaCollection<int, static> all($columns = ['*'])
  * @method static \Spatie\MediaLibrary\MediaCollections\Models\Collections\MediaCollection<int, static> get($columns = ['*'])
  * @method static \Spatie\MediaLibrary\MediaCollections\Models\Collections\MediaCollection<int, static> all($columns = ['*'])
@@ -225,13 +192,7 @@ use Spatie\MediaLibrary\MediaCollections\Models\Media as SpatieMedia;
  * @method static \Spatie\MediaLibrary\MediaCollections\Models\Collections\MediaCollection<int, static> get($columns = ['*'])
  * @method static \Spatie\MediaLibrary\MediaCollections\Models\Collections\MediaCollection<int, static> all($columns = ['*'])
  * @method static \Spatie\MediaLibrary\MediaCollections\Models\Collections\MediaCollection<int, static> get($columns = ['*'])
-<<<<<<< HEAD
  * @mixin \Eloquent
-=======
- *
- * @mixin \Eloquent
- *
->>>>>>> origin/dev
  * @method static \Spatie\MediaLibrary\MediaCollections\Models\Collections\MediaCollection<int, static> all($columns = ['*'])
  * @method static \Spatie\MediaLibrary\MediaCollections\Models\Collections\MediaCollection<int, static> get($columns = ['*'])
  * @method static \Spatie\MediaLibrary\MediaCollections\Models\Collections\MediaCollection<int, static> all($columns = ['*'])
@@ -266,10 +227,6 @@ use Spatie\MediaLibrary\MediaCollections\Models\Media as SpatieMedia;
  * @method static \Spatie\MediaLibrary\MediaCollections\Models\Collections\MediaCollection<int, static> get($columns = ['*'])
  * @method static \Spatie\MediaLibrary\MediaCollections\Models\Collections\MediaCollection<int, static> all($columns = ['*'])
  * @method static \Spatie\MediaLibrary\MediaCollections\Models\Collections\MediaCollection<int, static> get($columns = ['*'])
-<<<<<<< HEAD
-=======
- *
->>>>>>> origin/dev
  * @mixin Eloquent
  */
 class Media extends SpatieMedia
@@ -303,7 +260,6 @@ class Media extends SpatieMedia
         return $this->belongsTo(TemporaryUpload::class);
     }
 
-<<<<<<< HEAD
     /**
      * Relazione con il creatore del media.
      * 
@@ -315,11 +271,6 @@ class Media extends SpatieMedia
         /** @var class-string<\Illuminate\Database\Eloquent\Model> $userClass */
         $userClass = \Modules\Xot\Datas\XotData::make()->getUserClass();
         return $this->belongsTo($userClass, 'created_by');
-=======
-    public function creator(): BelongsTo
-    {
-        return $this->belongsTo(\Modules\Xot\Datas\XotData::make()->getUserClass(), 'created_by');
->>>>>>> origin/dev
     }
 
     public function mediaConverts(): HasMany
@@ -358,9 +309,9 @@ class Media extends SpatieMedia
         $conversions = [];
         foreach ($this->getGeneratedConversions() as $conv => $state) {
             $item = [
-                'name' => (string) $conv,
+                'name' => is_string($conv) ? $conv : (string) $conv,
                 'generated' => $state,
-                'src' => $this->getUrlConv((string) $conv),
+                'src' => $this->getUrlConv(is_string($conv) ? $conv : (string) $conv),
             ];
             $conversions[] = $item;
         }

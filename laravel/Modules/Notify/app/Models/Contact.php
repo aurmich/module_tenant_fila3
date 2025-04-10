@@ -48,10 +48,6 @@ use Illuminate\Support\Carbon;
  * @property string|null $sms_status_txt
  * @property int|null $duplicate_count
  * @property int|null $order_column
-<<<<<<< HEAD
-=======
- *
->>>>>>> origin/dev
  * @method static \Modules\Notify\Database\Factories\ContactFactory factory($count = null, $state = [])
  * @method static \Illuminate\Database\Eloquent\Builder|Contact newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|Contact newQuery()
@@ -78,18 +74,9 @@ use Illuminate\Support\Carbon;
  * @method static \Illuminate\Database\Eloquent\Builder|Contact whereUserId($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Contact whereValue($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Contact whereVerifiedAt($value)
-<<<<<<< HEAD
  * @mixin Eloquent
  * @property string|null $email
  * @property string|null $mobile_phone
-=======
- *
- * @mixin Eloquent
- *
- * @property string|null $email
- * @property string|null $mobile_phone
- *
->>>>>>> origin/dev
  * @method static \Illuminate\Database\Eloquent\Builder|Contact whereAttribute1($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Contact whereAttribute10($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Contact whereAttribute11($value)
@@ -108,25 +95,14 @@ use Illuminate\Support\Carbon;
  * @method static \Illuminate\Database\Eloquent\Builder|Contact whereEmail($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Contact whereFirstName($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Contact whereUsesleft($value)
-<<<<<<< HEAD
-=======
- *
->>>>>>> origin/dev
  * @property \Modules\Xot\Contracts\ProfileContract|null $creator
  * @property \Modules\Xot\Contracts\ProfileContract|null $updater
  * @property \Spatie\MediaLibrary\MediaCollections\Models\Collections\MediaCollection<int, \Spatie\MediaLibrary\MediaCollections\Models\Media> $media
  * @property int|null $media_count
  * @property Carbon|null $deleted_at
  * @property string|null $deleted_by
-<<<<<<< HEAD
  * @method static \Illuminate\Database\Eloquent\Builder<static>|Contact whereDeletedAt($value)
  * @method static \Illuminate\Database\Eloquent\Builder<static>|Contact whereDeletedBy($value)
-=======
- *
- * @method static \Illuminate\Database\Eloquent\Builder<static>|Contact whereDeletedAt($value)
- * @method static \Illuminate\Database\Eloquent\Builder<static>|Contact whereDeletedBy($value)
- *
->>>>>>> origin/dev
  * @mixin \Eloquent
  */
 class Contact extends BaseModel

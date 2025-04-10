@@ -45,6 +45,6 @@ return [
     },
 
     'children' => fn ($page, $docs): array =>
-        // return $docs->where('parent_id', $page->id);
+        // return $docs->where('parent_id', $page->);
         [],
 ];

@@ -70,13 +70,10 @@ return [
         'json' => 'JSON',
         'xml' => 'XML',
         'pdf' => 'PDF',
-<<<<<<< HEAD
         'standard' => 'Standard',
         'extended' => 'Esteso',
         'minimal' => 'Minimo',
         'custom' => 'Personalizzato',
-=======
->>>>>>> origin/dev
     ],
     'options' => [
         'include_headers' => 'Includi intestazioni',
@@ -135,50 +132,4 @@ return [
         'xml' => 'XML',
         'pdf' => 'PDF',
     ],
-<<<<<<< HEAD
-=======
-    'options' => [
-        'include_headers' => 'Includi intestazioni',
-        'delimiter' => 'Delimitatore',
-        'encoding' => 'Codifica',
-        'worksheet_name' => 'Nome foglio di lavoro',
-        'chunk_size' => 'Dimensione chunk',
-    ],
-    'actions' => [
-        'create' => 'Nuova Esportazione',
-        'download' => 'Scarica',
-        'cancel' => 'Annulla',
-        'delete' => 'Elimina',
-    ],
-    'messages' => [
-        'export_queued' => 'Esportazione in coda',
-        'export_processing' => 'Esportazione in corso',
-        'export_completed' => 'Esportazione completata',
-        'export_failed' => 'Esportazione fallita',
-        'export_started' => 'Esportazione avviata',
-        'no_exports' => 'Nessuna esportazione presente',
-        'file_not_found' => 'File non trovato',
-        'invalid_format' => 'Formato non valido',
-    ],
-    'statuses' => [
-        'pending' => 'In Attesa',
-        'processing' => 'In Elaborazione',
-        'completed' => 'Completato',
-        'failed' => 'Fallito',
-        'downloaded' => 'Scaricato',
-    ],
-    'types' => [
-        'csv' => 'CSV',
-        'excel' => 'Excel',
-        'json' => 'JSON',
-        'pdf' => 'PDF',
-        'xml' => 'XML',
-    ],
-    'formats' => [
-        'standard' => 'Standard',
-        'extended' => 'Esteso',
-        'minimal' => 'Minimo',
-        'custom' => 'Personalizzato',
-    ],
->>>>>>> origin/dev
 ];

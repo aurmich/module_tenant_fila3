@@ -151,7 +151,6 @@ class TestSmtpPage extends Page implements HasForms
     {
         Assert::isArray($mail_config = config('mail'));
         Assert::isArray($smtpConfig = Arr::get($mail_config, 'mailers.smtp'));
-<<<<<<< HEAD
         
         // Convertiamo l'array generico in un array<string, mixed>
         $typedConfig = [];
@@ -160,10 +159,7 @@ class TestSmtpPage extends Page implements HasForms
                 $typedConfig[$key] = $value;
             }
         }
-
+        
         $this->emailForm->fill($typedConfig);
-=======
-        $this->emailForm->fill($smtpConfig);
->>>>>>> origin/dev
     }
 }

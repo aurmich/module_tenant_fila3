@@ -9,19 +9,12 @@ declare(strict_types=1);
 namespace Modules\Job\Models;
 
 /**
-<<<<<<< HEAD
  * 
  *
-=======
->>>>>>> origin/dev
  * @method static \Modules\Job\Database\Factories\ImportFactory factory($count = null, $state = [])
  * @method static \Illuminate\Database\Eloquent\Builder|Import newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|Import newQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|Import query()
-<<<<<<< HEAD
-=======
- *
->>>>>>> origin/dev
  * @property int $id
  * @property \Illuminate\Support\Carbon|null $completed_at
  * @property string $file_name
@@ -37,10 +30,6 @@ namespace Modules\Job\Models;
  * @property string|null $created_by
  * @property string|null $deleted_at
  * @property string|null $deleted_by
-<<<<<<< HEAD
-=======
- *
->>>>>>> origin/dev
  * @method static \Illuminate\Database\Eloquent\Builder|Import whereCompletedAt($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Import whereCreatedAt($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Import whereCreatedBy($value)
@@ -56,21 +45,10 @@ namespace Modules\Job\Models;
  * @method static \Illuminate\Database\Eloquent\Builder|Import whereUpdatedAt($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Import whereUpdatedBy($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Import whereUserId($value)
-<<<<<<< HEAD
  * @property string|null $user_type
  * @method static \Illuminate\Database\Eloquent\Builder|Import whereUserType($value)
  * @property \Modules\Xot\Contracts\ProfileContract|null $creator
  * @property \Modules\Xot\Contracts\ProfileContract|null $updater
-=======
- *
- * @property string|null $user_type
- *
- * @method static \Illuminate\Database\Eloquent\Builder|Import whereUserType($value)
- *
- * @property \Modules\Xot\Contracts\ProfileContract|null $creator
- * @property \Modules\Xot\Contracts\ProfileContract|null $updater
- *
->>>>>>> origin/dev
  * @mixin \Eloquent
  */
 class Import extends BaseModel

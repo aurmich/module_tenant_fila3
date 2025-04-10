@@ -35,20 +35,6 @@ class JobServiceProvider extends XotBaseServiceProvider
     public function boot(): void
     {
         parent::boot();
-        /*
-            $this->app->resolving(Schedule::class, function ($schedule) {
-                dddx($schedule);
-                //
-            });
-            */
-        // $this->app->booted(function () {
-        // $schedule = $this->app->make(Schedule::class);
-        // try {
-        //    $this->registerSchedule($schedule);
-        // } catch (\Illuminate\Database\QueryException $e) {
-        //    echo $e->getMessage();
-        // }
-        // });
         Import::polymorphicUserRelationship();
         Export::polymorphicUserRelationship();
         $this->registerQueue();
@@ -56,27 +42,45 @@ class JobServiceProvider extends XotBaseServiceProvider
 
     public function registerQueue(): void
     {
-        /*
-        Queue::before(static function (JobProcessing $event) {
-           self::jobStarted($event->job);
+        Queue::before(function (JobProcessing $event) {
+            $this->jobStarted($event->job);
         });
 
-        Queue::after(static function (JobProcessed $event) {
-           self::jobFinished($event->job);
+        Queue::after(function (JobProcessed $event) {
+            $this->jobFinished($event->job);
         });
 
-        Queue::failing(static function (JobFailed $event) {
-           self::jobFinished($event->job, true, $event->exception);
+        Queue::failing(function (JobFailed $event) {
+            $this->jobFinished($event->job, true, $event->exception);
         });
 
-        Queue::exceptionOccurred(static function (JobExceptionOccurred $event) {
-           self::jobFinished($event->job, true, $event->exception);
+        Queue::exceptionOccurred(function (JobExceptionOccurred $event) {
+            $this->jobFinished($event->job, true, $event->exception);
         });
-        */
     }
 
-    /*
-    public function registerSchedule(Schedule $schedule): void {
+    /**
+     * @param \Illuminate\Contracts\Queue\Job $job
+     */
+    protected function jobStarted($job): void
+    {
+        // Implementazione del metodo jobStarted
+        // Per ora lo lasciamo vuoto in attesa di implementazione specifica
+    }
+
+    /**
+     * @param \Illuminate\Contracts\Queue\Job $job
+     * @param bool $failed
+     * @param \Throwable|null $exception
+     */
+    protected function jobFinished($job, bool $failed = false, ?\Throwable $exception = null): void
+    {
+        // Implementazione del metodo jobFinished
+        // Per ora lo lasciamo vuoto in attesa di implementazione specifica
+    }
+
+    public function registerSchedule(Schedule $schedule): void 
+    {
         if (Schema::hasTable('tasks')) {
             $tasks = app(Task::class)
                 ->query()
@@ -84,41 +88,41 @@ class JobServiceProvider extends XotBaseServiceProvider
                 ->where('is_active', true)
                 ->get();
 
-            $tasks->each(
-                function ($task) use ($schedule) {
-                    if (! $task instanceof Task) {
-                        throw new \Exception('['.__LINE__.']['.class_basename($this).']');
-                    }
-                    //
-                    // var \Illuminate\Console\Scheduling\Event
-                    //
-                    $event = $schedule->command($task->command, $task->compileParameters(true));
-                    // --- funziona solo con daily per ora
-                    $event->{$task->expression}()
-                        ->name($task->description)
-                        ->timezone($task->timezone)
-                        ->before(function () use ($task) {
-                            //Access to an undefined property Illuminate\Console\Scheduling\Event::$start.
-                            //$event->start = microtime(true);
-                            Executing::dispatch($task);
-                        })
-                        ->thenWithOutput(function ($output) use ($event, $task) {
-                            Executed::dispatch($task, $event->start ?? microtime(true), $output);
-                        });
-                    if ($task->dont_overlap) {
-                        $event->withoutOverlapping();
-                    }
-                    if ($task->run_in_maintenance) {
-                        $event->evenInMaintenanceMode();
-                    }
-                    if ($task->run_on_one_server && in_array(config('cache.default'), ['memcached', 'redis', 'database', 'dynamodb'])) {
-                        $event->onOneServer();
-                    }
-                    if ($task->run_in_background) {
-                        $event->runInBackground();
-                    }
-                });
+            $tasks->each(function ($task) use ($schedule) {
+                if (! $task instanceof Task) {
+                    throw new \Exception('['.__LINE__.']['.class_basename($this).']');
+                }
+
+                $parameters = $task->compileParameters(true);
+                if (!is_array($parameters)) {
+                    $parameters = [];
+                }
+
+                $event = $schedule->command($task->command, $parameters);
+                
+                $event->{$task->expression}()
+                    ->name($task->description)
+                    ->timezone($task->timezone)
+                    ->before(function () use ($task) {
+                        Executing::dispatch($task);
+                    })
+                    ->thenWithOutput(function ($output) use ($event, $task) {
+                        Executed::dispatch($task, $event->start ?? microtime(true), $output);
+                    });
+
+                if ($task->dont_overlap) {
+                    $event->withoutOverlapping();
+                }
+                if ($task->run_in_maintenance) {
+                    $event->evenInMaintenanceMode();
+                }
+                if ($task->run_on_one_server && in_array(config('cache.default'), ['memcached', 'redis', 'database', 'dynamodb'])) {
+                    $event->onOneServer();
+                }
+                if ($task->run_in_background) {
+                    $event->runInBackground();
+                }
+            });
         }
     }
-    */
 }
