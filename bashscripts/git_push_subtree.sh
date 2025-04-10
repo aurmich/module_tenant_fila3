@@ -51,7 +51,7 @@ push_subtree() {
     if(! git subtree push -P "$LOCAL_PATH" "$REMOTE_REPO" "$REMOTE_BRANCH")
     then
         log "Failed to push subtree $LOCAL_PATH to $REMOTE_REPO"
-        if(! git push  "$REMOTE_REPO" $(git subtree split --prefix="$LOCAL_PATH"):"$REMOTE_BRANCH")
+        if(! git push -f "$REMOTE_REPO" $(git subtree split --prefix="$LOCAL_PATH"):"$REMOTE_BRANCH")
         then
             log "Failed split  to push subtree $LOCAL_PATH to $REMOTE_REPO"
     #        # First, split the subtree to a temporary branch
@@ -64,18 +64,19 @@ push_subtree() {
     #        git branch -D "$TEMP_BRANCH"
 
     #        git subtree push -P "$LOCAL_PATH" "$REMOTE_REPO" "$REMOTE_BRANCH"
-            mv "$LOCAL_PATH" "$LOCAL_PATH_bak" || die "Failed to rename $LOCAL_PATH to $LOCAL_PATH_bak"
-            git add .
-            git commit -am "Add $LOCAL_PATH_bak"
-            git subtree add --prefix="$LOCAL_PATH" "$REMOTE_REPO" "$REMOTE_BRANCH" --squash
+
+            #mv "$LOCAL_PATH" "$LOCAL_PATH_bak" || die "Failed to rename $LOCAL_PATH to $LOCAL_PATH_bak"
+            #git add .
+            #git commit -am "Add $LOCAL_PATH_bak"
+            #git subtree add --prefix="$LOCAL_PATH" "$REMOTE_REPO" "$REMOTE_BRANCH" --squash
              # Sincronizza i file dalla cartella di backup
-            rsync -avz "$LOCAL_PATH_bak/" "$LOCAL_PATH" || die "Failed to sync files"
+            #rsync -avz "$LOCAL_PATH_bak/" "$LOCAL_PATH" || die "Failed to sync files"
         
             # Rimuovi la cartella di backup
-            rm -rf "$LOCAL_PATH_bak" || die "Failed to remove backup folder"
+            #rm -rf "$LOCAL_PATH_bak" || die "Failed to remove backup folder"
             # Commit delle modifiche
-            git add . || die "Failed to add changes after submodule sync"
-            git commit -am "Added submodule for $LOCAL_PATH" || die "Failed to commit submodule changes"
+            #git add . || die "Failed to add changes after submodule sync"
+            #git commit -am "Added submodule for $LOCAL_PATH" || die "Failed to commit submodule changes"
         fi
     fi
 
