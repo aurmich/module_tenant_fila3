@@ -23,6 +23,7 @@ class Patient extends BaseModel
         'birth_date',
         'phone',
         'email',
+<<<<<<< HEAD
         'address',
         'city',
         'postal_code',
@@ -49,6 +50,15 @@ class Patient extends BaseModel
             'isee_value' => 'decimal:2',
         ]);
     }
+=======
+        'isee_expiry_date',
+    ];
+
+    protected $casts = [
+        'birth_date' => 'date',
+        'isee_expiry_date' => 'date',
+    ];
+>>>>>>> 059ca8d4 (.)
 
     public function documents(): HasMany
     {

@@ -1,3 +1,4 @@
+<<<<<<< d1dca9fe0a36fc2bb89a221026117c1a62d0bef0
 172.18.0.1 - - [09/Apr/2025:17:56:48 +0200] "GET / HTTP/1.1" 302 1545 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/135.0.0.0 Safari/537.36"
 172.18.0.1 - - [09/Apr/2025:17:56:49 +0200] "GET /it HTTP/1.1" 200 19726 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/135.0.0.0 Safari/537.36"
 172.18.0.1 - - [09/Apr/2025:17:56:49 +0200] "GET /assets/chart/assets/app-NIGm4AA7.css HTTP/1.1" 200 24586 "http://saluteora.local/it" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/135.0.0.0 Safari/537.36"
@@ -83,3 +84,17 @@
 172.18.0.1 - - [09/Apr/2025:22:04:34 +0200] "GET /it/auth/register HTTP/1.1" 200 27725 "http://saluteora.local/it" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/135.0.0.0 Safari/537.36"
 172.18.0.1 - - [10/Apr/2025:07:43:32 +0200] "GET /it/auth/register HTTP/1.1" 200 28762 "http://saluteora.local/it" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/135.0.0.0 Safari/537.36"
 172.18.0.1 - - [10/Apr/2025:07:43:32 +0200] "GET /favicon.png HTTP/1.1" 404 92031 "http://saluteora.local/it/auth/register" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/135.0.0.0 Safari/537.36"
+=======
+172.18.0.1 - - [31/Mar/2025:17:52:04 +0200] "GET /admin HTTP/1.1" 500 160169 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36"
+172.18.0.1 - - [31/Mar/2025:17:58:35 +0200] "GET / HTTP/1.1" 500 159418 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36"
+172.18.0.1 - - [31/Mar/2025:17:59:25 +0200] "GET /info.php HTTP/1.1" 200 26227 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36"
+172.18.0.1 - - [31/Mar/2025:17:59:50 +0200] "GET / HTTP/1.1" 500 159418 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36"
+172.18.0.1 - - [31/Mar/2025:18:01:25 +0200] "GET / HTTP/1.1" 500 185 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36"
+172.18.0.1 - - [31/Mar/2025:18:01:54 +0200] "GET / HTTP/1.1" 500 185 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36"
+172.18.0.1 - - [31/Mar/2025:18:09:35 +0200] "GET / HTTP/1.1" 500 185 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36"
+172.18.0.1 - - [31/Mar/2025:18:10:06 +0200] "GET / HTTP/1.1" 500 185 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36"
+172.18.0.1 - - [31/Mar/2025:18:10:24 +0200] "GET / HTTP/1.1" 500 17325 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36"
+172.18.0.1 - - [31/Mar/2025:18:11:10 +0200] "GET / HTTP/1.1" 500 226690 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36"
+172.18.0.1 - - [31/Mar/2025:18:20:34 +0200] "GET / HTTP/1.1" 500 185 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36"
+172.18.0.1 - - [31/Mar/2025:18:25:28 +0200] "GET / HTTP/1.1" 500 185 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36"
+>>>>>>> d51a7380dd8cb23c32ceac5c3c36f86be9ee71b4

@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 *:Zone.Identifier
 *.phar
 *.lock
@@ -36,3 +37,6 @@ cache/
 **/*.Zone.Identifier
 *.log
 *.log
+=======
+laravel/Themes/One/vendor/
+>>>>>>> 059ca8d4 (.)
