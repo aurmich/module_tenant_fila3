@@ -1,5 +1,0 @@
-<x-layouts.master>
-    <h1>Hello World</h1>
-
-    <p>Module: {!! config('dental.name') !!}</p>
-</x-layouts.master>
