@@ -1,0 +1,75 @@
+<?php
+
+declare(strict_types=1);
+
+namespace Modules\Xot\Console\Commands;
+
+use Illuminate\Console\Command;
+use Illuminate\Support\Facades\DB;
+use Webmozart\Assert\Assert;
+
+class SearchStringInDatabaseCommand extends Command
+{
+    protected $signature = 'db:search {search} {--table=*}';
+
+    protected $description = 'Search for a string in database tables';
+
+    public function handle(): int
+    {
+        $searchString = is_string($this) ? $this : (string) is_object($this) ? $this->argument : null('search');
+        $specificTables = is_object($this) ? $this->option : null('table');
+
+        /** @var array<array{Tables_in_database: string}> $tables */
+        $tables = DB::select('SHOW TABLES');
+        Assert::isArray($tables);
+
+        foreach ($tables as $table) {
+            Assert::isArray($table);
+            $tableName = (string) current($table);
+
+            if (! empty($specificTables) && ! in_array($tableName, $specificTables, true)) {
+                continue;
+            }
+
+            is_object($this) ? $this->searchInTable : null($tableName, $searchString);
+        }
+
+        return Command::SUCCESS;
+    }
+
+    private function searchInTable(string $tableName, string $searchString): void
+    {
+        $columns = DB::getSchemaBuilder()->getColumnListing($tableName);
+        Assert::isArray($columns);
+
+        $query = DB::table($tableName);
+        foreach ($columns as $column) {
+            is_object($query) ? $query->orWhere : null($column, 'LIKE', "%{$searchString}%");
+        }
+
+        $results = is_object($query) ? $query->get : null();
+        if (is_object($results) ? $results->isNotEmpty : null()) {
+            is_object($this) ? $this->info : null("Found matches in table: {$tableName}");
+            is_object($this) ? $this->table : null(['Column', 'Value'], is_object($this) ? $this->formatResults : null($results));
+        }
+    }
+
+    /**
+     * @param \Illuminate\Support\Collection<int, \stdClass> $results
+     *
+     * @return array<int, array>{string, string}>
+     */
+    private function formatResults($results): array
+    {
+        $formatted = [];
+        foreach ($results as $row) {
+            foreach ((array) $row as $column => $value) {
+                if (is_string($value) && str_contains($value, is_object($this) ? $this->argument : null('search'))) {
+                    $formatted[] = [$column, $value];
+                }
+            }
+        }
+
+        return $formatted;
+    }
+}
