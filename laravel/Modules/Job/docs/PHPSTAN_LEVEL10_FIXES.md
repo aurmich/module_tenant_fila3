@@ -47,6 +47,54 @@ private function evaluateFunction(string $functionString): mixed
 
 3. Eliminato l'uso di `call_user_func` che potrebbe portare a problemi di sicurezza e sostituito con un approccio più sicuro basato su condizioni esplicite.
 
+### 2. Tipo di ritorno non compatibile nei metodi getFormSchema() delle risorse Filament
+
+**Problema**: I metodi `getFormSchema()` nelle risorse Filament (ad esempio `ImportResource`, `JobBatchResource`, `JobManagerResource`, `ScheduleResource`) restituivano un array indicizzato numericamente `array<int, Component>` mentre la classe base `XotBaseResource` richiede un array associativo con chiavi di tipo stringa `array<string, Component>`.
+
+**Soluzione**:
+1. Modificato il formato di ritorno in tutti i metodi `getFormSchema()` delle risorse per utilizzare chiavi di tipo stringa:
+   ```php
+   // Da
+   return [
+       \Filament\Forms\Components\TextInput::make('name')
+           ->required(),
+       // altri componenti...
+   ];
+   
+   // A
+   return [
+       'name' => \Filament\Forms\Components\TextInput::make('name')
+           ->required(),
+       // altri componenti...
+   ];
+   ```
+
+2. Questa modifica è stata applicata alle seguenti classi:
+   - `Modules\Job\Filament\Resources\ImportResource`
+   - `Modules\Job\Filament\Resources\JobBatchResource`
+   - `Modules\Job\Filament\Resources\JobManagerResource`
+   - `Modules\Job\Filament\Resources\ScheduleResource`
+
+3. Principi seguiti:
+   - Conformità ai tipi: assicurato che il tipo di ritorno corrisponda a quanto dichiarato nella classe base
+   - Consistenza: applicato lo stesso pattern a tutte le risorse Filament del modulo
+
+### 3. Rimozione della proprietà $navigationIcon ridefinita nelle risorse Filament
+
+**Problema**: Le classi che estendono `XotBaseResource` non devono ridefinire la proprietà `protected static ?string $navigationIcon` poiché questa è già gestita dalla classe base.
+
+**Soluzione**:
+1. Applicato il principio di ereditarietà corretto: le proprietà di configurazione di navigazione devono essere gestite centralmente nella classe base e non ridefinite nelle classi figlie.
+2. Mantenere la responsabilità di definire le icone di navigazione nella classe base permette una gestione coerente e un punto unico di configurazione per l'interfaccia utente.
+
+**Benefici**:
+- Riduzione della duplicazione del codice
+- Semplificazione della manutenzione (modifiche all'UI in un unico punto)
+- Coerenza visiva attraverso l'intera applicazione
+- Separazione delle responsabilità: la classe base gestisce l'aspetto, le classi figlie la logica specifica
+
+**Pattern applicato**: _Principle of Least Knowledge_ - Le classi figlie non dovrebbero preoccuparsi di dettagli di implementazione dell'interfaccia utente che possono essere gestiti dalla classe base.
+
 ## Altri Miglioramenti da Applicare
 
 ### 1. Analisi dei seguenti file:
@@ -62,6 +110,8 @@ private function evaluateFunction(string $functionString): mixed
 2. **Gestione sicura delle eccezioni**: Aggiunta gestione delle eccezioni per prevenire errori a runtime.
 3. **Implementazione sicura**: Evitato l'uso di funzioni potenzialmente pericolose come `call_user_func` con input non controllato.
 4. **Documentazione migliorata**: Aggiunta documentazione PHPDoc completa per spiegare i tipi di parametri e di ritorno.
+5. **Corrispondenza di tipi**: Assicurato che i tipi di ritorno dei metodi overridden corrispondano a quelli definiti nelle classi base.
+6. **Evitare ridefinizioni inutili**: Non ridefinire proprietà o metodi già gestiti dalla classe base, a meno che non sia necessario.
 
 ## Prossimi Passi
 

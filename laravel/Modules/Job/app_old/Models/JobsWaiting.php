@@ -6,7 +6,7 @@
 
 declare(strict_types=1);
 
-namespace Modules\Job\Models;
+namespace Modules\Job\app_old\Models;
 
 /**
  * Modules\Job\Models\JobsWaiting.

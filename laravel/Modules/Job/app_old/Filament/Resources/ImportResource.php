@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Modules\Job\Filament\Resources;
+namespace Modules\Job\app_old\Filament\Resources;
 
 use Modules\Job\Filament\Resources\ImportResource\Pages;
 use Modules\Job\Models\Import;

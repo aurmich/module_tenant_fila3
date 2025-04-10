@@ -6,7 +6,7 @@
 
 declare(strict_types=1);
 
-namespace Modules\Job\Console\Commands;
+namespace Modules\Job\app_old\Console\Commands;
 
 // use HusamTariq\FilamentDatabaseSchedule\Http\Services\ScheduleService;
 use Illuminate\Console\Command;

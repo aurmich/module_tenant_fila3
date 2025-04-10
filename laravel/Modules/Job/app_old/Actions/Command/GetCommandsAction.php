@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Modules\Job\Actions\Command;
+namespace Modules\Job\app_old\Actions\Command;
 
 use Illuminate\Console\Application;
 use Illuminate\Support\Collection;

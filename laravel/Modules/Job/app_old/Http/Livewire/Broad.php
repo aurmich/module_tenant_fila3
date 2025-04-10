@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Modules\Job\Http\Livewire;
+namespace Modules\Job\app_old\Http\Livewire;
 
 use Illuminate\Contracts\Support\Renderable;
 use Livewire\Component;

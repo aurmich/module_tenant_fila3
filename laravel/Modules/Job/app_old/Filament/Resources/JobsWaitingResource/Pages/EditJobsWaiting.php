@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Modules\Job\Filament\Resources\JobsWaitingResource\Pages;
+namespace Modules\Job\app_old\Filament\Resources\JobsWaitingResource\Pages;
 
 use Filament\Actions\DeleteAction;
 use Modules\Job\Filament\Resources\JobsWaitingResource;

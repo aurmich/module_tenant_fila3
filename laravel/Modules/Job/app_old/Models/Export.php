@@ -6,7 +6,7 @@
 
 declare(strict_types=1);
 
-namespace Modules\Job\Models;
+namespace Modules\Job\app_old\Models;
 
 use Eloquent;
 use Filament\Actions\Exports\Models\Export as BaseExport;

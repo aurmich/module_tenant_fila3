@@ -6,7 +6,7 @@ declare(strict_types=1);
  * @see HusamTariq\FilamentDatabaseSchedule
  */
 
-namespace Modules\Job\Rules;
+namespace Modules\Job\app_old\Rules;
 
 use Closure;
 use Cron\CronExpression;

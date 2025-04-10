@@ -6,7 +6,7 @@
 
 declare(strict_types=1);
 
-namespace Modules\Job\Filament\Resources;
+namespace Modules\Job\app_old\Filament\Resources;
 
 use Filament\Forms\Components\Hidden;
 use Filament\Forms\Components\Repeater;

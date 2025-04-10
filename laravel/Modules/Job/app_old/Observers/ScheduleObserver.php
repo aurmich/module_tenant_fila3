@@ -6,7 +6,7 @@ declare(strict_types=1);
  * @see HusamTariq\FilamentDatabaseSchedule
  */
 
-namespace Modules\Job\Observers;
+namespace Modules\Job\app_old\Observers;
 
 use Modules\Job\Enums\Status;
 use Modules\Job\Models\Schedule;

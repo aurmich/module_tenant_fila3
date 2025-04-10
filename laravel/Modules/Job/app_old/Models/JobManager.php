@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Modules\Job\Models;
+namespace Modules\Job\app_old\Models;
 
 use Illuminate\Contracts\Queue\Job as JobContract;
 use Illuminate\Database\Eloquent\Casts\Attribute;

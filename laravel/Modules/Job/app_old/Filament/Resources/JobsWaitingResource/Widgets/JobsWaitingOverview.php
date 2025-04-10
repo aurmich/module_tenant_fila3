@@ -6,7 +6,7 @@ declare(strict_types=1);
  * ---.
  */
 
-namespace Modules\Job\Filament\Resources\JobsWaitingResource\Widgets;
+namespace Modules\Job\app_old\Filament\Resources\JobsWaitingResource\Widgets;
 
 use Filament\Widgets\StatsOverviewWidget as BaseWidget;
 use Filament\Widgets\StatsOverviewWidget\Stat;

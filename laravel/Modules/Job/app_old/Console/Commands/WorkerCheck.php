@@ -7,7 +7,7 @@ declare(strict_types=1);
  * @see https://gist.github.com/BenCavens/810758e74718a981c4cd2d2cf532407e
  */
 
-namespace Modules\Job\Console\Commands;
+namespace Modules\Job\app_old\Console\Commands;
 
 use Exception;
 use Illuminate\Console\Command;

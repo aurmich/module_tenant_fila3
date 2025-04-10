@@ -8,7 +8,7 @@
 
 declare(strict_types=1);
 
-namespace Modules\Job\Providers;
+namespace Modules\Job\app_old\Providers;
 
 use Filament\Actions\Exports\Models\Export;
 use Filament\Actions\Imports\Models\Import;
