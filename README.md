@@ -1,4 +1,5 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 # SaluteOra - Sistema di Gestione Salute Orale
 
 ## Requisiti di Sistema
@@ -157,6 +158,8 @@ Questo progetto è sotto licenza MIT. Vedere il file [LICENSE](LICENSE) per i de
 >>>>>>> b0f37c83 (.)
 =======
 >>>>>>> b7907077 (.)
+=======
+>>>>>>> b1ca4c93 (Squashed 'bashscripts/' changes from c21599d..019cc70)
 # 🚀 BashScripts Power Tools
 
 [![Bash Version](https://img.shields.io/badge/Bash-5.0%2B-brightgreen.svg)](https://www.gnu.org/software/bash/)
@@ -306,6 +309,7 @@ Questo progetto è sotto licenza MIT - vedi il file [LICENSE](LICENSE) per i det
 
 ---
 
+<<<<<<< HEAD
 
 
 > **Nota**: Questo README è in continuo aggiornamento. Se trovi errori o hai suggerimenti, apri pure una issue! 
@@ -396,3 +400,10 @@ This project is licensed under the MIT License - see the LICENSE file for detail
 Marco Sottana
 Discover more of my work at marco76tv!
 >>>>>>> 9e03a20f (Squashed 'laravel/Modules/Notify/' changes from 404426f9..02d5f061)
+=======
+> **Nota**: Questo README è in continuo aggiornamento. Se trovi errori o hai suggerimenti, apri pure una issue!
+
+<div align="center">
+  <sub>Built with ❤️ by the development team</sub>
+</div>
+>>>>>>> b1ca4c93 (Squashed 'bashscripts/' changes from c21599d..019cc70)
