@@ -33,6 +33,7 @@ while IFS= read -r line; do
         
         # Chiamata esterna allo script di sincronizzazione
         submodules_array[index]
+        ((index++))
         
         # Pulizia: reset delle variabili per il prossimo modulo
         current_path=""
