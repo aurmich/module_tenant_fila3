@@ -8,7 +8,6 @@ script_dir=$(dirname "$me")
 CONFIG_FILE="gitmodules.ini"
 DEPTH=1  # Limita la profondità della history scaricata
 LOG_FILE="subtree_sync.log"
-REMOTE_BRANCH=$(git symbolic-ref --short HEAD 2>/dev/null || echo "main")
 
 # Funzione per loggare messaggi
 log() {
@@ -60,9 +59,6 @@ while IFS= read -r line; do
         current_url=""
     fi
 done < "$CONFIG_FILE"
-
-
-git rebase --rebase-merges --strategy subtree "$REMOTE_BRANCH" --root
 
 # Esegui git gc per mantenere il repository leggero
 log "🧹 Pulizia del repository..."
