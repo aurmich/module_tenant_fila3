@@ -10,13 +10,9 @@ namespace Modules\Notify\Services\MailEngines;
 
 use ErrorException;
 use Exception;
-<<<<<<< HEAD
 use Illuminate\Mail\Message;
 use Illuminate\Support\Facades\Mail;
 use Webmozart\Assert\Assert;
-=======
-use Illuminate\Support\Facades\Mail;
->>>>>>> origin/dev
 
 // ---------CSS------------
 
@@ -72,21 +68,17 @@ class MailtrapEngine
         // Mail::raw('Hello World!', function($msg) {$msg->to('vair81@gmail.com')->subject('Test Email'); });
 
         // try {
-<<<<<<< HEAD
-        Mail::raw((string) $this->body, function (Message $msg): void {
+        Assert::string($this->body);
+        Mail::raw($this->body, function (Message $msg): void {
             // Verifichiamo che $this->to sia valido
             $to = $this->to;
-            
+
             // Utilizziamo una condizione più appropriata
             if (!$to) {
                 throw new \InvalidArgumentException('Il destinatario email non è valido');
             }
-            
+
             $msg->to($to)->subject('Test Email');
-=======
-        Mail::raw((string) $this->body, function ($msg): void {
-            $msg->to($this->to)->subject('Test Email');
->>>>>>> origin/dev
         });
         // Dead catch - ErrorException is never thrown in the try block.
         // } catch (ErrorException $e) {

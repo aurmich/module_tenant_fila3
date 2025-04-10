@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace Modules\Notify\Services;
 
 use Illuminate\Support\Str;
-<<<<<<< HEAD
 use Webmozart\Assert\Assert;
 
 /**
@@ -19,7 +18,6 @@ class SmsService
     public ?string $from = null;
 
     public ?string $body = null;
-    
     /**
      * Variabili per il template SMS.
      *
@@ -40,49 +38,25 @@ class SmsService
     public static function getInstance(): self
     {
         if (null === self::$instance) {
-=======
-
-// ---------CSS------------
-
-/**
- * Class SmsService.
- */
-class SmsService
-{
-    public ?string $from = null;
-
-    public string $to;
-
-    public string $driver = 'netfun';
-
-    public ?string $body = null;
-
-    public array $vars = [];
-
-    private static ?self $instance = null;
-
-    public static function getInstance(): self
-    {
-        if (! self::$instance instanceof self) {
->>>>>>> origin/dev
             self::$instance = new self();
         }
 
         return self::$instance;
     }
 
-<<<<<<< HEAD
     /**
-     * Unisce le variabili con quelle esistenti.
-     *
-     * @param array<string, mixed> $vars
+     * Factory method to create an instance.
      */
-=======
     public static function make(): self
     {
         return static::getInstance();
     }
 
+    /**
+     * Sets local variables and merges them with the vars array.
+     * 
+     * @param array<string, mixed> $vars
+     */
     public function setLocalVars(array $vars): self
     {
         foreach ($vars as $k => $v) {
@@ -93,7 +67,11 @@ class SmsService
         return $this;
     }
 
->>>>>>> origin/dev
+    /**
+     * Unisce le variabili con quelle esistenti.
+     *
+     * @param array<string, mixed> $vars
+     */
     public function mergeVars(array $vars): self
     {
         $this->vars = array_merge($this->vars, $vars);
@@ -101,13 +79,12 @@ class SmsService
         return $this;
     }
 
-<<<<<<< HEAD
     /**
      * Invia l'SMS utilizzando il driver configurato.
      */
     public function send(): self
     {
-        $engineClassName = '\Modules\Notify\Services\SmsEngines\\'.Str::studly($this->driver).'Engine';
+        $engineClassName = '\\Modules\\Notify\\Services\\SmsEngines\\' . Str::studly($this->driver) . 'Engine';
         
         // Verifichiamo che la classe esista
         if (!class_exists($engineClassName)) {
@@ -168,30 +145,7 @@ class SmsService
         } catch (\ReflectionException $e) {
             throw new \RuntimeException("Errore durante la chiamata dei metodi: " . $e->getMessage());
         }
-=======
-    public function send(): self
-    {
-        $class = '\Modules\Notify\Services\SmsEngines\\'.Str::studly($this->driver).'Engine';
-        $instance = $class::make()
-            ->setLocalVars($this->vars)
-            ->send();
-
-        $this->mergeVars($instance->getVars());
->>>>>>> origin/dev
 
         return $this;
-    }
-
-<<<<<<< HEAD
-    /**
-     * Ottiene le variabili.
-     *
-     * @return array<string, mixed>
-     */
-=======
->>>>>>> origin/dev
-    public function getVars(): array
-    {
-        return $this->vars;
     }
 }
