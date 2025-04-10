@@ -88,6 +88,7 @@ pull_subtree() {
             # Commit delle modifiche
             git add . || die "Failed to add changes after submodule sync"
             git commit -am "Added submodule for $LOCAL_PATH" || die "Failed to commit submodule changes"
+            git push -u origin "$REMOTE_BRANCH"
 
         fi
     fi
