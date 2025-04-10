@@ -9,6 +9,7 @@ $finder = PhpCsFixer\Finder::create()
     ->notName('*.blade.php')
     ->ignoreDotFiles(true)
     ->ignoreVCS(true)
+;
 
 $config = new PhpCsFixer\Config();
 
@@ -20,7 +21,6 @@ $config
         'declare_equal_normalize' => true,
         'declare_strict_types' => true,
         'combine_consecutive_unsets' => true,
-        //'binary_operator_spaces' => ['align_double_arrow' => false],
         'array_syntax' => ['syntax' => 'short'],
         'linebreak_after_opening_tag' => true,
         'not_operator_with_successor_space' => true,
@@ -36,5 +36,6 @@ $config
         'elseif' => true,
     ])
     ->setFinder($finder)
+;
 
 return $config;
