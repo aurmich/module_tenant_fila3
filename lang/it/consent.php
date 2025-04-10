@@ -4,34 +4,69 @@ declare(strict_types=1);
 
 return [
     'navigation' => [
-        'name' => 'Consensi',
+        'name' => 'Consenso',
         'plural' => 'Consensi',
         'group' => [
-            'name' => 'GDPR',
-            'description' => 'Gestione dei consensi privacy',
+            'name' => 'Admin',
         ],
-        'label' => 'Gestione Consensi',
-        'sort' => 62,
-        'icon' => 'gdpr-consent',
+    ],
+    'pages' => [
+        'create' => 'Nuovo Tecnico',
+        'edit' => 'Modifica Tecnico',
+        'view' => 'Tecnico',
+        'list_technicians' => [
+            'navigation' => [
+                'name' => 'Tecnici',
+                'plural' => 'Tecnici',
+                'group' => [
+                    'name' => 'Gestione Utenti',
+                ],
+            ],
+            'fields' => [
+                'user_name' => 'Nome Utente',
+                'name' => 'Nome Utente',
+                'first_name' => 'Nome',
+                'last_name' => 'Cognome',
+                'email' => 'Email',
+                'is_active' => 'Stato account',
+                'color' => 'Colore',
+                'asset_id_root' => 'Abitazione',
+                'asset_id' => 'Asset',
+                'type' => 'Tipo',
+            ],
+        ],
     ],
     'fields' => [
-        'user' => 'Utente',
-        'type' => 'Tipo Consenso',
-        'status' => 'Stato',
-        'date' => 'Data',
-        'ip_address' => 'Indirizzo IP',
-        'notes' => 'Note',
+        'name' => 'Nome Utente',
+        'first_name' => 'Nome',
+        'last_name' => 'Cognome',
+        'email' => 'Email',
+        'is_active' => 'Stato account',
+        'color' => 'Colore',
+        'asset_id_root' => 'Abitazione',
+        'asset_id' => 'Asset',
+        'type' => 'tipo',
+        'user_name' => 'nome utente',
     ],
-    'statuses' => [
-        'granted' => 'Concesso',
-        'denied' => 'Negato',
-        'withdrawn' => 'Revocato',
-        'expired' => 'Scaduto',
+    'filters' => [
+        'is_active' => [
+            'all' => 'Tutti i tecnici',
+            'active' => 'Solo attivi',
+            'inactive' => 'Solo inattivi',
+        ],
     ],
     'actions' => [
-        'grant' => 'Concedi',
-        'deny' => 'Nega',
-        'withdraw' => 'Revoca',
-        'renew' => 'Rinnova',
+        'bulk_activate' => [
+            'cta' => 'Attiva selezionati',
+        ],
+        'bulk_inactivate' => [
+            'cta' => 'Disattiva selezionati',
+        ],
+        'is_active_on' => [
+            'cta' => 'Abilita account',
+        ],
+        'is_active_off' => [
+            'cta' => 'Disabilita account',
+        ],
     ],
 ];

@@ -4,31 +4,69 @@ declare(strict_types=1);
 
 return [
     'navigation' => [
-        'name' => 'Trattamenti',
+        'name' => 'Trattamento',
         'plural' => 'Trattamenti',
         'group' => [
-            'name' => 'GDPR',
-            'description' => 'Registro dei trattamenti dati',
+            'name' => 'Admin',
         ],
-        'label' => 'Registro Trattamenti',
-        'sort' => 76,
-        'icon' => 'gdpr-treatment',
+    ],
+    'pages' => [
+        'create' => 'Nuovo Tecnico',
+        'edit' => 'Modifica Tecnico',
+        'view' => 'Tecnico',
+        'list_technicians' => [
+            'navigation' => [
+                'name' => 'Tecnici',
+                'plural' => 'Tecnici',
+                'group' => [
+                    'name' => 'Gestione Utenti',
+                ],
+            ],
+            'fields' => [
+                'user_name' => 'Nome Utente',
+                'name' => 'Nome Utente',
+                'first_name' => 'Nome',
+                'last_name' => 'Cognome',
+                'email' => 'Email',
+                'is_active' => 'Stato account',
+                'color' => 'Colore',
+                'asset_id_root' => 'Abitazione',
+                'asset_id' => 'Asset',
+                'type' => 'Tipo',
+            ],
+        ],
     ],
     'fields' => [
-        'name' => 'Nome Trattamento',
-        'purpose' => 'Finalità',
-        'legal_basis' => 'Base Giuridica',
-        'data_categories' => 'Categorie di Dati',
-        'retention_period' => 'Periodo di Conservazione',
-        'security_measures' => 'Misure di Sicurezza',
-        'data_transfers' => 'Trasferimenti Dati',
+        'name' => 'Nome Utente',
+        'first_name' => 'Nome',
+        'last_name' => 'Cognome',
+        'email' => 'Email',
+        'is_active' => 'Stato account',
+        'color' => 'Colore',
+        'asset_id_root' => 'Abitazione',
+        'asset_id' => 'Asset',
+        'type' => 'tipo',
+        'user_name' => 'nome utente',
     ],
-    'legal_bases' => [
-        'consent' => 'Consenso',
-        'contract' => 'Contratto',
-        'legal_obligation' => 'Obbligo Legale',
-        'vital_interests' => 'Interessi Vitali',
-        'public_interest' => 'Interesse Pubblico',
-        'legitimate_interests' => 'Interessi Legittimi',
+    'filters' => [
+        'is_active' => [
+            'all' => 'Tutti i tecnici',
+            'active' => 'Solo attivi',
+            'inactive' => 'Solo inattivi',
+        ],
+    ],
+    'actions' => [
+        'bulk_activate' => [
+            'cta' => 'Attiva selezionati',
+        ],
+        'bulk_inactivate' => [
+            'cta' => 'Disattiva selezionati',
+        ],
+        'is_active_on' => [
+            'cta' => 'Abilita account',
+        ],
+        'is_active_off' => [
+            'cta' => 'Disabilita account',
+        ],
     ],
 ];

@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Modules\Gdpr\Filament\Resources;
 
 use Filament\Forms;
+use Filament\Forms\Form;
 use Modules\Gdpr\Filament\Resources\EventResource\Pages;
 use Modules\Gdpr\Models\Event;
 use Modules\Xot\Filament\Resources\XotBaseResource;
@@ -15,27 +16,30 @@ class EventResource extends XotBaseResource
 
     protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
 
-    public static function getFormSchema(): array
+    public static function form(Form $form): Form
     {
-        return [
-            'treatment_id' => Forms\Components\TextInput::make('treatment_id')
-                ->maxLength(36)
-                ->default(null),
-            'consent_id' => Forms\Components\Select::make('consent_id')
-                ->relationship('consent', 'id'),
-            'subject_id' => Forms\Components\TextInput::make('subject_id')
-                ->required()
-                ->maxLength(191),
-            'ip' => Forms\Components\TextInput::make('ip')
-                ->required()
-                ->maxLength(191),
-            'action' => Forms\Components\TextInput::make('action')
-                ->required()
-                ->maxLength(191),
-            'payload' => Forms\Components\Textarea::make('payload')
-                ->required()
-                ->columnSpanFull(),
-        ];
+        return $form
+            ->schema(
+                [
+                    Forms\Components\TextInput::make('treatment_id')
+                        ->maxLength(36)
+                        ->default(null),
+                    Forms\Components\Select::make('consent_id')
+                        ->relationship('consent', 'id'),
+                    Forms\Components\TextInput::make('subject_id')
+                        ->required()
+                        ->maxLength(191),
+                    Forms\Components\TextInput::make('ip')
+                        ->required()
+                        ->maxLength(191),
+                    Forms\Components\TextInput::make('action')
+                        ->required()
+                        ->maxLength(191),
+                    Forms\Components\Textarea::make('payload')
+                        ->required()
+                        ->columnSpanFull(),
+                ]
+            );
     }
 
     public static function getRelations(): array

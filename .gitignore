@@ -26,4 +26,3 @@ build/
 node_modules
 docs/cache/
 cache/
-.php-cs-fixer.cache

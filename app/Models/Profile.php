@@ -22,7 +22,7 @@ use Modules\User\Models\BaseProfile;
  * @property string|null                                                                                                   $full_name
  * @property string|null                                                                                                   $email
  *                                                                                                                                                    =======
- *                                                                                                                                                    > 76348cc6b642ef946f57e308db4e1c6210448bea
+ *                                                                                                                                                    >>>>>>> 76348cc6b642ef946f57e308db4e1c6210448bea
  * @property \Illuminate\Support\Carbon|null                                                                               $created_at
  * @property \Illuminate\Support\Carbon|null                                                                               $updated_at
  * @property string|null                                                                                                   $user_id
@@ -47,7 +47,7 @@ use Modules\User\Models\BaseProfile;
  * @property string|null                                                                                                   $deleted_by
  * @property bool                                                                                                          $is_active
  * @property \Spatie\SchemalessAttributes\SchemalessAttributes                                                             $extra
- * @property string $avatar
+ * @property string                                                                                                        $avatar
  * @property \Illuminate\Database\Eloquent\Collection<int, \Modules\User\Models\DeviceUser>                                $deviceUsers
  * @property int|null                                                                                                      $device_users_count
  * @property \Illuminate\Database\Eloquent\Collection<int, \Modules\User\Models\Device>                                    $devices
@@ -144,7 +144,7 @@ use Modules\User\Models\BaseProfile;
  *
  * @property \Modules\User\Models\DeviceUser             $pivot
  * @property \Modules\User\Models\Membership             $membership
- * @property string $credits
+ * @property string                                      $credits
  * @property string|null                                 $slug
  * @property \Modules\Xot\Contracts\ProfileContract|null $creator
  * @property \Modules\Xot\Contracts\ProfileContract|null $updater

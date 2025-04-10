@@ -5,6 +5,8 @@ declare(strict_types=1);
 namespace Modules\Gdpr\Filament\Resources\EventResource\Pages;
 
 use Filament\Tables;
+use Filament\Tables\Actions\DeleteBulkAction;
+use Filament\Tables\Actions\EditAction;
 use Modules\Gdpr\Filament\Resources\EventResource;
 use Modules\Xot\Filament\Resources\Pages\XotBaseListRecords;
 
@@ -15,34 +17,42 @@ class ListEvents extends XotBaseListRecords
     public function getListTableColumns(): array
     {
         return [
-            'id' => Tables\Columns\TextColumn::make('id')
-                ->numeric()
-                ->sortable()
+            Tables\Columns\TextColumn::make('id')
+
                 ->searchable(),
-            'treatment_id' => Tables\Columns\TextColumn::make('treatment_id')
-                ->numeric()
-                ->sortable()
+            Tables\Columns\TextColumn::make('treatment_id')
                 ->searchable(),
-            'consent_id' => Tables\Columns\TextColumn::make('consent.id')
-                ->numeric()
-                ->sortable()
+            Tables\Columns\TextColumn::make('consent.id')
                 ->searchable(),
-            'subject_id' => Tables\Columns\TextColumn::make('subject_id')
-                ->numeric()
-                ->sortable()
+            Tables\Columns\TextColumn::make('subject_id')
                 ->searchable(),
-            'ip' => Tables\Columns\TextColumn::make('ip')
+            Tables\Columns\TextColumn::make('ip')
                 ->searchable(),
-            'action' => Tables\Columns\TextColumn::make('action')
+            Tables\Columns\TextColumn::make('action')
                 ->searchable(),
-            'created_at' => Tables\Columns\TextColumn::make('created_at')
+            Tables\Columns\TextColumn::make('created_at')
                 ->dateTime()
                 ->sortable()
                 ->toggleable(isToggledHiddenByDefault: true),
-            'updated_at' => Tables\Columns\TextColumn::make('updated_at')
+            Tables\Columns\TextColumn::make('updated_at')
                 ->dateTime()
                 ->sortable()
                 ->toggleable(isToggledHiddenByDefault: true),
+        ];
+    }
+
+    public function getTableActions(): array
+    {
+        return [
+            EditAction::make()
+                ->label(''),
+        ];
+    }
+
+    public function getTableBulkActions(): array
+    {
+        return [
+            DeleteBulkAction::make(),
         ];
     }
 }
