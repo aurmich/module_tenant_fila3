@@ -1,5 +1,6 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 *:Zone.Identifier
 *.phar
 *.lock
@@ -42,6 +43,9 @@ cache/
 laravel/Themes/One/vendor/
 >>>>>>> 059ca8d4 (.)
 =======
+=======
+<<<<<<< 54dbd5e44fd63df29c0bfac0dbecac6409c957ba
+>>>>>>> b0f37c83 (.)
 <<<<<<< 2004ea4ce0d66b2a9aef9a67ea5a7e118a13e691
 laravel/Themes/One/vendor/
 =======
@@ -49,4 +53,48 @@ laravel/Themes/One/vendor/
 *.phar
 *.lock
 >>>>>>> c3dc84e77e1f490b752449369dcc5a04fb8fd8d2
+<<<<<<< HEAD
 >>>>>>> b47e8d10 (.)
+=======
+=======
+<<<<<<< HEAD
+*:Zone.Identifier
+*.phar
+*.lock
+=======
+>>>>>>> 4bd5ca8f (.)
+.git-rewrite
+.fuse_hidden*
+.fuse_hidden**.lock
+*.lock
+package-lock.json
+.php-cs-fixer.cache
+*.phar
+*.cache
+node_modules
+/node_modules
+vendor/
+.git-blame-ignore-revs
+.git-blame-ignore-revs
+node_modules
+vendor
+.php-cs-fixer.cache
+.git-blame-ignore-revs
+build/
+vendor/
+build/
+node_modules
+docs/cache/
+cache/
+.git-blame-ignore-revs
+.php-cs-fixer.cache
+*.exe
+**/*.Zone.Identifier
+*:Zone.Identifier
+*:Zone.Identifier
+.php-cs-fixer.cache
+*:Zone.Identifier
+.php-cs-fixer.cache
+**/*.Zone.Identifier
+>>>>>>> 522296dd0b9f30d132c770d087a589e5f527aded
+>>>>>>> b0f37c83 (.)

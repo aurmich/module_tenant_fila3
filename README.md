@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # SaluteOra - Sistema di Gestione Salute Orale
 
 ## Requisiti di Sistema
@@ -149,6 +150,10 @@ npm update
 
 ## Licenza
 Questo progetto è sotto licenza MIT. Vedere il file [LICENSE](LICENSE) per i dettagli. 
+<<<<<<< HEAD
+=======
+=======
+>>>>>>> b0f37c83 (.)
 # 🚀 BashScripts Power Tools
 
 [![Bash Version](https://img.shields.io/badge/Bash-5.0%2B-brightgreen.svg)](https://www.gnu.org/software/bash/)
@@ -301,3 +306,7 @@ Questo progetto è sotto licenza MIT - vedi il file [LICENSE](LICENSE) per i det
 
 
 > **Nota**: Questo README è in continuo aggiornamento. Se trovi errori o hai suggerimenti, apri pure una issue! 
+<<<<<<< HEAD
+=======
+>>>>>>> 4bd5ca8f (.)
+>>>>>>> b0f37c83 (.)
