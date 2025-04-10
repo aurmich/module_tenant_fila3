@@ -1,0 +1,43 @@
+# Regole per le Traduzioni in SaluteOra
+
+## Principi Fondamentali
+
+1. MAI utilizzare il metodo `->label()` nei componenti Filament
+   - Le etichette sono gestite automaticamente dal LangServiceProvider
+   - L'uso di ->label() interferisce con il meccanismo di traduzione automatica
+
+2. Utilizzare la struttura espansa per i campi nei file di traduzione
+   ```php
+   // resources/lang/it/resource.php
+   return [
+       'fields' => [
+           'nome_campo' => [
+               'label' => 'Etichetta Campo',
+               'tooltip' => 'Descrizione di aiuto per il campo',
+               'placeholder' => 'Esempio di input'
+           ],
+       ],
+   ];
+   ```
+
+3. Utilizzare la struttura espansa per le azioni
+   ```php
+   return [
+       'actions' => [
+           'nome_azione' => [
+               'label' => 'Etichetta Azione',
+               'icon' => 'heroicon-name',
+               'color' => 'primary|secondary|success|danger',
+               'tooltip' => 'Descrizione dell\'azione'
+           ],
+       ],
+   ];
+   ```
+
+4. Seguire la convenzione di naming per le chiavi di traduzione
+   - Utilizzare il formato `modulo::risorsa.fields.campo.label`
+   - Mantenere coerenza tra le diverse lingue
+
+5. Verificare sempre che il LangServiceProvider sia registrato correttamente
+   - Il provider deve essere incluso nel file `config/app.php`
+   - Verificare che il modulo Lang sia attivo

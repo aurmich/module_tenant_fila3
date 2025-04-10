@@ -1,0 +1,180 @@
+# SaluteOra - Portale per la Salute Orale
+
+## Indice
+
+### Progetto
+- [Panoramica](progetto.md) - Obiettivi e partner
+- [Roadmap](roadmap.md) - Piano di sviluppo
+- [Architettura](tecnico/architettura.md) - Design system
+
+### Analisi
+- [Requisiti](analisi/requisiti.md) - Specifiche funzionali e tecniche
+- [Database](analisi/database.md) - Schema e relazioni
+- [API](analisi/api.md) - Endpoints e integrazioni
+- [UI/UX](analisi/ui-ux.md) - Design e prototipi
+
+### Implementazione
+- [Core](implementazione/core/README.md) - Sistema base
+- [UI](implementazione/ui/README.md) - Interfaccia utente
+- [Testing](implementazione/testing/README.md) - Strategia test
+- [Moduli](moduli/README.md) - Componenti modulari
+
+### Tecnico
+- [Struttura](tecnico/struttura.md) - Organizzazione codice
+- [Standard](tecnico/standard.md) - Convenzioni
+- [Script](tecnico/scripts/README.md) - Utility
+- [Config](tecnico/config/README.md) - Configurazioni
+
+### Amministrazione
+- [Deployment](amministrazione/deployment/README.md) - Deploy
+- [Backup](amministrazione/backup/README.md) - Backup
+- [Monitoraggio](amministrazione/monitoraggio/README.md) - Monitor
+- [Manutenzione](amministrazione/manutenzione.md) - Manutenzione
+
+### Compliance
+- [GDPR](compliance/gdpr/README.md) - Privacy
+- [Sicurezza](compliance/sicurezza/README.md) - Security
+- [Standard](compliance/standard/README.md) - Normative
+
+### Assets
+- [Immagini](assets/images/README.md) - Media
+- [Presentazioni](assets/presentazioni/README.md) - Docs
+
+## Standard
+
+### Codice
+- PSR-12 per PHP
+- ESLint per JavaScript
+- Prettier per formattazione
+- PHPStan per analisi statica
+
+### Testing
+- PHPUnit per unit test
+- Laravel Dusk per browser test
+- Pest per feature test
+- Coverage minimo 80%
+
+### Deployment
+- CI/CD con GitHub Actions
+- Staging per test
+- Production per live
+- Rollback automatico
+
+## Manutenzione
+
+### Documentazione
+- Aggiornare CHANGELOG.md
+- Documentare breaking changes
+- Mantenere README aggiornati
+- Versionare assets
+
+### Codice
+- Security patches entro 24h
+- Dependency updates mensili
+- Code review obbligatoria
+- Test automatici
+
+## Supporto
+
+### Canali
+- Email: support@saluteora.it
+- Ticket: https://support.saluteora.it
+- Chat: Slack #support
+- Tel: +39 02 XXX XXX
+
+### SLA
+- Response: < 2h
+- Resolution: < 24h
+- Uptime: > 99.9%
+- Backup: < 4h
+
+# Documentazione del Progetto SaluteOra
+
+## Panoramica
+Il progetto "Promozione della salute orale per le gestanti in condizioni di vulnerabilità socio-economica" è un'iniziativa coordinata dall'INMP, con la collaborazione della Fondazione ETS e altri enti del terzo settore.
+
+Ultimo aggiornamento: Fri Mar 28 18:55:21 CET 2025
+
+## Indice della Documentazione
+
+### Progetto
+1. [Descrizione del Progetto](./descrizione.md)
+2. [Flussi dei Dati](./flussi-dati.md)
+3. [Privacy e Sicurezza](./privacy-sicurezza.md)
+4. [Caratteristiche della Piattaforma](./piattaforma.md)
+5. [Valutazione di Impatto sulla Protezione dei Dati (DPIA)](./dpia.md)
+6. [Introduzione](introduzione.md)
+
+### Tecnica
+7. [Architettura](architettura.md)
+8. [Struttura del Progetto](struttura-progetto.md)
+9. [Installazione Iniziale](installazione-iniziale.md)
+10. [Installazione Moduli](installazione.md)
+11. [Configurazione](configurazione.md)
+12. [Struttura dei Moduli](modules.md)
+13. [API](api.md)
+14. [Testing](testing.md)
+15. [Deployment](deployment.md)
+16. [Manutenzione](manutenzione.md)
+17. [Gestione Migrazioni](migrazione-struttura.md)
+18. [Standard del Codice](standard-codice.md)
+19. [Filosofia di Sviluppo](filosofia.md)
+20. [Linee Guida Documentazione](linee-guida-documentazione.md)
+21. [Aggiornamento Documentazione](aggiornamento-documentazione.md)
+
+### Filament
+22. [Introduzione a Filament](filament.md)
+23. [Filament Resources](filament-resources.md)
+24. [Filament Optimizations](filament-optimizations.md)
+25. [Filament Updates](filament-updates.md)
+26. [Filament Philosophy](filament-philosophy.md)
+
+### Implementazione
+27. [Implementazione](implementazione.md)
+28. [Diario di Implementazione](diario_implementazione.md)
+29. [Ordine di Implementazione](ordine_implementazione.md)
+30. [Stime](stime.md)
+31. [Roadmap](roadmap.md)
+32. [Stato Finale del Progetto](stato-finale-progetto.md)
+
+### Avanzato
+33. [Database](database.md) 
+34. [Enums](enums.md)
+35. [Bash Scripts](bashscripts.md)
+36. [Namespace Structure](namespace-structure.md)
+37. [Themes Structure](themes-structure.md)
+
+## Obiettivi del Progetto
+- Migliorare la salute orale delle gestanti con ISEE inferiore a 20.000 euro
+- Fornire visite odontoiatriche e sessioni di igiene orale
+- Educare le pazienti sulle pratiche di cura dentale a casa
+- Integrare servizi odontoiatrici con servizi sociali e di assistenza alla gravidanza
+
+## Partner del Progetto
+- INMP (Coordinatore)
+- Fondazione ETS
+- Altri enti del terzo settore
+
+## Note Importanti
+
+### Gestione Migrazioni
+⚠️ **ATTENZIONE**: Tutte le migrazioni sono contenute all'interno dei moduli. Prima di eseguire qualsiasi comando di migrazione, è necessario rimuovere le migrazioni centrali:
+
+```bash
+rm -rf database/migrations
+```
+
+Questo è necessario perché:
+- Evita conflitti con le migrazioni dei moduli
+- Mantiene una struttura pulita e organizzata
+- Permette una gestione indipendente delle migrazioni per modulo
+- Facilita il rollback e l'aggiornamento dei moduli
+
+Per maggiori dettagli, consultare [Gestione Migrazioni](migrazione-struttura.md).
+
+### Installazione Iniziale
+Per iniziare da zero, seguire la guida [Installazione Iniziale](installazione-iniziale.md) che include:
+- Installazione di Laravel Installer
+- Creazione del progetto base
+- Configurazione iniziale
+- Gestione delle migrazioni 

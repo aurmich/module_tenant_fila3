@@ -1,0 +1,59 @@
+{
+    "id": "2",
+    "title": {
+        "it": "Verifica Idoneità - SaluteOra"
+    },
+    "slug": "verifica-idoneita",
+    "content": null,
+    "content_blocks": {
+        "it": [
+            {
+                "type": "hero",
+                "data": {
+                    "title": "Verifica la tua idoneità",
+                    "subtitle": "Scopri se puoi partecipare al programma di salute orale per le gestanti",
+                    "image": "/img/eligibility-bg.jpg",
+                    "cta_text": "Inizia la verifica",
+                    "cta_link": "#verifica-form"
+                }
+            },
+            {
+                "type": "feature_sections",
+                "data": {
+                    "title": "Requisiti per partecipare",
+                    "sections": [
+                        {
+                            "title": "ISEE",
+                            "description": "Valore ISEE inferiore a 20.000 euro",
+                            "icon": "calculator"
+                        },
+                        {
+                            "title": "Gravidanza",
+                            "description": "Essere in stato di gravidanza",
+                            "icon": "heart"
+                        },
+                        {
+                            "title": "Residenza",
+                            "description": "Residenza nel territorio di riferimento",
+                            "icon": "map-marker"
+                        }
+                    ]
+                }
+            },
+            {
+                "type": "paragraph",
+                "data": {
+                    "content": "Il programma SaluteOra è dedicato alle gestanti in condizioni di vulnerabilità socio-economica. La verifica dell'idoneità è il primo passo per accedere ai servizi di assistenza odontoiatrica specialistica."
+                }
+            }
+        ]
+    },
+    "sidebar_blocks": {
+        "it": []
+    },
+    "footer_blocks": null,
+    "created_at": "2024-12-09T16:46:21.000000Z",
+    "updated_at": "2024-12-09T17:08:25.000000Z",
+    "created_by": "9c63325e-ce65-4632-bc54-1ef576839de5",
+    "updated_by": "9c63325e-ce65-4632-bc54-1ef576839de5"
+} 

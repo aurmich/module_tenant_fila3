@@ -1,0 +1,89 @@
+{
+    "id": "1",
+    "title": {
+        "it": "SaluteOra - Promozione della salute orale per le gestanti"
+    },
+    "slug": "home",
+    "content": null,
+    "content_blocks": {
+        "it": [
+            {
+                "type": "hero",
+                "data": {
+                    "view": "ui::components.blocks.hero.simple",
+                    "title": "Promozione della salute orale per le gestanti",
+                    "subtitle": "Un progetto dedicato alla salute orale delle gestanti in condizioni di vulnerabilità socio-economica",
+                    "image": "/img/hero-bg.jpg",
+                    "cta_text": "Scopri di più",
+                    "cta_link": "#about",
+                    "background_color": "bg-white",
+                    "text_color": "text-gray-900",
+                    "cta_color": "bg-indigo-600 hover:bg-indigo-700"
+                }
+            },
+            {
+                "type": "feature_sections",
+                "data": {
+                    "view": "ui::components.blocks.feature_sections.v1",
+                    "title": "Perché è importante la salute orale in gravidanza?",
+                    "sections": [
+                        {
+                            "title": "Prevenzione",
+                            "description": "La prevenzione odontoiatrica in gravidanza è fondamentale per la salute della mamma e del bambino",
+                            "icon": "shield-check"
+                        },
+                        {
+                            "title": "Assistenza",
+                            "description": "Offriamo assistenza odontoiatrica specialistica per le gestanti",
+                            "icon": "heart"
+                        },
+                        {
+                            "title": "Supporto",
+                            "description": "Supporto completo per le gestanti in condizioni di vulnerabilità",
+                            "icon": "hand-holding-heart"
+                        }
+                    ]
+                }
+            },
+            {
+                "type": "stats",
+                "data": {
+                    "view": "ui::components.blocks.stats.v1",
+                    "title": "I numeri del progetto",
+                    "stats": [
+                        {
+                            "number": "1000+",
+                            "label": "Gestanti assistite"
+                        },
+                        {
+                            "number": "50+",
+                            "label": "Odontoiatri coinvolti"
+                        },
+                        {
+                            "number": "20+",
+                            "label": "Centri di assistenza"
+                        }
+                    ]
+                }
+            },
+            {
+                "type": "cta",
+                "data": {
+                    "view": "ui::components.blocks.cta.v1",
+                    "title": "Vuoi partecipare al progetto?",
+                    "description": "Unisciti alla rete di professionisti che si prendono cura della salute orale delle gestanti",
+                    "button_text": "Registrati",
+                    "button_link": "/register"
+                }
+            }
+        ]
+    },
+    "sidebar_blocks": {
+        "it": []
+    },
+    "footer_blocks": null,
+    "created_at": "2024-12-09T16:46:21.000000Z",
+    "updated_at": "2024-12-09T17:08:25.000000Z",
+    "created_by": "9c63325e-ce65-4632-bc54-1ef576839de5",
+    "updated_by": "9c63325e-ce65-4632-bc54-1ef576839de5"
+}

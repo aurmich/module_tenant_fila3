@@ -1,3 +1,58 @@
+# 🔧 SaluteOra .gitignore
+# Questo file definisce quali file e cartelle devono essere ignorati dal controllo di versione
+# Organizzato secondo la filosofia di sviluppo SaluteOra: chiarezza, organizzazione e manutenibilità
+
+# 🗂️ File di sistema
+.fuse_hidden*
+*.Zone.Identifier
+**/*.Zone.Identifier
+*:Zone.Identifier
+*.exe
+*.stackdump
+
+# 📝 Log e cache
+*.log
+*.cache
+.php-cs-fixer.cache
+npm-debug.log
+yarn-error.log
+.phpunit.result.cache
+
+# 📦 Dipendenze e build
+/node_modules
+node_modules/
+/vendor
+vendor/
+build/
+cache/
+docs/cache/
+laravel/Themes/One/vendor/
+
+# 🔒 Sicurezza e configurazione
+.env
+Homestead.yaml
+Homestead.json
+/.vagrant
+storage/*.key
+
+# 🔄 Git e versioning
+.git-rewrite
+.git-rewrite/
+.git-blame-ignore-revs
+
+# 🔧 Package manager
+*.lock
+*.phar
+package-lock.json
+/docs/package-lock.json
+
+# 📱 Laravel specifici
+bootstrap/compiled.php
+app/storage/
+public/storage
+public/hot
+public_html/storage
+public_html/hot
 .git-rewrite
 .fuse_hidden*
 .fuse_hidden**.lock
