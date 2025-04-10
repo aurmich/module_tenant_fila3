@@ -1,6 +1,7 @@
 #!/bin/bash
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 
 me=$( readlink -f -- "$0")
@@ -11,6 +12,8 @@ CONFIG_FILE="gitmodules.ini"
 DEPTH=1  # Limita la profondità della history scaricata
 LOG_FILE="subtree_sync.log"
 >>>>>>> 00a809e1 (.)
+=======
+>>>>>>> 283d4c6d (.)
 
 source ./bashscripts/lib/custom.sh
 # Includi lo script di parsing
@@ -23,6 +26,9 @@ me=$( readlink -f -- "$0")
 script_dir=$(dirname "$me")
 
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 283d4c6d (.)
 total=${submodules_array["total"]}
 for ((i=0; i<total; i++)); do
     path=${submodules_array["path_${i}"]}
@@ -40,6 +46,7 @@ for ((i=0; i<total; i++)); do
     if ! "$script" "$path" "$url" ; then
         log "⚠️ Sincronizzazione fallita per $path."
     fi
+<<<<<<< HEAD
 done
 =======
 # Ottieni il branch corrente
@@ -78,3 +85,6 @@ git gc --prune=now --aggressive
 
 log "✅ Sincronizzazione completata con history ottimizzata!"
 >>>>>>> 00a809e1 (.)
+=======
+done
+>>>>>>> 283d4c6d (.)

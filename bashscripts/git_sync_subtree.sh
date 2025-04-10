@@ -8,10 +8,15 @@ fi
 
 # Input parameters
 <<<<<<< HEAD
+<<<<<<< HEAD
 me=$( readlink -f -- "$0")
 script_dir=$(dirname "$me")
 =======
 >>>>>>> 00a809e1 (.)
+=======
+me=$( readlink -f -- "$0")
+script_dir=$(dirname "$me")
+>>>>>>> 283d4c6d (.)
 LOCAL_PATH="$1"
 REMOTE_REPO="$2"
 REMOTE_BRANCH=$(git symbolic-ref --short HEAD 2>/dev/null || echo "main")
@@ -23,6 +28,9 @@ die() {
 }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 283d4c6d (.)
 # Funzione per loggare messaggi
 log() {
     local message="$1"
@@ -48,6 +56,7 @@ sync_subtree() {
     if ! "$script_dir/git_pull_subtree.sh" "$LOCAL_PATH" "$REMOTE_REPO" ; then
         log "⚠️ Pull fallita per $current_path."
     fi
+<<<<<<< HEAD
 =======
 # Sync subtree
 sync_subtree() {
@@ -76,6 +85,8 @@ sync_subtree() {
 
     git subtree push -P "$LOCAL_PATH" "$REMOTE_REPO" "$REMOTE_BRANCH"
 >>>>>>> 00a809e1 (.)
+=======
+>>>>>>> 283d4c6d (.)
 }
 
 # Run sync
