@@ -36,7 +36,7 @@ while IFS= read -r line; do
         submodules_array.push(['path' => "$current_path", 'url' => "$current_url"]);
 =======
         submodules_array[$index]['path']=$current_path
-        submodules_array[$index]['path']=$current_path
+        submodules_array[$index]['url']=$current_url
         ((index++))
 >>>>>>> af282639 (.)
         
