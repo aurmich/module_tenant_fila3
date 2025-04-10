@@ -21,11 +21,8 @@ use Modules\Notify\Filament\Clusters\Test;
 use Modules\User\Models\DeviceUser;
 use Modules\Xot\Filament\Traits\NavigationLabelTrait;
 use Webmozart\Assert\Assert;
-<<<<<<< HEAD
 use Illuminate\Support\Collection;
 use Kreait\Firebase\Messaging\Notification as FirebaseNotification;
-=======
->>>>>>> origin/dev
 
 use function Safe\json_encode;
 
@@ -63,7 +60,6 @@ class SendPushNotification extends Page implements HasForms
             ->get();
 
         /**
-<<<<<<< HEAD
          * Callback per mappare i dispositivi in opzioni per il select.
          */
         $callback = function ($item) {
@@ -71,39 +67,39 @@ class SendPushNotification extends Page implements HasForms
             if (!is_object($item)) {
                 return [];
             }
-            
+
             // Verifichiamo che $item abbia le proprietà necessarie
-            if (!property_exists($item, 'push_notifications_token') || 
-                !property_exists($item, 'profile') || 
-                !is_object($item->profile) || 
+            if (!property_exists($item, 'push_notifications_token') ||
+                !property_exists($item, 'profile') ||
+                !is_object($item->profile) ||
                 !property_exists($item->profile, 'full_name')) {
                 return [];
             }
-            
+
             // Otteniamo il token
             $token = $item->push_notifications_token;
             if (!is_string($token) || $token === '') {
                 return [];
             }
-            
+
             // Otteniamo il nome completo
             $fullName = $item->profile->full_name;
             if (!is_string($fullName)) {
                 $fullName = 'Utente';
             }
-            
+
             // Otteniamo il robot
             $robot = '';
-            if (property_exists($item, 'device') && 
-                is_object($item->device) && 
-                property_exists($item->device, 'robot') && 
+            if (property_exists($item, 'device') &&
+                is_object($item->device) &&
+                property_exists($item->device, 'robot') &&
                 is_string($item->device->robot)) {
                 $robot = $item->device->robot;
             }
-            
+
             // Creiamo la label con gli ultimi 5 caratteri del token
             $tokenSuffix = mb_substr($token, -5);
-            
+
             return [$token => $fullName.' ('.$robot.') '.$tokenSuffix];
         };
 
@@ -111,20 +107,10 @@ class SendPushNotification extends Page implements HasForms
          * Callback per filtrare i dispositivi.
          */
         $filterCallback = function ($item): bool {
-            return is_object($item) && 
-                   property_exists($item, 'profile') && 
+            return is_object($item) &&
+                   property_exists($item, 'profile') &&
                    $item->profile !== null;
         };
-=======
-         * ---.
-         */
-        $callback = fn ($item) => [$item->push_notifications_token => $item->profile->full_name.' ('.$item->device?->robot.') '.mb_substr($item->push_notifications_token, -5)];
-
-        /**
-         * ---.
-         */
-        $filterCallback = fn ($item): bool => $item->profile !== null;
->>>>>>> origin/dev
 
         $to = $devices
             ->filter($filterCallback)
@@ -137,13 +123,7 @@ class SendPushNotification extends Page implements HasForms
             ->schema(
                 [
                     Forms\Components\Select::make('deviceToken')
-<<<<<<< HEAD
-                        ->options(function () use ($to): array {
-                            return $to;
-                        }),
-=======
                         ->options($to),
->>>>>>> origin/dev
                     Forms\Components\TextInput::make('type')
                         ->required(),
                     Forms\Components\TextInput::make('title')
@@ -164,7 +144,6 @@ class SendPushNotification extends Page implements HasForms
     public function sendNotification(): void
     {
         $data = $this->notificationForm->getState();
-<<<<<<< HEAD
         $deviceToken = $data['deviceToken'] ?? '';
 
         // Verifichiamo che deviceToken sia una stringa non vuota
@@ -182,13 +161,13 @@ class SendPushNotification extends Page implements HasForms
         $title = $data['title'] ?? '';
         $body = $data['body'] ?? '';
         $jsonData = isset($data['data']) ? json_encode($data['data']) : '{}';
-        
+
         // Verifichiamo che jsonData sia una stringa
         $jsonData = $jsonData ?: '{}';
-        
+
         // Creiamo un array con chiavi non vuote e valori stringa che implementano Stringable
         $pushDataTemp = [];
-        
+
         // Aggiungiamo i valori all'array solo se non sono vuoti
         if ($type !== '') {
             $pushDataTemp['type'] = $type;
@@ -202,62 +181,47 @@ class SendPushNotification extends Page implements HasForms
         if ($jsonData !== '') {
             $pushDataTemp['data'] = $jsonData;
         }
-        
+
         // Verifichiamo che l'array non sia vuoto
         if (empty($pushDataTemp)) {
             $pushDataTemp['type'] = 'notification';
         }
-        
+
         // Creiamo un MessageData object
-        $messageData = new \Kreait\Firebase\Messaging\MessageData($pushDataTemp);
+        $pushData = array_map(
+            fn ($value) => $value instanceof Stringable ? $value->toString() : (string) $value,
+            $pushDataTemp
+        );
 
         // Verifichiamo che deviceToken sia una stringa non vuota (per soddisfare il tipo non-empty-string)
         Assert::stringNotEmpty($deviceToken, 'Il token del dispositivo non può essere vuoto');
-        
+
         $message = CloudMessage::withTarget('token', $deviceToken)
-            ->withHighestPossiblePriority()
-            ->withData($messageData);
-            
+            ->withNotification(FirebaseNotification::create($title, $body))
+            ->withData($pushData);
+
         try {
             // Otteniamo l'istanza di messaging e verifichiamo che sia valida
             $messaging = app('firebase.messaging');
             if (!is_object($messaging) || !method_exists($messaging, 'send')) {
                 throw new \RuntimeException('Il servizio firebase.messaging non supporta il metodo send()');
             }
-            
-=======
 
-        $messaging = app('firebase.messaging');
-        Assert::stringNotEmpty($deviceToken = $data['deviceToken']);
-
-        /**
-         * @var array<non-empty-string, string|Stringable>|\Kreait\Firebase\Messaging\MessageData
-         */
-        $push_data = [
-            'type' => $data['type'],
-            'title' => $data['title'],
-            'body' => $data['body'],
-            'data' => json_encode($data['data']),
-        ];
-
-        $message = CloudMessage::withTarget('token', $deviceToken)
-            ->withHighestPossiblePriority()
-            ->withData($push_data);
-        try {
->>>>>>> origin/dev
             $messaging->send($message);
-        } catch (\Exception $e) {
-            dddx([
-                'message' => $e->getMessage(),
-                'deviceToken' => $deviceToken,
-            ]);
-        }
 
-        Notification::make()
-            ->success()
-            // ->title(__('filament-panels::pages/auth/edit-profile.notifications.saved.title'))
-            ->title(__('check your client'))
-            ->send();
+            Notification::make()
+                ->success()
+                // ->title(__('filament-panels::pages/auth/edit-profile.notifications.saved.title'))
+                ->title('Notifica inviata')
+                ->body('La notifica è stata inviata con successo')
+                ->send();
+        } catch (\Exception $e) {
+            Notification::make()
+                ->danger()
+                ->title('Errore')
+                ->body($e->getMessage())
+                ->send();
+        }
     }
 
     protected function getForms(): array
@@ -270,10 +234,9 @@ class SendPushNotification extends Page implements HasForms
     protected function getNotificationFormActions(): array
     {
         return [
-            Action::make('notificationFormActions')
-                //
-
-                ->submit('notificationFormActions'),
+            Action::make('sendNotification')
+                ->label('Invia Notifica')
+                ->action('sendNotification'),
         ];
     }
 

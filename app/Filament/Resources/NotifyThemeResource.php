@@ -19,34 +19,17 @@ class NotifyThemeResource extends XotBaseResource
 {
     protected static ?string $model = NotifyTheme::class;
 
-<<<<<<< HEAD
-=======
     protected static ?string $navigationIcon = 'heroicon-o-bell';
->>>>>>> origin/dev
 
     public static function getFormSchema(): array
     {
         return [
             'lang' => Select::make('lang')
-<<<<<<< HEAD
-                ->options(function (): array {
-                    return self::fieldOptions('lang');
-                }),
-            'type' => Select::make('type')
-                ->options(function (): array {
-                    return self::fieldOptions('type');
-                }),
-            'post_type' => Select::make('post_type')
-                ->options(function (): array {
-                    return self::fieldOptions('post_type');
-                }),
-=======
                 ->options(self::fieldOptions('lang')),
             'type' => Select::make('type')
                 ->options(self::fieldOptions('type')),
             'post_type' => Select::make('post_type')
                 ->options(self::fieldOptions('post_type')),
->>>>>>> origin/dev
             'post_id' => TextInput::make('post_id'),
             'subject' => TextInput::make('subject'),
             'from' => TextInput::make('from'),
@@ -76,9 +59,6 @@ class NotifyThemeResource extends XotBaseResource
         ];
     }
 
-<<<<<<< HEAD
-   
-=======
     public static function getPages(): array
     {
         return [
@@ -87,7 +67,6 @@ class NotifyThemeResource extends XotBaseResource
             'edit' => EditNotifyTheme::route('/{record}/edit'),
         ];
     }
->>>>>>> origin/dev
 
     public static function fieldOptions(string $field): array
     {
@@ -102,9 +81,9 @@ class NotifyThemeResource extends XotBaseResource
                 'push' => 'Push Notification',
             ],
             'post_type' => [
-                'page' => 'Page',
-                'post' => 'Post',
-                'product' => 'Product',
+                'article' => 'Articolo',
+                'page' => 'Pagina',
+                'event' => 'Evento',
             ],
             default => [],
         };

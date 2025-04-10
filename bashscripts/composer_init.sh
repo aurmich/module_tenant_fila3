@@ -5,7 +5,6 @@ php -r "unlink('composer-setup.php');"
 php -r "unlink('composer.lock');"
 rm composer.lock
 rm package-lock.json
-<<<<<<< HEAD
 #mv composer.json composer_$(date +"%Y-%m-%d").json
 #php composer.phar init
 
@@ -86,21 +85,3 @@ php -d memory_limit=-1 composer.phar require -W --dev --ignore-platform-reqs pes
 ### REMOVE
 php -d memory_limit=-1 composer.phar remove laravel/sanctum
 rm config/sanctum.php 
-=======
-
-##############  ####################
-php -d memory_limit=-1 composer.phar require -W illuminate/contracts
-
-############################ DEV ###############################
-php -d memory_limit=-1 composer.phar require -W --dev laravel/pint
-php -d memory_limit=-1 composer.phar require -W --dev nunomaduro/collision
-php -d memory_limit=-1 composer.phar require -W --dev larastan/larastan
-php -d memory_limit=-1 composer.phar require -W --dev orchestra/testbench
-php -d memory_limit=-1 composer.phar require -W --dev pestphp/pest
-php -d memory_limit=-1 composer.phar require -W --dev pestphp/pest-plugin-arch
-php -d memory_limit=-1 composer.phar require -W --dev pestphp/pest-plugin-laravel
-php -d memory_limit=-1 composer.phar require -W --dev phpstan/extension-installer
-php -d memory_limit=-1 composer.phar require -W --dev phpstan/phpstan-deprecation-rules
-php -d memory_limit=-1 composer.phar require -W --dev phpstan/phpstan-phpunit
-php -d memory_limit=-1 composer.phar require -W --dev spatie/laravel-ray
->>>>>>> 9e03a20f (Squashed 'laravel/Modules/Notify/' changes from 404426f9..02d5f061)

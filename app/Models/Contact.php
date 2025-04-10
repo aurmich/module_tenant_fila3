@@ -26,7 +26,6 @@ use Illuminate\Support\Carbon;
  * @property string|null $mail_sent_at
  * @property int|null $mail_count
  * @property string|null $survey_pdf_id
- * @property string|null $token
  * @property string|null $first_name
  * @property string|null $last_name
  * @property string|null $attribute_1
@@ -48,10 +47,14 @@ use Illuminate\Support\Carbon;
  * @property string|null $sms_status_txt
  * @property int|null $duplicate_count
  * @property int|null $order_column
-<<<<<<< HEAD
-=======
- *
->>>>>>> origin/dev
+ * @property string|null $email
+ * @property string|null $mobile_phone
+ * @property \Modules\Xot\Contracts\ProfileContract|null $creator
+ * @property \Modules\Xot\Contracts\ProfileContract|null $updater
+ * @property \Spatie\MediaLibrary\MediaCollections\Models\Collections\MediaCollection<int, \Spatie\MediaLibrary\MediaCollections\Models\Media> $media
+ * @property int|null $media_count
+ * @property Carbon|null $deleted_at
+ * @property string|null $deleted_by
  * @method static \Modules\Notify\Database\Factories\ContactFactory factory($count = null, $state = [])
  * @method static \Illuminate\Database\Eloquent\Builder|Contact newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|Contact newQuery()
@@ -78,18 +81,6 @@ use Illuminate\Support\Carbon;
  * @method static \Illuminate\Database\Eloquent\Builder|Contact whereUserId($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Contact whereValue($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Contact whereVerifiedAt($value)
-<<<<<<< HEAD
- * @mixin Eloquent
- * @property string|null $email
- * @property string|null $mobile_phone
-=======
- *
- * @mixin Eloquent
- *
- * @property string|null $email
- * @property string|null $mobile_phone
- *
->>>>>>> origin/dev
  * @method static \Illuminate\Database\Eloquent\Builder|Contact whereAttribute1($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Contact whereAttribute10($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Contact whereAttribute11($value)
@@ -108,25 +99,8 @@ use Illuminate\Support\Carbon;
  * @method static \Illuminate\Database\Eloquent\Builder|Contact whereEmail($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Contact whereFirstName($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Contact whereUsesleft($value)
-<<<<<<< HEAD
-=======
- *
->>>>>>> origin/dev
- * @property \Modules\Xot\Contracts\ProfileContract|null $creator
- * @property \Modules\Xot\Contracts\ProfileContract|null $updater
- * @property \Spatie\MediaLibrary\MediaCollections\Models\Collections\MediaCollection<int, \Spatie\MediaLibrary\MediaCollections\Models\Media> $media
- * @property int|null $media_count
- * @property Carbon|null $deleted_at
- * @property string|null $deleted_by
-<<<<<<< HEAD
  * @method static \Illuminate\Database\Eloquent\Builder<static>|Contact whereDeletedAt($value)
  * @method static \Illuminate\Database\Eloquent\Builder<static>|Contact whereDeletedBy($value)
-=======
- *
- * @method static \Illuminate\Database\Eloquent\Builder<static>|Contact whereDeletedAt($value)
- * @method static \Illuminate\Database\Eloquent\Builder<static>|Contact whereDeletedBy($value)
- *
->>>>>>> origin/dev
  * @mixin \Eloquent
  */
 class Contact extends BaseModel
@@ -136,6 +110,10 @@ class Contact extends BaseModel
         'model_id', 'model_type', 'contact_type', 'value',
         'verified_at', 'updated_at', 'created_at',
         'updated_by', 'created_by', 'user_id', 'token',
+        'first_name', 'last_name', 'email', 'mobile_phone',
+        'attribute_1', 'attribute_2', 'attribute_3', 'attribute_4', 'attribute_5',
+        'attribute_6', 'attribute_7', 'attribute_8', 'attribute_9', 'attribute_10',
+        'attribute_11', 'attribute_12', 'attribute_13', 'attribute_14',
     ];
 
     /** @return array<string, string> */
@@ -147,13 +125,9 @@ class Contact extends BaseModel
             'created_at' => 'datetime',
             'updated_at' => 'datetime',
             'deleted_at' => 'datetime',
-
             'updated_by' => 'string',
             'created_by' => 'string',
             'deleted_by' => 'string',
-
-            // 'date_start' => 'datetime:Y-m-d\TH:i',
-            // 'date_end' => 'datetime:Y-m-d\TH:i',
             'model_id' => 'string',
             'user_id' => 'string',
         ];

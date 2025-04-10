@@ -18,10 +18,6 @@ class SmsService
     public ?string $from = null;
 
     public ?string $body = null;
-<<<<<<< HEAD
-=======
-
->>>>>>> aa7e3755 (.)
     /**
      * Variabili per il template SMS.
      *
@@ -49,11 +45,7 @@ class SmsService
     }
 
     /**
-<<<<<<< HEAD
      * Factory method to create an instance.
-=======
-     * Crea una nuova istanza della classe.
->>>>>>> aa7e3755 (.)
      */
     public static function make(): self
     {
@@ -61,13 +53,8 @@ class SmsService
     }
 
     /**
-<<<<<<< HEAD
      * Sets local variables and merges them with the vars array.
      * 
-=======
-     * Imposta le variabili locali.
-     *
->>>>>>> aa7e3755 (.)
      * @param array<string, mixed> $vars
      */
     public function setLocalVars(array $vars): self
@@ -99,13 +86,8 @@ class SmsService
      */
     public function send(): self
     {
-<<<<<<< HEAD
         $engineClassName = '\\Modules\\Notify\\Services\\SmsEngines\\' . Str::studly($this->driver) . 'Engine';
         
-=======
-        $engineClassName = '\\Modules\\Notify\\Services\\SmsEngines\\'.Str::studly($this->driver).'Engine';
-
->>>>>>> aa7e3755 (.)
         // Verifichiamo che la classe esista
         if (!class_exists($engineClassName)) {
             throw new \RuntimeException("La classe del motore SMS {$engineClassName} non esiste");
@@ -148,17 +130,4 @@ class SmsService
 
         return $this;
     }
-<<<<<<< HEAD
-=======
-
-    /**
-     * Ottiene le variabili.
-     *
-     * @return array<string, mixed>
-     */
-    public function getVars(): array
-    {
-        return $this->vars;
-    }
->>>>>>> aa7e3755 (.)
 }

@@ -64,11 +64,7 @@ class NotifyThemeResource extends XotBaseResource
         ];
     }
 
-<<<<<<< HEAD
    
-=======
-
->>>>>>> aa7e3755 (.)
 
     public static function fieldOptions(string $field): array
     {

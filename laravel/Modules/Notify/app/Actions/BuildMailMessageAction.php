@@ -35,11 +35,7 @@ class BuildMailMessageAction
         $fromAddress = $theme->view_params['from_email'] ?? $theme->from_email;
         $fromName = $theme->view_params['from'] ?? $theme->from;
         $subject = $view_params['subject'] ?? $theme->subject;
-<<<<<<< HEAD
         
-=======
-
->>>>>>> aa7e3755 (.)
         // Utilizziamo asserzioni per verificare che i valori siano stringhe
         if (!is_string($fromAddress)) {
             $fromAddress = '';
@@ -53,11 +49,7 @@ class BuildMailMessageAction
         if (!is_string($subject)) {
             $subject = 'Notifica';
         }
-<<<<<<< HEAD
         
-=======
-
->>>>>>> aa7e3755 (.)
         $email = (new MailMessage())
             ->from($fromAddress, $fromName)
             ->subject($subject)

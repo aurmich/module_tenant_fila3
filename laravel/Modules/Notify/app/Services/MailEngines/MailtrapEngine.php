@@ -68,12 +68,8 @@ class MailtrapEngine
         // Mail::raw('Hello World!', function($msg) {$msg->to('vair81@gmail.com')->subject('Test Email'); });
 
         // try {
-<<<<<<< HEAD
         Assert::string($this->body);
         Mail::raw($this->body, function (Message $msg): void {
-=======
-        Mail::raw((string) $this->body, function (Message $msg): void {
->>>>>>> aa7e3755 (.)
             // Verifichiamo che $this->to sia valido
             $to = $this->to;
 

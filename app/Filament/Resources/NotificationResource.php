@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Modules\Notify\Filament\Resources;
 
 use Filament\Forms\Components\DateTimePicker;
@@ -8,19 +10,12 @@ use Filament\Forms\Components\TextInput;
 use Modules\Notify\Filament\Resources\NotificationResource\Pages;
 use Modules\Notify\Models\Notification;
 use Modules\Xot\Filament\Resources\XotBaseResource;
-<<<<<<< HEAD
-use Modules\Xot\Filament\Resources\RelationManagers\XotBaseRelationManager;
-=======
->>>>>>> origin/dev
 
 class NotificationResource extends XotBaseResource
 {
     protected static ?string $model = Notification::class;
 
-<<<<<<< HEAD
-=======
     protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
->>>>>>> origin/dev
 
     public static function getFormSchema(): array
     {
@@ -57,9 +52,6 @@ class NotificationResource extends XotBaseResource
         ];
     }
 
-<<<<<<< HEAD
-   
-=======
     public static function getRelations(): array
     {
         return [
@@ -73,5 +65,4 @@ class NotificationResource extends XotBaseResource
             'view' => Pages\ViewNotification::route('/{record}'),
         ];
     }
->>>>>>> origin/dev
 }

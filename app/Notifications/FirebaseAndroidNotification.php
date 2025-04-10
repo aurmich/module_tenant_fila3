@@ -14,32 +14,23 @@ use Illuminate\Support\Stringable;
 use Kreait\Firebase\Messaging\AndroidConfig;
 use Kreait\Firebase\Messaging\CloudMessage;
 use Kreait\Firebase\Messaging\Message;
-<<<<<<< HEAD
 use Kreait\Firebase\Messaging\MessageData;
-=======
->>>>>>> origin/dev
 use Kreait\Firebase\Messaging\Notification as FirebaseNotification;
 use Modules\Notify\Contracts\MobilePushNotification;
 use Modules\Notify\Datas\FirebaseNotificationData;
 use Modules\Notify\Notifications\Channels\FirebaseCloudMessagingChannel;
 
-<<<<<<< HEAD
 /**
  * Classe per inviare notifiche tramite Firebase Cloud Messaging ad Android.
  */
-=======
->>>>>>> origin/dev
 class FirebaseAndroidNotification extends Notification implements MobilePushNotification
 {
     use Queueable;
 
     /**
      * Create a new notification instance.
-<<<<<<< HEAD
      *
      * @param FirebaseNotificationData $data I dati della notifica Firebase
-=======
->>>>>>> origin/dev
      */
     public function __construct(public FirebaseNotificationData $data)
     {
@@ -48,18 +39,10 @@ class FirebaseAndroidNotification extends Notification implements MobilePushNoti
     /**
      * Get the notification's delivery channels.
      *
-<<<<<<< HEAD
      * @param object $notifiable The entity to be notified
      * @return array<int, class-string>
      */
     public function via(object $notifiable): array
-=======
-     * @param  mixed  $notifiable  the entity to be notified
-     *
-     * throws \InvalidArgumentException if no delivery channels are available for the notifiable entity
-     */
-    public function via(mixed $notifiable): array
->>>>>>> origin/dev
     {
         return [
             // 'firebase',
@@ -68,7 +51,6 @@ class FirebaseAndroidNotification extends Notification implements MobilePushNoti
     }
 
     /**
-<<<<<<< HEAD
      * Crea il messaggio Firebase Cloud per la notifica.
      *
      * @param object $notifiable The entity to be notified
@@ -107,33 +89,12 @@ class FirebaseAndroidNotification extends Notification implements MobilePushNoti
         return CloudMessage::new()
             ->withNotification(FirebaseNotification::create($this->data->title, $this->data->body))
             ->withAndroidConfig(AndroidConfig::fromArray($androidConfig));
-=======
-     * A description of the entire PHP function.
-     *
-     * @param  mixed  $notifiable  the entity to be notified
-     */
-    public function toFirebase(mixed $notifiable): CloudMessage
-    {
-        return CloudMessage::new()
-            ->withNotification(FirebaseNotification::create($this->data->title, $this->data->body))
-            ->withAndroidConfig(AndroidConfig::fromArray([
-                'ttl' => '3600s',
-                'priority' => 'high',
-                'notification' => $this->data->data,
-                // 'notification' => [
-                //    'click_action' => 'FLUTTER_NOTIFICATION_CLICK',
-                // ],
-            ]));
->>>>>>> origin/dev
     }
 
     /**
      * Get the array representation of the notification.
      *
-<<<<<<< HEAD
      * @param object|null $notifiable The entity to be notified
-=======
->>>>>>> origin/dev
      * @return array<string, mixed>
      */
     public function toArray(?object $notifiable): array
@@ -142,7 +103,6 @@ class FirebaseAndroidNotification extends Notification implements MobilePushNoti
         return [];
     }
 
-<<<<<<< HEAD
     /**
      * Converti in un messaggio Cloud Firebase.
      *
@@ -163,14 +123,6 @@ class FirebaseAndroidNotification extends Notification implements MobilePushNoti
                 $data[$key] = $value;
             }
         }
-=======
-    public function toCloudMessage(): Message
-    {
-        /**
-         * var array<non-empty-string, string|Stringable>|\Kreait\Firebase\Messaging\MessageData.
-         */
-        $data = $this->data->data;
->>>>>>> origin/dev
 
         return CloudMessage::new()
             ->withHighestPossiblePriority()

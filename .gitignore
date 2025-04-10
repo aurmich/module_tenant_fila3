@@ -1,191 +1,55 @@
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-*:Zone.Identifier
-*.phar
-*.lock
-.git-rewrite
-=======
-# 🗂️ Cartelle e file di sistema
->>>>>>> aa7e3755 (.)
+# 🔧 SaluteOra .gitignore
+# Questo file definisce quali file e cartelle devono essere ignorati dal controllo di versione
+# Organizzato secondo la filosofia di sviluppo SaluteOra: chiarezza, organizzazione e manutenibilità
+
+# 🗂️ File di sistema
 .fuse_hidden*
 *.Zone.Identifier
 **/*.Zone.Identifier
+*:Zone.Identifier
 *.exe
+*.stackdump
+
+# 📝 Log e cache
 *.log
 *.cache
-*.lock
-*.phar
-package-lock.json
 .php-cs-fixer.cache
-<<<<<<< HEAD
-*.phar
-*.cache
-node_modules
-/node_modules
-vendor/
-.git-blame-ignore-revs
-.git-blame-ignore-revs
-=======
-/vendor/
-vendor/
-node_modules/
 npm-debug.log
-*.cache
-*.phar
-*.lock
-package-lock.json
 yarn-error.log
+.phpunit.result.cache
 
-# Laravel 4 specific
-bootstrap/compiled.php
-app/storage/
+# 📦 Dipendenze e build
+/node_modules
+node_modules/
+/vendor
+vendor/
+build/
+cache/
+docs/cache/
+laravel/Themes/One/vendor/
 
-# Laravel 5 & Lumen specific
-public/storage
-public/hot
-
-# Laravel 5 & Lumen specific with changed public path
-public_html/storage
-public_html/hot
-
-storage/*.key
+# 🔒 Sicurezza e configurazione
 .env
 Homestead.yaml
 Homestead.json
 /.vagrant
-.phpunit.result.cache
+storage/*.key
 
-
-*.stackdump
-*.cache
-*.lock
-package-lock.json
-*.log
-
-*.lock
-package-lock.json
-
-/docs/package-lock.json
+# 🔄 Git e versioning
 .git-rewrite
-.git-blame-ignore-revs
-.git-rewrite
-.git-blame-ignore-revs
-/vendor
-*.lock
-.php-cs-fixer.cache
-*.cache
-/build
-*.phar
 .git-rewrite/
-
-
-
->>>>>>> 9e03a20f (Squashed 'laravel/Modules/Notify/' changes from 404426f9..02d5f061)
-node_modules
-vendor
-.php-cs-fixer.cache
-.git-blame-ignore-revs
-build/
-vendor/
-build/
-node_modules
-docs/cache/
-cache/
-.git-blame-ignore-revs
-.php-cs-fixer.cache
-<<<<<<< HEAD
-*.exe
-**/*.Zone.Identifier
-*:Zone.Identifier
-*:Zone.Identifier
-.php-cs-fixer.cache
-*:Zone.Identifier
-.php-cs-fixer.cache
-**/*.Zone.Identifier
-*.log
-*.log
-=======
-laravel/Themes/One/vendor/
->>>>>>> 059ca8d4 (.)
-=======
-=======
-=======
-<<<<<<< 3bdced71ce433f69ffcf332105aa96692678645f
->>>>>>> b7907077 (.)
-<<<<<<< 54dbd5e44fd63df29c0bfac0dbecac6409c957ba
->>>>>>> b0f37c83 (.)
-<<<<<<< 2004ea4ce0d66b2a9aef9a67ea5a7e118a13e691
-laravel/Themes/One/vendor/
-=======
-*:Zone.Identifier
-*.phar
-*.lock
->>>>>>> c3dc84e77e1f490b752449369dcc5a04fb8fd8d2
-<<<<<<< HEAD
->>>>>>> b47e8d10 (.)
-=======
-=======
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> e28ba0bf0d65da469caf0c5e64552dd8de6cf05a
-*:Zone.Identifier
-*.phar
-*.lock
-=======
->>>>>>> aa7e3755 (.)
-.git-rewrite
 .git-blame-ignore-revs
 
-# 📁 Cartelle di dipendenze
-node_modules/
-vendor/
-build/
-cache/
-<<<<<<< HEAD
-.git-blame-ignore-revs
-.php-cs-fixer.cache
-*.exe
-**/*.Zone.Identifier
-*:Zone.Identifier
-*:Zone.Identifier
-.php-cs-fixer.cache
-*:Zone.Identifier
-.php-cs-fixer.cache
-**/*.Zone.Identifier
-<<<<<<< 9f741360b1f4e0dca9f22e9b8ad319128b8c570f
->>>>>>> 522296dd0b9f30d132c770d087a589e5f527aded
-<<<<<<< HEAD
->>>>>>> b0f37c83 (.)
-=======
-=======
-*.log
-<<<<<<< 5f79571d5e9ef4ed4210e080c2eb961e8df43a82
->>>>>>> 4f5da1420f6cc74d7e28a15dcc2fb4c89983fa71
-<<<<<<< HEAD
->>>>>>> 3bdced71 (.)
-=======
-=======
-*.log
->>>>>>> 0cecfb1f437084d217e4fafd99fdc3511a221aec
->>>>>>> bb800e06 (.)
-=======
-.git-blame-ignore-revs
-*.exe
-.php-cs-fixer.cache
-*:Zone.Identifier
->>>>>>> 9e03a20f (Squashed 'laravel/Modules/Notify/' changes from 404426f9..02d5f061)
-=======
-docs/cache/
-
-# Laravel specifici (se usi Laravel)
-laravel/Themes/One/vendor/
-
-# ✨ Duplicati e sicurezza
+# 🔧 Package manager
 *.lock
 *.phar
->>>>>>> aa7e3755 (.)
+package-lock.json
+/docs/package-lock.json
+
+# 📱 Laravel specifici
+bootstrap/compiled.php
+app/storage/
+public/storage
+public/hot
+public_html/storage
+public_html/hot

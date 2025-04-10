@@ -72,7 +72,6 @@ class Get
         if ($theme->theme !== 'empty') {
             $view_params['logo'] = $theme->logo;
         } else {
-<<<<<<< HEAD
             // Verifichiamo che i valori siano stringhe o utilizziamo valori di default
             $logoPath = '';
             $logoWidth = '100';
@@ -99,9 +98,6 @@ class Get
             }
             
             $view_params['logo'] = '<img src="'.$logoPath.'" width="'.$logoWidth.'" height="'.$logoHeight.'" />';
-=======
-            $view_params['logo'] = '<img src="'.$theme->logo['path'].'" width="'.$theme->logo['width'].' "height="'.$theme->logo['height'].'" />';
->>>>>>> origin/dev
             // $view_params['logo'] = '<img src="'.\Request::getSchemeAndHttpHost().'/uploads/6/logo_VERITAS_piccolo.png" width="' . $theme->logo['width'] . ' "height="' . $theme->logo['height'] . '" />';
         }
 

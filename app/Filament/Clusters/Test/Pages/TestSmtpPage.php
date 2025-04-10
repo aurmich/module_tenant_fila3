@@ -59,36 +59,22 @@ class TestSmtpPage extends Page implements HasForms
                     Section::make('SMTP')
                         ->schema(
                             [
-                                Forms\Components\TextInput::make('host')
-                                // ->default($smtpConfig['host'])
-                                ,
+                                Forms\Components\TextInput::make('host'),
                                 Forms\Components\TextInput::make('port')
-                                    ->numeric()
-                                // ->default($smtpConfig['port'])
-                                ,
-                                Forms\Components\TextInput::make('username')
-                                // ->default($smtpConfig['username'])
-                                ,
-                                Forms\Components\TextInput::make('password')
-                                // ->default($smtpConfig['password'])
-                                ,
-                                Forms\Components\TextInput::make('encryption')
-                                // ->default($smtpConfig['encryption'])
-                                ,
+                                    ->numeric(),
+                                Forms\Components\TextInput::make('username'),
+                                Forms\Components\TextInput::make('password'),
+                                Forms\Components\TextInput::make('encryption'),
                             ]
                         )->columns(3),
                     Section::make('MAIL')
                         ->schema(
                             [
                                 Forms\Components\TextInput::make('from_email')
-                                    // ->default(config('mail.from.address', $defaultEmail))
                                     ->email()
                                     ->required(),
-                                Forms\Components\TextInput::make('from')
-                                // ->default(config('mail.from.name'))
-                                ,
+                                Forms\Components\TextInput::make('from'),
                                 Forms\Components\TextInput::make('to')
-                                    // ->default($defaultEmail)
                                     ->email()
                                     ->required(),
                                 Forms\Components\TextInput::make('subject')
@@ -110,10 +96,6 @@ class TestSmtpPage extends Page implements HasForms
         $data = $this->emailForm->getState();
         $smtp = SmtpData::from($data);
         $emailData = EmailData::from($data);
-        // dddx([
-        //    'a' => $emailData,
-        // 'b' => EmailData::make(),
-        // ]);
         $smtp->send($emailData);
 
         Notification::make()
@@ -131,7 +113,6 @@ class TestSmtpPage extends Page implements HasForms
     {
         return [
             Action::make('emailFormActions')
-
                 ->submit('emailFormActions'),
         ];
     }
@@ -151,19 +132,14 @@ class TestSmtpPage extends Page implements HasForms
     {
         Assert::isArray($mail_config = config('mail'));
         Assert::isArray($smtpConfig = Arr::get($mail_config, 'mailers.smtp'));
-<<<<<<< HEAD
-        
-        // Convertiamo l'array generico in un array<string, mixed>
+
         $typedConfig = [];
         foreach ($smtpConfig as $key => $value) {
             if (is_string($key)) {
                 $typedConfig[$key] = $value;
             }
         }
-        
+
         $this->emailForm->fill($typedConfig);
-=======
-        $this->emailForm->fill($smtpConfig);
->>>>>>> origin/dev
     }
 }
