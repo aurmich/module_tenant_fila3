@@ -1,3 +1,0 @@
-per sistemare un errore devi prima trovare la cartella docs piu' vicina all'errore, e la cartella docs della root del
-progetto queste cartelle devi costantemente aggiornarle, migliorarle, studiarle, dopo aver capito l'errore se trovi
-una regola interessante aggiorna anche .cursor/rules e .windsurfrules, 
