@@ -14,3 +14,21 @@ handle_error() {
     log "❌ Errore: $error_message"
     exit 1
 }
+
+
+# Funzione per riscrivere la URL secondo le regole specificate
+rewrite_url() {
+    local original_url="$1"
+    local org="$2"
+
+    # Estrai solo il nome del repository (ultimo componente dopo lo slash)
+    repo_name=$(basename "$original_url")
+
+    if [[ "$org" == *"/"* ]]; then
+        # ORG contiene uno slash → usa direttamente come prefisso
+        echo "${org}/${repo_name}"
+    else
+        # ORG è un'organizzazione GitHub → usa formato GitHub SSH
+        echo "git@github.com:${org}/${repo_name}"
+    fi
+}
