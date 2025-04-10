@@ -9,10 +9,6 @@ $finder = PhpCsFixer\Finder::create()
     ->notName('*.blade.php')
     ->ignoreDotFiles(true)
     ->ignoreVCS(true)
-<<<<<<< HEAD
-=======
-;
->>>>>>> origin/dev
 
 $config = new PhpCsFixer\Config();
 
@@ -40,9 +36,5 @@ $config
         'elseif' => true,
     ])
     ->setFinder($finder)
-<<<<<<< HEAD
-=======
-;
->>>>>>> origin/dev
 
 return $config;
