@@ -1,6 +1,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 *:Zone.Identifier
 *.phar
 *.lock
@@ -44,6 +45,9 @@ laravel/Themes/One/vendor/
 >>>>>>> 059ca8d4 (.)
 =======
 =======
+=======
+<<<<<<< 3bdced71ce433f69ffcf332105aa96692678645f
+>>>>>>> b7907077 (.)
 <<<<<<< 54dbd5e44fd63df29c0bfac0dbecac6409c957ba
 >>>>>>> b0f37c83 (.)
 <<<<<<< 2004ea4ce0d66b2a9aef9a67ea5a7e118a13e691
@@ -59,13 +63,11 @@ laravel/Themes/One/vendor/
 =======
 <<<<<<< HEAD
 <<<<<<< HEAD
+=======
+>>>>>>> e28ba0bf0d65da469caf0c5e64552dd8de6cf05a
 *:Zone.Identifier
 *.phar
 *.lock
-=======
->>>>>>> 4bd5ca8f (.)
-=======
->>>>>>> e9350e11 (up)
 .git-rewrite
 .fuse_hidden*
 .fuse_hidden**.lock

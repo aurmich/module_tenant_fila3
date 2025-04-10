@@ -30,6 +30,7 @@
 2025-04-08 16:34:17 - ✅ Sincronizzazione completata con history ottimizzata!
 2025-04-08 16:47:30 - 🌿 Branch corrente: dev
 2025-04-08 16:47:31 - 🔄 Sincronizzazione modulo: bashscripts
+<<<<<<< HEAD
 2025-04-08 16:47:36 - 🔄 Sincronizzazione modulo: laravel/Modules/Xot
 2025-04-08 16:47:41 - 🔄 Sincronizzazione modulo: laravel/Modules/Job
 2025-04-08 16:47:47 - 🔄 Sincronizzazione modulo: laravel/Modules/User
@@ -145,3 +146,5 @@
 📆 2025-04-10 16:41:08 - 🔄 Push modulo: laravel/Modules/Notify
 📆 2025-04-10 16:41:10 - ⚠️ Push fallita per laravel/Modules/Notify.
 📆 2025-04-10 16:41:10 - 🔄 Push modulo: laravel/Modules/Tenant
+=======
+>>>>>>> b7907077 (.)
