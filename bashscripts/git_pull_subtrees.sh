@@ -18,7 +18,7 @@ for ((i=0; i<total; i++)); do
     echo "---------"
     echo "Submodule $i:"
     echo "  📁 Path: $path"
-    echo "  URL: $url"
+    echo "  🌐 URL: $url"
     script="$script_dir/git_pull_subtree.sh"
     chmod +x "$script"
     sed -i -e 's/\r$//' "$script"
