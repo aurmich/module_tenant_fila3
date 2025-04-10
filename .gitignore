@@ -83,6 +83,9 @@ cache/
 *:Zone.Identifier
 *:Zone.Identifier
 .php-cs-fixer.cache
+<<<<<<< HEAD
 *:Zone.Identifier
 .php-cs-fixer.cache
 **/*.Zone.Identifier
+=======
+>>>>>>> 6ff0f9ee0da0f852cf7abf171c74d3041323b9b8

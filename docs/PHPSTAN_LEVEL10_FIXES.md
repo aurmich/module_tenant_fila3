@@ -138,6 +138,7 @@ $fullName = $item->profile->full_name;
 
 ### Esempio 3: Utilizzare Reflection API per chiamate metodo sicure
 
+<<<<<<< HEAD
 ```php
 // Prima
 $instance->setLocalVars($this->vars);
@@ -172,3 +173,26 @@ Fino ad ora, abbiamo risolto la maggior parte degli errori di livello 10 in entr
 4. Estendere le correzioni ad altri moduli utilizzando i pattern stabiliti
 
 5. Aggiornare le linee guida di sviluppo per prevenire errori simili in futuro 
+=======
+## Altri Miglioramenti da Applicare
+
+### 1. Analisi dei seguenti file:
+
+- `Modules/Job/app/Models/JobsWaiting.php` - Proprietà con tipo mixed
+- `Modules/Job/app/Models/Job.php` - Proprietà con tipo mixed
+- `Modules/Job/app/Notifications/TaskCompleted.php` - Argomenti con tipo mixed
+- `Modules/Job/app/Filament/Resources/ScheduleResource.php` - Callback con tipo mixed
+
+## Principi Applicati
+
+1. **Tipi specifici**: Sostituito il tipo `mixed` con tipi più specifici quando possibile.
+2. **Gestione sicura delle eccezioni**: Aggiunta gestione delle eccezioni per prevenire errori a runtime.
+3. **Implementazione sicura**: Evitato l'uso di funzioni potenzialmente pericolose come `call_user_func` con input non controllato.
+4. **Documentazione migliorata**: Aggiunta documentazione PHPDoc completa per spiegare i tipi di parametri e di ritorno.
+
+## Prossimi Passi
+
+1. Applicare principi simili agli altri file identificati nel modulo.
+2. Eseguire l'analisi PHPStan a livello 10 per verificare che le correzioni risolvano effettivamente gli errori.
+3. Documentare gli schemi e i pattern utilizzati per risolvere problemi simili in futuro. 
+>>>>>>> 6ff0f9ee0da0f852cf7abf171c74d3041323b9b8
