@@ -4,10 +4,14 @@
 > Questo documento presenta una panoramica completa delle attività del progetto. Per dettagli specifici su ciascuna sezione, fare riferimento ai collegamenti presenti in ciascun paragrafo.
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 ## Stato Attuale (Marzo 2024)
 =======
 ## Stato Attuale (Marzo 2025)
 >>>>>>> 059ca8d4 (.)
+=======
+## Stato Attuale (Marzo 2024)
+>>>>>>> b47e8d10 (.)
 
 > [Dettagli sullo stato attuale](./roadmap/01-stato-attuale.md)
 
@@ -33,12 +37,16 @@
 - 🚧 Integrazione ISEE (30%)
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 ## Fasi in Corso
 =======
 ## Fasi Completate
 
 > [Roadmap dettagliata e priorità](./roadmap/09-roadmap-aggiornata.md)
 >>>>>>> 059ca8d4 (.)
+=======
+## Fasi in Corso
+>>>>>>> b47e8d10 (.)
 
 ### Q2 2024 (Aprile-Giugno)
 
@@ -46,6 +54,9 @@
 > [Configurazione frontend](./roadmap/ui/configurazione-frontend.md)
 
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> b47e8d10 (.)
 #### 1. Implementazione Core (40%)
 - 🚧 Completamento funzionalità moduli installati
   - 🚧 Ottimizzazione modulo Xot (80%) - [Dettagli](./roadmap/moduli/xot-implementazione.md)
@@ -66,6 +77,7 @@
 - 🚧 Integrazione completa ISEE (30%) - [Dettagli](./roadmap/integrazione-isee-completa.md)
 - 🚧 Sistema notifiche multi-canale (20%) - [Dettagli](./roadmap/sistema-notifiche-multicanale.md)
 - 🚧 Workflow multi-step per prenotazioni (15%) - [Dettagli](./roadmap/workflow-multistep-prenotazioni.md)
+<<<<<<< HEAD
 =======
 - ✅ Completamento funzionalità moduli installati
   - ✅ Ottimizzazione modulo Xot (100%) - [Dettagli](./roadmap/moduli/xot-implementazione.md)
@@ -88,6 +100,8 @@
   - ✅ Implementazione autenticazione OAuth2 (100%) - [Dettagli](./roadmap/autenticazione-oauth2.md)
   - ✅ Documentazione API con Swagger (100%) - [Dettagli](./roadmap/documentazione-api-swagger.md)
 >>>>>>> 059ca8d4 (.)
+=======
+>>>>>>> b47e8d10 (.)
 
 ### Q3 2024 (Luglio-Settembre)
 
@@ -95,6 +109,9 @@
 > [Conformità GDPR](./roadmap/06-sicurezza-gdpr.md)
 
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> b47e8d10 (.)
 #### 1. Completamento Moduli Funzionali (0%)
 - 📅 Funzionalità avanzate Media (gestione documenti medici) - [Dettagli](./roadmap/funzionalita-avanzate-media.md)
 - 📅 Sistema Activity avanzato con audit trail completo - [Dettagli](./roadmap/sistema-activity-avanzato.md)
@@ -112,6 +129,7 @@
 - 📅 Documentazione utente - [Dettagli](./roadmap/documentazione-utente.md)
 - 📅 Telemedicina base - [Dettagli](./roadmap/telemedicina-base.md)
 - 📅 Pagamenti online - [Dettagli](./roadmap/pagamenti-online.md)
+<<<<<<< HEAD
 =======
 - ✅ Completamento moduli funzionali
   - ✅ Funzionalità avanzate Media (gestione documenti medici) (100%) - [Dettagli](./roadmap/funzionalita-avanzate-media.md)
@@ -129,6 +147,8 @@
 - ✅ Telemedicina base (100%) - [Dettagli](./roadmap/telemedicina-base.md)
 - ✅ Pagamenti online (100%) - [Dettagli](./roadmap/pagamenti-online.md)
 >>>>>>> 059ca8d4 (.)
+=======
+>>>>>>> b47e8d10 (.)
 
 ### Q4 2024 (Ottobre-Dicembre)
 
@@ -136,11 +156,15 @@
 > [Ottimizzazione performance](./roadmap/deployment/ottimizzazione.md)
 
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> b47e8d10 (.)
 #### 1. Deployment e Monitoraggio (0%)
 - 📅 Ambiente staging
 - 📅 CI/CD pipeline
 - 📅 Monitoraggio Sentry
 - 📅 Alerting automatico
+<<<<<<< HEAD
 =======
 - ✅ Deployment e monitoraggio
   - ✅ Ambiente staging (100%)
@@ -156,6 +180,8 @@
 - ✅ Integrazione SSN (100%) - [Dettagli](./roadmap/integrazione-ssn.md)
 - ✅ Analytics base (100%) - [Dettagli](./roadmap/analytics-base.md)
 >>>>>>> 059ca8d4 (.)
+=======
+>>>>>>> b47e8d10 (.)
 
 #### 2. Ottimizzazioni (0%)
 - 📅 Performance frontend
@@ -164,10 +190,14 @@
 - 📅 Queue jobs
 
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> b47e8d10 (.)
 #### 3. Funzionalità Avanzate (0%)
 - 📅 App mobile MVP - [Dettagli](./roadmap/app-mobile-mvp.md)
 - 📅 Integrazione SSN - [Dettagli](./roadmap/integrazione-ssn.md)
 - 📅 Analytics base - [Dettagli](./roadmap/analytics-base.md)
+<<<<<<< HEAD
 =======
 > [Piano funzionalità avanzate](./roadmap/stato-finale-progetto.md) | 
 > [Sicurezza avanzata](./roadmap/testing/penetration-testing.md)
@@ -229,6 +259,8 @@
 - 📅 Integrazione con programmi educativi di prevenzione (0%)
 - 📅 Sistema di donazioni e volontariato integrato (0%)
 >>>>>>> 059ca8d4 (.)
+=======
+>>>>>>> b47e8d10 (.)
 
 ## Criteri di Completamento
 

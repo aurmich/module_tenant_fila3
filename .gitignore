@@ -1,4 +1,5 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 *:Zone.Identifier
 *.phar
 *.lock
@@ -40,3 +41,12 @@ cache/
 =======
 laravel/Themes/One/vendor/
 >>>>>>> 059ca8d4 (.)
+=======
+<<<<<<< 2004ea4ce0d66b2a9aef9a67ea5a7e118a13e691
+laravel/Themes/One/vendor/
+=======
+*:Zone.Identifier
+*.phar
+*.lock
+>>>>>>> c3dc84e77e1f490b752449369dcc5a04fb8fd8d2
+>>>>>>> b47e8d10 (.)

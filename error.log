@@ -38,6 +38,7 @@
 [Tue Apr 01 15:29:30.033297 2025] [proxy_fcgi:error] [pid 441363] [client 172.18.0.1:55801] AH01071: Got error 'PHP message: PHP Fatal error:  Allowed memory size of 536870912 bytes exhausted (tried to allocate 4096 bytes) in /var/www/html/saluteora/laravel/vendor/laravel/framework/src/Illuminate/Foundation/Application.php on line 960; PHP message: PHP Fatal error:  Allowed memory size of 536870912 bytes exhausted (tried to allocate 315392 bytes) in /var/www/html/saluteora/laravel/vendor/symfony/error-handler/ErrorRenderer/HtmlErrorRenderer.php on line 256'
 [Tue Apr 01 15:30:02.212671 2025] [proxy_fcgi:error] [pid 441359] [client 172.18.0.1:55802] AH01071: Got error 'PHP message: PHP Fatal error:  Allowed memory size of 536870912 bytes exhausted (tried to allocate 4096 bytes) in /var/www/html/saluteora/laravel/vendor/laravel/framework/src/Illuminate/Foundation/Application.php on line 960; PHP message: PHP Fatal error:  Allowed memory size of 536870912 bytes exhausted (tried to allocate 315392 bytes) in /var/www/html/saluteora/laravel/vendor/symfony/error-handler/ErrorRenderer/HtmlErrorRenderer.php on line 256'
 <<<<<<< HEAD
+<<<<<<< HEAD
 [Tue Apr 01 16:36:10.444172 2025] [ssl:warn] [pid 247] AH01909: saluteora.local:443:0 server certificate does NOT include an ID which matches the server name
 [Tue Apr 01 16:36:10.664910 2025] [ssl:warn] [pid 286] AH01909: saluteora.local:443:0 server certificate does NOT include an ID which matches the server name
 [Wed Apr 02 00:00:00.641202 2025] [ssl:warn] [pid 286] AH01909: saluteora.local:443:0 server certificate does NOT include an ID which matches the server name
@@ -83,3 +84,7 @@
 >>>>>>> 059ca8d4 (.)
 =======
 >>>>>>> 2004ea4c (.)
+=======
+[Tue Apr 01 16:36:10.444172 2025] [ssl:warn] [pid 247] AH01909: saluteora.local:443:0 server certificate does NOT include an ID which matches the server name
+[Tue Apr 01 16:36:10.664910 2025] [ssl:warn] [pid 286] AH01909: saluteora.local:443:0 server certificate does NOT include an ID which matches the server name
+>>>>>>> b47e8d10 (.)

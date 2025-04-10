@@ -47,23 +47,8 @@ class PatientServiceProvider extends XotBaseServiceProvider
         }
 =======
     
-    /**
-     * Boot the application events.
-     */
-    public function boot(): void
-    {
-        parent::boot();
-        
-        $this->loadMigrationsFrom(module_path($this->name, 'database/migrations'));
-        $this->loadTranslationsFrom(module_path($this->name, 'resources/lang'), $this->nameLower);
-        $this->loadViewsFrom(module_path($this->name, 'resources/views'), $this->nameLower);
-        
-        // Registra le risorse Filament
-        Resource::registerResources([
-            PatientResource::class,
-        ]);
-    }
     
+<<<<<<< HEAD
     /**
      * Register the service provider.
      */
@@ -88,4 +73,6 @@ class PatientServiceProvider extends XotBaseServiceProvider
         return [];
 >>>>>>> 2004ea4c (.)
     }
+=======
+>>>>>>> b47e8d10 (.)
 }
