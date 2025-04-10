@@ -8,6 +8,7 @@ fi
 
 # Input parameters
 LOCAL_PATH="$1"
+LOCAL_PATH_bak="$LOCAL_PATH"_bak
 REMOTE_REPO="$2"
 REMOTE_BRANCH=$(git symbolic-ref --short HEAD 2>/dev/null || echo "main")
 TEMP_BRANCH=$(basename "$LOCAL_PATH")-temp
@@ -63,6 +64,18 @@ push_subtree() {
     #        git branch -D "$TEMP_BRANCH"
 
     #        git subtree push -P "$LOCAL_PATH" "$REMOTE_REPO" "$REMOTE_BRANCH"
+            mv "$LOCAL_PATH" "$LOCAL_PATH_bak" || die "Failed to rename $LOCAL_PATH to $LOCAL_PATH_bak"
+            git add .
+            git commit -am "Add $LOCAL_PATH_bak"
+            git subtree add --prefix="$LOCAL_PATH" "$REMOTE_REPO" "$REMOTE_BRANCH" --squash
+             # Sincronizza i file dalla cartella di backup
+            rsync -avz "$LOCAL_PATH_bak/" "$LOCAL_PATH" || die "Failed to sync files"
+        
+            # Rimuovi la cartella di backup
+            rm -rf "$LOCAL_PATH_bak" || die "Failed to remove backup folder"
+            # Commit delle modifiche
+            git add . || die "Failed to add changes after submodule sync"
+            git commit -am "Added submodule for $LOCAL_PATH" || die "Failed to commit submodule changes"
         fi
     fi
 
