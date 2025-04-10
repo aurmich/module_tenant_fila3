@@ -51,6 +51,10 @@ use Webmozart\Assert\Assert;
  * @property \Illuminate\Database\Eloquent\Collection<int, \Modules\Job\Models\Result> $results
  * @property int|null $results_count
  * @property \Modules\Xot\Contracts\ProfileContract|null $updater
+<<<<<<< HEAD
+=======
+ *
+>>>>>>> origin/dev
  * @method static \Illuminate\Database\Eloquent\Builder<static>|Task newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder<static>|Task newQuery()
  * @method static \Illuminate\Database\Eloquent\Builder<static>|Task query()
@@ -80,7 +84,13 @@ use Webmozart\Assert\Assert;
  * @method static \Illuminate\Database\Eloquent\Builder<static>|Task whereTimezone($value)
  * @method static \Illuminate\Database\Eloquent\Builder<static>|Task whereUpdatedAt($value)
  * @method static \Illuminate\Database\Eloquent\Builder<static>|Task whereUpdatedBy($value)
+<<<<<<< HEAD
  * @property-read \Modules\Broker\Models\Profile|null $creator
+=======
+ *
+ * @property-read \Modules\Broker\Models\Profile|null $creator
+ *
+>>>>>>> origin/dev
  * @mixin \Eloquent
  */
 class Task extends BaseModel
@@ -90,27 +100,7 @@ class Task extends BaseModel
     use HasFactory;
     use Notifiable;
 
-    /**
-     * Compila i parametri del task per l'esecuzione.
-     *
-     * @param bool $forScheduler Se true, i parametri vengono formattati per lo scheduler
-     * @return array<int, string>|string
-     */
-    public function compileParameters(bool $forScheduler = false): array|string
-    {
-        if (null === $this->parameters) {
-            return [];
-        }
-
-        $parameters = \Safe\json_decode($this->parameters, true);
-        Assert::isArray($parameters);
-
-        if ($forScheduler) {
-            return array_map(fn ($value) => is_bool($value) ? ($value ? '1' : '0') : (string) $value, $parameters);
-        }
-
-        return $parameters;
-    }
+    /** @var list<string> */
     protected $fillable = [
         'id',
         'description',
