@@ -7,8 +7,11 @@ if [ $# -ne 2 ]; then
 fi
 
 # Input parameters
+<<<<<<< HEAD
 me=$( readlink -f -- "$0")
 script_dir=$(dirname "$me")
+=======
+>>>>>>> 00a809e1 (.)
 LOCAL_PATH="$1"
 REMOTE_REPO="$2"
 REMOTE_BRANCH=$(git symbolic-ref --short HEAD 2>/dev/null || echo "main")
@@ -19,6 +22,7 @@ die() {
     exit 1
 }
 
+<<<<<<< HEAD
 # Funzione per loggare messaggi
 log() {
     local message="$1"
@@ -44,6 +48,34 @@ sync_subtree() {
     if ! "$script_dir/git_pull_subtree.sh" "$LOCAL_PATH" "$REMOTE_REPO" ; then
         log "⚠️ Pull fallita per $current_path."
     fi
+=======
+# Sync subtree
+sync_subtree() {
+    git add -A
+    git commit -am "."
+    git push -u origin "$REMOTE_BRANCH"
+    
+    git subtree pull -P "$LOCAL_PATH" "$REMOTE_REPO" "$REMOTE_BRANCH"  --squash ||
+        git subtree pull -P "$LOCAL_PATH" "$REMOTE_REPO" "$REMOTE_BRANCH"   
+
+    find . -type f -name "*:Zone.Identifier" -exec rm -f {} \;
+
+    git fetch "$REMOTE_REPO" "$REMOTE_BRANCH" --depth=1
+    git merge -s subtree FETCH_HEAD  --allow-unrelated-histories
+    git subtree push -P "$LOCAL_PATH" "$REMOTE_REPO" "$REMOTE_BRANCH"
+
+    git push -f "$REMOTE_REPO" $(git subtree split --prefix="$LOCAL_PATH"):"$REMOTE_BRANCH"
+    # First, split the subtree to a temporary branch
+    git subtree split --prefix="$LOCAL_PATH" -b "$TEMP_BRANCH"
+
+    # Then force push that branch
+    git push -f "$REMOTE_REPO" "$TEMP_BRANCH":"$REMOTE_BRANCH"
+
+    # Optionally, clean up the temporary branch
+    git branch -D "$TEMP_BRANCH"
+
+    git subtree push -P "$LOCAL_PATH" "$REMOTE_REPO" "$REMOTE_BRANCH"
+>>>>>>> 00a809e1 (.)
 }
 
 # Run sync
