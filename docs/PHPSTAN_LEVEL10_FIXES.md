@@ -139,6 +139,7 @@ $fullName = $item->profile->full_name;
 ### Esempio 3: Utilizzare Reflection API per chiamate metodo sicure
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 ```php
 // Prima
 $instance->setLocalVars($this->vars);
@@ -183,6 +184,8 @@ Fino ad ora, abbiamo risolto la maggior parte degli errori di livello 10 in entr
 - `Modules/Job/app/Notifications/TaskCompleted.php` - Argomenti con tipo mixed
 - `Modules/Job/app/Filament/Resources/ScheduleResource.php` - Callback con tipo mixed
 
+=======
+>>>>>>> caaddb0f113e694e4fdeea462ad40a32552703a9
 ## Principi Applicati
 
 1. **Tipi specifici**: Sostituito il tipo `mixed` con tipi più specifici quando possibile.

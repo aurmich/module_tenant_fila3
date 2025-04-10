@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Modules\Media\Filament\Resources\TemporaryUploadResource\Pages;
 
+<<<<<<< HEAD
 use Filament\Actions\Action;
 use Filament\Actions\ActionGroup;
 use Filament\Tables\Actions\CreateAction;
@@ -15,15 +16,22 @@ use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Filters\SelectFilter;
 use Modules\Media\Filament\Resources\TemporaryUploadResource;
 use Modules\Media\Models\TemporaryUpload;
+=======
+use Filament\Tables\Columns\TextColumn;
+use Modules\Media\Filament\Resources\TemporaryUploadResource;
+>>>>>>> origin/dev
 use Modules\Xot\Filament\Resources\Pages\XotBaseListRecords;
 
 class ListTemporaryUploads extends XotBaseListRecords
 {
     protected static string $resource = TemporaryUploadResource::class;
 
+<<<<<<< HEAD
     /**
      * @return array<string, TextColumn>
      */
+=======
+>>>>>>> origin/dev
     public function getListTableColumns(): array
     {
         return [
@@ -41,6 +49,7 @@ class ListTemporaryUploads extends XotBaseListRecords
         ];
     }
 
+<<<<<<< HEAD
     /**
      * @return array<string, SelectFilter>
      */
@@ -71,6 +80,13 @@ class ListTemporaryUploads extends XotBaseListRecords
     {
         return [
             'delete' => DeleteBulkAction::make(),
+=======
+    public function getTableFilters(): array
+    {
+        return [
+            'folder' => \Filament\Tables\Filters\SelectFilter::make('folder')
+                ->options(fn () => \Modules\Media\Models\TemporaryUpload::distinct()->pluck('folder', 'folder')->toArray()),
+>>>>>>> origin/dev
         ];
     }
 }
