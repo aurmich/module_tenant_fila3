@@ -2,6 +2,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 *:Zone.Identifier
 *.phar
 *.lock
@@ -18,6 +19,62 @@ node_modules
 vendor/
 .git-blame-ignore-revs
 .git-blame-ignore-revs
+=======
+/vendor/
+vendor/
+node_modules/
+npm-debug.log
+*.cache
+*.phar
+*.lock
+package-lock.json
+yarn-error.log
+
+# Laravel 4 specific
+bootstrap/compiled.php
+app/storage/
+
+# Laravel 5 & Lumen specific
+public/storage
+public/hot
+
+# Laravel 5 & Lumen specific with changed public path
+public_html/storage
+public_html/hot
+
+storage/*.key
+.env
+Homestead.yaml
+Homestead.json
+/.vagrant
+.phpunit.result.cache
+
+
+*.stackdump
+*.cache
+*.lock
+package-lock.json
+*.log
+
+*.lock
+package-lock.json
+
+/docs/package-lock.json
+.git-rewrite
+.git-blame-ignore-revs
+.git-rewrite
+.git-blame-ignore-revs
+/vendor
+*.lock
+.php-cs-fixer.cache
+*.cache
+/build
+*.phar
+.git-rewrite/
+
+
+
+>>>>>>> 9e03a20f (Squashed 'laravel/Modules/Notify/' changes from 404426f9..02d5f061)
 node_modules
 vendor
 .php-cs-fixer.cache
@@ -30,6 +87,7 @@ docs/cache/
 cache/
 .git-blame-ignore-revs
 .php-cs-fixer.cache
+<<<<<<< HEAD
 *.exe
 **/*.Zone.Identifier
 *:Zone.Identifier
@@ -117,3 +175,9 @@ cache/
 *.log
 >>>>>>> 0cecfb1f437084d217e4fafd99fdc3511a221aec
 >>>>>>> bb800e06 (.)
+=======
+.git-blame-ignore-revs
+*.exe
+.php-cs-fixer.cache
+*:Zone.Identifier
+>>>>>>> 9e03a20f (Squashed 'laravel/Modules/Notify/' changes from 404426f9..02d5f061)

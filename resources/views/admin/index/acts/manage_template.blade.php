@@ -4,7 +4,7 @@
     <table class="table table-bordered">
     @foreach ($rows as $row)
         <tr>
-            <td>{{ $row-> }}</td>
+            <td>{{ $row->id }}</td>
 
         </tr>
     @endforeach

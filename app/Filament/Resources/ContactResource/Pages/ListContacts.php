@@ -7,12 +7,17 @@ namespace Modules\Notify\Filament\Resources\ContactResource\Pages;
 use Filament\Tables;
 use Filament\Tables\Columns\IconColumn;
 use Filament\Tables\Columns\TextColumn;
+<<<<<<< HEAD
 use Filament\Tables\Filters\Filter;
 use Illuminate\Database\Eloquent\Builder;
 use Modules\Notify\Filament\Resources\ContactResource;
 use Modules\Xot\Filament\Resources\Pages\XotBaseListRecords;
-use Modules\Xot\Filament\Resources\XotBaseResource\RelationManager\XotBaseRelationManager;
+use Modules\Xot\Filament\Resources\RelationManagers\XotBaseRelationManager;
 
+=======
+use Modules\Notify\Filament\Resources\ContactResource;
+use Modules\Xot\Filament\Resources\Pages\XotBaseListRecords;
+>>>>>>> origin/dev
 
 class ListContacts extends XotBaseListRecords
 {
@@ -50,6 +55,7 @@ class ListContacts extends XotBaseListRecords
     public function getTableFilters(): array
     {
         return [
+<<<<<<< HEAD
             'active' => Filter::make('active')
                 ->query(function (Builder $query): Builder {
                     return $query->where('active', true);
@@ -58,6 +64,12 @@ class ListContacts extends XotBaseListRecords
                 ->query(function (Builder $query): Builder {
                     return $query->where('active', false);
                 }),
+=======
+            'active' => Tables\Filters\Filter::make('active')
+                ->query(fn ($query) => $query->where('active', true)),
+            'inactive' => Tables\Filters\Filter::make('inactive')
+                ->query(fn ($query) => $query->where('active', false)),
+>>>>>>> origin/dev
         ];
     }
 }

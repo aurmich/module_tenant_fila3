@@ -9,15 +9,18 @@ use Filament\Tables\Filters;
 use Modules\Notify\Filament\Resources\NotifyThemeResource;
 use Modules\Xot\Filament\Resources\Pages\XotBaseListRecords;
 
+<<<<<<< HEAD
 
 
 
-use Modules\Xot\Filament\Resources\XotBaseResource\RelationManager\XotBaseRelationManager;
+use Modules\Xot\Filament\Resources\RelationManagers\XotBaseRelationManager;
 
 
 
 
 
+=======
+>>>>>>> origin/dev
 class ListNotifyThemes extends XotBaseListRecords
 {
     protected static string $resource = NotifyThemeResource::class;
@@ -52,6 +55,7 @@ class ListNotifyThemes extends XotBaseListRecords
     {
         return [
             'lang' => Filters\SelectFilter::make('lang')
+<<<<<<< HEAD
                 ->options(function (): array {
                     return NotifyThemeResource::fieldOptions('lang');
                 }),
@@ -66,4 +70,14 @@ class ListNotifyThemes extends XotBaseListRecords
         ];
     }
 
+=======
+                ->options(NotifyThemeResource::fieldOptions('lang')),
+            'post_type' => Filters\SelectFilter::make('post_type')
+                ->options(NotifyThemeResource::fieldOptions('post_type')),
+            'type' => Filters\SelectFilter::make('type')
+                ->options(NotifyThemeResource::fieldOptions('type'))
+        ];
+    }
+   
+>>>>>>> origin/dev
 }
