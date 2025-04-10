@@ -32,7 +32,8 @@ while IFS= read -r line; do
         current_url="${BASH_REMATCH[1]}"
         
         # Chiamata esterna allo script di sincronizzazione
-        submodules_array[$index]['path']=
+        submodules_array[$index]['path']=$current_path
+        submodules_array[$index]['path']=$current_path
         ((index++))
         
         # Pulizia: reset delle variabili per il prossimo modulo
