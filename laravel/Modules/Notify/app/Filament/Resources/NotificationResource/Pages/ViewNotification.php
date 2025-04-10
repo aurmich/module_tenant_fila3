@@ -4,6 +4,10 @@ declare(strict_types=1);
 
 namespace Modules\Notify\Filament\Resources\NotificationResource\Pages;
 
+<<<<<<< HEAD
+=======
+use Filament\Infolists\Components\TextEntry;
+>>>>>>> aa7e3755 (.)
 use Filament\Infolists\Components\Section;
 use Filament\Infolists\Components\TextEntry;
 use Modules\Notify\Filament\Resources\NotificationResource;

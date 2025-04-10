@@ -31,7 +31,11 @@ class FirebaseAndroidNotification extends Notification implements MobilePushNoti
     /**
      * Create a new notification instance.
      *
+<<<<<<< HEAD
      * @param FirebaseNotificationData $data The Firebase notification data (I dati della notifica Firebase)
+=======
+     * @param FirebaseNotificationData $data I dati della notifica Firebase
+>>>>>>> aa7e3755 (.)
      */
     public function __construct(public FirebaseNotificationData $data)
     {
@@ -52,7 +56,10 @@ class FirebaseAndroidNotification extends Notification implements MobilePushNoti
     }
 
     /**
+<<<<<<< HEAD
      * Create the Firebase Cloud message for the notification.
+=======
+>>>>>>> aa7e3755 (.)
      * Crea il messaggio Firebase Cloud per la notifica.
      *
      * @param object $notifiable The entity to be notified
@@ -65,29 +72,45 @@ class FirebaseAndroidNotification extends Notification implements MobilePushNoti
             'ttl' => '3600s',
             'priority' => 'high',
         ];
+<<<<<<< HEAD
         
         // Add notification only if data is in a valid format (Aggiungiamo la notifica solo se i dati sono in un formato valido)
         // Verify that $this->data->data is accessible (Verifichiamo che $this->data->data sia accessibile)
+=======
+
+        // Aggiungiamo la notifica solo se i dati sono in un formato valido
+        // Verifichiamo che $this->data->data sia accessibile
+>>>>>>> aa7e3755 (.)
         $dataProperty = $this->data->data ?? null;
         if ($dataProperty !== null) {
             // Create a notification array conforming to AndroidConfig expectations (Creiamo un array di notifica conforme alle aspettative di AndroidConfig)
             $notification = [];
+<<<<<<< HEAD
             
             // Add only supported fields with correct types (Aggiungiamo solo i campi supportati con i tipi corretti)
+=======
+
+            // Aggiungiamo solo i campi supportati con i tipi corretti
+>>>>>>> aa7e3755 (.)
             $allowedKeys = ['title', 'body', 'icon', 'color', 'sound', 'click_action'];
-            
+
             foreach ($allowedKeys as $key) {
                 if (isset($dataProperty[$key]) && (is_string($dataProperty[$key]) && $dataProperty[$key] !== '')) {
                     $notification[$key] = $dataProperty[$key];
                 }
             }
+<<<<<<< HEAD
             
             // Add notification only if it contains valid data (Aggiungiamo la notifica solo se contiene dati validi)
+=======
+
+            // Aggiungiamo la notifica solo se contiene dati validi
+>>>>>>> aa7e3755 (.)
             if (!empty($notification)) {
                 $androidConfig['notification'] = $notification;
             }
         }
-        
+
         return CloudMessage::new()
             ->withNotification(FirebaseNotification::create($this->data->title, $this->data->body))
             ->withAndroidConfig(AndroidConfig::fromArray($androidConfig));
@@ -113,13 +136,18 @@ class FirebaseAndroidNotification extends Notification implements MobilePushNoti
     public function toCloudMessage(): Message
     {
         $notificationData = $this->data->data;
-        
+
         /**
          * @var array<non-empty-string, string|Stringable>
          */
         $data = [];
+<<<<<<< HEAD
         
         // Ensure each key is a non-empty string and each value is string or Stringable (Assicuriamoci che ogni chiave sia una stringa non vuota e ogni valore sia string o Stringable)
+=======
+
+        // Assicuriamoci che ogni chiave sia una stringa non vuota e ogni valore sia string o Stringable
+>>>>>>> aa7e3755 (.)
         foreach ($notificationData as $key => $value) {
             if (is_string($key) && $key !== '' && (is_string($value) || $value instanceof Stringable)) {
                 $data[$key] = $value;

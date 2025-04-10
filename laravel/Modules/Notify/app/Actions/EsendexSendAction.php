@@ -46,16 +46,24 @@ class EsendexSendAction
         $ch = curl_init();
         curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
         curl_setopt($ch, CURLOPT_URL, $this->base_endpoint.'sms');
+<<<<<<< HEAD
         
+=======
+
+>>>>>>> aa7e3755 (.)
         // Verifichiamo che i valori dell'array di autenticazione siano stringhe
         if (!is_string($auth[0])) {
             $auth[0] = '';
         }
-        
+
         if (!is_string($auth[1])) {
             $auth[1] = '';
         }
+<<<<<<< HEAD
         
+=======
+
+>>>>>>> aa7e3755 (.)
         curl_setopt(
             $ch,
             CURLOPT_HTTPHEADER,

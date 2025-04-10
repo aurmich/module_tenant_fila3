@@ -23,10 +23,6 @@ class Patient extends XotBaseModel
         'birth_date',
         'phone',
         'email',
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> 2004ea4c (.)
         'address',
         'city',
         'postal_code',
@@ -35,7 +31,6 @@ class Patient extends XotBaseModel
         'is_pregnant',
         'isee_code',
         'isee_value',
-<<<<<<< HEAD
         'isee_expiry_date',
         'notes',
     ];
@@ -54,35 +49,6 @@ class Patient extends XotBaseModel
             'isee_value' => 'decimal:2',
         ]);
     }
-=======
-=======
->>>>>>> 2004ea4c (.)
-        'isee_expiry_date',
-        'notes',
-    ];
-
-<<<<<<< HEAD
-    protected $casts = [
-        'birth_date' => 'date',
-        'isee_expiry_date' => 'date',
-    ];
->>>>>>> 059ca8d4 (.)
-=======
-    /**
-     * Get the attributes that should be cast.
-     *
-     * @return array<string, string>
-     */
-    public function casts(): array
-    {
-        return array_merge(parent::casts(), [
-            'birth_date' => 'date',
-            'isee_expiry_date' => 'date',
-            'is_pregnant' => 'boolean',
-            'isee_value' => 'decimal:2',
-        ]);
-    }
->>>>>>> 2004ea4c (.)
 
     public function documents(): HasMany
     {

@@ -1,10 +1,3 @@
-<<<<<<< HEAD
-<x-app-layout>
-    Welcome !
-
-
-</x-app-layout>
-=======
 <div>
 
     <style>
@@ -123,4 +116,3 @@
         {{ $_theme->showPageContent('home') }}
     </div>
 </div>
->>>>>>> afb714a (up)

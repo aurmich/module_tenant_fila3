@@ -24,8 +24,6 @@ use function Safe\realpath;
 abstract class XotBaseServiceProvider extends ServiceProvider
 {
     use PathNamespace;
-<<<<<<< HEAD
-<<<<<<< HEAD
 
     public string $name = '';
 
@@ -36,24 +34,6 @@ abstract class XotBaseServiceProvider extends ServiceProvider
     protected string $module_ns = __NAMESPACE__;
 
     protected string $module_base_ns;
-=======
-    public string $name = '';
-    protected string $module_dir = '';
-    protected string $module_ns = '';
-    protected string $nameLower = '';
->>>>>>> 059ca8d4 (.)
-=======
-
-    public string $name = '';
-
-    public string $nameLower = '';
-
-    protected string $module_dir = __DIR__;
-
-    protected string $module_ns = __NAMESPACE__;
-
-    protected string $module_base_ns;
->>>>>>> 2004ea4c (.)
 
     /**
      * Boot the application events.

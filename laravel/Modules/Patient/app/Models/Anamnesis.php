@@ -2,30 +2,13 @@
 
 declare(strict_types=1);
 
-<<<<<<< HEAD
-<<<<<<< HEAD
 namespace Modules\Patient\Models;
-=======
-namespace Modules\Patient\app\Models;
->>>>>>> 059ca8d4 (.)
-=======
-namespace Modules\Patient\Models;
->>>>>>> 2004ea4c (.)
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\SoftDeletes;
-<<<<<<< HEAD
-<<<<<<< HEAD
 use Modules\Tenant\Traits\BelongsToTenant;
 use Modules\Xot\Models\XotBaseModel;
-=======
-use Modules\Tenant\app\Traits\BelongsToTenant;
->>>>>>> 059ca8d4 (.)
-=======
-use Modules\Tenant\Traits\BelongsToTenant;
-use Modules\Xot\Models\XotBaseModel;
->>>>>>> 2004ea4c (.)
 
 class Anamnesis extends XotBaseModel
 {

@@ -1,6 +1,5 @@
 @extends('pub_theme::layouts.base')
 
-<<<<<<< HEAD
 <x-filament-panels::layout.base :livewire="$livewire">
     <div class="fi-layout flex min-h-screen w-full overflow-x-clip">
         <div
@@ -73,12 +72,3 @@
         </div>
     </div>
 </x-filament-panels::layout.base>
-=======
-@section('body')
-    @yield('content')
-
-    @isset($slot)
-        {{ $slot }}
-    @endisset
-@endsection
->>>>>>> afb714a (up)

@@ -6,6 +6,11 @@ namespace Modules\Notify\Models;
 use Illuminate\Database\Eloquent\Model;
 
 /**
+<<<<<<< HEAD
+=======
+ *
+ *
+>>>>>>> aa7e3755 (.)
  * @method static \Illuminate\Database\Eloquent\Builder<static>|NotificationType newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder<static>|NotificationType newQuery()
  * @method static \Illuminate\Database\Eloquent\Builder<static>|NotificationType query()

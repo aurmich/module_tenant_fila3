@@ -98,12 +98,4 @@ Ogni blocco deve seguire questa struttura:
 5. **Accessibilità**: Assicurati che i blocchi siano accessibili
 6. **Responsive**: Rendi i blocchi responsive
 7. **Performance**: Ottimizza le performance
-<<<<<<< HEAD
-<<<<<<< HEAD
-8. **Codice**: Mantieni il codice pulito e documentato 
-=======
-8. **Codice**: Mantieni il codice pulito e documentato 
->>>>>>> 5079a23a (.)
-=======
-8. **Codice**: Mantieni il codice pulito e documentato 
->>>>>>> c894b599 (.)
+8. **Codice**: Mantieni il codice pulito e documentato

@@ -11,34 +11,15 @@ name('page_slug.view');
 
 render(function (View $view, string $slug) {
     $locale = app()->getLocale();
-<<<<<<< HEAD
-<<<<<<< HEAD
     $page = Page::firstWhere(['slug' => $slug]);
 
     /*
-=======
-    $page = Page::firstWhere(['slug' => $slug, 'locale' => $locale]);
-
->>>>>>> 5079a23a (.)
-=======
-    $page = Page::firstWhere(['slug' => $slug]);
-
-    /*
->>>>>>> c894b599 (.)
     if (!$page) {
         abort(404);
         // Prova a cercare la pagina nella lingua predefinita
         $page = Page::firstWhere(['slug' => $slug, 'locale' => config('app.fallback_locale', 'en')]);
     }
-<<<<<<< HEAD
-<<<<<<< HEAD
     */
-=======
-
->>>>>>> 5079a23a (.)
-=======
-    */
->>>>>>> c894b599 (.)
     return $view->with('page', $page);
 });
 

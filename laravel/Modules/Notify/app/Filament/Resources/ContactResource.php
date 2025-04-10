@@ -4,7 +4,10 @@ declare(strict_types=1);
 
 namespace Modules\Notify\Filament\Resources;
 
+<<<<<<< HEAD
 use Filament\Forms;
+=======
+>>>>>>> aa7e3755 (.)
 use Filament\Forms\Components\Component;
 use Filament\Forms\Components\TextInput;
 use Filament\Resources\Pages\PageRegistration;

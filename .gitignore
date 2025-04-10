@@ -3,15 +3,25 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 *:Zone.Identifier
 *.phar
 *.lock
 .git-rewrite
+=======
+# 🗂️ Cartelle e file di sistema
+>>>>>>> aa7e3755 (.)
 .fuse_hidden*
-.fuse_hidden**.lock
+*.Zone.Identifier
+**/*.Zone.Identifier
+*.exe
+*.log
+*.cache
 *.lock
+*.phar
 package-lock.json
 .php-cs-fixer.cache
+<<<<<<< HEAD
 *.phar
 *.cache
 node_modules
@@ -126,29 +136,17 @@ laravel/Themes/One/vendor/
 *:Zone.Identifier
 *.phar
 *.lock
+=======
+>>>>>>> aa7e3755 (.)
 .git-rewrite
-.fuse_hidden*
-.fuse_hidden**.lock
-*.lock
-package-lock.json
-.php-cs-fixer.cache
-*.phar
-*.cache
-node_modules
-/node_modules
-vendor/
 .git-blame-ignore-revs
-.git-blame-ignore-revs
-node_modules
-vendor
-.php-cs-fixer.cache
-.git-blame-ignore-revs
-build/
+
+# 📁 Cartelle di dipendenze
+node_modules/
 vendor/
 build/
-node_modules
-docs/cache/
 cache/
+<<<<<<< HEAD
 .git-blame-ignore-revs
 .php-cs-fixer.cache
 *.exe
@@ -181,3 +179,13 @@ cache/
 .php-cs-fixer.cache
 *:Zone.Identifier
 >>>>>>> 9e03a20f (Squashed 'laravel/Modules/Notify/' changes from 404426f9..02d5f061)
+=======
+docs/cache/
+
+# Laravel specifici (se usi Laravel)
+laravel/Themes/One/vendor/
+
+# ✨ Duplicati e sicurezza
+*.lock
+*.phar
+>>>>>>> aa7e3755 (.)
