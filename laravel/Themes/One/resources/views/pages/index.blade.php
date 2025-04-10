@@ -2,11 +2,15 @@
 
 use function Laravel\Folio\{middleware, name};
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 5079a23a (.)
 use Filament\Notifications\Notification;
 use Filament\Notifications\Livewire\Notifications;
 use Filament\Notifications\Actions\Action;
 use Filament\Support\Enums\Alignment;
 use Filament\Support\Enums\VerticalAlignment;
+<<<<<<< HEAD
 use Livewire\Volt\Component;
 use Modules\Tenant\Services\TenantService;
 
@@ -25,19 +29,35 @@ new class extends Component
    
 
 =======
+=======
+>>>>>>> 5079a23a (.)
 use Livewire\Volt\Component;
+use Modules\Tenant\Services\TenantService;
+
+/** @var array */
+//$middleware=TenantService::config('middleware');
+//$base_middleware=Arr::get($middleware,'base',[]);
+$base_middleware=[];
 
 name('home');
-//middleware(['redirect-to-dashboard']);
+middleware($base_middleware);
+
+
 
 new class extends Component
 {
+<<<<<<< HEAD
 >>>>>>> b47e8d10 (.)
+=======
+   
+
+>>>>>>> 5079a23a (.)
 };
 
 ?>
 
 <x-layouts.marketing>
+<<<<<<< HEAD
 <<<<<<< HEAD
     <div>
         {!! $_theme->showPageContent('home') !!}
@@ -86,3 +106,9 @@ new class extends Component
 
 </x-layouts.marketing>
 >>>>>>> b47e8d10 (.)
+=======
+    <div>
+        {!! $_theme->showPageContent('home') !!}
+    </div>
+</x-layouts.marketing>
+>>>>>>> 5079a23a (.)

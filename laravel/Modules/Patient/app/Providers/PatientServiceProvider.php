@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Modules\Patient\Providers;
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 use Filament\Forms\Components\Component;
 use Illuminate\Support\Facades\Blade;
 use Illuminate\Support\ServiceProvider;
@@ -16,14 +17,25 @@ use Illuminate\Support\Facades\Blade;
 use Illuminate\Support\ServiceProvider;
 use Modules\Xot\Providers\XotBaseServiceProvider;
 >>>>>>> 2004ea4c (.)
+=======
+use Filament\Forms\Components\Component;
+use Illuminate\Support\Facades\Blade;
+use Illuminate\Support\ServiceProvider;
+use Livewire\Livewire;
+use Modules\Patient\Filament\Widgets\PatientRegistrationWizard;
+>>>>>>> 5079a23a (.)
 use Modules\Patient\Models\Patient;
 use Modules\Patient\Models\Document;
 use Modules\Patient\Models\Anamnesis;
 use Modules\Patient\Filament\Resources\PatientResource;
 <<<<<<< HEAD
+<<<<<<< HEAD
 use Modules\Xot\Providers\XotBaseServiceProvider;
 =======
 >>>>>>> 2004ea4c (.)
+=======
+use Modules\Xot\Providers\XotBaseServiceProvider;
+>>>>>>> 5079a23a (.)
 
 class PatientServiceProvider extends XotBaseServiceProvider
 {
@@ -32,6 +44,9 @@ class PatientServiceProvider extends XotBaseServiceProvider
     protected string $module_dir = __DIR__;
     protected string $module_ns = __NAMESPACE__;
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 5079a23a (.)
 
     public function boot(): void
     {
@@ -45,6 +60,7 @@ class PatientServiceProvider extends XotBaseServiceProvider
         if (class_exists(Livewire::class)) {
             Livewire::component('patient.registration-wizard', PatientRegistrationWizard::class);
         }
+<<<<<<< HEAD
 =======
     
     
@@ -75,4 +91,7 @@ class PatientServiceProvider extends XotBaseServiceProvider
     }
 =======
 >>>>>>> b47e8d10 (.)
+=======
+    }
+>>>>>>> 5079a23a (.)
 }

@@ -53,9 +53,15 @@ class ThemeComposer
     public function showPageContent(string $slug): Renderable
     {
         Assert::isInstanceOf($page = Page::firstOrCreate(['slug' => $slug], ['title' => $slug, 'content_blocks' => []]), Page::class, '['.__LINE__.']['.__FILE__.']');
+<<<<<<< HEAD
 
         $blocks = $page->content_blocks;
 
+=======
+        
+        $blocks = $page->content_blocks;
+        
+>>>>>>> 5079a23a (.)
         if (! is_array($blocks)) {
             $blocks = [];
         }
