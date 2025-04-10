@@ -10,7 +10,10 @@ use Modules\Notify\Actions\NotifyTheme\Get;
 use Modules\Notify\Datas\AttachmentData;
 use Spatie\LaravelData\DataCollection;
 use Spatie\QueueableAction\QueueableAction;
+<<<<<<< HEAD
 use Webmozart\Assert\Assert;
+=======
+>>>>>>> origin/dev
 
 class BuildMailMessageAction
 {
@@ -35,6 +38,7 @@ class BuildMailMessageAction
         $fromAddress = $theme->view_params['from_email'] ?? $theme->from_email;
         $fromName = $theme->view_params['from'] ?? $theme->from;
         $subject = $view_params['subject'] ?? $theme->subject;
+<<<<<<< HEAD
         
         // Utilizziamo asserzioni per verificare che i valori siano stringhe
         if (!is_string($fromAddress)) {
@@ -50,6 +54,8 @@ class BuildMailMessageAction
             $subject = 'Notifica';
         }
         
+=======
+>>>>>>> origin/dev
         $email = (new MailMessage())
             ->from($fromAddress, $fromName)
             ->subject($subject)

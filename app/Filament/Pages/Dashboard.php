@@ -16,7 +16,7 @@ class Dashboard extends Page
     {
         /*
         $user = auth()->user();
-        if (! $user->hasRole('super-admin')) {
+        if (! $user?->hasRole('super-admin')) {
             redirect('/admin');
         }
         */
