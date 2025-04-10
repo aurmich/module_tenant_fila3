@@ -99,5 +99,12 @@ cache/
 *:Zone.Identifier
 .php-cs-fixer.cache
 **/*.Zone.Identifier
+<<<<<<< 9f741360b1f4e0dca9f22e9b8ad319128b8c570f
 >>>>>>> 522296dd0b9f30d132c770d087a589e5f527aded
+<<<<<<< HEAD
 >>>>>>> b0f37c83 (.)
+=======
+=======
+*.log
+>>>>>>> 4f5da1420f6cc74d7e28a15dcc2fb4c89983fa71
+>>>>>>> 3bdced71 (.)
