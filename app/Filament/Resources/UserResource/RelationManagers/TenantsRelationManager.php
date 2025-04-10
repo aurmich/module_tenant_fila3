@@ -19,7 +19,7 @@ use Modules\Xot\Filament\Traits\HasXotTable;
  */
 class TenantsRelationManager extends XotBaseRelationManager
 {
-    use HasXotTable;
+   
 
     protected static string $relationship = 'tenants';
 
