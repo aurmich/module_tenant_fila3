@@ -4,16 +4,26 @@ declare(strict_types=1);
 
 namespace Modules\Patient\Providers;
 
+<<<<<<< HEAD
 use Filament\Forms\Components\Component;
 use Illuminate\Support\Facades\Blade;
 use Illuminate\Support\ServiceProvider;
 use Livewire\Livewire;
 use Modules\Patient\Filament\Widgets\PatientRegistrationWizard;
+=======
+use Filament\Resources\Resource;
+use Illuminate\Support\Facades\Blade;
+use Illuminate\Support\ServiceProvider;
+use Modules\Xot\Providers\XotBaseServiceProvider;
+>>>>>>> 2004ea4c (.)
 use Modules\Patient\Models\Patient;
 use Modules\Patient\Models\Document;
 use Modules\Patient\Models\Anamnesis;
 use Modules\Patient\Filament\Resources\PatientResource;
+<<<<<<< HEAD
 use Modules\Xot\Providers\XotBaseServiceProvider;
+=======
+>>>>>>> 2004ea4c (.)
 
 class PatientServiceProvider extends XotBaseServiceProvider
 {
@@ -21,6 +31,7 @@ class PatientServiceProvider extends XotBaseServiceProvider
     public string $nameLower = 'patient';
     protected string $module_dir = __DIR__;
     protected string $module_ns = __NAMESPACE__;
+<<<<<<< HEAD
 
     public function boot(): void
     {
@@ -34,5 +45,47 @@ class PatientServiceProvider extends XotBaseServiceProvider
         if (class_exists(Livewire::class)) {
             Livewire::component('patient.registration-wizard', PatientRegistrationWizard::class);
         }
+=======
+    
+    /**
+     * Boot the application events.
+     */
+    public function boot(): void
+    {
+        parent::boot();
+        
+        $this->loadMigrationsFrom(module_path($this->name, 'database/migrations'));
+        $this->loadTranslationsFrom(module_path($this->name, 'resources/lang'), $this->nameLower);
+        $this->loadViewsFrom(module_path($this->name, 'resources/views'), $this->nameLower);
+        
+        // Registra le risorse Filament
+        Resource::registerResources([
+            PatientResource::class,
+        ]);
+    }
+    
+    /**
+     * Register the service provider.
+     */
+    public function register(): void
+    {
+        parent::register();
+        
+        $this->app->register(RouteServiceProvider::class);
+        
+        $this->mergeConfigFrom(
+            module_path($this->name, 'config/config.php'), $this->nameLower
+        );
+    }
+    
+    /**
+     * Get the services provided by the provider.
+     *
+     * @return array<int, string>
+     */
+    public function provides(): array
+    {
+        return [];
+>>>>>>> 2004ea4c (.)
     }
 }

@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Modules\UI\Filament\Resources\Pages;
+namespace Modules\UI\app\Filament\Resources\Pages;
 
 use Modules\UI\Traits\TableLayoutTrait;
 

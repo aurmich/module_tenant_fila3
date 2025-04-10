@@ -11,7 +11,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 use Modules\Tenant\Traits\BelongsToTenant;
 use Modules\Xot\Models\XotBaseModel;
 
-class Patient extends BaseModel
+class Patient extends XotBaseModel
 {
     use SoftDeletes, BelongsToTenant;
 
@@ -24,6 +24,9 @@ class Patient extends BaseModel
         'phone',
         'email',
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 2004ea4c (.)
         'address',
         'city',
         'postal_code',
@@ -32,6 +35,7 @@ class Patient extends BaseModel
         'is_pregnant',
         'isee_code',
         'isee_value',
+<<<<<<< HEAD
         'isee_expiry_date',
         'notes',
     ];
@@ -51,14 +55,34 @@ class Patient extends BaseModel
         ]);
     }
 =======
+=======
+>>>>>>> 2004ea4c (.)
         'isee_expiry_date',
+        'notes',
     ];
 
+<<<<<<< HEAD
     protected $casts = [
         'birth_date' => 'date',
         'isee_expiry_date' => 'date',
     ];
 >>>>>>> 059ca8d4 (.)
+=======
+    /**
+     * Get the attributes that should be cast.
+     *
+     * @return array<string, string>
+     */
+    public function casts(): array
+    {
+        return array_merge(parent::casts(), [
+            'birth_date' => 'date',
+            'isee_expiry_date' => 'date',
+            'is_pregnant' => 'boolean',
+            'isee_value' => 'decimal:2',
+        ]);
+    }
+>>>>>>> 2004ea4c (.)
 
     public function documents(): HasMany
     {

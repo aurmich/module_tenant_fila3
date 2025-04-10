@@ -19,7 +19,11 @@ use Illuminate\Support\Facades\Route;
 
 class RouteServiceProvider extends ServiceProvider
 {
-    
+    /**
+     * The root namespace to assume when generating URLs to actions.
+     */
+    protected string $rootNamespace = 'Modules\Xot\Http\Controllers';
+
     /**
      * The module namespace to assume when generating URLs to actions.
      */

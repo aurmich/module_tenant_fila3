@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Modules\Patient\app\Models;
+namespace Modules\Patient\Models;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
