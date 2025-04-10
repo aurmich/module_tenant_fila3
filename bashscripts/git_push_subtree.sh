@@ -30,6 +30,11 @@ handle_error() {
     exit 1
 }
 
+if(! git ls-remote "$REMOTE_REPO" > /dev/null 2>&1)
+then
+    handle_error "Remote repository $REMOTE_REPO not found"
+fi
+
 # Sync subtree
 push_subtree() {
     find . -type f -name "*:Zone.Identifier" -exec rm -f {} \;
@@ -44,20 +49,20 @@ push_subtree() {
 
     if(! git subtree push -P "$LOCAL_PATH" "$REMOTE_REPO" "$REMOTE_BRANCH")
     then
-        if(! git push  "$REMOTE_REPO" $(git subtree split --prefix="$LOCAL_PATH"):"$REMOTE_BRANCH")
-        then
-            # First, split the subtree to a temporary branch
-            git subtree split --prefix="$LOCAL_PATH" -b "$TEMP_BRANCH"
+        handle_error "Failed to push subtree $LOCAL_PATH to $REMOTE_REPO"
+    #    if(! git push  "$REMOTE_REPO" $(git subtree split --prefix="$LOCAL_PATH"):"$REMOTE_BRANCH")
+    #    then
+    #        # First, split the subtree to a temporary branch
+    #        git subtree split --prefix="$LOCAL_PATH" -b "$TEMP_BRANCH"
 
+    #        # Then force push that branch
+    #        git push -f "$REMOTE_REPO" "$TEMP_BRANCH":"$REMOTE_BRANCH"
 
-            git push  "$REMOTE_REPO" "$TEMP_BRANCH":"$REMOTE_BRANCH"
+    #        # Optionally, clean up the temporary branch
+    #        git branch -D "$TEMP_BRANCH"
 
-
-            # Optionally, clean up the temporary branch
-            git branch -D "$TEMP_BRANCH"
-
-            git subtree push -P "$LOCAL_PATH" "$REMOTE_REPO" "$REMOTE_BRANCH"
-        fi
+    #        git subtree push -P "$LOCAL_PATH" "$REMOTE_REPO" "$REMOTE_BRANCH"
+    #    fi
     fi
 
 
@@ -68,4 +73,4 @@ push_subtree() {
 # Run sync
 push_subtree
 
-echo "Subtree $LOCAL_PATH synchronized successfully with $REMOTE_REPO"
+echo "👍 Subtree $LOCAL_PATH pushed successfully with $REMOTE_REPO"
