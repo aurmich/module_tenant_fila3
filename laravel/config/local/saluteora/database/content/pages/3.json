@@ -11,9 +11,13 @@
                 "type": "hero",
                 "data": {
 <<<<<<< HEAD
+<<<<<<< HEAD
                     "view": "pub_theme::components.blocks.hero.simple",
 =======
 >>>>>>> 5079a23a (.)
+=======
+                    "view": "pub_theme::components.blocks.hero.simple",
+>>>>>>> c894b599 (.)
                     "title": "Prenota il tuo appuntamento",
                     "subtitle": "Scegli la data e l'orario più adatto alle tue esigenze",
                     "image": "/img/appointment-bg.jpg",
@@ -25,9 +29,13 @@
                 "type": "feature_sections",
                 "data": {
 <<<<<<< HEAD
+<<<<<<< HEAD
                     "view": "pub_theme::components.blocks.feature_sections.simple",
 =======
 >>>>>>> 5079a23a (.)
+=======
+                    "view": "pub_theme::components.blocks.feature_sections.simple",
+>>>>>>> c894b599 (.)
                     "title": "Come funziona la prenotazione",
                     "sections": [
                         {
@@ -52,6 +60,9 @@
                 "type": "paragraph",
                 "data": {
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> c894b599 (.)
                     "view": "pub_theme::components.blocks.paragraph.simple",
                     "content": "La prenotazione è semplice e veloce. Se hai bisogno di assistenza, il nostro team di supporto è sempre disponibile per aiutarti."
                 }
@@ -222,15 +233,21 @@
                     "background_color": "bg-accent",
                     "text_color": "text-white"
                 }
+<<<<<<< HEAD
 =======
                     "content": "La prenotazione è semplice e veloce. Se hai bisogno di assistenza, il nostro team di supporto è sempre disponibile per aiutarti."
                 }
 >>>>>>> 5079a23a (.)
+=======
+>>>>>>> c894b599 (.)
             }
         ]
     },
     "sidebar_blocks": {
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> c894b599 (.)
         "it": [
             {
                 "type": "contact_info",
@@ -312,18 +329,26 @@
                 }
             }
         ]
+<<<<<<< HEAD
     },
 =======
         "it": []
     },
     "footer_blocks": null,
 >>>>>>> 5079a23a (.)
+=======
+    },
+>>>>>>> c894b599 (.)
     "created_at": "2024-12-09T16:46:21.000000Z",
     "updated_at": "2024-12-09T17:08:25.000000Z",
     "created_by": "9c63325e-ce65-4632-bc54-1ef576839de5",
     "updated_by": "9c63325e-ce65-4632-bc54-1ef576839de5"
 <<<<<<< HEAD
+<<<<<<< HEAD
 }
 =======
 } 
 >>>>>>> 5079a23a (.)
+=======
+}
+>>>>>>> c894b599 (.)

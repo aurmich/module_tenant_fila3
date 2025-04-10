@@ -52,6 +52,9 @@
 [Thu Apr 03 16:27:30.503438 2025] [ssl:warn] [pid 255] AH01909: saluteora.local:443:0 server certificate does NOT include an ID which matches the server name
 [Thu Apr 03 16:27:30.609558 2025] [ssl:warn] [pid 289] AH01909: saluteora.local:443:0 server certificate does NOT include an ID which matches the server name
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> c894b599 (.)
 [Thu Apr 03 17:17:17.084204 2025] [ssl:warn] [pid 19772] AH01909: saluteora.local:443:0 server certificate does NOT include an ID which matches the server name
 [Thu Apr 03 17:17:17.113384 2025] [ssl:warn] [pid 19773] AH01909: saluteora.local:443:0 server certificate does NOT include an ID which matches the server name
 [Thu Apr 03 17:18:56.406720 2025] [ssl:warn] [pid 19773] AH01909: saluteora.local:443:0 server certificate does NOT include an ID which matches the server name
@@ -62,6 +65,7 @@
 [Thu Apr 03 17:20:27.315993 2025] [ssl:warn] [pid 21387] AH01909: saluteora.local:443:0 server certificate does NOT include an ID which matches the server name
 [Thu Apr 03 17:20:27.353492 2025] [ssl:warn] [pid 21388] AH01909: saluteora.local:443:0 server certificate does NOT include an ID which matches the server name
 [Fri Apr 04 00:00:01.879269 2025] [ssl:warn] [pid 21388] AH01909: saluteora.local:443:0 server certificate does NOT include an ID which matches the server name
+<<<<<<< HEAD
 [Sat Apr 05 00:00:02.230617 2025] [ssl:warn] [pid 21388] AH01909: saluteora.local:443:0 server certificate does NOT include an ID which matches the server name
 [Sun Apr 06 00:00:00.267942 2025] [ssl:warn] [pid 21388] AH01909: saluteora.local:443:0 server certificate does NOT include an ID which matches the server name
 [Tue Apr 08 21:53:40.629738 2025] [ssl:warn] [pid 259] AH01909: saluteora.local:443:0 server certificate does NOT include an ID which matches the server name
@@ -91,3 +95,5 @@
 >>>>>>> b47e8d10 (.)
 =======
 >>>>>>> 5079a23a (.)
+=======
+>>>>>>> c894b599 (.)

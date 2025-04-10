@@ -61,9 +61,14 @@ use Illuminate\View\View;
 use function Laravel\Folio\render;
 
 render(function (View $view) {
+<<<<<<< HEAD
     $locale = app()->getLocale();
     $pages = Page::all();
     return $view->with(['pages' => $pages, 'locale' => $locale]);
+=======
+    $pages = Page::all();
+    return $view->with('pages', $pages);
+>>>>>>> c894b599 (.)
 });
 ?>
 
@@ -77,7 +82,11 @@ render(function (View $view) {
         
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             @foreach($pages as $page)
+<<<<<<< HEAD
                 <a href="{{ url('/' . $locale . '/pages/' . $page->slug) }}" class="block p-6 bg-white shadow-sm rounded-lg hover:shadow-md transition">
+=======
+                <a href="{{ url('/pages/' . $page->slug) }}" class="block p-6 bg-white shadow-sm rounded-lg hover:shadow-md transition">
+>>>>>>> c894b599 (.)
                     <h2 class="text-xl font-semibold mb-2">{{ $page->title }}</h2>
                     <!-- Eventuale descrizione o anteprima -->
                 </a>
@@ -87,6 +96,7 @@ render(function (View $view) {
 </x-layouts.marketing>
 ```
 
+<<<<<<< HEAD
 ## Gestione della Localizzazione
 
 ### Prefissi di Lingua negli URL
@@ -119,6 +129,8 @@ $locale = app()->getLocale();
 return $view->with(['pages' => $pages, 'locale' => $locale]);
 ```
 
+=======
+>>>>>>> c894b599 (.)
 ## Integrazione con il CMS
 
 Il tema One utilizza questi helper per renderizzare i contenuti delle pagine:
@@ -132,7 +144,10 @@ Il tema One utilizza questi helper per renderizzare i contenuti delle pagine:
 2. Seguire le convenzioni di nomenclatura di Laravel Folio
 3. Gestire correttamente i casi in cui la pagina non viene trovata
 4. Utilizzare responsive design per tutte le pagine
+<<<<<<< HEAD
 5. **Includere sempre la locale negli URL** per garantire il funzionamento corretto della navigazione
+=======
+>>>>>>> c894b599 (.)
 
 ## Creazione di Nuove Pagine
 
@@ -144,7 +159,13 @@ Per creare una nuova pagina nel tema One:
 
 ## Troubleshooting
 
+<<<<<<< HEAD
 - Se una pagina non viene visualizzata, verificare che il percorso URL sia corretto e includa la locale
 - Verificare che il modello `Page` contenga lo slug corretto
 - Controllare i logs per eventuali errori
 - Se i link non funzionano, assicurarsi che includano la locale corrente (ad es. `/it/pages/pagina`)
+=======
+- Se una pagina non viene visualizzata, verificare che il percorso URL sia corretto
+- Verificare che il modello `Page` contenga lo slug corretto
+- Controllare i logs per eventuali errori 
+>>>>>>> c894b599 (.)

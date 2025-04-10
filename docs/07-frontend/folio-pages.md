@@ -8,8 +8,12 @@ Questo documento descrive come sono organizzate e gestite le pagine utilizzando 
 3. [Nomenclatura dei File](#nomenclatura-dei-file)
 4. [Pagine Dinamiche](#pagine-dinamiche)
 5. [Integrazione con il CMS](#integrazione-con-il-cms)
+<<<<<<< HEAD
 6. [Localizzazione](#localizzazione)
 7. [Best Practices](#best-practices)
+=======
+6. [Best Practices](#best-practices)
+>>>>>>> c894b599 (.)
 
 ## Introduzione
 
@@ -101,7 +105,11 @@ Il file `index.blade.php` nella directory `pages/` serve come punto di ingresso 
 
 1. Recuperare l'elenco delle pagine disponibili dal modello `Page`
 2. Mostrarle in un formato adeguato (ad esempio, una griglia di card o un elenco)
+<<<<<<< HEAD
 3. Fornire link alle singole pagine, includendo la locale corrente
+=======
+3. Fornire link alle singole pagine
+>>>>>>> c894b599 (.)
 
 ## Integrazione con il CMS
 
@@ -125,6 +133,7 @@ Il tema One fornisce due helper per renderizzare il contenuto delle pagine:
 
 Questi helper gestiscono l'interpretazione dei dati JSON dei blocchi e li convertono in HTML renderizzato.
 
+<<<<<<< HEAD
 ## Localizzazione
 
 ### Struttura degli URL Localizzati
@@ -168,6 +177,8 @@ Per link di cambio lingua, generare URL con la stessa struttura ma diverso prefi
 <a href="{{ url('/en/pages/' . $page->slug) }}">English</a>
 ```
 
+=======
+>>>>>>> c894b599 (.)
 ## Best Practices
 
 ### Organizzazione delle Pagine

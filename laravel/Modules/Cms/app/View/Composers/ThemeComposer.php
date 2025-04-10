@@ -54,6 +54,7 @@ class ThemeComposer
     {
         Assert::isInstanceOf($page = Page::firstOrCreate(['slug' => $slug], ['title' => $slug, 'content_blocks' => []]), Page::class, '['.__LINE__.']['.__FILE__.']');
 <<<<<<< HEAD
+<<<<<<< HEAD
 
         $blocks = $page->content_blocks;
 
@@ -62,6 +63,11 @@ class ThemeComposer
         $blocks = $page->content_blocks;
         
 >>>>>>> 5079a23a (.)
+=======
+
+        $blocks = $page->content_blocks;
+
+>>>>>>> c894b599 (.)
         if (! is_array($blocks)) {
             $blocks = [];
         }
