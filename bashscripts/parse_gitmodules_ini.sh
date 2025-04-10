@@ -17,7 +17,7 @@ fi
 
 # Inizializza l'array associativo per tutti i sottmoduli
 declare -A submodules_array
-
+index=0
 while IFS= read -r line; do
     # Salta righe vuote e commenti
     [[ -z "$line" || "$line" =~ ^[[:space:]]*# ]] && continue
