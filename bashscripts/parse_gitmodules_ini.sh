@@ -33,7 +33,7 @@ while IFS= read -r line; do
         
         # Chiamata esterna allo script di sincronizzazione
         submodules_array[$index]['path']=$current_path
-        submodules_array[$index]['path']=$current_path
+        submodules_array[$index]['url']=$current_url
         ((index++))
         
         # Pulizia: reset delle variabili per il prossimo modulo
