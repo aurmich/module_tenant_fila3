@@ -17,7 +17,7 @@ for ((i=0; i<total; i++)); do
     url=${submodules_array["url_${i}"]}
     echo "---------"
     echo "Submodule $i:"
-    echo "  Path: $path"
+    echo "  📁 Path: $path"
     echo "  URL: $url"
     script="$script_dir/git_pull_subtree.sh"
     chmod +x "$script"
