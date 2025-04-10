@@ -44,12 +44,12 @@ class BuildMailMessageAction
         if (!is_string($fromAddress)) {
             $fromAddress = '';
         }
-        
+
         // Il nome del mittente può essere null
         if ($fromName !== null && !is_string($fromName)) {
             $fromName = '';
         }
-        
+
         if (!is_string($subject)) {
             $subject = 'Notifica';
         }

@@ -86,7 +86,9 @@ class SmsService
     public function setLocalVars(array $vars): self
     {
         foreach ($vars as $k => $v) {
-            $this->{$k} = $v;
+            if (property_exists($this, $k)) {
+                $this->{$k} = $v;
+            }
         }
         $this->vars = array_merge($this->vars, $vars);
 
@@ -113,60 +115,40 @@ class SmsService
         if (!class_exists($engineClassName)) {
             throw new \RuntimeException("La classe del motore SMS {$engineClassName} non esiste");
         }
-        
+
         // Verifichiamo che la classe abbia il metodo make
         if (!method_exists($engineClassName, 'make')) {
             throw new \RuntimeException("La classe {$engineClassName} non implementa il metodo make()");
         }
-        
+
         // Creiamo l'istanza in modo sicuro
         $instance = $engineClassName::make();
-        
+
         // Verifichiamo che l'istanza sia un oggetto
         if (!is_object($instance)) {
             throw new \RuntimeException("Il metodo make() di {$engineClassName} non ha restituito un oggetto");
         }
-        
+
         // Verifichiamo che l'istanza abbia i metodi necessari
         foreach (['setLocalVars', 'send', 'getVars'] as $method) {
             if (!method_exists($instance, $method)) {
                 throw new \RuntimeException("L'istanza di {$engineClassName} non implementa il metodo {$method}()");
             }
         }
-        
-        // Utilizziamo reflection per chiamare i metodi in modo sicuro
+
         try {
-            $reflectionClass = new \ReflectionClass($instance);
-            
-            // Chiamiamo setLocalVars
-            $setLocalVarsMethod = $reflectionClass->getMethod('setLocalVars');
-            $setLocalVarsMethod->invoke($instance, $this->vars);
-            
-            // Chiamiamo send
-            $sendMethod = $reflectionClass->getMethod('send');
-            $sendMethod->invoke($instance);
-            
-            // Chiamiamo getVars
-            $getVarsMethod = $reflectionClass->getMethod('getVars');
-            $result = $getVarsMethod->invoke($instance);
+            // Approccio semplificato senza reflection
+            $instance->setLocalVars($this->vars)->send();
+            $result = $instance->getVars();
             
             // Verifichiamo che il risultato sia un array
             if (!is_array($result)) {
                 $result = [];
             }
             
-            // Convertiamo l'array in array<string, mixed>
-            /** @var array<string, mixed> $typedResult */
-            $typedResult = [];
-            foreach ($result as $key => $value) {
-                if (is_string($key)) {
-                    $typedResult[$key] = $value;
-                }
-            }
-            
-            $this->mergeVars($typedResult);
-        } catch (\ReflectionException $e) {
-            throw new \RuntimeException("Errore durante la chiamata dei metodi: " . $e->getMessage());
+            $this->mergeVars($result);
+        } catch (\Exception $e) {
+            throw new \RuntimeException("Errore durante l'invio dell'SMS: " . $e->getMessage());
         }
 =======
     public function send(): self

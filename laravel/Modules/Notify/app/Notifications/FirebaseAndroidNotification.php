@@ -91,7 +91,7 @@ class FirebaseAndroidNotification extends Notification implements MobilePushNoti
             
             // Aggiungiamo solo i campi supportati con i tipi corretti
             $allowedKeys = ['title', 'body', 'icon', 'color', 'sound', 'click_action'];
-            
+
             foreach ($allowedKeys as $key) {
                 if (isset($dataProperty[$key]) && (is_string($dataProperty[$key]) && $dataProperty[$key] !== '')) {
                     $notification[$key] = $dataProperty[$key];
@@ -103,7 +103,7 @@ class FirebaseAndroidNotification extends Notification implements MobilePushNoti
                 $androidConfig['notification'] = $notification;
             }
         }
-        
+
         return CloudMessage::new()
             ->withNotification(FirebaseNotification::create($this->data->title, $this->data->body))
             ->withAndroidConfig(AndroidConfig::fromArray($androidConfig));
@@ -151,7 +151,7 @@ class FirebaseAndroidNotification extends Notification implements MobilePushNoti
     public function toCloudMessage(): Message
     {
         $notificationData = $this->data->data;
-        
+
         /**
          * @var array<non-empty-string, string|Stringable>
          */

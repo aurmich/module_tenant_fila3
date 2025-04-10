@@ -11,7 +11,11 @@ use Modules\Xot\Filament\Resources\XotBaseResource;
 <<<<<<< HEAD
 use Modules\Xot\Filament\Resources\RelationManagers\XotBaseRelationManager;
 =======
+<<<<<<< HEAD
+use Modules\Xot\Filament\Resources\RelationManagers\XotBaseRelationManager;
+=======
 >>>>>>> origin/dev
+>>>>>>> 08ac96148f5baa3ad61ef48f00c973ff9b04c7b7
 
 class NotificationResource extends XotBaseResource
 {
@@ -58,6 +62,9 @@ class NotificationResource extends XotBaseResource
     }
 
 <<<<<<< HEAD
+
+=======
+<<<<<<< HEAD
    
 =======
     public static function getRelations(): array
@@ -74,4 +81,5 @@ class NotificationResource extends XotBaseResource
         ];
     }
 >>>>>>> origin/dev
+>>>>>>> 08ac96148f5baa3ad61ef48f00c973ff9b04c7b7
 }

@@ -71,7 +71,7 @@ class SendPushNotification extends Page implements HasForms
             if (!is_object($item)) {
                 return [];
             }
-            
+
             // Verifichiamo che $item abbia le proprietà necessarie
             if (!property_exists($item, 'push_notifications_token') || 
                 !property_exists($item, 'profile') || 
@@ -79,19 +79,19 @@ class SendPushNotification extends Page implements HasForms
                 !property_exists($item->profile, 'full_name')) {
                 return [];
             }
-            
+
             // Otteniamo il token
             $token = $item->push_notifications_token;
             if (!is_string($token) || $token === '') {
                 return [];
             }
-            
+
             // Otteniamo il nome completo
             $fullName = $item->profile->full_name;
             if (!is_string($fullName)) {
                 $fullName = 'Utente';
             }
-            
+
             // Otteniamo il robot
             $robot = '';
             if (property_exists($item, 'device') && 
@@ -100,10 +100,10 @@ class SendPushNotification extends Page implements HasForms
                 is_string($item->device->robot)) {
                 $robot = $item->device->robot;
             }
-            
+
             // Creiamo la label con gli ultimi 5 caratteri del token
             $tokenSuffix = mb_substr($token, -5);
-            
+
             return [$token => $fullName.' ('.$robot.') '.$tokenSuffix];
         };
 
@@ -182,13 +182,13 @@ class SendPushNotification extends Page implements HasForms
         $title = $data['title'] ?? '';
         $body = $data['body'] ?? '';
         $jsonData = isset($data['data']) ? json_encode($data['data']) : '{}';
-        
+
         // Verifichiamo che jsonData sia una stringa
         $jsonData = $jsonData ?: '{}';
-        
+
         // Creiamo un array con chiavi non vuote e valori stringa che implementano Stringable
         $pushDataTemp = [];
-        
+
         // Aggiungiamo i valori all'array solo se non sono vuoti
         if ($type !== '') {
             $pushDataTemp['type'] = $type;
@@ -207,17 +207,17 @@ class SendPushNotification extends Page implements HasForms
         if (empty($pushDataTemp)) {
             $pushDataTemp['type'] = 'notification';
         }
-        
+
         // Creiamo un MessageData object
         $messageData = new \Kreait\Firebase\Messaging\MessageData($pushDataTemp);
 
         // Verifichiamo che deviceToken sia una stringa non vuota (per soddisfare il tipo non-empty-string)
         Assert::stringNotEmpty($deviceToken, 'Il token del dispositivo non può essere vuoto');
-        
+
         $message = CloudMessage::withTarget('token', $deviceToken)
             ->withHighestPossiblePriority()
             ->withData($messageData);
-            
+
         try {
             // Otteniamo l'istanza di messaging e verifichiamo che sia valida
             $messaging = app('firebase.messaging');

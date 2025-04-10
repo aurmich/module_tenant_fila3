@@ -160,7 +160,7 @@ class TestSmtpPage extends Page implements HasForms
                 $typedConfig[$key] = $value;
             }
         }
-        
+
         $this->emailForm->fill($typedConfig);
 =======
         $this->emailForm->fill($smtpConfig);
