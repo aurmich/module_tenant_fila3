@@ -31,6 +31,11 @@ handle_error() {
     exit 1
 }
 
+# Verifica se il path esiste
+if [ ! -e "$LOCAL_PATH" ]; then
+    handle_error "Errore: Il path $LOCAL_PATH non esiste"
+fi
+
 if(! git ls-remote "$REMOTE_REPO" > /dev/null 2>&1)
 then
     handle_error "Remote repository $REMOTE_REPO not found"
