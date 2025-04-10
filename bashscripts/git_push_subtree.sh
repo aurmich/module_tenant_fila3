@@ -12,6 +12,13 @@ LOCAL_PATH_bak="$LOCAL_PATH"_bak
 REMOTE_REPO="$2"
 REMOTE_BRANCH=$(git symbolic-ref --short HEAD 2>/dev/null || echo "main")
 TEMP_BRANCH=$(basename "$LOCAL_PATH")-temp
+
+
+echo "  📁 Path: $LOCAL_PATH"
+echo "  🌐 URL: $REMOTE_REPO"
+echo "  🌐 Branch: $REMOTE_BRANCH"
+echo "  🌐 Temporary branch: $TEMP_BRANCH"
+
 # Simple error handling function
 die() {
     echo "$1" >&2
