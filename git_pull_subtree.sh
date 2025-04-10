@@ -36,11 +36,6 @@ if [ ! -e "$LOCAL_PATH" ]; then
     handle_error "Errore: Il path $LOCAL_PATH non esiste"
 fi
 
-<<<<<<< HEAD:git_pull_subtree.sh
-=======
->>>>>>> b1ca4c93 (Squashed 'bashscripts/' changes from c21599d..019cc70)
-=======
->>>>>>> 23b8d6b6 (.):bashscripts/git_pull_subtree.sh
 if(! git ls-remote "$REMOTE_REPO" > /dev/null 2>&1)
 then
     handle_error "Remote repository $REMOTE_REPO not found"
@@ -55,11 +50,6 @@ pull_subtree() {
 
     git config core.ignorecase false
     git config core.fileMode false
-<<<<<<< HEAD:git_pull_subtree.sh
-=======
->>>>>>> b1ca4c93 (Squashed 'bashscripts/' changes from c21599d..019cc70)
-=======
->>>>>>> 23b8d6b6 (.):bashscripts/git_pull_subtree.sh
     
     git fetch "$REMOTE_REPO" "$REMOTE_BRANCH" --depth=1
     if(! git subtree pull -P "$LOCAL_PATH" "$REMOTE_REPO" "$REMOTE_BRANCH"  --squash)
@@ -76,12 +66,6 @@ pull_subtree() {
             git subtree merge --prefix="$LOCAL_PATH" "$TEMP_BRANCH" || echo "Failed to merge subtree"
             # Pulisci il branch temporaneo
             git branch -D "$TEMP_BRANCH" || echo "Failed to delete temporary branch $TEMP_BRANCH"
-<<<<<<< HEAD:git_pull_subtree.sh
-=======
-            git branch -D "$TEMP_BRANCH" || echo "Failed to delete temporary branch"
->>>>>>> b1ca4c93 (Squashed 'bashscripts/' changes from c21599d..019cc70)
-=======
->>>>>>> 23b8d6b6 (.):bashscripts/git_pull_subtree.sh
 
             # Aggiungi il submodule (aggiungiamo il submodule da un repository remoto)
             mv "$LOCAL_PATH" "$LOCAL_PATH_bak" || die "Failed to rename $LOCAL_PATH to $LOCAL_PATH_bak"

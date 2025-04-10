@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 # 🔧 SaluteOra .gitignore
 # Questo file definisce quali file e cartelle devono essere ignorati dal controllo di versione
 # Organizzato secondo la filosofia di sviluppo SaluteOra: chiarezza, organizzazione e manutenibilità
@@ -54,7 +53,6 @@ public/storage
 public/hot
 public_html/storage
 public_html/hot
-=======
 .git-rewrite
 .fuse_hidden*
 .fuse_hidden**.lock
@@ -88,4 +86,3 @@ cache/
 *:Zone.Identifier
 .php-cs-fixer.cache
 **/*.Zone.Identifier
->>>>>>> f0d6a3c0 (Squashed 'bashscripts/' content from commit c21599d)
