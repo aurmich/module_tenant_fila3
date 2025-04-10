@@ -68,24 +68,24 @@ class SendPushNotification extends Page implements HasForms
             if (!$item) {
                 return [];
             }
-            
+
             // Verifichiamo che $item abbia le proprietà necessarie
             if (!$item->profile || !property_exists($item->profile, 'full_name')) {
                 return [];
             }
-            
+
             // Otteniamo il token
             $token = $item->push_notifications_token;
             if (!$token) {
                 return [];
             }
-            
+
             // Otteniamo il nome completo
             $fullName = $item->profile->full_name;
             if (!is_string($fullName)) {
                 $fullName = 'Utente';
             }
-            
+
             // Otteniamo il robot
             $robot = '';
             if ($item->device && 
@@ -95,10 +95,10 @@ class SendPushNotification extends Page implements HasForms
             } else {
                 $robot = null;
             }
-            
+
             // Creiamo la label con gli ultimi 5 caratteri del token
             $tokenSuffix = mb_substr($token, -5);
-            
+
             return [$token => $fullName.' ('.$robot.') '.$tokenSuffix];
         };
 
@@ -160,13 +160,13 @@ class SendPushNotification extends Page implements HasForms
         $title = $data['title'] ?? '';
         $body = $data['body'] ?? '';
         $jsonData = isset($data['data']) ? json_encode($data['data']) : '{}';
-        
+
         // Verifichiamo che jsonData sia una stringa
         $jsonData = $jsonData ?: '{}';
-        
+
         // Creiamo un array con chiavi non vuote e valori stringa che implementano Stringable
         $pushDataTemp = [];
-        
+
         // Aggiungiamo i valori all'array solo se non sono vuoti
         // PHPStan sa che queste stringhe non possono essere vuote a questo punto
         $pushDataTemp['type'] = $type;
@@ -179,7 +179,7 @@ class SendPushNotification extends Page implements HasForms
         if (count($pushDataTemp) === 0) {
             $pushDataTemp['type'] = 'notification';
         }
-        
+
         // Creiamo un MessageData object
         // Convertiamo tutti i valori in stringa come richiesto da MessageData
         $sanitizedData = [];
@@ -196,11 +196,11 @@ class SendPushNotification extends Page implements HasForms
 
         // Verifichiamo che deviceToken sia una stringa non vuota (per soddisfare il tipo non-empty-string)
         Assert::stringNotEmpty($deviceToken, 'Il token del dispositivo non può essere vuoto');
-        
+
         $message = CloudMessage::withTarget('token', $deviceToken)
             ->withHighestPossiblePriority()
             ->withData($messageData);
-            
+
         try {
             // Otteniamo l'istanza di messaging e verifichiamo che sia valida
             /** @var Messaging $messaging */

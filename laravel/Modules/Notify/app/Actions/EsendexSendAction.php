@@ -51,7 +51,7 @@ class EsendexSendAction
         if (!is_string($auth[0])) {
             $auth[0] = '';
         }
-        
+
         if (!is_string($auth[1])) {
             $auth[1] = '';
         }
