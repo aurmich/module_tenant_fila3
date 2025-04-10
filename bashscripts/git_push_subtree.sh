@@ -50,8 +50,9 @@ push_subtree() {
     if(! git subtree push -P "$LOCAL_PATH" "$REMOTE_REPO" "$REMOTE_BRANCH")
     then
         log "Failed to push subtree $LOCAL_PATH to $REMOTE_REPO"
-    #    if(! git push  "$REMOTE_REPO" $(git subtree split --prefix="$LOCAL_PATH"):"$REMOTE_BRANCH")
-    #    then
+        if(! git push  "$REMOTE_REPO" $(git subtree split --prefix="$LOCAL_PATH"):"$REMOTE_BRANCH")
+        then
+            log "Failed split  to push subtree $LOCAL_PATH to $REMOTE_REPO"
     #        # First, split the subtree to a temporary branch
         #    git subtree split --prefix="$LOCAL_PATH" --rejoin -b "$TEMP_BRANCH"
 
@@ -62,7 +63,7 @@ push_subtree() {
     #        git branch -D "$TEMP_BRANCH"
 
     #        git subtree push -P "$LOCAL_PATH" "$REMOTE_REPO" "$REMOTE_BRANCH"
-    #    fi
+        fi
     fi
 
 
