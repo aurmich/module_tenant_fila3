@@ -1,7 +1,6 @@
 #!/bin/bash
 
 
-<<<<<<< HEAD
 source ./bashscripts/lib/custom.sh
 # Includi lo script di parsing
 source ./bashscripts/lib/parse_gitmodules_ini.sh
@@ -30,6 +29,7 @@ for ((i=0; i<total; i++)); do
         log "⚠️ Push fallita per $path."
     fi
 done
+<<<<<<< HEAD:git_push_subtrees.sh
 =======
 me=$( readlink -f -- "$0")
 script_dir=$(dirname "$me")
@@ -96,3 +96,5 @@ git gc --prune=now --aggressive
 
 log "✅ Sincronizzazione completata con history ottimizzata!"
 >>>>>>> b1ca4c93 (Squashed 'bashscripts/' changes from c21599d..019cc70)
+=======
+>>>>>>> 23b8d6b6 (.):bashscripts/git_push_subtrees.sh

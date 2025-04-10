@@ -8,10 +8,12 @@ fi
 
 # Input parameters
 LOCAL_PATH="$1"
-<<<<<<< HEAD
 LOCAL_PATH_bak="$LOCAL_PATH"_bak
+<<<<<<< HEAD:git_push_subtree.sh
 =======
 >>>>>>> b1ca4c93 (Squashed 'bashscripts/' changes from c21599d..019cc70)
+=======
+>>>>>>> 23b8d6b6 (.):bashscripts/git_push_subtree.sh
 REMOTE_REPO="$2"
 REMOTE_BRANCH=$(git symbolic-ref --short HEAD 2>/dev/null || echo "main")
 TEMP_BRANCH=$(basename "$LOCAL_PATH")-temp
@@ -53,7 +55,6 @@ push_subtree() {
 
     if(! git subtree push -P "$LOCAL_PATH" "$REMOTE_REPO" "$REMOTE_BRANCH")
     then
-<<<<<<< HEAD
         log "Failed to push subtree $LOCAL_PATH to $REMOTE_REPO"
         if(! git push -f "$REMOTE_REPO" $(git subtree split --prefix="$LOCAL_PATH"):"$REMOTE_BRANCH")
         then
@@ -63,6 +64,7 @@ push_subtree() {
 
     #        # Then force push that branch
         #    git push "$REMOTE_REPO" "$TEMP_BRANCH":"$REMOTE_BRANCH"
+<<<<<<< HEAD:git_push_subtree.sh
 =======
         handle_error "Failed to push subtree $LOCAL_PATH to $REMOTE_REPO"
     #    if(! git push  "$REMOTE_REPO" $(git subtree split --prefix="$LOCAL_PATH"):"$REMOTE_BRANCH")
@@ -73,12 +75,13 @@ push_subtree() {
     #        # Then force push that branch
     #        git push -f "$REMOTE_REPO" "$TEMP_BRANCH":"$REMOTE_BRANCH"
 >>>>>>> b1ca4c93 (Squashed 'bashscripts/' changes from c21599d..019cc70)
+=======
+>>>>>>> 23b8d6b6 (.):bashscripts/git_push_subtree.sh
 
     #        # Optionally, clean up the temporary branch
     #        git branch -D "$TEMP_BRANCH"
 
     #        git subtree push -P "$LOCAL_PATH" "$REMOTE_REPO" "$REMOTE_BRANCH"
-<<<<<<< HEAD
 
             #mv "$LOCAL_PATH" "$LOCAL_PATH_bak" || die "Failed to rename $LOCAL_PATH to $LOCAL_PATH_bak"
             #git add .
@@ -93,9 +96,12 @@ push_subtree() {
             #git add . || die "Failed to add changes after submodule sync"
             #git commit -am "Added submodule for $LOCAL_PATH" || die "Failed to commit submodule changes"
         fi
+<<<<<<< HEAD:git_push_subtree.sh
 =======
     #    fi
 >>>>>>> b1ca4c93 (Squashed 'bashscripts/' changes from c21599d..019cc70)
+=======
+>>>>>>> 23b8d6b6 (.):bashscripts/git_push_subtree.sh
     fi
 
 
