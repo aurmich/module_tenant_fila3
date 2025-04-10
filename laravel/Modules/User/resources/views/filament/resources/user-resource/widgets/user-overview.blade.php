@@ -9,6 +9,10 @@
             //     'get_class_methods' => get_class_methods($this),
             // ]);
         @endphp
+<<<<<<< HEAD:laravel/Modules/User_bak/resources/views/filament/resources/user-resource/widgets/user-overview.blade.php
+        
+=======
         {{ $record->name ?? 'Utente' }}
+>>>>>>> 1db18947ce600c11b19f8ed6a94168595ad573cf:resources/views/filament/resources/user-resource/widgets/user-overview.blade.php
     </x-filament::card>
 </x-filament::widget>

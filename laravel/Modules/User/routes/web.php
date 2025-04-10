@@ -65,7 +65,7 @@ Route::namespace('\\')
 */
 
 if (XotData::make()->register_pub_theme) {
-    require 'web_tall.php';
+  //  require 'web_tall.php';
 } else {
     Route::get('/login', static fn () => redirect('/admin/login'))->name('login');
 }

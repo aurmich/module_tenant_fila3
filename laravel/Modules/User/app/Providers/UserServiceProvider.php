@@ -8,13 +8,18 @@ declare(strict_types=1);
 
 namespace Modules\User\Providers;
 
+use Filament\Facades\Filament;
 use Illuminate\Auth\Notifications\ResetPassword;
 use Illuminate\Auth\Notifications\VerifyEmail;
 use Illuminate\Notifications\Messages\MailMessage;
 use Illuminate\Support\Facades\Config;
 use Illuminate\Support\Facades\Gate;
+use Illuminate\Support\Facades\Blade;
+use Illuminate\Support\ServiceProvider;
 use Illuminate\Validation\Rules\Password;
 use Laravel\Passport\Passport;
+use Livewire\Livewire;
+use Modules\User\Livewire\RegistrationForm;
 use Modules\User\Datas\PasswordData;
 use Modules\User\Models\OauthAccessToken;
 use Modules\User\Models\OauthAuthCode;
@@ -39,6 +44,13 @@ class UserServiceProvider extends XotBaseServiceProvider
         $this->registerPasswordRules();
         $this->registerPulse();
         $this->registerMailsNotification();
+        $this->registerFilamentWidgets();
+    }
+
+    public function registerFilamentWidgets(): void
+    {
+        // Registrazione dei componenti Livewire
+        // Livewire::component('modules.user.app.livewire.registration-form', RegistrationForm::class);
     }
 
     public function registerMailsNotification(): void
@@ -96,7 +108,7 @@ class UserServiceProvider extends XotBaseServiceProvider
 
     protected function registerEventListener(): void
     {
-        $this->app->register(EventServiceProvider::class);
+       // $this->app->register(EventServiceProvider::class);
     }
 
     private function registerSocialite(): void
