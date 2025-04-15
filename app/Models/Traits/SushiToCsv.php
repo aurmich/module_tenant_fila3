@@ -23,12 +23,17 @@ trait SushiToCsv
     {
         // return CSV::fromFile(__DIR__.'/roles.csv')->toArray();
         // load the CSV document from a file path
+<<<<<<< HEAD
         $csv = Reader::createFromPath($this->getCsvPath(), 'r');
         // $csv->setDelimiter(';');
         $csv->setHeaderOffset(0);
         // returns all the records as
         $records = $csv->getRecords(); // an Iterator object containing arrays
         // $records = $csv->getRecordsAsObject(MyDTO::class); // an Iterator object containing MyDTO objects
+=======
+        $csv = $this->getCsvPath();
+        $records = $csv->getRecords();
+>>>>>>> origin/dev
         $rows = iterator_to_array($records);
         $rows = array_values($rows);
 
@@ -95,7 +100,10 @@ trait SushiToCsv
                 $new = array_merge($rows[$id], $model->toArray());
                 $rows[$id] = $new;
                 $dataArray = array_values($rows);
+<<<<<<< HEAD
                 // $header=$model->getCsvHeader();
+=======
+>>>>>>> origin/dev
                 $header = array_keys($new);
                 $writer = Writer::createFromPath($model->getCsvPath(), 'w+');
                 $writer->insertOne($header);
