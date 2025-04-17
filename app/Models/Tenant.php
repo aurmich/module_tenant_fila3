@@ -8,9 +8,31 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Modules\User\Models\User;
+use Illuminate\Support\Str;
+use Modules\Xot\Models\BaseModel;
 
 /**
  * Modello Tenant per la gestione multi-tenant dell'applicazione.
+ * 
+ * @property int $id
+ * @property string $name
+ * @property string|null $domain
+ * @property string|null $database
+ * @property string $slug
+ * @property array|null $settings
+ * @property bool $is_active
+ * @property string|null $logo
+ * @property string|null $email
+ * @property string|null $phone
+ * @property string|null $address
+ * @property string|null $city
+ * @property string|null $postal_code
+ * @property string|null $province
+ * @property string|null $country
+ * @property string|null $tax_code
+ * @property string|null $vat_number
+ * @property \Carbon\Carbon|null $created_at
+ * @property \Carbon\Carbon|null $updated_at
  */
 class Tenant extends BaseModel
 {
@@ -63,26 +85,6 @@ class Tenant extends BaseModel
     }
 
     /**
-     * Relazione con i pazienti associati al tenant.
-     *
-     * @return \Illuminate\Database\Eloquent\Relations\HasMany
-     */
-    public function patients(): HasMany
-    {
-        return $this->hasMany(\Modules\Patient\Models\Patient::class);
-    }
-
-    /**
-     * Relazione con gli appuntamenti associati al tenant.
-     *
-     * @return \Illuminate\Database\Eloquent\Relations\HasMany
-     */
-    public function appointments(): HasMany
-    {
-        return $this->hasMany(\Modules\Dental\Models\Appointment::class);
-    }
-
-    /**
      * Verifica se il tenant è attivo.
      *
      * @return bool
@@ -103,7 +105,7 @@ class Tenant extends BaseModel
         $this->attributes['name'] = $value;
         
         if (empty($this->attributes['slug'])) {
-            $this->attributes['slug'] = \Str::slug($value);
+            $this->attributes['slug'] = Str::slug($value);
         }
     }
 
