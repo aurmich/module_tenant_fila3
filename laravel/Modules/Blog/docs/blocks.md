@@ -1,3 +1,0 @@
-## Esempio di Blocchi
-
-wip

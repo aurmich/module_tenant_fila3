@@ -1,8 +1,0 @@
-le cartelle docs dei moduli sono la tua memoria , la cartella docs nella root del progetto ti serve come indice di dove andare a pescare le informazioni, tramite collegamenti bidirezionali , le cartelle docs devi aggiornarle e studiarle di continuo, se ti correggo su qualcosa devi sempre prima aggiornare la cartella docs del modulo piu' adatto e i collegamenti bidirezionali sulla cartella docs della root , controlla se le cartelle docs dei moduli han quello che ti serve e se son ben collegate con collegamenti bidirezionali ai file adeguati inerenti nella  cartella docs della root 
-
-
-
-
-,phpstan e' gia' installato dentro la cartella laravel e lo esegui con ./vendor/bin/phpstan, non toccare phpstan.neon, correggi tutte le segnalazioni di phpstan a livello 2 su tutto Modules, ogni modulo ha il suo composer.json ,  le classi da registrare dei moduli son dentro la loro cartella app , il namespace non e' Modules\<nome>\app\  ma Modules\<nome>\, procedi nell'ordine che preferisci,   senza MAI fermarti, le priorità e l'ordine di cosa fare prima lo scegli te
-
-procedi con la sistemazione degli errori di phpstan su tutto Modules a livello 9, aiutandoti e aggiornando le cartelle docs 

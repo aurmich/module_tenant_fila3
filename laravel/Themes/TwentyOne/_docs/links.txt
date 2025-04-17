@@ -1,4 +1,0 @@
-https://medium.com/themesberg-blog/how-to-install-flowbite-and-tailwind-css-with-laravel-db9e1711d768
-
-https://larainfo.com/blogs/install-flowbite-tailwind-css-with-laravel-9-vite?utm_content=cmp-true
-

@@ -1,7 +1,0 @@
-trova tutti i file con dentro <<< HEAD, studiali, ragionaci su, trova cartella docs piu' vicina al file da correggere trova la cartella docs 
-nella root del progetto, queste 2 cartelle deve studiarle ed aggiornarle e migliorarle di continuo, poi procedi con implementazione correzione, 
-devi anche creare dei test in pest per sincerarti che la tua correzione funzioni e che il sito continui a funzionare, se non funziona 
-devi studiare la cartella docs, poi implementare soluzione, procedi senza domandarmi nulla, in maniera sistematica , automatica e senza interruzioni 
-
-
-trova i file con dentro "<<<<<<< HEAD"  questi file bisogna correggerli, percio' prendiamo l'occasione di migliorarli , per migliorarli devi aggiornare e studiare la cartella "docs" piu' vicina al file con l'errore e alla cartella "docs" che si trova nella root del progetto che deve contenere i collegamenti bidirezionali ai file aggiornati della cartella docs piu' vicina all'errore, se il file con "<<< HEAD" e' un file .php devi anche validarlo con phpstan che e' gia' installato nella cartella laravel e lo puoi eseguire con ./vendor/bin/phpstan  e devi analizzare il file che hai corretto a livello 9, le tue correzzioni devi prima documentarle dentro la cartella docs piu' vicina all'errore, e poi creare collegamenti bidirezionali verso i file adeguati della cartella docs che si trova nella root del progetto, poi implementi la correzione 

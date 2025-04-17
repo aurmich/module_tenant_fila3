@@ -1,122 +1,57 @@
-# System files
-.DS_Store
-*.exe
-*.swp
-*.swo
-*.lock
-*.log
-*.tmp
-*.old
-*.old1
-*.old2
-*.old3
-*.Zone.Identifier
-
-# Dependency directories
 /vendor/
+vendor/
 node_modules/
-
-# Dependency logs and cache
 npm-debug.log
 *.cache
 *.phar
+*.lock
 package-lock.json
 yarn-error.log
 
-# Build directories
-/build/
-cache/
-tmp/
-
-# Laravel specific files and directories
+# Laravel 4 specific
 bootstrap/compiled.php
 app/storage/
+
+# Laravel 5 & Lumen specific
 public/storage
 public/hot
+
+# Laravel 5 & Lumen specific with changed public path
 public_html/storage
 public_html/hot
-public_html/assets
-public_html/build
-public_html/css
-public_html/js
-public_html/deploy/config.php
-public_html/modules
-public_html/themes
-public_html/uploads
+
 storage/*.key
 .env
-laravel/.env
-laravel/storage/*.key
-laravel/storage/media-library
-laravel/build
-laravel/stubs/
-laravel/composer.phar
-laravel/.phive/
-laravel/app/View/Components/vendor/
-
-# Homestead specific files
 Homestead.yaml
 Homestead.json
 /.vagrant
-
-# PHPUnit specific files
 .phpunit.result.cache
 
-# PHP CS Fixer
-.php-cs-fixer.cache
-
-# Git specific
-.git-blame-ignore-revs
-.git-rewrite/
-
-# temporary files
 *.stackdump
-psalm.xml
-psalm.xml.dist
-testbench.yaml
-
-# IDEs and editor-specific files
-/.idea
-/.vscode
-/.vscode-server
-.phpstorm.meta.php
-_ide_helper.php
-
-# Miscellaneous ignored files
-/uploads
-.gnupg/
-.idea
-.vscode-server
-.vscode/launch.json
-.cache
-.vscode/launch.json
-
-# Miscellaneous ignored files
-uploads
-.gnupg/
-.nodenv
-.phpenv
-.ssh
-/error_docs
-/logs
-docker
-*.lock
+*.log
 .git-rewrite
-uploads
-laravel/stubs/
-laravel/composer.phar
-/public_html/css
-/public_html/js
-/public_html/deploy/config.php
-/public_html/storage
-public_html/modules
-public_html/themes
-/cache
-/tmp
-laravel/.phive/
-laravel/app/View/Components/vendor/
-*.phar
-public_html/uploads/
-laravel/storage/views/*
-views
-laravel/storage/framework/sessions/*
+/docs/package-lock.json
+/build
+.git-blame-ignore-revs
+.php-cs-fixer.cache
+.git-rewrite/
+.php-cs-fixer.cache
+node_modules
+.git-blame-ignore-revs
+.git-blame-ignore-revs
+node_modules
+vendor
+build/
+vendor/
+build/
+node_modules
+./node_modules/
+node_modules/
+node_modules/*
+docs/cache/
+cache/
+.git-blame-ignore-revs
+.php-cs-fixer.cache
+*.exe
+*:Zone.Identifier
+*:Zone.Identifier
