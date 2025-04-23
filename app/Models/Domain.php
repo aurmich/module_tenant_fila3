@@ -12,6 +12,7 @@ use Sushi\Sushi;
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
  * Modello per la gestione dei domini tenant.
  *
  * @property int|null $id
@@ -44,18 +45,24 @@ use Sushi\Sushi;
 >>>>>>> ad1566e (fix: auto resolve conflict)
 =======
 =======
+=======
+>>>>>>> 7afe333 (.)
  * Modello per la gestione dei domini tenant.
  *
  * @property int|null $id
  * @property string|null $name
  *
+<<<<<<< HEAD
 >>>>>>> 7e34c9c (.)
 >>>>>>> 09932dc (fix: auto resolve conflict)
+=======
+>>>>>>> 7afe333 (.)
  * @method static \Illuminate\Database\Eloquent\Builder|Domain newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|Domain newQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|Domain query()
  * @method static \Illuminate\Database\Eloquent\Builder|Domain whereId($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Domain whereName($value)
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -84,12 +91,15 @@ use Sushi\Sushi;
 =======
 =======
 >>>>>>> 7e34c9c (.)
+=======
+>>>>>>> 7afe333 (.)
  *
  * @property-read \Modules\Broker\Models\Profile|null $creator
  * @property-read \Modules\Broker\Models\Profile|null $updater
  *
  * @method static \Modules\Tenant\Database\Factories\DomainFactory factory($count = null, $state = [])
  *
+<<<<<<< HEAD
 <<<<<<< HEAD
 >>>>>>> 9f73f2a (.)
 >>>>>>> de24ed2 (fix: auto resolve conflict)
@@ -99,6 +109,8 @@ use Sushi\Sushi;
 =======
 >>>>>>> 7e34c9c (.)
 >>>>>>> 09932dc (fix: auto resolve conflict)
+=======
+>>>>>>> 7afe333 (.)
  * @mixin \Eloquent
  */
 class Domain extends BaseModel

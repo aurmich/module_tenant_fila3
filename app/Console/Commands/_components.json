@@ -1,6 +1,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 [{"name":"test-command","class":"TestCommand","module":null,"path":null,"ns":"Modules\\Tenant\\Console\\Commands\\TestCommand"}]
 =======
@@ -13,6 +14,8 @@
 =======
 >>>>>>> 7e34c9c (.)
 >>>>>>> 09932dc (fix: auto resolve conflict)
+=======
+>>>>>>> 7afe333 (.)
 [
     {
         "name": "test-command",
@@ -22,6 +25,7 @@
         "ns": "Modules\\Tenant\\Console\\Commands\\TestCommand"
     }
 ]
+<<<<<<< HEAD
 <<<<<<< HEAD
 =======
 [{"name":"test-command","class":"TestCommand","module":null,"path":null,"ns":"Modules\\Tenant\\Console\\Commands\\TestCommand"}]
@@ -36,3 +40,5 @@
 =======
 >>>>>>> 7e34c9c (.)
 >>>>>>> 09932dc (fix: auto resolve conflict)
+=======
+>>>>>>> 7afe333 (.)

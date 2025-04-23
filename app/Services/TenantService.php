@@ -302,6 +302,7 @@ class TenantService
      *                              //    throw new \Exception('panel is null');
      *                              // }
      *                              $with = $panel->with();
+<<<<<<< HEAD
      *                              // $model = $model->load($with);
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -325,6 +326,10 @@ class TenantService
 =======
 >>>>>>> 7e34c9c (.)
 >>>>>>> 09932dc (fix: auto resolve conflict)
+=======
+     *                              $model = $model->load($with);
+     *                              $with = $panel->with;
+>>>>>>> 7afe333 (.)
      *                              $model = $model->with($with);
      *
      * return $model;
@@ -407,16 +412,6 @@ class TenantService
         try {
             /** @var array */
             $json = \Safe\json_decode($contents, true, 512, JSON_THROW_ON_ERROR);
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-            $json = \Safe\json_decode($contents, true, 512, JSON_THROW_ON_ERROR);
-=======
-            $json = json_decode($contents, true, 512, JSON_THROW_ON_ERROR);
->>>>>>> 9f73f2a (.)
->>>>>>> de24ed2 (fix: auto resolve conflict)
-=======
->>>>>>> 7e34c9c (.)
         } catch (\Exception $e) {
             throw new \Exception($e->getMessage().'['.$filePath.']['.__LINE__.']['.basename(__FILE__).']');
         }
@@ -437,6 +432,7 @@ class TenantService
     }
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 }
 =======
 }
@@ -444,3 +440,6 @@ class TenantService
 =======
 }
 >>>>>>> 09932dc (fix: auto resolve conflict)
+=======
+}
+>>>>>>> 7afe333 (.)

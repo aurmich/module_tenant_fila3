@@ -4,13 +4,6 @@ declare(strict_types=1);
 
 namespace Modules\Tenant\Actions;
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> de24ed2 (fix: auto resolve conflict)
-=======
->>>>>>> 7e34c9c (.)
 use Illuminate\Support\Collection;
 use Illuminate\Support\Str;
 use Spatie\QueueableAction\QueueableAction;
@@ -18,30 +11,10 @@ use Spatie\QueueableAction\QueueableAction;
 /**
  * Action per ottenere il nome del tenant basato sul server name.
  */
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-=======
-// use Illuminate\Support\Facades\File;
-// use Illuminate\Support\Facades\Storage;
-use Illuminate\Support\Str;
-use Spatie\QueueableAction\QueueableAction;
-
->>>>>>> 9f73f2a (.)
->>>>>>> de24ed2 (fix: auto resolve conflict)
-=======
->>>>>>> 7e34c9c (.)
 class GetTenantNameAction
 {
     use QueueableAction;
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> de24ed2 (fix: auto resolve conflict)
-=======
->>>>>>> 7e34c9c (.)
     /**
      * Esegue l'action per ottenere il nome del tenant.
      *
@@ -49,17 +22,6 @@ class GetTenantNameAction
      */
     public function execute(): string
     {
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-=======
-    public function execute(): string
-    {
-        // $default = env('APP_URL');
->>>>>>> 9f73f2a (.)
->>>>>>> de24ed2 (fix: auto resolve conflict)
-=======
->>>>>>> 7e34c9c (.)
         $default = config('app.url');
         if (! \is_string($default)) {
             $default = 'localhost';
@@ -67,13 +29,6 @@ class GetTenantNameAction
 
         $default = Str::after($default, '//');
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> de24ed2 (fix: auto resolve conflict)
-=======
->>>>>>> 7e34c9c (.)
         $server_name = $this->getServerName($default);
         $server_name = Str::of($server_name)->replace('www.', '')->toString();
 
@@ -118,61 +73,10 @@ class GetTenantNameAction
     {
         if (isset($_SERVER['SERVER_NAME']) && $_SERVER['SERVER_NAME'] !== '127.0.0.1' && is_string($_SERVER['SERVER_NAME'])) {
             return $_SERVER['SERVER_NAME'];
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-=======
-        $server_name = $default;
-        if (isset($_SERVER['SERVER_NAME']) && $_SERVER['SERVER_NAME'] !== '127.0.0.1') {
-            // $server_name = $_SERVER['HTTP_HOST'] ?? $_SERVER['SERVER_NAME'];
-            $server_name = $_SERVER['SERVER_NAME'];
-        }
-        if (! is_string($server_name)) {
-            $server_name = $default;
-        }
-        $server_name = Str::of($server_name)->replace('www.', '')->toString();
-
-        $tmp = collect(explode('.', $server_name))
-            ->map(
-                static fn ($item) => Str::slug($item)
-            )->reverse()
-            ->values();
-
-        $config_file = config_path($tmp->implode(\DIRECTORY_SEPARATOR));
-
-        if (file_exists($config_file)) {
-            return $tmp->implode('/');
-        }
-
-        $config_file = config_path($tmp->slice(0, -1)->implode(\DIRECTORY_SEPARATOR));
-        if (file_exists($config_file) && $tmp->count() > 2) {
-            return $tmp->slice(0, -1)->implode('/');
-        }
-
-        // default
-
-        $default = str_replace('.', '/', $default);
-        if (! file_exists(base_path('config/'.$default))) {
-            return 'localhost';
-        }
-
-        if ($default === '') {
-            return 'localhost';
->>>>>>> 9f73f2a (.)
->>>>>>> de24ed2 (fix: auto resolve conflict)
-=======
->>>>>>> 7e34c9c (.)
         }
 
         return $default;
     }
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> de24ed2 (fix: auto resolve conflict)
-=======
->>>>>>> 7e34c9c (.)
 
     /**
      * Costruisce il percorso di configurazione.
@@ -184,12 +88,4 @@ class GetTenantNameAction
     {
         return config_path($parts->implode(DIRECTORY_SEPARATOR));
     }
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-=======
->>>>>>> 9f73f2a (.)
->>>>>>> de24ed2 (fix: auto resolve conflict)
-=======
->>>>>>> 7e34c9c (.)
 }

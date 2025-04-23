@@ -5,6 +5,7 @@ declare(strict_types=1);
 use Rector\Config\RectorConfig;
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 <<<<<<< HEAD
 =======
@@ -20,13 +21,17 @@ use Rector\Set\ValueObject\LevelSetList;
 =======
 >>>>>>> 7e34c9c (.)
 >>>>>>> 09932dc (fix: auto resolve conflict)
+=======
+use Rector\PHPUnit\Set\PHPUnitLevelSetList;
+use Rector\Set\ValueObject\LevelSetList;
+>>>>>>> 7afe333 (.)
 use Rector\Set\ValueObject\SetList;
 use Rector\Laravel\Set\LaravelSetList;
 use Rector\Laravel\Rector\ClassMethod\RedirectRouteToToRouteHelperRector;
 
 return static function (RectorConfig $rectorConfig): void {
     // Paths da analizzare
-    safe_object_call($rectorConfig, 'paths', [
+    $rectorConfig->paths([
         __DIR__.'/Actions',
         __DIR__.'/Casts',
         __DIR__.'/Facades',
@@ -34,28 +39,34 @@ return static function (RectorConfig $rectorConfig): void {
     ]);
 
     // Files e cartelle da ignorare
-    safe_object_call($rectorConfig, 'skip', [
+    $rectorConfig->skip([
         __DIR__.'/vendor',
         __DIR__.'/database',
         __DIR__.'/resources',
         __DIR__.'/node_modules',
+        '*/docs',
+        './vendor/',
     ]);
 
     // Regole specifiche
-    safe_object_call($rectorConfig, 'rule', RedirectRouteToToRouteHelperRector::class);
+    $rectorConfig->rule(RedirectRouteToToRouteHelperRector::class);
 
     // Set di regole da applicare
-    safe_object_call($rectorConfig, 'sets', [
+    $rectorConfig->sets([
         SetList::DEAD_CODE,
         SetList::CODE_QUALITY,
         SetList::CODING_STYLE,
         SetList::EARLY_RETURN,
+        SetList::TYPE_DECLARATION,
+        PHPUnitLevelSetList::UP_TO_PHPUNIT_100,
+        LevelSetList::UP_TO_PHP_81,
         LaravelSetList::LARAVEL_90,
         LaravelSetList::LARAVEL_CODE_QUALITY,
         LaravelSetList::LARAVEL_ARRAY_STR_FUNCTIONS_TO_STATIC_CALL,
     ]);
 
     // Importa i nomi
+<<<<<<< HEAD
     safe_object_call($rectorConfig, 'importNames');
 
     // register a single rule
@@ -136,4 +147,12 @@ return static function (RectorConfig $rectorConfig): void {
 =======
 >>>>>>> de24ed2 (fix: auto resolve conflict)
 >>>>>>> ad1566e (fix: auto resolve conflict)
+=======
+    $rectorConfig->importNames();
+
+    // Altri set commentati per riferimento futuro
+    // SetList::NAMING, //problemi con injuction
+    // SetList::PRIVATIZATION,//problemi con final
+    // SetList::INSTANCEOF,
+>>>>>>> 7afe333 (.)
 };

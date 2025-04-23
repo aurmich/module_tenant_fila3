@@ -1,7 +1,7 @@
 <?php
 
 /**
- * @see https://dev.to/hasanmn/automatically-update-createdby-and-updatedby-in-laravel-using-bootable-traits-28g9.
+ * Trait per la gestione di modelli Eloquent con dati persistiti in file JSON.
  */
 
 declare(strict_types=1);
@@ -29,16 +29,6 @@ trait SushiToJsons
             $json = File::json($file);
             $item = [];
             foreach ($this->schema ?? [] as $name => $type) {
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-            foreach ($this->schema ?? [] as $name => $type) {
-=======
-            foreach ($this->schema as $name => $type) {
->>>>>>> 9f73f2a (.)
->>>>>>> de24ed2 (fix: auto resolve conflict)
-=======
->>>>>>> 7e34c9c (.)
                 $value = $json[$name] ?? null;
                 if (is_array($value)) {
                     $value = json_encode($value, JSON_PRETTY_PRINT);
@@ -51,6 +41,11 @@ trait SushiToJsons
         return $rows;
     }
 
+    /**
+     * Ottiene il percorso completo del file JSON per questo modello.
+     *
+     * @throws \Exception Se la chiave o il nome della tabella non sono stringhe valide
+     */
     public function getJsonFile(): string
     {
         Assert::string($tbl = $this->getTable());
@@ -64,13 +59,14 @@ trait SushiToJsons
     }
 
     /**
-     * bootUpdater function.
+     * Inizializza il trait Updater.
+     * Configura gli eventi del modello per la gestione dei dati JSON.
      */
     protected static function bootSushiToJsons(): void
     {
         /*
-         * During a model create Eloquent will also update the updated_at field so
-         * need to have the updated_by field here as well.
+         * Durante la creazione di un modello, Eloquent aggiorna anche il campo updated_at,
+         * quindi è necessario gestire anche il campo updated_by.
          */
         static::creating(
             function ($model): void {
@@ -82,6 +78,7 @@ trait SushiToJsons
                 $data = $model->toArray();
                 $item = [];
                 if (! is_iterable($model->schema)) {
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -119,6 +116,11 @@ trait SushiToJsons
                 foreach ($model->schema as $name => $type) {
 >>>>>>> 7e34c9c (.)
 >>>>>>> 09932dc (fix: auto resolve conflict)
+=======
+                    throw new \Exception('Schema not iterable');
+                }
+                foreach ($model->schema ?? [] as $name => $type) {
+>>>>>>> 7afe333 (.)
                     $value = $data[$name] ?? null;
                     $item[$name] = $value;
                 }
@@ -130,8 +132,9 @@ trait SushiToJsons
                 File::put($file, $content);
             }
         );
+
         /*
-         * updating.
+         * Aggiornamento del modello.
          */
         static::updating(
             function ($model): void {
@@ -142,20 +145,14 @@ trait SushiToJsons
                 File::put($file, $content);
             }
         );
-        // -------------------------------------------------------------------------------------
-        /*
-         * Deleting a model is slightly different than creating or deleting.
-         * For deletes we need to save the model first with the deleted_by field
-        */
 
+        /*
+         * Eliminazione del modello.
+         */
         static::deleting(
             function ($model): void {
                 unlink($model->getJsonFile());
             }
         );
-
-        // ----------------------
     }
-
-    // end function boot
-}// end trait Updater
+}

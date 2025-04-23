@@ -26,6 +26,7 @@ trait SushiToCsv
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
         $csv = Reader::createFromPath($this->getCsvPath(), 'r');
         // $csv->setDelimiter(';');
         $csv->setHeaderOffset(0);
@@ -48,12 +49,15 @@ trait SushiToCsv
 =======
 =======
 >>>>>>> 7e34c9c (.)
+=======
+>>>>>>> 7afe333 (.)
         $csv = Reader::createFromPath($this->getCsvPath(), 'r');
         // $csv->setDelimiter(';');
         $csv->setHeaderOffset(0);
         // returns all the records as
         $records = $csv->getRecords(); // an Iterator object containing arrays
         // $records = $csv->getRecordsAsObject(MyDTO::class); // an Iterator object containing MyDTO objects
+<<<<<<< HEAD
 <<<<<<< HEAD
 >>>>>>> 9f73f2a (.)
 >>>>>>> de24ed2 (fix: auto resolve conflict)
@@ -63,6 +67,8 @@ trait SushiToCsv
 =======
 >>>>>>> 7e34c9c (.)
 >>>>>>> 09932dc (fix: auto resolve conflict)
+=======
+>>>>>>> 7afe333 (.)
         $rows = iterator_to_array($records);
         $rows = array_values($rows);
 
@@ -129,16 +135,6 @@ trait SushiToCsv
                 $new = array_merge($rows[$id], $model->toArray());
                 $rows[$id] = $new;
                 $dataArray = array_values($rows);
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-=======
-                // $header=$model->getCsvHeader();
->>>>>>> 9f73f2a (.)
->>>>>>> de24ed2 (fix: auto resolve conflict)
-=======
->>>>>>> 7e34c9c (.)
                 $header = array_keys($new);
                 $writer = Writer::createFromPath($model->getCsvPath(), 'w+');
                 $writer->insertOne($header);
