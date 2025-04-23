@@ -302,34 +302,9 @@ class TenantService
      *                              //    throw new \Exception('panel is null');
      *                              // }
      *                              $with = $panel->with();
-<<<<<<< HEAD
      *                              // $model = $model->load($with);
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-     *                              $with = $panel->with;
->>>>>>> 9ca9877 (Merge remote-tracking branch 'origin/dev' into dev)
-=======
-=======
->>>>>>> 09932dc (fix: auto resolve conflict)
-     *                              $with = $panel->with;
-=======
-<<<<<<< HEAD
-     *                              $with = $panel->with;
-=======
->>>>>>> 9f73f2a (.)
->>>>>>> de24ed2 (fix: auto resolve conflict)
-<<<<<<< HEAD
->>>>>>> ad1566e (fix: auto resolve conflict)
-=======
-=======
->>>>>>> 7e34c9c (.)
->>>>>>> 09932dc (fix: auto resolve conflict)
-=======
      *                              $model = $model->load($with);
      *                              $with = $panel->with;
->>>>>>> 7afe333 (.)
      *                              $model = $model->with($with);
      *
      * return $model;
@@ -430,16 +405,4 @@ class TenantService
 
         return $modules;
     }
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
 }
-=======
-}
->>>>>>> 9ca9877 (Merge remote-tracking branch 'origin/dev' into dev)
-=======
-}
->>>>>>> 09932dc (fix: auto resolve conflict)
-=======
-}
->>>>>>> 7afe333 (.)

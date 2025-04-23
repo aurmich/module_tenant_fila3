@@ -14,6 +14,7 @@ use Webmozart\Assert\Assert;
 
 use function Safe\json_encode;
 use function Safe\unlink;
+use function Modules\Xot\Helpers\Helper\authId;
 
 trait SushiToJsons
 {
@@ -78,49 +79,9 @@ trait SushiToJsons
                 $data = $model->toArray();
                 $item = [];
                 if (! is_iterable($model->schema)) {
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-                    throw new \Exception('Schema not iterable');
-                }
-                foreach ($model->schema as $name => $type) {
-=======
                     throw new \Exception('Schema not found');
                 }
                 foreach ($model->schema ?? [] as $name => $type) {
->>>>>>> 9ca9877 (Merge remote-tracking branch 'origin/dev' into dev)
-=======
-=======
->>>>>>> 09932dc (fix: auto resolve conflict)
-                    throw new \Exception('Schema not found');
-                }
-                foreach ($model->schema ?? [] as $name => $type) {
-=======
-<<<<<<< HEAD
-                    throw new \Exception('Schema not found');
-                }
-                foreach ($model->schema ?? [] as $name => $type) {
-=======
-                    throw new \Exception('Schema not iterable');
-                }
-                foreach ($model->schema as $name => $type) {
->>>>>>> 9f73f2a (.)
->>>>>>> de24ed2 (fix: auto resolve conflict)
-<<<<<<< HEAD
->>>>>>> ad1566e (fix: auto resolve conflict)
-=======
-=======
-                    throw new \Exception('Schema not iterable');
-                }
-                foreach ($model->schema as $name => $type) {
->>>>>>> 7e34c9c (.)
->>>>>>> 09932dc (fix: auto resolve conflict)
-=======
-                    throw new \Exception('Schema not iterable');
-                }
-                foreach ($model->schema ?? [] as $name => $type) {
->>>>>>> 7afe333 (.)
                     $value = $data[$name] ?? null;
                     $item[$name] = $value;
                 }

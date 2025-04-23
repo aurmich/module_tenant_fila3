@@ -3,28 +3,8 @@
 declare(strict_types=1);
 
 use Rector\Config\RectorConfig;
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> de24ed2 (fix: auto resolve conflict)
->>>>>>> ad1566e (fix: auto resolve conflict)
-use Rector\Core\Configuration\Option;
 use Rector\PHPUnit\Set\PHPUnitLevelSetList;
 use Rector\Set\ValueObject\LevelSetList;
-<<<<<<< HEAD
->>>>>>> 9ca9877 (Merge remote-tracking branch 'origin/dev' into dev)
-=======
-=======
->>>>>>> 7e34c9c (.)
->>>>>>> 09932dc (fix: auto resolve conflict)
-=======
-use Rector\PHPUnit\Set\PHPUnitLevelSetList;
-use Rector\Set\ValueObject\LevelSetList;
->>>>>>> 7afe333 (.)
 use Rector\Set\ValueObject\SetList;
 use Rector\Laravel\Set\LaravelSetList;
 use Rector\Laravel\Rector\ClassMethod\RedirectRouteToToRouteHelperRector;
@@ -66,93 +46,10 @@ return static function (RectorConfig $rectorConfig): void {
     ]);
 
     // Importa i nomi
-<<<<<<< HEAD
-    safe_object_call($rectorConfig, 'importNames');
-
-    // register a single rule
-    // $rectorConfig->rule(InlineConstructorDefaultToPropertyRector::class);
-    // $rectorConfig->rule(RedirectRouteToToRouteHelperRector::class);
-
-    // define sets of rules
-    // $rectorConfig->sets(
-    //     [
-    //         PHPUnitLevelSetList::UP_TO_PHPUNIT_100,
-    //         // SetList::DEAD_CODE,
-    //         // SetList::CODE_QUALITY,
-    //         LevelSetList::UP_TO_PHP_81,
-    //         LaravelSetList::LARAVEL_100,
-
-    //         // SetList::NAMING, //problemi con injuction
-    //         SetList::TYPE_DECLARATION,
-    //         // SetList::CODING_STYLE,
-    //         // SetList::PRIVATIZATION,//problemi con final
-    //         // SetList::EARLY_RETURN,
-    //         // SetList::INSTANCEOF,
-    //     ]
-    // );
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-=======
-=======
->>>>>>> ad1566e (fix: auto resolve conflict)
-use Rector\PHPUnit\Set\PHPUnitLevelSetList;
-use Rector\Set\ValueObject\LevelSetList;
-use Rector\Set\ValueObject\SetList;
-use RectorLaravel\Rector\MethodCall\RedirectRouteToToRouteHelperRector;
-use RectorLaravel\Set\LaravelSetList;
-
-return static function (RectorConfig $rectorConfig): void {
-    $rectorConfig->paths(
-        [
-            __DIR__,
-        ]
-    );
-
-    $rectorConfig->skip(
-        [
-            '*/docs',
-            '*/vendor',
-            './vendor/',
-        ]
-    );
-
-    // register a single rule
-    // $rectorConfig->rule(InlineConstructorDefaultToPropertyRector::class);
-    $rectorConfig->rule(RedirectRouteToToRouteHelperRector::class);
-
-    // define sets of rules
-    $rectorConfig->sets(
-        [
-            PHPUnitLevelSetList::UP_TO_PHPUNIT_100,
-            // SetList::DEAD_CODE,
-            // SetList::CODE_QUALITY,
-            LevelSetList::UP_TO_PHP_81,
-            LaravelSetList::LARAVEL_100,
-
-            // SetList::NAMING, //problemi con injuction
-            SetList::TYPE_DECLARATION,
-            // SetList::CODING_STYLE,
-            // SetList::PRIVATIZATION,//problemi con final
-            // SetList::EARLY_RETURN,
-            // SetList::INSTANCEOF,
-        ]
-    );
-
-    $rectorConfig->importNames();
->>>>>>> 9f73f2a (.)
-<<<<<<< HEAD
-=======
->>>>>>> 9ca9877 (Merge remote-tracking branch 'origin/dev' into dev)
-=======
->>>>>>> de24ed2 (fix: auto resolve conflict)
->>>>>>> ad1566e (fix: auto resolve conflict)
-=======
     $rectorConfig->importNames();
 
     // Altri set commentati per riferimento futuro
     // SetList::NAMING, //problemi con injuction
     // SetList::PRIVATIZATION,//problemi con final
     // SetList::INSTANCEOF,
->>>>>>> 7afe333 (.)
 };

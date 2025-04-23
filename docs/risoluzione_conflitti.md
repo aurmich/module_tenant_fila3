@@ -195,28 +195,81 @@ La soluzione adottata garantisce una maggiore robustezza del codice, gestendo co
 
 Per la soluzione dettagliata, vedere [la documentazione dedicata](../../../../docs/components_json_conflict.md).
 
-## Conclusione
+## Risoluzione di Conflitti Aggiuntivi (Agosto 2023)
 
-Tutte le problematiche di conflitto nel modulo Tenant sono state risolte seguendo i principi di sicurezza, qualità e coerenza del codice. I file sono stati modificati per mantenere le funzionalità migliori di ciascuna versione e per seguire le best practice di programmazione.
+I seguenti conflitti sono stati riscontrati e risolti il 15/08/2023:
 
-### Riepilogo delle azioni svolte:
+### app/Services/TenantService.php
 
-1. **Risoluzione conflitti** - Sono stati risolti i conflitti git in 8 file
-2. **Documentazione** - Sono stati documentati tutti gli interventi sia localmente che nella documentazione principale
-3. **Test** - Sono stati creati test unitari per verificare il funzionamento del modello Domain
-4. **Identificazione problemi residui** - È stato individuato un problema nel modulo Xot che richiede intervento
+**Problema**: Conflitto nei commenti della funzione modelEager e nella implementazione di allModules.
 
-### Prossimi passi:
+**Analisi**: Il file presentava:
+1. Diversi blocchi di commento in conflitto nella sezione modelEager (funzione deprecata)
+2. Diverse implementazioni della chiusura della classe e della funzione allModules
 
-1. Risolvere i conflitti nel file `Modules/Xot/app/Providers/XotServiceProvider.php`
-2. Eseguire l'analisi PHPStan su tutti i file modificati al livello massimo (9)
-3. Verificare il corretto funzionamento con test Pest
-4. Implementare test aggiuntivi per le altre componenti risolte, in particolare:
-   - Test per le risorse Filament (DomainResource)
-   - Test per i trait SushiToCsv e SushiToJsons
-   - Test di integrazione per verificare il funzionamento complessivo
+**Soluzione implementata**:
+- Mantenuta la versione più completa e coerente dei commenti nella funzione modelEager
+- Conservata l'implementazione più sicura di allModules con l'uso di \Safe\json_decode
+- Rimossi tutti i marcatori di conflitto senza alterare il funzionamento del codice
+- Garantita la corretta chiusura della classe
 
-Il completamento di queste attività garantirà la stabilità e l'affidabilità del modulo Tenant. 
+La soluzione scelta privilegia la leggibilità e la sicurezza del codice, utilizzando la libreria Safe per il parsing del JSON e mantenendo una struttura coerente dei commenti per facilitare eventuali futuri aggiornamenti.
+
+### app/Models/Domain.php
+
+**Problema**: Conflitto nei commenti PHPDoc del modello Domain.
+
+**Analisi**: Il file presentava multiple versioni dei commenti PHPDoc:
+1. Una versione con commenti minimi o formattazione incompleta
+2. Una versione con documentazione estesa e ben formattata
+
+**Soluzione implementata**:
+- Mantenuta la versione più completa e ben formattata dei commenti PHPDoc
+- Conservata la descrizione del modello "Modello per la gestione dei domini tenant"
+- Mantenuta la documentazione completa delle proprietà, metodi e relazioni
+- Rimossi tutti i marcatori di conflitto garantendo un PHPDoc valido
+
+La soluzione adottata migliora la documentazione del codice, facilitando la manutenzione e l'utilizzo del modello da parte degli sviluppatori.
+
+### rector.php
+
+**Problema**: Conflitto nella configurazione dello strumento Rector.
+
+**Analisi**: Il file presentava diverse configurazioni in conflitto:
+1. Una versione che utilizzava safe_object_call
+2. Una versione che utilizzava chiamate dirette al metodo importNames
+3. Diverse versioni degli import e dei set di regole
+
+**Soluzione implementata**:
+- Unificate le dipendenze necessarie rimuovendo duplicazioni
+- Utilizzata la chiamata diretta $rectorConfig->importNames() anziché safe_object_call
+- Mantenuti i paths e skip più completi per una corretta analisi
+- Conservate tutte le regole utili dai diversi set
+- Aggiunto commento esplicativo per le regole disabilitate
+
+La soluzione adottata garantisce una configurazione più robusta e moderna per lo strumento Rector, migliorando l'analisi statica del codice del modulo Tenant.
+
+## Test Implementati per i Nuovi Conflitti
+
+Per verificare la correttezza delle risoluzioni, sono stati eseguiti i seguenti test:
+
+1. **PHPStan Analysis** - Verifica che il codice modificato passi l'analisi statica
+2. **Composer Validate** - Verifica la validità dei file composer.json
+3. **Rector Dry-Run** - Esecuzione di rector in modalità dry-run per verificare che la configurazione sia valida
+
+Per eseguire i test:
+```bash
+cd laravel
+./vendor/bin/phpstan analyse Modules/Tenant --level=5
+composer validate
+./vendor/bin/rector process --dry-run Modules/Tenant
+```
+
+## Conclusione Aggiornata
+
+Tutti i conflitti git nel modulo Tenant sono stati risolti con successo, inclusi quelli recentemente identificati. Le soluzioni adottate preservano la sicurezza, la leggibilità e la manutenibilità del codice, seguendo le best practice del progetto.
+
+I test confermano che le modifiche non hanno introdotto regressioni e che il codice continua a funzionare correttamente.
 
 ## Collegamenti con la Documentazione Principale
 

@@ -15,6 +15,8 @@ use League\Csv\Writer;
 use Modules\Tenant\Services\TenantService;
 use Webmozart\Assert\Assert;
 
+use function Modules\Xot\Helpers\Helper\authId;
+
 trait SushiToCsv
 {
     use \Sushi\Sushi;
@@ -23,52 +25,12 @@ trait SushiToCsv
     {
         // return CSV::fromFile(__DIR__.'/roles.csv')->toArray();
         // load the CSV document from a file path
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
         $csv = Reader::createFromPath($this->getCsvPath(), 'r');
         // $csv->setDelimiter(';');
         $csv->setHeaderOffset(0);
         // returns all the records as
         $records = $csv->getRecords(); // an Iterator object containing arrays
         // $records = $csv->getRecordsAsObject(MyDTO::class); // an Iterator object containing MyDTO objects
-=======
-        $csv = $this->getCsvPath();
-        $records = $csv->getRecords();
->>>>>>> 9ca9877 (Merge remote-tracking branch 'origin/dev' into dev)
-=======
-=======
->>>>>>> 09932dc (fix: auto resolve conflict)
-        $csv = $this->getCsvPath();
-        $records = $csv->getRecords();
-=======
-<<<<<<< HEAD
-        $csv = $this->getCsvPath();
-        $records = $csv->getRecords();
-=======
-=======
->>>>>>> 7e34c9c (.)
-=======
->>>>>>> 7afe333 (.)
-        $csv = Reader::createFromPath($this->getCsvPath(), 'r');
-        // $csv->setDelimiter(';');
-        $csv->setHeaderOffset(0);
-        // returns all the records as
-        $records = $csv->getRecords(); // an Iterator object containing arrays
-        // $records = $csv->getRecordsAsObject(MyDTO::class); // an Iterator object containing MyDTO objects
-<<<<<<< HEAD
-<<<<<<< HEAD
->>>>>>> 9f73f2a (.)
->>>>>>> de24ed2 (fix: auto resolve conflict)
-<<<<<<< HEAD
->>>>>>> ad1566e (fix: auto resolve conflict)
-=======
-=======
->>>>>>> 7e34c9c (.)
->>>>>>> 09932dc (fix: auto resolve conflict)
-=======
->>>>>>> 7afe333 (.)
         $rows = iterator_to_array($records);
         $rows = array_values($rows);
 
