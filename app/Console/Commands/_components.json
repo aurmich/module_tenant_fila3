@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 [
     {
         "name": "test-command",
@@ -7,3 +8,6 @@
         "ns": "Modules\\Tenant\\Console\\Commands\\TestCommand"
     }
 ]
+=======
+[{"name":"test-command","class":"TestCommand","module":null,"path":null,"ns":"Modules\\Tenant\\Console\\Commands\\TestCommand"}]
+>>>>>>> aurmich/dev
