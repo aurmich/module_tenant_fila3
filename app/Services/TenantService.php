@@ -303,6 +303,10 @@ class TenantService
      *                              // }
      *                              $with = $panel->with();
      *                              // $model = $model->load($with);
+<<<<<<< HEAD
+=======
+     *                              $with = $panel->with;
+>>>>>>> 9ca9877 (Merge remote-tracking branch 'origin/dev' into dev)
      *                              $model = $model->with($with);
      *
      * return $model;
@@ -403,4 +407,8 @@ class TenantService
 
         return $modules;
     }
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> 9ca9877 (Merge remote-tracking branch 'origin/dev' into dev)

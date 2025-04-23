@@ -72,9 +72,15 @@ trait SushiToJsons
                 $data = $model->toArray();
                 $item = [];
                 if (! is_iterable($model->schema)) {
+<<<<<<< HEAD
                     throw new \Exception('Schema not iterable');
                 }
                 foreach ($model->schema as $name => $type) {
+=======
+                    throw new \Exception('Schema not found');
+                }
+                foreach ($model->schema ?? [] as $name => $type) {
+>>>>>>> 9ca9877 (Merge remote-tracking branch 'origin/dev' into dev)
                     $value = $data[$name] ?? null;
                     $item[$name] = $value;
                 }

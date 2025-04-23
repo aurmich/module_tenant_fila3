@@ -3,6 +3,12 @@
 declare(strict_types=1);
 
 use Rector\Config\RectorConfig;
+<<<<<<< HEAD
+=======
+use Rector\Core\Configuration\Option;
+use Rector\PHPUnit\Set\PHPUnitLevelSetList;
+use Rector\Set\ValueObject\LevelSetList;
+>>>>>>> 9ca9877 (Merge remote-tracking branch 'origin/dev' into dev)
 use Rector\Set\ValueObject\SetList;
 use Rector\Laravel\Set\LaravelSetList;
 use Rector\Laravel\Rector\ClassMethod\RedirectRouteToToRouteHelperRector;
@@ -62,6 +68,7 @@ return static function (RectorConfig $rectorConfig): void {
     //         // SetList::INSTANCEOF,
     //     ]
     // );
+<<<<<<< HEAD
 =======
 use Rector\PHPUnit\Set\PHPUnitLevelSetList;
 use Rector\Set\ValueObject\LevelSetList;
@@ -108,4 +115,6 @@ return static function (RectorConfig $rectorConfig): void {
 
     $rectorConfig->importNames();
 >>>>>>> 9f73f2a (.)
+=======
+>>>>>>> 9ca9877 (Merge remote-tracking branch 'origin/dev' into dev)
 };
