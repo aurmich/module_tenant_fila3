@@ -5,6 +5,11 @@ declare(strict_types=1);
 use Rector\Config\RectorConfig;
 <<<<<<< HEAD
 =======
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> de24ed2 (fix: auto resolve conflict)
+>>>>>>> ad1566e (fix: auto resolve conflict)
 use Rector\Core\Configuration\Option;
 use Rector\PHPUnit\Set\PHPUnitLevelSetList;
 use Rector\Set\ValueObject\LevelSetList;
@@ -70,6 +75,10 @@ return static function (RectorConfig $rectorConfig): void {
     // );
 <<<<<<< HEAD
 =======
+<<<<<<< HEAD
+=======
+=======
+>>>>>>> ad1566e (fix: auto resolve conflict)
 use Rector\PHPUnit\Set\PHPUnitLevelSetList;
 use Rector\Set\ValueObject\LevelSetList;
 use Rector\Set\ValueObject\SetList;
@@ -115,6 +124,10 @@ return static function (RectorConfig $rectorConfig): void {
 
     $rectorConfig->importNames();
 >>>>>>> 9f73f2a (.)
+<<<<<<< HEAD
 =======
 >>>>>>> 9ca9877 (Merge remote-tracking branch 'origin/dev' into dev)
+=======
+>>>>>>> de24ed2 (fix: auto resolve conflict)
+>>>>>>> ad1566e (fix: auto resolve conflict)
 };

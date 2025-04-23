@@ -24,6 +24,7 @@ trait SushiToCsv
         // return CSV::fromFile(__DIR__.'/roles.csv')->toArray();
         // load the CSV document from a file path
 <<<<<<< HEAD
+<<<<<<< HEAD
         $csv = Reader::createFromPath($this->getCsvPath(), 'r');
         // $csv->setDelimiter(';');
         $csv->setHeaderOffset(0);
@@ -34,6 +35,23 @@ trait SushiToCsv
         $csv = $this->getCsvPath();
         $records = $csv->getRecords();
 >>>>>>> 9ca9877 (Merge remote-tracking branch 'origin/dev' into dev)
+=======
+        $csv = $this->getCsvPath();
+        $records = $csv->getRecords();
+=======
+<<<<<<< HEAD
+        $csv = $this->getCsvPath();
+        $records = $csv->getRecords();
+=======
+        $csv = Reader::createFromPath($this->getCsvPath(), 'r');
+        // $csv->setDelimiter(';');
+        $csv->setHeaderOffset(0);
+        // returns all the records as
+        $records = $csv->getRecords(); // an Iterator object containing arrays
+        // $records = $csv->getRecordsAsObject(MyDTO::class); // an Iterator object containing MyDTO objects
+>>>>>>> 9f73f2a (.)
+>>>>>>> de24ed2 (fix: auto resolve conflict)
+>>>>>>> ad1566e (fix: auto resolve conflict)
         $rows = iterator_to_array($records);
         $rows = array_values($rows);
 
@@ -100,6 +118,13 @@ trait SushiToCsv
                 $new = array_merge($rows[$id], $model->toArray());
                 $rows[$id] = $new;
                 $dataArray = array_values($rows);
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+                // $header=$model->getCsvHeader();
+>>>>>>> 9f73f2a (.)
+>>>>>>> de24ed2 (fix: auto resolve conflict)
                 $header = array_keys($new);
                 $writer = Writer::createFromPath($model->getCsvPath(), 'w+');
                 $writer->insertOne($header);

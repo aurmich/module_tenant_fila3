@@ -1,4 +1,10 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+[{"name":"test-command","class":"TestCommand","module":null,"path":null,"ns":"Modules\\Tenant\\Console\\Commands\\TestCommand"}]
+=======
+<<<<<<< HEAD
+>>>>>>> ad1566e (fix: auto resolve conflict)
 [
     {
         "name": "test-command",
@@ -10,4 +16,9 @@
 ]
 =======
 [{"name":"test-command","class":"TestCommand","module":null,"path":null,"ns":"Modules\\Tenant\\Console\\Commands\\TestCommand"}]
+<<<<<<< HEAD
 >>>>>>> 9ca9877 (Merge remote-tracking branch 'origin/dev' into dev)
+=======
+>>>>>>> 9f73f2a (.)
+>>>>>>> de24ed2 (fix: auto resolve conflict)
+>>>>>>> ad1566e (fix: auto resolve conflict)
