@@ -1,4 +1,64 @@
-# Risoluzione Conflitti Git - Modulo Tenant
+# Risoluzione Conflitti nel Modulo Tenant
+
+Questo documento descrive i conflitti Git risolti nel modulo Tenant, con particolare attenzione ai file critici e alle strutture di namespace.
+
+> Per una panoramica completa della risoluzione dei conflitti in tutto il progetto, consulta il [documento principale sulla risoluzione dei conflitti](/docs/conflict_resolution_ui_tenant.md).
+
+## File Principali con Conflitti
+
+### File di Documentazione PHPStan
+
+#### `docs/phpstan/level_8.md` e altri file di livello PHPStan
+
+**Problema**: I file contenevano marker di conflitto Git e testo non necessario alla fine del file.
+**Soluzione**: Rimossi i marker di conflitto e il testo ridondante, mantenendo il contenuto effettivo dei rapporti PHPStan.
+
+**Ragionamento**: I rapporti PHPStan devono essere puliti e contenere solo le informazioni rilevanti per l'analisi del codice.
+
+#### `docs/phpstan/level_8.json` e altri file JSON
+
+**Problema**: I file JSON presentavano conflitti di formattazione e contenevano marker Git.
+**Soluzione**: Rimossi i marker di conflitto e mantenuto il contenuto JSON valido.
+
+**Ragionamento**: I file JSON devono essere sintatticamente corretti per essere utilizzati dai tool di analisi.
+
+### File di Configurazione
+
+#### `app/Console/Commands/_components.json`
+
+**Problema**: Conflitto nella formattazione del file JSON (versione compatta vs. versione formattata).
+**Soluzione**: Adottata la versione formattata per migliorare la leggibilità.
+
+**Ragionamento**: Un formato JSON più leggibile facilita la manutenzione e la comprensione del file.
+
+## Principi di Risoluzione Adottati
+
+1. **Validità dei file**: Tutti i file JSON e di configurazione devono essere sintatticamente corretti.
+2. **Leggibilità**: Preferire formati più leggibili quando possibile.
+3. **Consistenza**: Mantenere coerenza con gli altri file e moduli del progetto.
+4. **Pulizia**: Rimuovere marker di conflitto e testo non necessario.
+
+## Impatto delle Risoluzioni
+
+Le risoluzioni adottate garantiscono:
+
+1. **Funzionalità corretta**: I file di configurazione JSON sono ora validi e leggibili.
+2. **Documentazione pulita**: I file di documentazione non contengono più marker di conflitto.
+3. **Analisi Statica**: I rapporti PHPStan possono essere letti e interpretati correttamente.
+
+## Raccomandazioni
+
+Per evitare ulteriori conflitti:
+
+1. **Standardizzare la formattazione**: Utilizzare sempre lo stesso formato per file JSON (possibilmente con indentazione).
+2. **Documentare le modifiche**: Aggiungere commenti nei commit per spiegare le modifiche ai file di configurazione.
+3. **Considerare l'utilizzo di tool**: Usare strumenti di formattazione automatica per mantenere uno stile coerente.
+
+## Collegamenti Utili
+
+- [Documentazione Principale Tenant](module_tenant.md)
+- [Rapporti PHPStan](phpstan/)
+- [Panoramica della Risoluzione dei Conflitti](/docs/conflict_resolution_ui_tenant.md)
 
 ## Panoramica
 
