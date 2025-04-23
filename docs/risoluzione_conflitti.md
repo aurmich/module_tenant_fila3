@@ -1,3 +1,9 @@
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+# Risoluzione Conflitti Git - Modulo Tenant
+=======
+>>>>>>> aurmich/dev
 # Risoluzione Conflitti nel Modulo Tenant
 
 Questo documento descrive i conflitti Git risolti nel modulo Tenant, con particolare attenzione ai file critici e alle strutture di namespace.
@@ -59,6 +65,10 @@ Per evitare ulteriori conflitti:
 - [Documentazione Principale Tenant](module_tenant.md)
 - [Rapporti PHPStan](phpstan/)
 - [Panoramica della Risoluzione dei Conflitti](/docs/conflict_resolution_ui_tenant.md)
+<<<<<<< HEAD
+=======
+>>>>>>> aurmich/dev
+>>>>>>> aurmich/dev
 
 ## Panoramica
 
