@@ -305,10 +305,13 @@ class TenantService
      *                              // $model = $model->load($with);
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
      *                              $with = $panel->with;
 >>>>>>> 9ca9877 (Merge remote-tracking branch 'origin/dev' into dev)
 =======
+=======
+>>>>>>> 09932dc (fix: auto resolve conflict)
      *                              $with = $panel->with;
 =======
 <<<<<<< HEAD
@@ -316,7 +319,12 @@ class TenantService
 =======
 >>>>>>> 9f73f2a (.)
 >>>>>>> de24ed2 (fix: auto resolve conflict)
+<<<<<<< HEAD
 >>>>>>> ad1566e (fix: auto resolve conflict)
+=======
+=======
+>>>>>>> 7e34c9c (.)
+>>>>>>> 09932dc (fix: auto resolve conflict)
      *                              $model = $model->with($with);
      *
      * return $model;
@@ -398,8 +406,8 @@ class TenantService
         $contents = File::get($filePath);
         try {
             /** @var array */
-<<<<<<< HEAD
             $json = \Safe\json_decode($contents, true, 512, JSON_THROW_ON_ERROR);
+<<<<<<< HEAD
 =======
 <<<<<<< HEAD
             $json = \Safe\json_decode($contents, true, 512, JSON_THROW_ON_ERROR);
@@ -407,6 +415,8 @@ class TenantService
             $json = json_decode($contents, true, 512, JSON_THROW_ON_ERROR);
 >>>>>>> 9f73f2a (.)
 >>>>>>> de24ed2 (fix: auto resolve conflict)
+=======
+>>>>>>> 7e34c9c (.)
         } catch (\Exception $e) {
             throw new \Exception($e->getMessage().'['.$filePath.']['.__LINE__.']['.basename(__FILE__).']');
         }
@@ -426,7 +436,11 @@ class TenantService
         return $modules;
     }
 <<<<<<< HEAD
+<<<<<<< HEAD
 }
 =======
 }
 >>>>>>> 9ca9877 (Merge remote-tracking branch 'origin/dev' into dev)
+=======
+}
+>>>>>>> 09932dc (fix: auto resolve conflict)

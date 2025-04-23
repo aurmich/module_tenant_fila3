@@ -1,7 +1,10 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 <<<<<<< HEAD
 >>>>>>> de24ed2 (fix: auto resolve conflict)
+=======
+>>>>>>> 7e34c9c (.)
 <?php
 
 return [
@@ -61,6 +64,7 @@ return [
         ],
     ],
 ];
+<<<<<<< HEAD
 <<<<<<< HEAD
 =======
 =======
@@ -142,3 +146,5 @@ return [
 );
 >>>>>>> 9f73f2a (.)
 >>>>>>> de24ed2 (fix: auto resolve conflict)
+=======
+>>>>>>> 7e34c9c (.)

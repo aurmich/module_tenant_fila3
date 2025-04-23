@@ -5,9 +5,12 @@ declare(strict_types=1);
 namespace Modules\Tenant\Actions;
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 <<<<<<< HEAD
 >>>>>>> de24ed2 (fix: auto resolve conflict)
+=======
+>>>>>>> 7e34c9c (.)
 use Illuminate\Support\Collection;
 use Illuminate\Support\Str;
 use Spatie\QueueableAction\QueueableAction;
@@ -15,6 +18,7 @@ use Spatie\QueueableAction\QueueableAction;
 /**
  * Action per ottenere il nome del tenant basato sul server name.
  */
+<<<<<<< HEAD
 <<<<<<< HEAD
 =======
 =======
@@ -25,14 +29,19 @@ use Spatie\QueueableAction\QueueableAction;
 
 >>>>>>> 9f73f2a (.)
 >>>>>>> de24ed2 (fix: auto resolve conflict)
+=======
+>>>>>>> 7e34c9c (.)
 class GetTenantNameAction
 {
     use QueueableAction;
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 <<<<<<< HEAD
 >>>>>>> de24ed2 (fix: auto resolve conflict)
+=======
+>>>>>>> 7e34c9c (.)
     /**
      * Esegue l'action per ottenere il nome del tenant.
      *
@@ -41,6 +50,7 @@ class GetTenantNameAction
     public function execute(): string
     {
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 =======
     public function execute(): string
@@ -48,6 +58,8 @@ class GetTenantNameAction
         // $default = env('APP_URL');
 >>>>>>> 9f73f2a (.)
 >>>>>>> de24ed2 (fix: auto resolve conflict)
+=======
+>>>>>>> 7e34c9c (.)
         $default = config('app.url');
         if (! \is_string($default)) {
             $default = 'localhost';
@@ -56,9 +68,12 @@ class GetTenantNameAction
         $default = Str::after($default, '//');
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 <<<<<<< HEAD
 >>>>>>> de24ed2 (fix: auto resolve conflict)
+=======
+>>>>>>> 7e34c9c (.)
         $server_name = $this->getServerName($default);
         $server_name = Str::of($server_name)->replace('www.', '')->toString();
 
@@ -104,6 +119,7 @@ class GetTenantNameAction
         if (isset($_SERVER['SERVER_NAME']) && $_SERVER['SERVER_NAME'] !== '127.0.0.1' && is_string($_SERVER['SERVER_NAME'])) {
             return $_SERVER['SERVER_NAME'];
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 =======
         $server_name = $default;
@@ -144,14 +160,19 @@ class GetTenantNameAction
             return 'localhost';
 >>>>>>> 9f73f2a (.)
 >>>>>>> de24ed2 (fix: auto resolve conflict)
+=======
+>>>>>>> 7e34c9c (.)
         }
 
         return $default;
     }
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 <<<<<<< HEAD
 >>>>>>> de24ed2 (fix: auto resolve conflict)
+=======
+>>>>>>> 7e34c9c (.)
 
     /**
      * Costruisce il percorso di configurazione.
@@ -164,8 +185,11 @@ class GetTenantNameAction
         return config_path($parts->implode(DIRECTORY_SEPARATOR));
     }
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 =======
 >>>>>>> 9f73f2a (.)
 >>>>>>> de24ed2 (fix: auto resolve conflict)
+=======
+>>>>>>> 7e34c9c (.)
 }

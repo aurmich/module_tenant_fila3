@@ -1,10 +1,18 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 [{"name":"test-command","class":"TestCommand","module":null,"path":null,"ns":"Modules\\Tenant\\Console\\Commands\\TestCommand"}]
 =======
 <<<<<<< HEAD
 >>>>>>> ad1566e (fix: auto resolve conflict)
+=======
+[{"name":"test-command","class":"TestCommand","module":null,"path":null,"ns":"Modules\\Tenant\\Console\\Commands\\TestCommand"}]
+=======
+<<<<<<< HEAD
+=======
+>>>>>>> 7e34c9c (.)
+>>>>>>> 09932dc (fix: auto resolve conflict)
 [
     {
         "name": "test-command",
@@ -14,6 +22,7 @@
         "ns": "Modules\\Tenant\\Console\\Commands\\TestCommand"
     }
 ]
+<<<<<<< HEAD
 =======
 [{"name":"test-command","class":"TestCommand","module":null,"path":null,"ns":"Modules\\Tenant\\Console\\Commands\\TestCommand"}]
 <<<<<<< HEAD
@@ -21,4 +30,9 @@
 =======
 >>>>>>> 9f73f2a (.)
 >>>>>>> de24ed2 (fix: auto resolve conflict)
+<<<<<<< HEAD
 >>>>>>> ad1566e (fix: auto resolve conflict)
+=======
+=======
+>>>>>>> 7e34c9c (.)
+>>>>>>> 09932dc (fix: auto resolve conflict)

@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 use Rector\Config\RectorConfig;
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 <<<<<<< HEAD
 =======
@@ -13,7 +14,12 @@ use Rector\Config\RectorConfig;
 use Rector\Core\Configuration\Option;
 use Rector\PHPUnit\Set\PHPUnitLevelSetList;
 use Rector\Set\ValueObject\LevelSetList;
+<<<<<<< HEAD
 >>>>>>> 9ca9877 (Merge remote-tracking branch 'origin/dev' into dev)
+=======
+=======
+>>>>>>> 7e34c9c (.)
+>>>>>>> 09932dc (fix: auto resolve conflict)
 use Rector\Set\ValueObject\SetList;
 use Rector\Laravel\Set\LaravelSetList;
 use Rector\Laravel\Rector\ClassMethod\RedirectRouteToToRouteHelperRector;
