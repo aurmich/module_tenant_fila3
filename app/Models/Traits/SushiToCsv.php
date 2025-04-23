@@ -15,8 +15,6 @@ use League\Csv\Writer;
 use Modules\Tenant\Services\TenantService;
 use Webmozart\Assert\Assert;
 
-use function Modules\Xot\Helpers\Helper\authId;
-
 trait SushiToCsv
 {
     use \Sushi\Sushi;
@@ -25,12 +23,8 @@ trait SushiToCsv
     {
         // return CSV::fromFile(__DIR__.'/roles.csv')->toArray();
         // load the CSV document from a file path
-        $csv = Reader::createFromPath($this->getCsvPath(), 'r');
-        // $csv->setDelimiter(';');
-        $csv->setHeaderOffset(0);
-        // returns all the records as
-        $records = $csv->getRecords(); // an Iterator object containing arrays
-        // $records = $csv->getRecordsAsObject(MyDTO::class); // an Iterator object containing MyDTO objects
+        $csv = $this->getCsvPath();
+        $records = $csv->getRecords();
         $rows = iterator_to_array($records);
         $rows = array_values($rows);
 

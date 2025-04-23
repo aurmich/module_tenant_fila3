@@ -35,9 +35,6 @@ return [
         'rating' => [
             'label' => 'rating',
         ],
-        'toggleColumns' => [
-            'label' => 'toggleColumns',
-        ],
     ],
     'actions' => [
         'domain_created' => 'Dominio creato con successo',

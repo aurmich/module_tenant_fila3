@@ -108,25 +108,4 @@ composer format        # Formatta il codice
 - Formati data/ora per tenant
 
 ## Changelog
-Le modifiche vengono tracciate nel repository GitHub.
-
-## Risoluzione Conflitti Git
-
-### TenantService.php
-
-Il conflitto nel file `TenantService.php` è stato risolto mantenendo:
-- La versione sicura di json_decode tramite `\Safe\json_decode()`
-- La coerenza nel formato dei commenti nella sezione modelEager (commentata)
-- La rimozione delle duplicazioni di codice
-
-La soluzione adottata privilegia le pratiche di sicurezza utilizzando la libreria `Safe` per le funzioni PHP potenzialmente problematiche, come json_decode, che potrebbe generare errori silenti in caso di JSON malformato.
-
-### GetTenantNameAction.php
-
-Il conflitto nel file `GetTenantNameAction.php` è stato risolto mantenendo:
-- La versione più strutturata e meglio documentata
-- L'implementazione che utilizza metodi di supporto (`getServerName`, `buildConfigPath`) per una migliore leggibilità del codice
-- Le tipizzazioni corrette per i parametri e i valori di ritorno
-- La gestione più robusta degli errori e dei casi edge
-
-La soluzione scelta privilegia un approccio orientato alle best practice di programmazione, con una chiara separazione delle responsabilità tra i metodi e una documentazione completa (PHPDoc).
+Le modifiche vengono tracciate nel repository GitHub. 

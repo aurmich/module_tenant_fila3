@@ -303,7 +303,6 @@ class TenantService
      *                              // }
      *                              $with = $panel->with();
      *                              // $model = $model->load($with);
-     *                              $model = $model->load($with);
      *                              $with = $panel->with;
      *                              $model = $model->with($with);
      *

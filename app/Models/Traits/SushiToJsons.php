@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Trait per la gestione di modelli Eloquent con dati persistiti in file JSON.
+ * @see https://dev.to/hasanmn/automatically-update-createdby-and-updatedby-in-laravel-using-bootable-traits-28g9.
  */
 
 declare(strict_types=1);
@@ -14,7 +14,6 @@ use Webmozart\Assert\Assert;
 
 use function Safe\json_encode;
 use function Safe\unlink;
-use function Modules\Xot\Helpers\Helper\authId;
 
 trait SushiToJsons
 {
@@ -42,11 +41,6 @@ trait SushiToJsons
         return $rows;
     }
 
-    /**
-     * Ottiene il percorso completo del file JSON per questo modello.
-     *
-     * @throws \Exception Se la chiave o il nome della tabella non sono stringhe valide
-     */
     public function getJsonFile(): string
     {
         Assert::string($tbl = $this->getTable());
@@ -60,14 +54,13 @@ trait SushiToJsons
     }
 
     /**
-     * Inizializza il trait Updater.
-     * Configura gli eventi del modello per la gestione dei dati JSON.
+     * bootUpdater function.
      */
     protected static function bootSushiToJsons(): void
     {
         /*
-         * Durante la creazione di un modello, Eloquent aggiorna anche il campo updated_at,
-         * quindi è necessario gestire anche il campo updated_by.
+         * During a model create Eloquent will also update the updated_at field so
+         * need to have the updated_by field here as well.
          */
         static::creating(
             function ($model): void {
@@ -93,9 +86,8 @@ trait SushiToJsons
                 File::put($file, $content);
             }
         );
-
         /*
-         * Aggiornamento del modello.
+         * updating.
          */
         static::updating(
             function ($model): void {
@@ -106,14 +98,20 @@ trait SushiToJsons
                 File::put($file, $content);
             }
         );
-
+        // -------------------------------------------------------------------------------------
         /*
-         * Eliminazione del modello.
-         */
+         * Deleting a model is slightly different than creating or deleting.
+         * For deletes we need to save the model first with the deleted_by field
+        */
+
         static::deleting(
             function ($model): void {
                 unlink($model->getJsonFile());
             }
         );
+
+        // ----------------------
     }
-}
+
+    // end function boot
+}// end trait Updater
