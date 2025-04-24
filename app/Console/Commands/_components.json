@@ -1,6 +1,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> aurmich/dev
 =======
@@ -11,6 +12,8 @@
 >>>>>>> aurmich/dev
 >>>>>>> aurmich/dev
 >>>>>>> aurmich/dev
+=======
+>>>>>>> 5873427 (.)
 [
     {
         "name": "test-command",
@@ -19,6 +22,7 @@
         "path": null,
         "ns": "Modules\\Tenant\\Console\\Commands\\TestCommand"
     }
+<<<<<<< HEAD
 ]
 <<<<<<< HEAD
 =======
@@ -35,3 +39,6 @@
 =======
 >>>>>>> aurmich/dev
 >>>>>>> aurmich/dev
+=======
+]
+>>>>>>> 5873427 (.)
