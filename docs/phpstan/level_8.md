@@ -1,9 +1,18 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 =======
+=======
+<<<<<<< HEAD
+>>>>>>> aurmich/dev
+<<<<<<< HEAD
+=======
 
 >>>>>>> aurmich/dev
 =======
+>>>>>>> aurmich/dev
+<<<<<<< HEAD
+=======
+>>>>>>> aurmich/dev
 >>>>>>> aurmich/dev
 # Rapporto PHPStan Livello 8 per il modulo Tenant
 
@@ -41,7 +50,16 @@ Trovati 2 errori al livello 8.
 <<<<<<< HEAD
 <<<<<<< HEAD
 =======
+=======
+<<<<<<< HEAD
+>>>>>>> aurmich/dev
+<<<<<<< HEAD
+=======
 aurmich/dev
 >>>>>>> aurmich/dev
 =======
+>>>>>>> aurmich/dev
+<<<<<<< HEAD
+=======
+>>>>>>> aurmich/dev
 >>>>>>> aurmich/dev

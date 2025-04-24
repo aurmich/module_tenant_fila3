@@ -2,9 +2,19 @@
 <<<<<<< HEAD
 =======
 
+=======
+<<<<<<< HEAD
+>>>>>>> aurmich/dev
+<<<<<<< HEAD
+=======
+
 >>>>>>> aurmich/dev
 =======
 
+>>>>>>> aurmich/dev
+<<<<<<< HEAD
+=======
+>>>>>>> aurmich/dev
 >>>>>>> aurmich/dev
 # Rapporto PHPStan Livello 3 per il modulo Tenant
 
@@ -43,7 +53,17 @@ Trovati 2 errori al livello 3.
 <<<<<<< HEAD
 =======
 aurmich/dev
+=======
+<<<<<<< HEAD
+>>>>>>> aurmich/dev
+<<<<<<< HEAD
+=======
+aurmich/dev
 >>>>>>> aurmich/dev
 =======
 aurmich/dev
+>>>>>>> aurmich/dev
+<<<<<<< HEAD
+=======
+>>>>>>> aurmich/dev
 >>>>>>> aurmich/dev
