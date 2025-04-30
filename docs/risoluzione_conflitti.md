@@ -1,8 +1,19 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 <<<<<<< HEAD
 # Risoluzione Conflitti Git - Modulo Tenant
 =======
+=======
+>>>>>>> aurmich/dev
+=======
+<<<<<<< HEAD
+# Risoluzione Conflitti Git - Modulo Tenant
+=======
+>>>>>>> aurmich/dev
+<<<<<<< HEAD
+=======
+>>>>>>> aurmich/dev
 >>>>>>> aurmich/dev
 # Risoluzione Conflitti nel Modulo Tenant
 
@@ -67,6 +78,12 @@ Per evitare ulteriori conflitti:
 - [Panoramica della Risoluzione dei Conflitti](/docs/conflict_resolution_ui_tenant.md)
 <<<<<<< HEAD
 =======
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+>>>>>>> aurmich/dev
+>>>>>>> aurmich/dev
 >>>>>>> aurmich/dev
 >>>>>>> aurmich/dev
 

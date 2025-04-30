@@ -10,7 +10,15 @@ use Modules\Tenant\Filament\Resources\DomainResource\Pages;
 use Modules\Tenant\Models\Domain;
 use Modules\Xot\Filament\Resources\XotBaseResource;
 
+<<<<<<< HEAD
 class DomainResource extends XotBaseResource
+=======
+<<<<<<< HEAD
+class DomainResource extends XotBaseResource
+=======
+abstract class DomainResource extends XotBaseResource
+>>>>>>> 5873427 (.)
+>>>>>>> aurmich/dev
 {
     protected static ?string $model = Domain::class;
 
