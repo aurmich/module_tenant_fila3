@@ -76,3 +76,7 @@ class MyModel extends Model
     ];
 }
 ``` 
+## Collegamenti tra versioni di sushi-to-jsons.md
+* [sushi-to-jsons.md](laravel/Modules/Tenant/docs/traits/sushi-to-jsons.md)
+* [sushi-to-jsons.md](laravel/Modules/Tenant/docs/models/traits/sushi-to-jsons.md)
+

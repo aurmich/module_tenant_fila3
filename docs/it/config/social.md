@@ -23,3 +23,8 @@ return [
         ],
     ],
 ];
+
+## Collegamenti tra versioni di social.md
+* [social.md](laravel/Modules/Tenant/docs/it/config/social.md)
+* [social.md](laravel/Modules/Cms/docs/blocks/social.md)
+

@@ -127,3 +127,8 @@ return [
 
     'dispatch_events_from_aggregate_roots' => false,
 ];
+
+## Collegamenti tra versioni di event-sourcing.md
+* [event-sourcing.md](laravel/Modules/Xot/docs/activity/event-sourcing.md)
+* [event-sourcing.md](laravel/Modules/Tenant/docs/it/config/event-sourcing.md)
+

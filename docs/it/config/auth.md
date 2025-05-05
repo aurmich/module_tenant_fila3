@@ -108,3 +108,9 @@ return [
     ],
 ];
 
+
+## Collegamenti tra versioni di auth.md
+* [auth.md](laravel/Modules/Xot/docs/install/auth.md)
+* [auth.md](laravel/Modules/User/docs/lang/en/auth.md)
+* [auth.md](laravel/Modules/Tenant/docs/it/config/auth.md)
+

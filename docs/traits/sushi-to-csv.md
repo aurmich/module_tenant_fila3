@@ -62,3 +62,7 @@ class MyModel extends Model
     protected $table = 'my_table';
 }
 ``` 
+## Collegamenti tra versioni di sushi-to-csv.md
+* [sushi-to-csv.md](laravel/Modules/Tenant/docs/traits/sushi-to-csv.md)
+* [sushi-to-csv.md](laravel/Modules/Tenant/docs/models/traits/sushi-to-csv.md)
+

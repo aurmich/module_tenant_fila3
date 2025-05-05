@@ -337,3 +337,8 @@ I test confermano che le modifiche non hanno introdotto regressioni e che il cod
 Per una visione completa della strategia di risoluzione dei conflitti git nel progetto, consultare il documento principale:
 
 - [Risoluzione Conflitti Git nel Progetto](../../../../docs/risoluzione_conflitti_git.md)
+
+## Collegamenti tra versioni di risoluzione_conflitti.md
+* [risoluzione_conflitti.md](laravel/Modules/Xot/docs/risoluzione_conflitti.md)
+* [risoluzione_conflitti.md](laravel/Modules/Tenant/docs/risoluzione_conflitti.md)
+

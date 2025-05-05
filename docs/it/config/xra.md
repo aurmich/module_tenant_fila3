@@ -16,3 +16,8 @@ return [
     'register_pub_theme' => false,
     'forcessl' => false,
 ];
+## Collegamenti tra versioni di xra.md
+* [xra.md](laravel/Modules/Xot/docs/install/xra.md)
+* [xra.md](laravel/Modules/Tenant/docs/it/xra.md)
+* [xra.md](laravel/Modules/Tenant/docs/it/config/xra.md)
+
