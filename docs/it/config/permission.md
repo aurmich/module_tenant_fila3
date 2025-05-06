@@ -162,8 +162,12 @@ return [
 
         'store' => 'default',
     ],
+<<<<<<< HEAD
 ];
 ## Collegamenti tra versioni di permission.md
 * [permission.md](laravel/Modules/Xot/docs/install/permission.md)
 * [permission.md](laravel/Modules/Tenant/docs/it/config/permission.md)
 
+=======
+];
+>>>>>>> baaab937 (.)

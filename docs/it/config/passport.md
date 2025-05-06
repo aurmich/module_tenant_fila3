@@ -64,7 +64,10 @@ return [
     ],
 
 ];
+<<<<<<< HEAD
 
 ## Collegamenti tra versioni di passport.md
 * [passport.md](../../../../User/docs/passport.md)
 
+=======
+>>>>>>> baaab937 (.)

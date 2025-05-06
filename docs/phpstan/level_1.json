@@ -1,1 +1,5 @@
+<<<<<<< HEAD
 {"totals":{"errors":0,"file_errors":0},"files":{},"errors":[]}
+=======
+Could not open input file: /var/www/html/ptvx/vendor/bin/phpstan
+>>>>>>> baaab937 (.)

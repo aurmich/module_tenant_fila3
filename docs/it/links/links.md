@@ -9,6 +9,7 @@ section: content
 
 
 ...
+<<<<<<< HEAD
 
 ## Collegamenti tra versioni di links.md
 * [links.md](laravel/Modules/Gdpr/docs/links.md)
@@ -22,3 +23,5 @@ section: content
 * [links.md](laravel/Modules/Cms/docs/links.md)
 * [links.md](laravel/Themes/One/docs/links.md)
 
+=======
+>>>>>>> baaab937 (.)

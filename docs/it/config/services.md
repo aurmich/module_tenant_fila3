@@ -35,8 +35,11 @@ return [
         'webhook' => env('TELEGRAM_BOT_WEBHOOK'),
     ],
 ];
+<<<<<<< HEAD
 
 ## Collegamenti tra versioni di services.md
 * [services.md](laravel/Modules/Xot/docs/services.md)
 * [services.md](laravel/Modules/Tenant/docs/it/config/services.md)
 
+=======
+>>>>>>> baaab937 (.)

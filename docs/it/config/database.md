@@ -81,9 +81,12 @@ foreach ($dbs as $k => $v) {
 // ddd($def1);
 
 return $def1;
+<<<<<<< HEAD
 
 ## Collegamenti tra versioni di database.md
 * [database.md](docs/tecnico/database/database.md)
 * [database.md](laravel/Modules/Xot/docs/install/database.md)
 * [database.md](laravel/Modules/Tenant/docs/it/config/database.md)
 
+=======
+>>>>>>> baaab937 (.)

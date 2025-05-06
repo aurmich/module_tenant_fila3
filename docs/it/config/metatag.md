@@ -31,8 +31,12 @@ return [
     'color_megamenu' => '#d60021',
     'color_hamburger' => '#000',
     'color_banner' => '#000',
+<<<<<<< HEAD
 ];
 ## Collegamenti tra versioni di metatag.md
 * [metatag.md](laravel/Modules/Xot/docs/install/metatag.md)
 * [metatag.md](laravel/Modules/Tenant/docs/it/config/metatag.md)
 
+=======
+];
+>>>>>>> baaab937 (.)
