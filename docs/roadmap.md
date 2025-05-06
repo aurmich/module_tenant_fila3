@@ -210,7 +210,6 @@ Secondo le "Regole Windsurf per base_predict_fila3_mono", gli obiettivi per l'an
 
 [⬅️ Torna alla Roadmap Principale](/docs/roadmap.md)
 
-<<<<<<< HEAD
 
 ## Collegamenti tra versioni di roadmap.md
 * [roadmap.md](bashscripts/docs/roadmap.md)
@@ -230,5 +229,3 @@ Secondo le "Regole Windsurf per base_predict_fila3_mono", gli obiettivi per l'an
 * [roadmap.md](../../../Cms/docs/roadmap.md)
 * [roadmap.md](../../../../Themes/One/docs/roadmap.md)
 
-=======
->>>>>>> 6855e21 (.)
