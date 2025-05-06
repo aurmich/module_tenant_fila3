@@ -1,6 +1,26 @@
+<<<<<<< HEAD
+
+=======
 
 
+=======
 
+=======
+
+>>>>>>> aurmich/dev
+
+=======
+>>>>>>> 6855e21 (.)
+
+
+<<<<<<< HEAD
+=======
+>>>>>>> aurmich/dev
+
+=======
+>>>>>>> aurmich/dev
+>>>>>>> aurmich/dev
+>>>>>>> 6855e21 (.)
 # Rapporto PHPStan Livello 2 per il modulo Tenant
 
 Data analisi: 2025-04-15 22:06:48
@@ -34,9 +54,22 @@ Trovati 2 errori al livello 2.
 - [Documentazione PHPStan](https://phpstan.org/user-guide/getting-started)
 - [Tipi in PHP](https://www.php.net/manual/en/language.types.declarations.php)
 - [PSR-12: Standard di codifica](https://www.php-fig.org/psr/psr-12/)
+<<<<<<< HEAD
+aurmich/dev
+=======
+
+
+=======
+aurmich/dev
+=======
+
+>>>>>>> aurmich/dev
+
+=======
+>>>>>>> 6855e21 (.)
 aurmich/dev
 aurmich/dev
-aurmich/dev
+<<<<<<< HEAD
 
 ## Collegamenti tra versioni di level_2.md
 * [level_2.md](../../../Chart/docs/phpstan/level_2.md)
@@ -55,3 +88,10 @@ aurmich/dev
 * [level_2.md](../../../Patient/docs/phpstan/level_2.md)
 * [level_2.md](../../../Cms/docs/phpstan/level_2.md)
 
+=======
+>>>>>>> aurmich/dev
+
+=======
+>>>>>>> aurmich/dev
+>>>>>>> aurmich/dev
+>>>>>>> 6855e21 (.)
