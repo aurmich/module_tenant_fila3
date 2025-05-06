@@ -35,8 +35,8 @@ return [
 
 ];
 ## Collegamenti tra versioni di metatag.md
-* [metatag.md](laravel/Modules/Xot/docs/install/metatag.md)
-* [metatag.md](laravel/Modules/Tenant/docs/it/config/metatag.md)
+* [metatag.md](../../../Xot/docs/install/metatag.md)
+* [metatag.md](../../../Tenant/docs/it/config/metatag.md)
 
 
 ### Versione Incoming

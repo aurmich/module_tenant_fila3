@@ -63,6 +63,6 @@ class MyModel extends Model
 - Migliorata la gestione degli errori
 - Ottimizzata la gestione della memoria 
 ## Collegamenti tra versioni di sushi-to-jsons.md
-* [sushi-to-jsons.md](laravel/Modules/Tenant/docs/traits/sushi-to-jsons.md)
-* [sushi-to-jsons.md](laravel/Modules/Tenant/docs/models/traits/sushi-to-jsons.md)
+* [sushi-to-jsons.md](../../../Tenant/docs/traits/sushi-to-jsons.md)
+* [sushi-to-jsons.md](../../../Tenant/docs/models/traits/sushi-to-jsons.md)
 

@@ -65,15 +65,15 @@ Questo documento contiene l'analisi dettagliata dei problemi rilevati da PHPStan
 - Mantenere aggiornato questo documento
 - Verificare l'impatto delle correzioni sugli altri moduli 
 ## Collegamenti tra versioni di ANALISI_PHPSTAN.md
-* [ANALISI_PHPSTAN.md](laravel/Modules/Gdpr/docs/phpstan/ANALISI_PHPSTAN.md)
-* [ANALISI_PHPSTAN.md](laravel/Modules/Xot/docs/phpstan/ANALISI_PHPSTAN.md)
-* [ANALISI_PHPSTAN.md](laravel/Modules/User/docs/phpstan/ANALISI_PHPSTAN.md)
-* [ANALISI_PHPSTAN.md](laravel/Modules/UI/docs/phpstan/ANALISI_PHPSTAN.md)
-* [ANALISI_PHPSTAN.md](laravel/Modules/Lang/docs/phpstan/ANALISI_PHPSTAN.md)
-* [ANALISI_PHPSTAN.md](laravel/Modules/Job/docs/phpstan/ANALISI_PHPSTAN.md)
-* [ANALISI_PHPSTAN.md](laravel/Modules/Media/docs/phpstan/ANALISI_PHPSTAN.md)
-* [ANALISI_PHPSTAN.md](laravel/Modules/Tenant/docs/phpstan/ANALISI_PHPSTAN.md)
-* [ANALISI_PHPSTAN.md](laravel/Modules/Activity/docs/phpstan/ANALISI_PHPSTAN.md)
+* [ANALISI_PHPSTAN.md](../../../Gdpr/docs/phpstan/ANALISI_PHPSTAN.md)
+* [ANALISI_PHPSTAN.md](../../../Xot/docs/phpstan/ANALISI_PHPSTAN.md)
+* [ANALISI_PHPSTAN.md](../../../User/docs/phpstan/ANALISI_PHPSTAN.md)
+* [ANALISI_PHPSTAN.md](../../../UI/docs/phpstan/ANALISI_PHPSTAN.md)
+* [ANALISI_PHPSTAN.md](../../../Lang/docs/phpstan/ANALISI_PHPSTAN.md)
+* [ANALISI_PHPSTAN.md](../../../Job/docs/phpstan/ANALISI_PHPSTAN.md)
+* [ANALISI_PHPSTAN.md](../../../Media/docs/phpstan/ANALISI_PHPSTAN.md)
+* [ANALISI_PHPSTAN.md](../../../Tenant/docs/phpstan/ANALISI_PHPSTAN.md)
+* [ANALISI_PHPSTAN.md](../../../Activity/docs/phpstan/ANALISI_PHPSTAN.md)
 
 
 ## Collegamenti tra versioni di analisi_phpstan.md

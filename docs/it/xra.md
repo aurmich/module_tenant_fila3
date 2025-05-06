@@ -53,9 +53,9 @@ Di default viene utilizzata **laravel\Themes\adm_theme\Resources\views\admin\das
 
 
 ## Collegamenti tra versioni di xra.md
-* [xra.md](laravel/Modules/Xot/docs/install/xra.md)
-* [xra.md](laravel/Modules/Tenant/docs/it/xra.md)
-* [xra.md](laravel/Modules/Tenant/docs/it/config/xra.md)
+* [xra.md](../../../Xot/docs/install/xra.md)
+* [xra.md](../../../Tenant/docs/it/xra.md)
+* [xra.md](../../../Tenant/docs/it/config/xra.md)
 
 
 ### Versione Incoming

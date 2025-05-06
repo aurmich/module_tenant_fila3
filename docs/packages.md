@@ -56,15 +56,15 @@
 
 
 ## Collegamenti tra versioni di packages.md
-* [packages.md](laravel/Modules/Gdpr/docs/packages.md)
-* [packages.md](laravel/Modules/Notify/docs/packages.md)
-* [packages.md](laravel/Modules/Xot/docs/packages.md)
-* [packages.md](laravel/Modules/User/docs/packages.md)
-* [packages.md](laravel/Modules/UI/docs/packages.md)
-* [packages.md](laravel/Modules/Lang/docs/packages.md)
-* [packages.md](laravel/Modules/Job/docs/packages.md)
-* [packages.md](laravel/Modules/Media/docs/packages.md)
-* [packages.md](laravel/Modules/Tenant/docs/packages.md)
+* [packages.md](../../../Gdpr/docs/packages.md)
+* [packages.md](../../../Notify/docs/packages.md)
+* [packages.md](../../../Xot/docs/packages.md)
+* [packages.md](../../../User/docs/packages.md)
+* [packages.md](../../../UI/docs/packages.md)
+* [packages.md](../../../Lang/docs/packages.md)
+* [packages.md](../../../Job/docs/packages.md)
+* [packages.md](../../../Media/docs/packages.md)
+* [packages.md](../../../Tenant/docs/packages.md)
 
 
 ### Versione Incoming

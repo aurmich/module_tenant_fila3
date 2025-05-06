@@ -339,6 +339,6 @@ Per una visione completa della strategia di risoluzione dei conflitti git nel pr
 - [Risoluzione Conflitti Git nel Progetto](../../../../docs/risoluzione_conflitti_git.md)
 
 ## Collegamenti tra versioni di risoluzione_conflitti.md
-* [risoluzione_conflitti.md](laravel/Modules/Xot/docs/risoluzione_conflitti.md)
-* [risoluzione_conflitti.md](laravel/Modules/Tenant/docs/risoluzione_conflitti.md)
+* [risoluzione_conflitti.md](../../../Xot/docs/risoluzione_conflitti.md)
+* [risoluzione_conflitti.md](../../../Tenant/docs/risoluzione_conflitti.md)
 

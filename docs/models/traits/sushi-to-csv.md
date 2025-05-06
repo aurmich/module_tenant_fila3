@@ -52,6 +52,6 @@ class MyModel extends Model
 - Aggiunto supporto per soft delete
 - Ottimizzata la gestione della memoria 
 ## Collegamenti tra versioni di sushi-to-csv.md
-* [sushi-to-csv.md](laravel/Modules/Tenant/docs/traits/sushi-to-csv.md)
-* [sushi-to-csv.md](laravel/Modules/Tenant/docs/models/traits/sushi-to-csv.md)
+* [sushi-to-csv.md](../../../Tenant/docs/traits/sushi-to-csv.md)
+* [sushi-to-csv.md](../../../Tenant/docs/models/traits/sushi-to-csv.md)
 

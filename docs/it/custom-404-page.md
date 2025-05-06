@@ -32,11 +32,11 @@ Depending on where your site is hosted, you may need to configure your server to
 
 
 ## Collegamenti tra versioni di custom-404-page.md
-* [custom-404-page.md](laravel/Modules/Gdpr/docs/custom-404-page.md)
-* [custom-404-page.md](laravel/Modules/Xot/docs/custom-404-page.md)
-* [custom-404-page.md](laravel/Modules/UI/docs/custom-404-page.md)
-* [custom-404-page.md](laravel/Modules/Tenant/docs/it/custom-404-page.md)
-* [custom-404-page.md](laravel/Modules/Cms/docs/custom-404-page.md)
+* [custom-404-page.md](../../../Gdpr/docs/custom-404-page.md)
+* [custom-404-page.md](../../../Xot/docs/custom-404-page.md)
+* [custom-404-page.md](../../../UI/docs/custom-404-page.md)
+* [custom-404-page.md](../../../Tenant/docs/it/custom-404-page.md)
+* [custom-404-page.md](../../../Cms/docs/custom-404-page.md)
 
 
 ### Versione Incoming

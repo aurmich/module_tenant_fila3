@@ -35,9 +35,9 @@ The module_tenant package makes it easy to set up and manage multi-tenancy in yo
 
 
 ## Collegamenti tra versioni di about.md
-* [about.md](laravel/Modules/Xot/docs/about.md)
-* [about.md](laravel/Modules/Tenant/docs/en/about.md)
-* [about.md](laravel/Modules/Tenant/docs/it/about.md)
+* [about.md](../../../Xot/docs/about.md)
+* [about.md](../../../Tenant/docs/en/about.md)
+* [about.md](../../../Tenant/docs/it/about.md)
 
 
 ### Versione Incoming
