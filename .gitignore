@@ -55,3 +55,6 @@ cache/
 *.exe
 *:Zone.Identifier
 *:Zone.Identifier
+
+# Backup files
+*.bak
