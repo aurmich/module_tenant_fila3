@@ -55,20 +55,9 @@ cache/
 *.exe
 *:Zone.Identifier
 *:Zone.Identifier
-<<<<<<< HEAD
-<<<<<<< HEAD
 
 # Backup files
 *.bak
 -e 
 # PHPStan documentation
 docs/phpstan/
-=======
->>>>>>> 48beab0 (.)
-=======
-
-# Backup files
-*.bak
-# PHPStan documentation
-docs/phpstan/
->>>>>>> f5d0f30 (.)

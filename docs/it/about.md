@@ -85,13 +85,6 @@ Il modulo offre anche altre funzionalità come:
 Un middleware per gestire automaticamente il routing del tenant basato sull'URL.
 Una facade per facilmente accedere al tenant corrente nell'applicazione.
 Una classe TenantScope per facilmente applicare il tenant corrente come scopo globale per le query Eloquent.
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-
-### Versione HEAD
-
->>>>>>> f5d0f30 (.)
 ### Versione HEAD
 
 Per ulteriori informazioni su come utilizzare il modulo, consulta la documentazione ufficiale sul sito web del suo autore o sulla pagina GitHub del progetto.
@@ -107,16 +100,3 @@ Per ulteriori informazioni su come utilizzare il modulo, consulta la documentazi
 
 ---
 
-<<<<<<< HEAD
-=======
-Per ulteriori informazioni su come utilizzare il modulo, consulta la documentazione ufficiale sul sito web del suo autore o sulla pagina GitHub del progetto.
->>>>>>> 48beab0 (.)
-=======
-
-### Versione Alternativa
-
-Per ulteriori informazioni su come utilizzare il modulo, consulta la documentazione ufficiale sul sito web del suo autore o sulla pagina GitHub del progetto.
-
----
-
->>>>>>> f5d0f30 (.)

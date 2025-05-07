@@ -10,18 +10,6 @@ namespace Modules\Tenant\Models\Traits;
 
 use Illuminate\Support\Facades\File;
 use Modules\Tenant\Services\TenantService;
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-use RuntimeException;
-=======
->>>>>>> origin/dev
->>>>>>> 48beab0 (.)
-=======
-use RuntimeException;
- origin/dev
->>>>>>> f5d0f30 (.)
 use Webmozart\Assert\Assert;
 
 use function Safe\json_encode;
@@ -59,18 +47,7 @@ trait SushiToJsons
         Assert::string($id = $this->getKey());
 
         $filename = 'database/content/'.$tbl.'/'.$id.'.json';
-<<<<<<< HEAD
 
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-=======
-
->>>>>>> origin/dev
->>>>>>> 48beab0 (.)
-=======
- origin/dev
->>>>>>> f5d0f30 (.)
         $file = TenantService::filePath($filename);
 
         return $file;
@@ -94,57 +71,13 @@ trait SushiToJsons
                 $model->created_by = authId();
                 $data = $model->toArray();
                 $item = [];
-<<<<<<< HEAD
-<<<<<<< HEAD
                 if (! is_iterable($model->schema)) {
                     throw new \Exception('Schema not iterable');
                 }
-=======
-<<<<<<< HEAD
-=======
->>>>>>> f5d0f30 (.)
-
-                if (! isset($model->schema) || ! is_iterable($model->schema)) {
-                    throw new RuntimeException('Schema non definito o non iterabile');
-                }
-
-<<<<<<< HEAD
->>>>>>> 48beab0 (.)
-=======
->>>>>>> f5d0f30 (.)
                 foreach ($model->schema as $name => $type) {
                     $value = $data[$name] ?? null;
                     $item[$name] = $value;
                 }
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-=======
->>>>>>> f5d0f30 (.)
-
-                $content = json_encode($item, JSON_PRETTY_PRINT);
-                $file = $model->getJsonFile();
-                
-                if (! File::exists(\dirname($file))) {
-                    File::makeDirectory(\dirname($file), 0755, true, true);
-                }
-                
-                File::put($file, $content);
-            }
-        );
-
-<<<<<<< HEAD
-=======
-=======
->>>>>>> f5d0f30 (.)
-                if (! is_iterable($model->schema)) {
-                    throw new \Exception('Schema not found');
-                }
-                foreach ($model->schema ?? [] as $name => $type) {
-                    $value = $data[$name] ?? null;
-                    $item[$name] = $value;
-                }
->>>>>>> 48beab0 (.)
                 $content = json_encode($item, JSON_PRETTY_PRINT);
                 $file = $model->getJsonFile();
                 if (! File::exists(\dirname($file))) {
@@ -153,14 +86,6 @@ trait SushiToJsons
                 File::put($file, $content);
             }
         );
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> origin/dev
->>>>>>> 48beab0 (.)
-=======
- origin/dev
->>>>>>> f5d0f30 (.)
         /*
          * updating.
          */
@@ -173,64 +98,20 @@ trait SushiToJsons
                 File::put($file, $content);
             }
         );
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-=======
->>>>>>> f5d0f30 (.)
-
-        /*
-         * Deleting a model is slightly different than creating or deleting.
-         * For deletes we need to save the model first with the deleted_by field
-         */
-<<<<<<< HEAD
-=======
->>>>>>> 48beab0 (.)
-=======
->>>>>>> f5d0f30 (.)
         // -------------------------------------------------------------------------------------
         /*
          * Deleting a model is slightly different than creating or deleting.
          * For deletes we need to save the model first with the deleted_by field
         */
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> origin/dev
->>>>>>> 48beab0 (.)
-=======
- origin/dev
->>>>>>> f5d0f30 (.)
         static::deleting(
             function ($model): void {
                 unlink($model->getJsonFile());
             }
         );
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-    }
-}
-=======
->>>>>>> 48beab0 (.)
-=======
-    }
-}
->>>>>>> f5d0f30 (.)
 
         // ----------------------
     }
 
     // end function boot
 }// end trait Updater
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> origin/dev
->>>>>>> 48beab0 (.)
-=======
- origin/dev
->>>>>>> f5d0f30 (.)

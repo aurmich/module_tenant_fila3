@@ -61,28 +61,8 @@ class MyModel extends Model
 - Rimossi conflitti di merge
 - Aggiunta validazione dello schema
 - Migliorata la gestione degli errori
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-
-### Versione HEAD
-
->>>>>>> f5d0f30 (.)
 - Ottimizzata la gestione della memoria 
 ## Collegamenti tra versioni di sushi-to-jsons.md
 * [sushi-to-jsons.md](../../../Tenant/docs/traits/sushi-to-jsons.md)
 * [sushi-to-jsons.md](../../../Tenant/docs/models/traits/sushi-to-jsons.md)
 
-<<<<<<< HEAD
-=======
-- Ottimizzata la gestione della memoria 
->>>>>>> 48beab0 (.)
-=======
-
-### Versione Alternativa
-
-- Ottimizzata la gestione della memoria 
-
----
-
->>>>>>> f5d0f30 (.)

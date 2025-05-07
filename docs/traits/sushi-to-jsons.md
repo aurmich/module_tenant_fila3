@@ -75,28 +75,8 @@ class MyModel extends Model
         'active' => 'boolean'
     ];
 }
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-
-### Versione HEAD
-
->>>>>>> f5d0f30 (.)
 ``` 
 ## Collegamenti tra versioni di sushi-to-jsons.md
 * [sushi-to-jsons.md](../../../Tenant/docs/traits/sushi-to-jsons.md)
 * [sushi-to-jsons.md](../../../Tenant/docs/models/traits/sushi-to-jsons.md)
 
-<<<<<<< HEAD
-=======
-``` 
->>>>>>> 48beab0 (.)
-=======
-
-### Versione Alternativa
-
-``` 
-
----
-
->>>>>>> f5d0f30 (.)

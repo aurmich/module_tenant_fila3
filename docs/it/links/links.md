@@ -9,13 +9,6 @@ section: content
 
 
 ...
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-
-### Versione HEAD
-
->>>>>>> f5d0f30 (.)
 ### Versione HEAD
 
 
@@ -37,14 +30,3 @@ section: content
 
 ---
 
-<<<<<<< HEAD
-=======
->>>>>>> 48beab0 (.)
-=======
-
-### Versione Alternativa
-
-
----
-
->>>>>>> f5d0f30 (.)
