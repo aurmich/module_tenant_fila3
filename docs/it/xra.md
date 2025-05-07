@@ -50,6 +50,12 @@ Di default viene utilizzata **laravel\Themes\adm_theme\Resources\views\admin\das
 
 **nome_modulo::admin.dashboard.item** è la blade che dovrà essere creata per ogni modulo.
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+
+### Versione HEAD
+
+>>>>>>> f5d0f30 (.)
 ### Versione HEAD
 
 
@@ -64,5 +70,14 @@ Di default viene utilizzata **laravel\Themes\adm_theme\Resources\views\admin\das
 
 ---
 
+<<<<<<< HEAD
 =======
 >>>>>>> 48beab0 (.)
+=======
+
+### Versione Alternativa
+
+
+---
+
+>>>>>>> f5d0f30 (.)

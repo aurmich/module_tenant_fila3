@@ -109,14 +109,32 @@ composer format        # Formatta il codice
 
 ## Changelog
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+
+### Versione HEAD
+
+>>>>>>> f5d0f30 (.)
 ### Versione HEAD
 
 
 ### Versione Incoming
 
+<<<<<<< HEAD
 =======
 <<<<<<< HEAD
 >>>>>>> 48beab0 (.)
+=======
+
+### Versione Alternativa
+
+
+### Versione HEAD
+
+
+---
+
+>>>>>>> f5d0f30 (.)
 # Modulo Tenant
 
 ## Informazioni Generali
@@ -228,6 +246,7 @@ composer format        # Formatta il codice
 
 ## Changelog
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 ---
 
@@ -236,3 +255,23 @@ composer format        # Formatta il codice
 >>>>>>> origin/dev
 >>>>>>> 48beab0 (.)
 Le modifiche vengono tracciate nel repository GitHub. 
+=======
+
+### Versione HEAD
+
+
+---
+
+
+### Versione Alternativa
+
+
+### Versione Alternativa
+
+
+---
+
+
+---
+
+>>>>>>> f5d0f30 (.)

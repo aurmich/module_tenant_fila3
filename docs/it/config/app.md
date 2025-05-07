@@ -9,6 +9,12 @@ return [
 ];
 ~~~
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+
+### Versione HEAD
+
+>>>>>>> f5d0f30 (.)
 ### Versione HEAD
 
 
@@ -22,5 +28,14 @@ return [
 
 ---
 
+<<<<<<< HEAD
 =======
 >>>>>>> 48beab0 (.)
+=======
+
+### Versione Alternativa
+
+
+---
+
+>>>>>>> f5d0f30 (.)

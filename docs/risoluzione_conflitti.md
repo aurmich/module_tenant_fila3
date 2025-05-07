@@ -1,6 +1,15 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
 =======
 
+### Versione HEAD
+
+
+### Versione Alternativa
+
+>>>>>>> f5d0f30 (.)
+
 
 # Risoluzione Conflitti Git - Modulo Tenant
 
@@ -9,9 +18,21 @@
 
 # Risoluzione Conflitti Git - Modulo Tenant
 
+<<<<<<< HEAD
 >>>>>>> aurmich/dev
 >>>>>>> aurmich/dev
 >>>>>>> 48beab0 (.)
+=======
+
+---
+
+
+---
+
+
+---
+
+>>>>>>> f5d0f30 (.)
 # Risoluzione Conflitti nel Modulo Tenant
 
 Questo documento descrive i conflitti Git risolti nel modulo Tenant, con particolare attenzione ai file critici e alle strutture di namespace.
@@ -19,6 +40,12 @@ Questo documento descrive i conflitti Git risolti nel modulo Tenant, con partico
 > Per una panoramica completa della risoluzione dei conflitti in tutto il progetto, consulta il [documento principale sulla risoluzione dei conflitti](/docs/conflict_resolution_ui_tenant.md).
 
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+
+### Versione HEAD
+
+>>>>>>> f5d0f30 (.)
 ## Panoramica
 
 Questo documento traccia la risoluzione dei conflitti git nel modulo Tenant, identificati il 30/07/2023. 
@@ -33,8 +60,17 @@ I conflitti sono stati identificati nei seguenti file:
 7. `app/Models/Traits/SushiToJsons.php`
 8. `app/Console/Commands/_components.json`
 
+<<<<<<< HEAD
 =======
 >>>>>>> 48beab0 (.)
+=======
+
+### Versione Alternativa
+
+
+---
+
+>>>>>>> f5d0f30 (.)
 ## File Principali con Conflitti
 
 ### File di Documentazione PHPStan
@@ -63,7 +99,16 @@ I conflitti sono stati identificati nei seguenti file:
 **Ragionamento**: Un formato JSON più leggibile facilita la manutenzione e la comprensione del file.
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
+=======
+
+### Versione HEAD
+
+
+### Versione Alternativa
+
+>>>>>>> f5d0f30 (.)
 ## Principi di Risoluzione Adottati
 
 1. **Validità dei file**: Tutti i file JSON e di configurazione devono essere sintatticamente corretti.
@@ -96,9 +141,21 @@ Per evitare ulteriori conflitti:
 
 
 
+<<<<<<< HEAD
 >>>>>>> aurmich/dev
 >>>>>>> aurmich/dev
 >>>>>>> aurmich/dev
+=======
+
+---
+
+
+---
+
+
+---
+
+>>>>>>> f5d0f30 (.)
 
 ## Panoramica
 
@@ -114,7 +171,13 @@ I conflitti sono stati identificati nei seguenti file:
 7. `app/Models/Traits/SushiToJsons.php`
 8. `app/Console/Commands/_components.json`
 
+<<<<<<< HEAD
 >>>>>>> 48beab0 (.)
+=======
+
+---
+
+>>>>>>> f5d0f30 (.)
 ## Strategia di Risoluzione
 
 Per ogni file, la strategia di risoluzione segue questi principi:
@@ -126,6 +189,12 @@ Per ogni file, la strategia di risoluzione segue questi principi:
 5. **Mantenimento funzionalità**: Assicurare che tutte le funzionalità necessarie siano preservate
 
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+
+### Versione HEAD
+
+>>>>>>> f5d0f30 (.)
 ## Principi di Risoluzione Adottati
 
 1. **Validità dei file**: Tutti i file JSON e di configurazione devono essere sintatticamente corretti.
@@ -133,8 +202,17 @@ Per ogni file, la strategia di risoluzione segue questi principi:
 3. **Consistenza**: Mantenere coerenza con gli altri file e moduli del progetto.
 4. **Pulizia**: Rimuovere marker di conflitto e testo non necessario.
 
+<<<<<<< HEAD
 =======
 >>>>>>> 48beab0 (.)
+=======
+
+### Versione Alternativa
+
+
+---
+
+>>>>>>> f5d0f30 (.)
 ## Test Implementati
 
 Per garantire il corretto funzionamento del codice dopo la risoluzione dei conflitti, sono stati creati i seguenti test:
@@ -156,7 +234,16 @@ cd laravel
 ```
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
+=======
+
+### Versione HEAD
+
+
+### Versione Alternativa
+
+>>>>>>> f5d0f30 (.)
 Questi test garantiscono che le funzionalità di base del modello Domain continuino a funzionare correttamente dopo la risoluzione dei conflitti git.
 
 ## Nota importante sull'analisi PHPStan
@@ -171,7 +258,13 @@ Questo errore indica che ci sono ancora conflitti git non risolti in altri modul
 
 **Azione necessaria:** Per completare il processo di validazione, sarà necessario risolvere anche i conflitti nel modulo Xot, in particolare nel file `XotServiceProvider.php`.
 
+<<<<<<< HEAD
 >>>>>>> 48beab0 (.)
+=======
+
+---
+
+>>>>>>> f5d0f30 (.)
 ## Dettagli di Risoluzione
 
 ### rector.php
@@ -191,10 +284,24 @@ Questo errore indica che ci sono ancora conflitti git non risolti in altri modul
 - Aggiunti commenti esplicativi per facilitare la manutenzione futura
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 La versione finale utilizza la sintassi più moderna e diretta, con l'approccio più chiaro e meno incline a errori, combinando le configurazioni utili di tutte le versioni.
 
 >>>>>>> 48beab0 (.)
+=======
+
+### Versione HEAD
+
+
+### Versione Alternativa
+
+La versione finale utilizza la sintassi più moderna e diretta, con l'approccio più chiaro e meno incline a errori, combinando le configurazioni utili di tutte le versioni.
+
+
+---
+
+>>>>>>> f5d0f30 (.)
 ### app/Filament/Resources/DomainResource.php
 
 **Problema**: Conflitto nella definizione della risorsa Filament per Domain.
@@ -204,13 +311,25 @@ La versione finale utilizza la sintassi più moderna e diretta, con l'approccio 
 2. Una versione più semplice con definizione diretta dei componenti senza chiavi nominali
 
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+
+### Versione HEAD
+
+>>>>>>> f5d0f30 (.)
 **Soluzione implementata**:
 - Mantenuta la versione con chiavi nominali e validazioni dettagliate per tutti i campi
 - Inclusa la definizione dell'icona di navigazione
 - Mantenute tutte le validazioni specifiche
 - Preservata la struttura originale delle relazioni e delle pagine
 
+<<<<<<< HEAD
 =======
+=======
+
+### Versione Alternativa
+
+>>>>>>> f5d0f30 (.)
 Inoltre, una versione includeva l'icona di navigazione (`protected static ?string $navigationIcon`) mentre l'altra no.
 
 **Soluzione implementata**:
@@ -221,7 +340,13 @@ Inoltre, una versione includeva l'icona di navigazione (`protected static ?strin
 
 La soluzione scelta garantisce una validazione più rigorosa dei dati e mantiene funzionalità aggiuntive come l'icona di navigazione, migliorando l'esperienza d'uso nella dashboard Filament.
 
+<<<<<<< HEAD
 >>>>>>> 48beab0 (.)
+=======
+
+---
+
+>>>>>>> f5d0f30 (.)
 ### app/Filament/Resources/DomainResource/Pages/CreateDomain.php
 
 **Problema**: Conflitto nella classe base da estendere per la pagina di creazione dei domini.
@@ -234,6 +359,12 @@ La soluzione scelta garantisce una validazione più rigorosa dei dati e mantiene
 **Soluzione implementata**:
 - Aggiunto import esplicito per la classe `XotBaseCreateRecord`
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+
+### Versione HEAD
+
+>>>>>>> f5d0f30 (.)
 - Utilizzata la classe importata direttamente nella dichiarazione di estensione
 - Rimosso codice duplicato e marcatori di conflitto
 - Mantenuta la struttura di base della classe
@@ -256,7 +387,13 @@ Questo errore indica che ci sono ancora conflitti git non risolti in altri modul
 - [Rapporti PHPStan](phpstan/)
 - [Panoramica della Risoluzione dei Conflitti](/docs/conflict_resolution_ui_tenant.md)
 
+<<<<<<< HEAD
 =======
+=======
+
+### Versione Alternativa
+
+>>>>>>> f5d0f30 (.)
 - Utilizzata la classe importata direttamente nella dichiarazione di estensione (senza namespace completo)
 - Rimosso codice duplicato e marcatori di conflitto
 - Mantenuta la struttura di base della classe, con la dichiarazione della risorsa associata
@@ -426,4 +563,10 @@ I test confermano che le modifiche non hanno introdotto regressioni e che il cod
 Per una visione completa della strategia di risoluzione dei conflitti git nel progetto, consultare il documento principale:
 
 - [Risoluzione Conflitti Git nel Progetto](../../../../docs/risoluzione_conflitti_git.md)
+<<<<<<< HEAD
 >>>>>>> 48beab0 (.)
+=======
+
+---
+
+>>>>>>> f5d0f30 (.)

@@ -29,6 +29,12 @@ This starter template includes a custom __404 Not Found__ error page, located at
 
 Depending on where your site is hosted, you may need to configure your server to use the custom 404 page. For more details, visit the [Jigsaw documentation about configuring a custom 404 page.](https://jigsaw.tighten.co/docs/custom-404-page/)
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+
+### Versione HEAD
+
+>>>>>>> f5d0f30 (.)
 ### Versione HEAD
 
 
@@ -45,5 +51,14 @@ Depending on where your site is hosted, you may need to configure your server to
 
 ---
 
+<<<<<<< HEAD
 =======
 >>>>>>> 48beab0 (.)
+=======
+
+### Versione Alternativa
+
+
+---
+
+>>>>>>> f5d0f30 (.)

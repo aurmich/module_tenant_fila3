@@ -1,8 +1,22 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 ### Versione HEAD
 
 =======
 >>>>>>> 48beab0 (.)
+=======
+
+### Versione HEAD
+
+### Versione HEAD
+
+
+### Versione Alternativa
+
+
+---
+
+>>>>>>> f5d0f30 (.)
 # 🌐 Simplify Multi-Tenancy with the Fila3 Tenant Module! 🚀
 
 ![GitHub issues](https://img.shields.io/github/issues/laraxot/module_tenant_fila3)
@@ -85,12 +99,30 @@ This project is licensed under the MIT License - see the LICENSE file for detail
 Marco Sottana
 Discover more of my work at marco76tv!
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 ### Versione Incoming
 
 =======
 <<<<<<< HEAD
 >>>>>>> 48beab0 (.)
+=======
+
+### Versione HEAD
+
+
+### Versione Incoming
+
+
+### Versione Alternativa
+
+
+### Versione HEAD
+
+
+---
+
+>>>>>>> f5d0f30 (.)
 # 🏢 Tenant Module - Gestione Multi-Tenant
 
 [![PHP Version](https://img.shields.io/badge/PHP-8.2+-blue.svg)](https://php.net)
@@ -208,6 +240,7 @@ This project is distributed under the MIT license. See the [LICENSE](LICENSE) fi
 
 Este proyecto está distribuido bajo la licencia MIT. Ver el archivo [LICENSE](LICENSE) para más detalles.
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 ---
 
@@ -215,3 +248,23 @@ Este proyecto está distribuido bajo la licencia MIT. Ver el archivo [LICENSE](L
 =======
 >>>>>>> origin/dev
 >>>>>>> 48beab0 (.)
+=======
+
+### Versione HEAD
+
+
+---
+
+
+### Versione Alternativa
+
+
+### Versione Alternativa
+
+
+---
+
+
+---
+
+>>>>>>> f5d0f30 (.)

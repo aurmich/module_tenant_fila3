@@ -32,6 +32,12 @@ resetTenant();
 The module_tenant package makes it easy to set up and manage multi-tenancy in your Laravel applications. For more detailed information, please see the package's README file on GitHub.
 
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+
+### Versione HEAD
+
+>>>>>>> f5d0f30 (.)
 ### Versione HEAD
 
 
@@ -46,5 +52,14 @@ The module_tenant package makes it easy to set up and manage multi-tenancy in yo
 
 ---
 
+<<<<<<< HEAD
 =======
 >>>>>>> 48beab0 (.)
+=======
+
+### Versione Alternativa
+
+
+---
+
+>>>>>>> f5d0f30 (.)
