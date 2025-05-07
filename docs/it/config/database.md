@@ -81,6 +81,7 @@ foreach ($dbs as $k => $v) {
 // ddd($def1);
 
 return $def1;
+<<<<<<< HEAD
 ### Versione HEAD
 
 
@@ -95,3 +96,5 @@ return $def1;
 
 ---
 
+=======
+>>>>>>> 48beab0 (.)

@@ -50,8 +50,12 @@ class MyModel extends Model
 - Rimossi conflitti di merge
 - Migliorata la gestione degli ID
 - Aggiunto supporto per soft delete
+<<<<<<< HEAD
 - Ottimizzata la gestione della memoria 
 ## Collegamenti tra versioni di sushi-to-csv.md
 * [sushi-to-csv.md](../../../Tenant/docs/traits/sushi-to-csv.md)
 * [sushi-to-csv.md](../../../Tenant/docs/models/traits/sushi-to-csv.md)
 
+=======
+- Ottimizzata la gestione della memoria 
+>>>>>>> 48beab0 (.)

@@ -9,6 +9,7 @@ section: content
 
 
 ...
+<<<<<<< HEAD
 ### Versione HEAD
 
 
@@ -30,3 +31,5 @@ section: content
 
 ---
 
+=======
+>>>>>>> 48beab0 (.)

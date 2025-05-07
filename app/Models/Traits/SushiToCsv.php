@@ -21,6 +21,7 @@ trait SushiToCsv
 
     public function getSushiRows(): array
     {
+<<<<<<< HEAD
         // return CSV::fromFile(__DIR__.'/roles.csv')->toArray();
         // load the CSV document from a file path
         $csv = Reader::createFromPath($this->getCsvPath(), 'r');
@@ -29,10 +30,29 @@ trait SushiToCsv
         // returns all the records as
         $records = $csv->getRecords(); // an Iterator object containing arrays
         // $records = $csv->getRecordsAsObject(MyDTO::class); // an Iterator object containing MyDTO objects
+=======
+<<<<<<< HEAD
+        $csv = Reader::createFromPath($this->getCsvPath(), 'r');
+        $csv->setHeaderOffset(0);
+        
+        $records = $csv->getRecords();
+        $rows = iterator_to_array($records);
+        
+        return array_values($rows);
+=======
+        // return CSV::fromFile(__DIR__.'/roles.csv')->toArray();
+        // load the CSV document from a file path
+        $csv = $this->getCsvPath();
+        $records = $csv->getRecords();
+>>>>>>> 48beab0 (.)
         $rows = iterator_to_array($records);
         $rows = array_values($rows);
 
         return $rows;
+<<<<<<< HEAD
+=======
+>>>>>>> origin/dev
+>>>>>>> 48beab0 (.)
     }
 
     public function getCsvPath(): string
@@ -82,6 +102,13 @@ trait SushiToCsv
                 $writer->insertOne($item);
             }
         );
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+
+=======
+>>>>>>> origin/dev
+>>>>>>> 48beab0 (.)
         /*
          * updating.
          */
@@ -95,19 +122,41 @@ trait SushiToCsv
                 $new = array_merge($rows[$id], $model->toArray());
                 $rows[$id] = $new;
                 $dataArray = array_values($rows);
+<<<<<<< HEAD
                 // $header=$model->getCsvHeader();
                 $header = array_keys($new);
+=======
+                $header = array_keys($new);
+<<<<<<< HEAD
+                
+=======
+>>>>>>> origin/dev
+>>>>>>> 48beab0 (.)
                 $writer = Writer::createFromPath($model->getCsvPath(), 'w+');
                 $writer->insertOne($header);
                 $writer->insertAll($dataArray);
             }
         );
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+
+        /*
+         * Deleting a model is slightly different than creating or deleting.
+         * For deletes we need to save the model first with the deleted_by field
+         */
+=======
+>>>>>>> 48beab0 (.)
         // -------------------------------------------------------------------------------------
         /*
          * Deleting a model is slightly different than creating or deleting.
          * For deletes we need to save the model first with the deleted_by field
         */
 
+<<<<<<< HEAD
+=======
+>>>>>>> origin/dev
+>>>>>>> 48beab0 (.)
         static::deleting(
             function ($model): void {
                 $rows = $model->getSushiRows();
@@ -116,12 +165,27 @@ trait SushiToCsv
                 unset($rows[$id]);
                 $dataArray = array_values($rows);
                 $header = $model->getCsvHeader();
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+                
+=======
+>>>>>>> origin/dev
+>>>>>>> 48beab0 (.)
                 $writer = Writer::createFromPath($model->getCsvPath(), 'w+');
                 $writer->insertOne($header);
                 $writer->insertAll($dataArray);
             }
         );
+<<<<<<< HEAD
 
         // ----------------------
+=======
+<<<<<<< HEAD
+=======
+
+        // ----------------------
+>>>>>>> origin/dev
+>>>>>>> 48beab0 (.)
     }
 }

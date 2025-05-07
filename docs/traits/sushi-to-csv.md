@@ -61,8 +61,12 @@ class MyModel extends Model
 
     protected $table = 'my_table';
 }
+<<<<<<< HEAD
 ``` 
 ## Collegamenti tra versioni di sushi-to-csv.md
 * [sushi-to-csv.md](../../../Tenant/docs/traits/sushi-to-csv.md)
 * [sushi-to-csv.md](../../../Tenant/docs/models/traits/sushi-to-csv.md)
 
+=======
+``` 
+>>>>>>> 48beab0 (.)
