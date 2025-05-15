@@ -1,8 +1,5 @@
-<<<<<<< HEAD
 ### Versione HEAD
 
-=======
->>>>>>> eb32fae (.)
 # 🌐 Simplify Multi-Tenancy with the Fila3 Tenant Module! 🚀
 
 ![GitHub issues](https://img.shields.io/github/issues/laraxot/module_tenant_fila3)
@@ -84,7 +81,6 @@ This project is licensed under the MIT License - see the LICENSE file for detail
 👤 Author
 Marco Sottana
 Discover more of my work at marco76tv!
-<<<<<<< HEAD
 
 ### Versione Incoming
 
@@ -207,5 +203,3 @@ Este proyecto está distribuido bajo la licencia MIT. Ver el archivo [LICENSE](L
 
 ---
 
-=======
->>>>>>> eb32fae (.)

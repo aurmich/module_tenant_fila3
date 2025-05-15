@@ -12,6 +12,7 @@ class ListDomains extends XotBaseListRecords
 {
     protected static string $resource = DomainResource::class;
 
+<<<<<<< Updated upstream
 <<<<<<< HEAD
     public function getTableColumns(): array
 =======
@@ -29,6 +30,9 @@ class ListDomains extends XotBaseListRecords
     public function getListTableColumns(): array
 >>>>>>> eb32fae (.)
 >>>>>>> dc7d204 (.)
+=======
+    public function getTableColumns(): array
+>>>>>>> Stashed changes
     {
         return [
             'id' => Tables\Columns\TextColumn::make('id')

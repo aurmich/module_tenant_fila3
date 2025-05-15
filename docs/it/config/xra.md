@@ -15,7 +15,6 @@ return [
     'register_adm_theme' => false,
     'register_pub_theme' => false,
     'forcessl' => false,
-<<<<<<< HEAD
 ### Versione HEAD
 
 ];
@@ -31,6 +30,3 @@ return [
 
 ---
 
-=======
-];
->>>>>>> eb32fae (.)

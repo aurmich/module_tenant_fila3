@@ -23,7 +23,6 @@ return [
         ],
     ],
 ];
-<<<<<<< HEAD
 ### Versione HEAD
 
 
@@ -37,5 +36,3 @@ return [
 
 ---
 
-=======
->>>>>>> eb32fae (.)

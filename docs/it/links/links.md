@@ -9,7 +9,6 @@ section: content
 
 
 ...
-<<<<<<< HEAD
 ### Versione HEAD
 
 
@@ -31,5 +30,3 @@ section: content
 
 ---
 
-=======
->>>>>>> eb32fae (.)

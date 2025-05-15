@@ -75,12 +75,8 @@ class MyModel extends Model
         'active' => 'boolean'
     ];
 }
-<<<<<<< HEAD
 ``` 
 ## Collegamenti tra versioni di sushi-to-jsons.md
 * [sushi-to-jsons.md](../../../Tenant/docs/traits/sushi-to-jsons.md)
 * [sushi-to-jsons.md](../../../Tenant/docs/models/traits/sushi-to-jsons.md)
 
-=======
-``` 
->>>>>>> eb32fae (.)
