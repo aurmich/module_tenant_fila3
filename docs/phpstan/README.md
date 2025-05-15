@@ -1,6 +1,6 @@
 # Analisi PHPStan per il modulo Tenant
 
-Data: Wed Apr 23 21:23:52 CEST 2025
+Data: Wed Apr 23 10:44:57 CEST 2025
 
 ## Riassunto
 
