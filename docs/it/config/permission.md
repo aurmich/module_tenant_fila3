@@ -162,6 +162,7 @@ return [
 
         'store' => 'default',
     ],
+<<<<<<< HEAD
 ### Versione HEAD
 
 ];
@@ -176,3 +177,6 @@ return [
 
 ---
 
+=======
+];
+>>>>>>> eb32fae (.)

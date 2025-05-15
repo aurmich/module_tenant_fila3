@@ -127,6 +127,7 @@ return [
 
     'dispatch_events_from_aggregate_roots' => false,
 ];
+<<<<<<< HEAD
 ### Versione HEAD
 
 
@@ -140,3 +141,5 @@ return [
 
 ---
 
+=======
+>>>>>>> eb32fae (.)

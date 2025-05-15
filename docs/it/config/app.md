@@ -8,6 +8,7 @@ return [
     'datetime_format' => 'd/m/Y H:i',
 ];
 ~~~
+<<<<<<< HEAD
 ### Versione HEAD
 
 
@@ -21,3 +22,5 @@ return [
 
 ---
 
+=======
+>>>>>>> eb32fae (.)
