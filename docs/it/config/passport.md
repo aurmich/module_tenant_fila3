@@ -64,6 +64,7 @@ return [
     ],
 
 ];
+<<<<<<< HEAD
 ### Versione HEAD
 
 
@@ -76,3 +77,5 @@ return [
 
 ---
 
+=======
+>>>>>>> 9bcd1bb (.)

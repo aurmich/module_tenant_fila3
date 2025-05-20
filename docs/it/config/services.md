@@ -35,6 +35,7 @@ return [
         'webhook' => env('TELEGRAM_BOT_WEBHOOK'),
     ],
 ];
+<<<<<<< HEAD
 ### Versione HEAD
 
 
@@ -48,3 +49,5 @@ return [
 
 ---
 
+=======
+>>>>>>> 9bcd1bb (.)

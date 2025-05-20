@@ -49,6 +49,7 @@ Come il parametro 'home', anche il parametro **'adm_home'** indica la blade che 
 Di default viene utilizzata **laravel\Themes\adm_theme\Resources\views\admin\dashboard\01.blade.php**, blade importante perchè mette a disposizione l'utilizzo di blade personalizzate per ogni modulo utilizzato.
 
 **nome_modulo::admin.dashboard.item** è la blade che dovrà essere creata per ogni modulo.
+<<<<<<< HEAD
 ### Versione HEAD
 
 
@@ -63,3 +64,5 @@ Di default viene utilizzata **laravel\Themes\adm_theme\Resources\views\admin\das
 
 ---
 
+=======
+>>>>>>> 9bcd1bb (.)
