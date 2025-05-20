@@ -31,7 +31,6 @@ return [
     'color_megamenu' => '#d60021',
     'color_hamburger' => '#000',
     'color_banner' => '#000',
-<<<<<<< HEAD
 ### Versione HEAD
 
 ];
@@ -46,6 +45,3 @@ return [
 
 ---
 
-=======
-];
->>>>>>> 9bcd1bb (.)

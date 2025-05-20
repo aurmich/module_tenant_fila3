@@ -108,7 +108,6 @@ composer format        # Formatta il codice
 - Formati data/ora per tenant
 
 ## Changelog
-<<<<<<< HEAD
 ### Versione HEAD
 
 
@@ -227,6 +226,4 @@ composer format        # Formatta il codice
 
 ---
 
-=======
->>>>>>> 9bcd1bb (.)
 Le modifiche vengono tracciate nel repository GitHub. 

@@ -73,7 +73,6 @@ class Foo extends bar
 ```
 
 </div>
-<<<<<<< HEAD
 ### Versione HEAD
 
 
@@ -90,5 +89,3 @@ class Foo extends bar
 
 ---
 
-=======
->>>>>>> 9bcd1bb (.)

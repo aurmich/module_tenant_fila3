@@ -12,11 +12,7 @@ class ListDomains extends XotBaseListRecords
 {
     protected static string $resource = DomainResource::class;
 
-<<<<<<< HEAD
     public function getTableColumns(): array
-=======
-    public function getListTableColumns(): array
->>>>>>> 9bcd1bb (.)
     {
         return [
             'id' => Tables\Columns\TextColumn::make('id')

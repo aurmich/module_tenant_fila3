@@ -127,7 +127,6 @@ return [
 
     'dispatch_events_from_aggregate_roots' => false,
 ];
-<<<<<<< HEAD
 ### Versione HEAD
 
 
@@ -141,5 +140,3 @@ return [
 
 ---
 
-=======
->>>>>>> 9bcd1bb (.)
