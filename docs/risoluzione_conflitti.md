@@ -141,9 +141,19 @@ Questo errore indica che ci sono ancora conflitti git non risolti in altri modul
 
 **Azione necessaria:** Per completare il processo di validazione, sarà necessario risolvere anche i conflitti nel modulo Xot, in particolare nel file `XotServiceProvider.php`.
 
+## [AGGIORNAMENTO 2024-xx-xx] Risoluzione conflitto in app/Models/Tenant.php
+
+**Problema**: Conflitto tra due versioni delle relazioni `patients()` e `appointments()`, una puntava ai moduli `Patient` e `Dental`, l'altra a `SaluteOra`.
+
+**Soluzione**: È stata mantenuta la versione che utilizza i moduli `Patient` e `Dental` per garantire la separazione delle responsabilità, la chiarezza architetturale e la massima compatibilità con PHPStan livello 10. In questo modo il modulo Tenant resta indipendente e facilmente manutenibile.
+
+**Motivazione**: L'aggregazione delle entità pazienti e appuntamenti in moduli dedicati favorisce la modularità, la riusabilità e la scalabilità del sistema multi-tenant. L'utilizzo di un modulo "macro" come SaluteOra avrebbe introdotto una dipendenza non necessaria e ridotto la chiarezza delle responsabilità.
+
+**Backlink**: Consulta anche la [documentazione globale sulla risoluzione dei conflitti git](../../../docs/risoluzione_conflitti_git.md) per la procedura e le linee guida generali.
+
 ## Collegamenti Utili
 
 - [Documentazione Principale Tenant](module_tenant.md)
 - [Rapporti PHPStan](phpstan/)
-- [Panoramica della Risoluzione dei Conflitti](/docs/conflict_resolution_ui_tenant.md)
+- [Panoramica della Risoluzione dei Conflitti](../../../docs/risoluzione_conflitti_git.md)
 

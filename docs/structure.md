@@ -321,6 +321,10 @@ tests/Unit
 - [Analisi strutturale complessiva](/docs/phpstan/modules_structure_analysis.md)
 - [Report PHPStan](/docs/phpstan/)
 
+## Collegamenti sulla risoluzione dei conflitti
+
+- [Risoluzione conflitti nel modulo Tenant](risoluzione_conflitti.md)
+- [Linee guida globali per la risoluzione dei conflitti git](../../../docs/risoluzione_conflitti_git.md)
 
 ## Collegamenti tra versioni di structure.md
 * [structure.md](bashscripts/docs/structure.md)
