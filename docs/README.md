@@ -1,12 +1,279 @@
-# Modulo Tenant
+# Modulo Tenant - Modular Monolith
 
-## Panoramica
-Il modulo Tenant gestisce il multi-tenancy dell'applicazione, fornendo un sistema completo per la gestione di tenant multipli, isolamento dei dati e configurazioni specifiche per ogni tenant.
+## Architettura Modular Monolith: Best Practices 2025
 
-### Versione HEAD
+Questa sezione integra i principi dell'articolo "Architecting Laravel the Right Way: Modular Monoliths Done Right" (Mohamad Shahkhajeh, 2025) e le migliori pratiche moderne per la progettazione di moduli Laravel realmente indipendenti e manutenibili.
 
+### 1. Cos'è un Modular Monolith?
+Un monolite modulare è un'unica applicazione con moduli interni **ben separati**, ognuno con il proprio dominio, interfacce minime esposte e logica interna nascosta. Si distribuisce una sola app, ma ogni modulo è isolato e pronto per evolvere (anche verso microservizi, se necessario).
 
-### Versione Incoming
+### 2. Struttura a Livelli (Hexagonal/DDD)
+Ogni modulo segue una struttura ispirata all'architettura esagonale:
+
+```
+Modules/Tenant
+├── Domain         # Logica di dominio pura (entità, value object, regole)
+├── Application    # Casi d'uso (es. CreateTenant, UpdateTenant)
+├── Infrastructure # Accesso a DB, servizi esterni, repository
+├── UI             # Controller, Livewire, API, Filament
+```
+
+**Nessun livello deve "sanguinare" nell'altro!**
+
+### 3. Regole d'Oro della Modularità
+- Ogni modulo ha uno scopo chiaro (es. Tenant, User, Billing)
+- Gli internals sono nascosti: esporre solo contracts/eventi
+- Dipendere da astrazioni, mai da dettagli di altri moduli
+- Usare service provider per registrare servizi e binding
+- Comunicare tra moduli solo tramite eventi o contracts
+
+### 4. Shared Kernel (Nucleo condiviso)
+- Solo logica davvero condivisa (es. Currency, UserRole)
+- Deve essere piccolo, stabile, astratto
+- Evitare di trasformarlo in un "junk drawer"
+
+### 5. Testing
+- La logica di dominio e i casi d'uso devono essere testabili in puro PHP, senza bootstrap di Laravel
+- Esempio:
+```php
+$tenantCreator = new CreateTenant($tenantRepository);
+$tenantCreator->handle($request);
+```
+
+### 6. Transizione Graduale
+- Non serve riscrivere tutto: isolare un dominio alla volta
+- Creare la struttura a livelli, spostare la logica, registrare provider, bindare interfacce
+- Ripetere per ogni modulo
+
+### 7. Vantaggi
+- Deploy veloce, debug semplice, meno complessità
+- Ogni team può "possedere" un modulo
+- Pronto per evolvere verso microservizi solo se serve
+
+### 8. Esempio di struttura modulo
+```
+Modules/Tenant
+├── Domain
+│   ├── Tenant.php
+│   ├── TenantStatus.php
+├── Application
+│   ├── CreateTenant.php
+│   ├── UpdateTenant.php
+├── Infrastructure
+│   ├── TenantRepository.php
+├── UI
+│   ├── TenantController.php
+```
+
+### 9. Comunicazione tra moduli
+- **Eventi**: preferire event-driven (es. event(new TenantCreated($tenant)))
+- **Contracts**: esporre solo interfacce pubbliche
+- **Mai** chiamate statiche dirette tra moduli
+
+### 10. Riferimenti e collegamenti
+- [structure.md](structure.md) — Dettaglio struttura cartelle e PSR-4
+- [module_tenant.md](module_tenant.md) — Dettaglio dominio Tenant
+- [risoluzione_conflitti.md](risoluzione_conflitti.md) — Gestione conflitti tra moduli
+- [../User/docs/structure.md](../../User/docs/structure.md) — Esempio struttura modulo User
+- [../Xot/docs/structure.md](../../Xot/docs/structure.md) — Regole generali modular monolith
+
+---
+
+## Introduzione
+
+Il modulo Tenant implementa un sistema di multi-tenancy seguendo l'approccio Modular Monolith, che combina i vantaggi dell'architettura modulare con la semplicità di un'applicazione monolitica.
+
+## Architettura
+
+### Principi Fondamentali
+
+1. **Isolamento dei Moduli**
+   - Ogni modulo è un'unità indipendente con le proprie:
+     - Migrazioni
+     - Modelli
+     - Controller
+     - Viste
+     - Test
+     - Configurazioni
+
+2. **Comunicazione tra Moduli**
+   - Eventi e Listener per comunicazione asincrona
+   - Service Provider per registrazione dei servizi
+   - Contracts per definire interfacce tra moduli
+
+3. **Gestione delle Dipendenze**
+   - Dipendenze esplicite tra moduli
+   - Uso di interfacce per il disaccoppiamento
+   - Iniezione delle dipendenze tramite Service Container
+
+### Struttura del Modulo
+
+```
+Tenant/
+├── Actions/           # Azioni di business logic
+├── Console/          # Comandi Artisan
+├── Contracts/        # Interfacce pubbliche
+├── Database/         # Migrazioni e seeders
+├── Events/           # Eventi del modulo
+├── Exceptions/       # Eccezioni personalizzate
+├── Http/             # Controller e Middleware
+├── Listeners/        # Listener per gli eventi
+├── Models/           # Modelli del modulo
+├── Providers/        # Service Provider
+├── Resources/        # Assets e viste
+├── Routes/           # Definizione delle rotte
+├── Services/         # Servizi del modulo
+└── Tests/            # Test unitari e di integrazione
+```
+
+## Best Practices (aggiornate 2025)
+
+### 1. Isolamento
+- Ogni modulo deve essere il più possibile indipendente
+- Evitare dipendenze circolari tra moduli
+- Utilizzare eventi per la comunicazione tra moduli
+- Definire interfacce chiare per l'interazione tra moduli
+- **Non accedere mai direttamente agli internals di altri moduli**
+
+### 2. Gestione delle Dipendenze
+- Usare service provider per registrare binding e servizi
+- Dipendere sempre da contracts/interfacce, mai da classi concrete di altri moduli
+- Comunicare tramite eventi o contracts
+
+### 3. Eventi e Listener
+- Preferire eventi per la comunicazione asincrona tra moduli
+- Ogni modulo può ascoltare eventi di altri moduli tramite listener
+
+### 4. Contracts e Interfacce
+- Esporre solo ciò che è necessario tramite contracts
+- Nascondere la logica interna del modulo
+
+### 5. Shared Kernel
+- Mantenere il kernel condiviso piccolo e stabile
+- Usare solo per costanti, enum, value object comuni
+
+### 6. Testing
+- Testare la logica di dominio e i casi d'uso in puro PHP
+- Usare test di integrazione per la comunicazione tra moduli
+
+### 7. Transizione e Manutenzione
+- Migrare gradualmente verso la struttura a livelli
+- Documentare ogni passaggio e aggiornamento
+
+---
+
+## Integrazione con Altri Moduli
+
+### 1. Service Provider
+
+```php
+class TenantServiceProvider extends ServiceProvider
+{
+    public function register()
+    {
+        // Registrazione dei servizi
+    }
+
+    public function boot()
+    {
+        // Caricamento delle configurazioni
+        $this->loadMigrationsFrom(__DIR__.'/../Database/Migrations');
+        $this->loadRoutesFrom(__DIR__.'/../Routes/web.php');
+    }
+}
+```
+
+### 2. Eventi tra Moduli
+
+```php
+// Nel modulo Tenant
+event(new TenantCreated($tenant));
+
+// Nel modulo User
+Event::listen(TenantCreated::class, function ($event) {
+    // Gestione della creazione del tenant
+});
+```
+
+## Testing
+
+### 1. Test Unitari
+
+```php
+class TenantTest extends TestCase
+{
+    public function test_can_create_tenant()
+    {
+        $tenant = Tenant::factory()->create();
+        $this->assertInstanceOf(Tenant::class, $tenant);
+    }
+}
+```
+
+### 2. Test di Integrazione
+
+```php
+class TenantIntegrationTest extends TestCase
+{
+    public function test_tenant_creation_triggers_events()
+    {
+        Event::fake();
+        
+        $tenant = Tenant::factory()->create();
+        
+        Event::assertDispatched(TenantCreated::class);
+    }
+}
+```
+
+## Deployment
+
+### 1. Migrazioni
+
+- Le migrazioni sono caricate automaticamente dal Service Provider
+- Utilizzare il comando `php artisan migrate` per applicare le migrazioni
+
+### 2. Configurazione
+
+```php
+// config/tenant.php
+return [
+    'default' => env('TENANT_CONNECTION', 'tenant'),
+    'connections' => [
+        'tenant' => [
+            'driver' => 'mysql',
+            'url' => env('DATABASE_URL'),
+            'host' => env('DB_HOST', '127.0.0.1'),
+            'port' => env('DB_PORT', '3306'),
+            'database' => env('DB_DATABASE', 'forge'),
+            'username' => env('DB_USERNAME', 'forge'),
+            'password' => env('DB_PASSWORD', ''),
+        ],
+    ],
+];
+```
+
+## Manutenzione
+
+### 1. Aggiornamenti
+
+- Mantenere le dipendenze aggiornate
+- Testare gli aggiornamenti in ambiente di sviluppo
+- Documentare le modifiche breaking
+
+### 2. Debugging
+
+- Utilizzare il logging per tracciare le operazioni
+- Implementare monitoraggio delle performance
+- Gestire correttamente le eccezioni
+
+## Collegamenti Correlati
+
+- [Struttura del Modulo](structure.md)
+- [Gestione dei Pacchetti](packages.md)
+- [Risoluzione dei Conflitti](risoluzione_conflitti.md)
+- [Roadmap](roadmap.md)
+- [Documentazione Filament](filament_resources.md)
 
 ## Collegamenti correlati
 - [README.md documentazione generale](../../../docs/README.md)
@@ -315,56 +582,8 @@ Tenant::current()->configure([
 
 ---
 
-## Proprietà fondamentali del ServiceProvider (Laraxot/PTVX)
+## Collegamenti sulla risoluzione dei conflitti
 
-Tutti i provider dei moduli che estendono XotBaseServiceProvider **devono** dichiarare:
-- `protected string $module_dir = __DIR__;`
-- `protected string $module_ns = __NAMESPACE__;`
-- `public string $name = 'Tenant';`
-
-Queste proprietà sono necessarie per:
-- La risoluzione automatica dei path delle risorse
-- Il corretto namespace per autoloading e publish
-- L'identificazione del modulo nelle operazioni di asset publish
-
-### Esempio
-```php
-class TenantServiceProvider extends XotBaseServiceProvider
-{
-    protected string $module_dir = __DIR__;
-    protected string $module_ns = __NAMESPACE__;
-    public string $name = 'Tenant';
-}
-```
-
-**Motivazione:**  
-- Se mancano queste proprietà, alcune risorse potrebbero non essere caricate correttamente.
-- La dichiarazione esplicita garantisce portabilità, manutenibilità e coerenza tra tutti i moduli.
-
-**Approfondimenti:**  
-- Vedi anche [../../../../docs/PROVIDER_OVERVIEW.md](../../../../docs/PROVIDER_OVERVIEW.md)
-
-## Regola per i file .sh (script shell)
-
-Tutti i file `.sh` (script shell) devono essere posizionati esclusivamente in una sottocartella dedicata chiamata `bashscripts` (ad esempio `docs/bashscripts/`).
-Non devono mai trovarsi direttamente nella root di `docs/` o in altre sottocartelle generiche.
-
-**Motivazione:**
-- Ordine e reperibilità: tutti gli script shell sono facilmente individuabili e gestibili.
-- Sicurezza: si evita l'esecuzione accidentale di script non previsti.
-- Coerenza cross-modulo e tra root/moduli.
-
-**Esempio di struttura corretta:**
-```
-docs/
-└── bashscripts/
-    ├── deploy.sh
-    ├── clear_cache.sh
-    └── backup_db.sh
-```
-
-**Checklist aggiornata:**
-- [x] Nessun file .sh fuori da bashscripts/
-- [x] Documentazione aggiornata
-- [x] Struttura coerente in tutti i moduli
+- [Risoluzione conflitti nel modulo Tenant](risoluzione_conflitti.md)
+- [Linee guida globali per la risoluzione dei conflitti git](../../../docs/risoluzione_conflitti_git.md)
 

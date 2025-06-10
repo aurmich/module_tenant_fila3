@@ -44,7 +44,6 @@ class TenantService
         if (isRunningTestBench()) {
             return realpath(__DIR__.'/../Config').DIRECTORY_SEPARATOR.$filename;
         }
-
         $path = base_path('config/'.self::getName().'/'.$filename);
 
         return str_replace(['/', '\\'], [\DIRECTORY_SEPARATOR, \DIRECTORY_SEPARATOR], $path);

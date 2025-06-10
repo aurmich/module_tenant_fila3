@@ -77,7 +77,7 @@ return [
             ],
             'fields' => [
                 'name' => 'Nome',
-                'surname' => 'Cognome',
+                'last_name' => 'Cognome',
                 'tax_code' => 'Codice Fiscale',
                 'email' => 'Email',
                 'phone' => 'Telefono',
