@@ -6,13 +6,15 @@ namespace Modules\Tenant\Models;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Model as EloquentModel;
 use Modules\Xot\Traits\Updater;
 
 /**
  * Class BaseModel.
- */
-abstract class BaseModel extends Model
+ * @property-read \Modules\Xot\Contracts\ProfileContract|null $creator
+ * @property-read \Modules\Xot\Contracts\ProfileContract|null $updater
+  */
+abstract class BaseModel extends EloquentModel
 {
     use HasFactory;
     use Updater;

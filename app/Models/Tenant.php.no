@@ -21,7 +21,7 @@ class Tenant extends BaseModel
     /**
      * Gli attributi che sono mass assignable.
      *
-     * @var array<int, string>
+     * @var list<string>
      */
     protected $fillable = [
         'name',
@@ -62,35 +62,17 @@ class Tenant extends BaseModel
         return $this->hasMany(User::class);
     }
 
-    /**
-     * Relazione con i pazienti associati al tenant.
-     *
-     * @return \Illuminate\Database\Eloquent\Relations\HasMany
-     */
-    public function patients(): HasMany
-    {
-        return $this->hasMany(\Modules\Patient\Models\Patient::class);
-    }
-
-    /**
-     * Relazione con gli appuntamenti associati al tenant.
-     *
-     * @return \Illuminate\Database\Eloquent\Relations\HasMany
-     */
-    public function appointments(): HasMany
-    {
-        return $this->hasMany(\Modules\Dental\Models\Appointment::class);
-    }
-
-    /**
+   
+    /*
      * Verifica se il tenant è attivo.
      *
      * @return bool
-     */
+     
     public function isActive(): bool
     {
         return (bool) $this->is_active;
     }
+        */
 
     /**
      * Genera lo slug dal nome se non fornito.
