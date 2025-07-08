@@ -1,47 +1,33 @@
 <?php
 
-namespace Modules\Tenant\Tests\Unit;
+declare(strict_types=1);
 
 use Modules\Tenant\Models\Domain;
-use Tests\TestCase;
 
-class DomainTest extends TestCase
-{
-    /**
-     * Verifica che il modello Domain possa essere istanziato.
-     *
-     * @return void
-     */
-    public function testDomainModelCanBeInstantiated()
-    {
-        $domain = new Domain();
+uses(Tests\TestCase::class);
 
-        $this->assertInstanceOf(Domain::class, $domain);
-    }
+test('domain model can be instantiated', function (): void {
+    $domain = new Domain();
 
-    /**
-     * Verifica il metodo getRows.
-     *
-     * @return void
-     */
-    public function testGetRowsMethod()
-    {
-        // Mock della Action GetDomainsArrayAction
-        $this->mock(\Modules\Tenant\Actions\Domains\GetDomainsArrayAction::class, function ($mock) {
-            $mock->shouldReceive('execute')
-                ->once()
-                ->andReturn([
-                    ['id' => 1, 'name' => 'test-domain.com'],
-                    ['id' => 2, 'name' => 'example.org'],
-                ]);
-        });
+    expect($domain)->toBeInstanceOf(Domain::class);
+});
 
-        $domain = new Domain();
-        $rows = $domain->getRows();
+test('get rows method works correctly', function (): void {
+    // Mock della Action GetDomainsArrayAction
+    $this->mock(\Modules\Tenant\Actions\Domains\GetDomainsArrayAction::class, function ($mock) {
+        $mock->shouldReceive('execute')
+            ->once()
+            ->andReturn([
+                ['id' => 1, 'name' => 'test-domain.com'],
+                ['id' => 2, 'name' => 'example.org'],
+            ]);
+    });
 
-        $this->assertIsArray($rows);
-        $this->assertCount(2, $rows);
-        $this->assertEquals('test-domain.com', $rows[0]['name']);
-        $this->assertEquals('example.org', $rows[1]['name']);
-    }
-}
+    $domain = new Domain();
+    $rows = $domain->getRows();
+
+    expect($rows)->toBeArray();
+    expect($rows)->toHaveCount(2);
+    expect($rows[0]['name'])->toBe('test-domain.com');
+    expect($rows[1]['name'])->toBe('example.org');
+});

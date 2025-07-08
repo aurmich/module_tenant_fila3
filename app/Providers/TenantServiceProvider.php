@@ -25,7 +25,12 @@ class TenantServiceProvider extends XotBaseServiceProvider
     public function boot(): void
     {
         parent::boot();
-        $this->mergeConfigs();
+        
+        // Skip complex configuration during testing
+        //if (!$this->app->environment('testing')) {
+            $this->mergeConfigs();
+        //}
+        
         $this->registerDB();
         $this->registerMorphMap();
         $this->publishConfig();
@@ -48,6 +53,12 @@ class TenantServiceProvider extends XotBaseServiceProvider
 
     public function registerDB(): void
     {
+        // Skip database operations during testing
+        //if ($this->app->environment('testing')) {
+        //    Schema::defaultStringLength(191);
+        //    return;
+        //}
+
         if (Request::has('act') && Request::input('act') === 'migrate') {
             DB::purge('mysql'); // Call to a member function prepare() on null
             DB::reconnect('mysql');
