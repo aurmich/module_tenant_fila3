@@ -7,7 +7,13 @@ use Modules\Xot\Database\Migrations\XotBaseMigration;
 
 return new class extends XotBaseMigration
 {
-    
+    /**
+     * Nome della tabella.
+     *
+     * @var string
+     */
+    //protected string $table = 'tenants';
+
     /**
      * Run the migrations.
      */
