@@ -1,6 +1,10 @@
 <?php
 
+<<<<<<< HEAD
 declare(strict_types=1);
+=======
+namespace Modules\Tenant\Tests\Unit;
+>>>>>>> 5a2ca30 (.)
 
 use Modules\Tenant\Models\Domain;
 

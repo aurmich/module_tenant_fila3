@@ -582,8 +582,63 @@ Tenant::current()->configure([
 
 ---
 
+<<<<<<< HEAD
 ## Collegamenti sulla risoluzione dei conflitti
 
 - [Risoluzione conflitti nel modulo Tenant](risoluzione_conflitti.md)
 - [Linee guida globali per la risoluzione dei conflitti git](../../../docs/risoluzione_conflitti_git.md)
+=======
+## Proprietà fondamentali del ServiceProvider (Laraxot/PTVX)
+
+Tutti i provider dei moduli che estendono XotBaseServiceProvider **devono** dichiarare:
+- `protected string $module_dir = __DIR__;`
+- `protected string $module_ns = __NAMESPACE__;`
+- `public string $name = 'Tenant';`
+
+Queste proprietà sono necessarie per:
+- La risoluzione automatica dei path delle risorse
+- Il corretto namespace per autoloading e publish
+- L'identificazione del modulo nelle operazioni di asset publish
+
+### Esempio
+```php
+class TenantServiceProvider extends XotBaseServiceProvider
+{
+    protected string $module_dir = __DIR__;
+    protected string $module_ns = __NAMESPACE__;
+    public string $name = 'Tenant';
+}
+```
+
+**Motivazione:**  
+- Se mancano queste proprietà, alcune risorse potrebbero non essere caricate correttamente.
+- La dichiarazione esplicita garantisce portabilità, manutenibilità e coerenza tra tutti i moduli.
+
+**Approfondimenti:**  
+- Vedi anche [../../../../docs/PROVIDER_OVERVIEW.md](../../../../docs/PROVIDER_OVERVIEW.md)
+
+## Regola per i file .sh (script shell)
+
+Tutti i file `.sh` (script shell) devono essere posizionati esclusivamente in una sottocartella dedicata chiamata `bashscripts` (ad esempio `docs/bashscripts/`).
+Non devono mai trovarsi direttamente nella root di `docs/` o in altre sottocartelle generiche.
+
+**Motivazione:**
+- Ordine e reperibilità: tutti gli script shell sono facilmente individuabili e gestibili.
+- Sicurezza: si evita l'esecuzione accidentale di script non previsti.
+- Coerenza cross-modulo e tra root/moduli.
+
+**Esempio di struttura corretta:**
+```
+docs/
+└── bashscripts/
+    ├── deploy.sh
+    ├── clear_cache.sh
+    └── backup_db.sh
+```
+
+**Checklist aggiornata:**
+- [x] Nessun file .sh fuori da bashscripts/
+- [x] Documentazione aggiornata
+- [x] Struttura coerente in tutti i moduli
+>>>>>>> 5a2ca30 (.)
 
