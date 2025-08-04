@@ -21,12 +21,14 @@ app/
 ```
 
 ## Dipendenze
+
 ### Moduli Required
 - User
 - Media
 - Xot
 
 ## Database
+
 ### Factories
 Namespace: `Modules\Tenant\Database\Factories`
 
@@ -53,6 +55,7 @@ composer format        # Formatta il codice
 - Asset management per tenant
 
 ## Configurazione
+
 ### Tenant
 - Configurazione in `config/tenant.php`
 - Middleware in `app/Http/Middleware`
@@ -74,6 +77,7 @@ composer format        # Formatta il codice
 8. Mantenere sicurezza tra tenant
 
 ## Troubleshooting
+
 ### Problemi Comuni
 1. **Errori di Isolamento**
    - Verificare middleware tenant
@@ -91,6 +95,7 @@ composer format        # Formatta il codice
    - Gestire invalidazione cache
 
 ## Sicurezza
+
 ### Isolamento
 - Separazione dati tra tenant
 - Autenticazione tenant-specific
@@ -108,6 +113,7 @@ composer format        # Formatta il codice
 - Formati data/ora per tenant
 
 ## Changelog
+
 ### Versione HEAD
 
 
@@ -136,12 +142,14 @@ app/
 ```
 
 ## Dipendenze
+
 ### Moduli Required
 - User
 - Media
 - Xot
 
 ## Database
+
 ### Factories
 Namespace: `Modules\Tenant\Database\Factories`
 
@@ -168,6 +176,7 @@ composer format        # Formatta il codice
 - Asset management per tenant
 
 ## Configurazione
+
 ### Tenant
 - Configurazione in `config/tenant.php`
 - Middleware in `app/Http/Middleware`
@@ -189,6 +198,7 @@ composer format        # Formatta il codice
 8. Mantenere sicurezza tra tenant
 
 ## Troubleshooting
+
 ### Problemi Comuni
 1. **Errori di Isolamento**
    - Verificare middleware tenant
@@ -206,6 +216,7 @@ composer format        # Formatta il codice
    - Gestire invalidazione cache
 
 ## Sicurezza
+
 ### Isolamento
 - Separazione dati tra tenant
 - Autenticazione tenant-specific
