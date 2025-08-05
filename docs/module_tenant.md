@@ -21,14 +21,20 @@ app/
 ```
 
 ## Dipendenze
+<<<<<<< HEAD
 
+=======
+>>>>>>> cf24e8e (.)
 ### Moduli Required
 - User
 - Media
 - Xot
 
 ## Database
+<<<<<<< HEAD
 
+=======
+>>>>>>> cf24e8e (.)
 ### Factories
 Namespace: `Modules\Tenant\Database\Factories`
 
@@ -55,7 +61,10 @@ composer format        # Formatta il codice
 - Asset management per tenant
 
 ## Configurazione
+<<<<<<< HEAD
 
+=======
+>>>>>>> cf24e8e (.)
 ### Tenant
 - Configurazione in `config/tenant.php`
 - Middleware in `app/Http/Middleware`
@@ -77,7 +86,10 @@ composer format        # Formatta il codice
 8. Mantenere sicurezza tra tenant
 
 ## Troubleshooting
+<<<<<<< HEAD
 
+=======
+>>>>>>> cf24e8e (.)
 ### Problemi Comuni
 1. **Errori di Isolamento**
    - Verificare middleware tenant
@@ -95,7 +107,10 @@ composer format        # Formatta il codice
    - Gestire invalidazione cache
 
 ## Sicurezza
+<<<<<<< HEAD
 
+=======
+>>>>>>> cf24e8e (.)
 ### Isolamento
 - Separazione dati tra tenant
 - Autenticazione tenant-specific
@@ -113,7 +128,10 @@ composer format        # Formatta il codice
 - Formati data/ora per tenant
 
 ## Changelog
+<<<<<<< HEAD
 
+=======
+>>>>>>> cf24e8e (.)
 ### Versione HEAD
 
 
@@ -142,14 +160,20 @@ app/
 ```
 
 ## Dipendenze
+<<<<<<< HEAD
 
+=======
+>>>>>>> cf24e8e (.)
 ### Moduli Required
 - User
 - Media
 - Xot
 
 ## Database
+<<<<<<< HEAD
 
+=======
+>>>>>>> cf24e8e (.)
 ### Factories
 Namespace: `Modules\Tenant\Database\Factories`
 
@@ -176,7 +200,10 @@ composer format        # Formatta il codice
 - Asset management per tenant
 
 ## Configurazione
+<<<<<<< HEAD
 
+=======
+>>>>>>> cf24e8e (.)
 ### Tenant
 - Configurazione in `config/tenant.php`
 - Middleware in `app/Http/Middleware`
@@ -198,7 +225,10 @@ composer format        # Formatta il codice
 8. Mantenere sicurezza tra tenant
 
 ## Troubleshooting
+<<<<<<< HEAD
 
+=======
+>>>>>>> cf24e8e (.)
 ### Problemi Comuni
 1. **Errori di Isolamento**
    - Verificare middleware tenant
@@ -216,7 +246,10 @@ composer format        # Formatta il codice
    - Gestire invalidazione cache
 
 ## Sicurezza
+<<<<<<< HEAD
 
+=======
+>>>>>>> cf24e8e (.)
 ### Isolamento
 - Separazione dati tra tenant
 - Autenticazione tenant-specific
