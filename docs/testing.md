@@ -252,10 +252,7 @@ jobs:
 ### 2. Code Coverage
 
 ```bash
-<<<<<<< HEAD
 
-=======
->>>>>>> cf24e8e (.)
 # phpunit.xml
 <coverage>
     <include>
