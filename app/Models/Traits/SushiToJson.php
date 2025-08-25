@@ -170,10 +170,17 @@ trait SushiToJson
         static::creating(
 <<<<<<< HEAD
             function ($model): void {
+<<<<<<< HEAD
 =======
             function (\Illuminate\Database\Eloquent\Model $model): void {
 >>>>>>> 6fc381b (.)
                 $file = $model->getJsonFile();
+=======
+                /** @var static $modelWithTrait */
+                $modelWithTrait = $model;
+                /** @phpstan-ignore-next-line */
+                $file = $modelWithTrait->getJsonFile();
+>>>>>>> bf127a0 (.)
 
                 // Load existing rows
                 /** @var array<int, array<string, mixed>> $rows */
@@ -189,8 +196,11 @@ trait SushiToJson
                 $maxId = 0;
                 foreach ($rows as $r) {
 <<<<<<< HEAD
+<<<<<<< HEAD
                     $maxId = max($maxId, (int) ($r['id'] ?? 0));
 =======
+=======
+>>>>>>> bf127a0 (.)
                     // Ensure each row is an array before accessing offsets
                     if (!\is_array($r)) {
                         continue;
@@ -198,6 +208,7 @@ trait SushiToJson
                     $rawId = $r['id'] ?? 0;
                     $id = \is_numeric($rawId) ? (int) $rawId : 0;
                     $maxId = max($maxId, $id);
+<<<<<<< HEAD
 >>>>>>> 6fc381b (.)
                 }
 
@@ -213,11 +224,28 @@ trait SushiToJson
 
                 // Append new row from attributes
                 $rows[] = $model->getAttributes();
+=======
+                }
+
+                $modelWithTrait->setAttribute('id', $maxId + 1);
+                $modelWithTrait->setAttribute('updated_at', now());
+                if (\function_exists('authId')) {
+                    $modelWithTrait->setAttribute('updated_by', authId());
+                }
+                $modelWithTrait->setAttribute('created_at', now());
+                if (\function_exists('authId')) {
+                    $modelWithTrait->setAttribute('created_by', authId());
+                }
+
+                // Append new row from attributes
+                $rows[] = $modelWithTrait->getAttributes();
+>>>>>>> bf127a0 (.)
 
                 if (! File::exists(\dirname($file))) {
                     File::makeDirectory(\dirname($file), 0755, true, true);
                 }
 
+<<<<<<< HEAD
 <<<<<<< HEAD
                 File::put($file, json_encode($rows, JSON_PRETTY_PRINT));
 =======
@@ -254,9 +282,14 @@ trait SushiToJson
                 $existingData[$model->id] = $model->toArray();
                 $modelWithTrait->saveToJson($existingData);
 >>>>>>> 6fc381b (.)
+=======
+                /** @phpstan-ignore-next-line */
+                $modelWithTrait->saveToJson($rows);
+>>>>>>> bf127a0 (.)
             }
         });
 
+<<<<<<< HEAD
         // Evento di cancellazione
 <<<<<<< HEAD
         static::deleting(function ($model): void {
@@ -275,8 +308,46 @@ trait SushiToJson
                 unset($existingData[$model->id]);
                 $modelWithTrait->saveToJson($existingData);
 >>>>>>> 6fc381b (.)
+=======
+        // Evento di aggiornamento
+        static::updating(function ($model): void {
+            /** @var static $modelWithTrait */
+            $modelWithTrait = $model;
+            $modelWithTrait->setAttribute('updated_at', now());
+
+            if (\function_exists('authId')) {
+                $modelWithTrait->setAttribute('updated_by', authId());
+            }
+
+            // Aggiorna i dati nel file JSON
+            /** @phpstan-ignore-next-line */
+            $existingData = $modelWithTrait->loadExistingData();
+            $id = (int) ($modelWithTrait->getAttribute('id') ?? 0);
+            if ($id > 0) {
+                $existingData[$id] = $modelWithTrait->toArray();
+                /** @phpstan-ignore-next-line */
+                $modelWithTrait->saveToJson($existingData);
+            }
+        });
+
+        // Evento di cancellazione
+        static::deleting(function ($model): void {
+            /** @var static $modelWithTrait */
+            $modelWithTrait = $model;
+            // Rimuove il record dal file JSON
+            $id = (int) ($modelWithTrait->getAttribute('id') ?? 0);
+            if ($id > 0) {
+                /** @phpstan-ignore-next-line */
+                $existingData = $modelWithTrait->loadExistingData();
+                unset($existingData[$id]);
+                /** @phpstan-ignore-next-line */
+                $modelWithTrait->saveToJson($existingData);
+>>>>>>> bf127a0 (.)
             }
         });
     }
 }
+<<<<<<< HEAD
 
+=======
+>>>>>>> bf127a0 (.)

@@ -382,12 +382,33 @@ php artisan tenant:check-session-isolation
 - **Database Isolation**: Garantire isolamento completo dei dati
 - **Security**: Mai condividere dati tra tenant
 
+## 🧩 **Traits e Componenti**
+
+### 🏗️ **Traits Disponibili**
+- **[SushiToJson](traits/sushi-to-jsons.md)** - Persistenza JSON per modelli Sushi
+- **[SushiToCsv](traits/sushi-to-csv.md)** - Persistenza CSV per modelli Sushi
+- **[README Traits](traits/README.md)** - Panoramica completa dei traits
+
+**Caratteristiche principali:**
+- ✅ **Multi-tenant Ready** - Isolamento completo per ogni tenant
+- ✅ **Sushi Integration** - Estensione package Sushi per persistenza file
+- ✅ **CRUD Operations** - Operazioni complete create, read, update, delete
+- ✅ **Audit Trail** - Logging completo per tutte le operazioni
+- ✅ **Schema Validation** - Validazione schema dati personalizzabile
+
+### 🔧 **Componenti Core**
+- **TenantService** - Gestione tenant e isolamento
+- **TenantScope** - Scope automatico per modelli
+- **TenantMiddleware** - Middleware per protezione route
+- **TenantEvents** - Eventi per comunicazione moduli
+
 ## 📊 **Roadmap**
 
 ### 🎯 **Q1 2025**
 - [ ] **Advanced Isolation** - Isolamento avanzato per cache e sessioni
 - [ ] **Tenant Analytics** - Analytics dettagliati per ogni tenant
 - [ ] **Auto Scaling** - Scaling automatico per tenant
+- [ ] **Traits Completion** - Completamento metodi WIP nei traits
 
 ### 🎯 **Q2 2025**
 - [ ] **Tenant Migration** - Migrazione automatica tenant

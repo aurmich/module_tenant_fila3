@@ -9,10 +9,14 @@ use Modules\User\Models\Tenant;
 
 /**
 <<<<<<< HEAD
+<<<<<<< HEAD
  * @extends \Illuminate\Database\Eloquent\Factories\Factory<\Modules\Tenant\Models\Tenant>
 =======
  * @extends \Illuminate\Database\Eloquent\Factories\Factory<\Modules\User\Models\Tenant>
 >>>>>>> 6fc381b (.)
+=======
+ * @extends \Illuminate\Database\Eloquent\Factories\Factory<\Modules\User\Models\Tenant>
+>>>>>>> bf127a0 (.)
  */
 class TenantFactory extends Factory
 {
@@ -20,10 +24,14 @@ class TenantFactory extends Factory
      * The name of the factory's corresponding model.
      *
 <<<<<<< HEAD
+<<<<<<< HEAD
      * @var string
 =======
      * @var class-string<\Modules\User\Models\Tenant>
 >>>>>>> 6fc381b (.)
+=======
+     * @var class-string<\Modules\User\Models\Tenant>
+>>>>>>> bf127a0 (.)
      */
     protected $model = Tenant::class;
 
