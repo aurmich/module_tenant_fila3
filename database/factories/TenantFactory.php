@@ -5,19 +5,19 @@ declare(strict_types=1);
 namespace Modules\Tenant\Database\Factories;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
-use Modules\Tenant\Models\Domain;
+use Modules\User\Models\Tenant;
 
 /**
- * @extends \Illuminate\Database\Eloquent\Factories\Factory<\Modules\Tenant\Models\Domain>
+ * @extends \Illuminate\Database\Eloquent\Factories\Factory<\Modules\Tenant\Models\Tenant>
  */
-class DomainFactory extends Factory
+class TenantFactory extends Factory
 {
     /**
      * The name of the factory's corresponding model.
      *
      * @var string
      */
-    protected $model = Domain::class;
+    protected $model = Tenant::class;
 
     /**
      * Define the model's default state.
@@ -27,27 +27,22 @@ class DomainFactory extends Factory
     public function definition(): array
     {
         return [
+            'name' => $this->faker->company(),
             'domain' => $this->faker->domainName(),
-            'is_primary' => $this->faker->boolean(20),
-            'is_ssl_enabled' => $this->faker->boolean(80),
-            'is_active' => $this->faker->boolean(90),
+            'database' => 'tenant_' . $this->faker->unique()->slug(),
+            'is_active' => $this->faker->boolean(80),
+            'settings' => [
+                'timezone' => $this->faker->randomElement(['Europe/Rome', 'Europe/London', 'America/New_York']),
+                'locale' => $this->faker->randomElement(['it', 'en', 'de']),
+                'currency' => $this->faker->randomElement(['EUR', 'USD', 'GBP']),
+            ],
             'created_at' => $this->faker->dateTimeBetween('-1 year', 'now'),
             'updated_at' => $this->faker->dateTimeBetween('-1 month', 'now'),
         ];
     }
 
     /**
-     * Indicate that the domain is primary.
-     */
-    public function primary(): static
-    {
-        return $this->state(fn (array $attributes) => [
-            'is_primary' => true,
-        ]);
-    }
-
-    /**
-     * Indicate that the domain is active.
+     * Indicate that the tenant is active.
      */
     public function active(): static
     {
@@ -57,13 +52,12 @@ class DomainFactory extends Factory
     }
 
     /**
-     * Indicate that SSL is enabled.
+     * Indicate that the tenant is inactive.
      */
-    public function sslEnabled(): static
+    public function inactive(): static
     {
         return $this->state(fn (array $attributes) => [
-            'is_ssl_enabled' => true,
+            'is_active' => false,
         ]);
     }
 }
-
