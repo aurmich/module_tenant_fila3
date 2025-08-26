@@ -10,6 +10,7 @@ use Modules\User\Models\Tenant;
 /**
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
  * @extends \Illuminate\Database\Eloquent\Factories\Factory<\Modules\Tenant\Models\Tenant>
 =======
  * @extends \Illuminate\Database\Eloquent\Factories\Factory<\Modules\User\Models\Tenant>
@@ -17,12 +18,16 @@ use Modules\User\Models\Tenant;
 =======
  * @extends \Illuminate\Database\Eloquent\Factories\Factory<\Modules\User\Models\Tenant>
 >>>>>>> bf127a0 (.)
+=======
+ * @extends \Illuminate\Database\Eloquent\Factories\Factory<\Modules\Tenant\Models\Tenant>
+>>>>>>> c50df0e (.)
  */
 class TenantFactory extends Factory
 {
     /**
      * The name of the factory's corresponding model.
      *
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
      * @var string
@@ -32,6 +37,9 @@ class TenantFactory extends Factory
 =======
      * @var class-string<\Modules\User\Models\Tenant>
 >>>>>>> bf127a0 (.)
+=======
+     * @var string
+>>>>>>> c50df0e (.)
      */
     protected $model = Tenant::class;
 

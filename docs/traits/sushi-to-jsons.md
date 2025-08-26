@@ -99,6 +99,7 @@ class MyModel extends Model
     // Il trait gestisce automaticamente la lettura da:
     // {tenant_path}/database/content/my_table.json
 }
+<<<<<<< HEAD
 ```
 
 ## Struttura File JSON
@@ -118,6 +119,8 @@ class MyModel extends Model
         "active": false
     }
 ]
+=======
+>>>>>>> c50df0e (.)
 ``` 
 ## Testing e Qualità
 

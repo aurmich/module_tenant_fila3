@@ -6,6 +6,9 @@ namespace Modules\Tenant\Tests\Integration;
 
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> c50df0e (.)
 use Tests\TestCase;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Auth;
@@ -17,6 +20,7 @@ use Illuminate\Foundation\Testing\RefreshDatabase;
 /**
  * Test di integrazione per il trait SushiToJson.
  * 
+<<<<<<< HEAD
 =======
 =======
 >>>>>>> bf127a0 (.)
@@ -34,6 +38,8 @@ use Tests\TestCase;
 >>>>>>> 6fc381b (.)
 =======
 >>>>>>> bf127a0 (.)
+=======
+>>>>>>> c50df0e (.)
  * Testa l'integrazione del trait con il sistema multi-tenant,
  * verificando l'isolamento dei dati e la gestione dei percorsi.
  */
@@ -51,6 +57,7 @@ class SushiToJsonIntegrationTest extends TestCase
         parent::setUp();
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
         
 =======
 
@@ -58,6 +65,9 @@ class SushiToJsonIntegrationTest extends TestCase
 =======
 
 >>>>>>> bf127a0 (.)
+=======
+        
+>>>>>>> c50df0e (.)
         // Crea tenant di test
         $this->tenant1 = Tenant::factory()->create([
             'name' => 'Test Tenant 1',
@@ -65,6 +75,7 @@ class SushiToJsonIntegrationTest extends TestCase
         ]);
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
         
 =======
 
@@ -72,12 +83,18 @@ class SushiToJsonIntegrationTest extends TestCase
 =======
 
 >>>>>>> bf127a0 (.)
+=======
+        
+>>>>>>> c50df0e (.)
         $this->tenant2 = Tenant::factory()->create([
             'name' => 'Test Tenant 2',
             'domain' => 'tenant2.test',
         ]);
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> c50df0e (.)
         
         // Configura percorsi per i tenant
         $this->tenant1Path = config_path($this->tenant1->name . '/database/content');
@@ -88,6 +105,7 @@ class SushiToJsonIntegrationTest extends TestCase
             File::makeDirectory($this->tenant1Path, 0755, true, true);
         }
         if (!File::exists($this->tenant2Path)) {
+<<<<<<< HEAD
 =======
 =======
 >>>>>>> bf127a0 (.)
@@ -105,6 +123,8 @@ class SushiToJsonIntegrationTest extends TestCase
 >>>>>>> 6fc381b (.)
 =======
 >>>>>>> bf127a0 (.)
+=======
+>>>>>>> c50df0e (.)
             File::makeDirectory($this->tenant2Path, 0755, true, true);
         }
     }
@@ -120,6 +140,7 @@ class SushiToJsonIntegrationTest extends TestCase
         }
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
         
 =======
 
@@ -127,12 +148,16 @@ class SushiToJsonIntegrationTest extends TestCase
 =======
 
 >>>>>>> bf127a0 (.)
+=======
+        
+>>>>>>> c50df0e (.)
         parent::tearDown();
     }
 
     /**
      * Test per l'isolamento dei dati tra tenant diversi.
      */
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
     public function test_tenant_data_isolation(): void
@@ -142,10 +167,14 @@ class SushiToJsonIntegrationTest extends TestCase
 =======
     public function testTenantDataIsolation(): void
 >>>>>>> bf127a0 (.)
+=======
+    public function test_tenant_data_isolation(): void
+>>>>>>> c50df0e (.)
     {
         // Configura tenant 1
         $this->actingAs($this->createUserForTenant($this->tenant1));
         $this->setCurrentTenant($this->tenant1);
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
         
@@ -155,6 +184,9 @@ class SushiToJsonIntegrationTest extends TestCase
 =======
 
 >>>>>>> bf127a0 (.)
+=======
+        
+>>>>>>> c50df0e (.)
         $model1 = new TestSushiModel();
         $data1 = [
             '1' => [
@@ -166,6 +198,9 @@ class SushiToJsonIntegrationTest extends TestCase
         ];
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> c50df0e (.)
         
         $model1->saveToJson($data1);
         
@@ -177,6 +212,7 @@ class SushiToJsonIntegrationTest extends TestCase
         $this->actingAs($this->createUserForTenant($this->tenant2));
         $this->setCurrentTenant($this->tenant2);
         
+<<<<<<< HEAD
 =======
 =======
 >>>>>>> bf127a0 (.)
@@ -195,6 +231,8 @@ class SushiToJsonIntegrationTest extends TestCase
 >>>>>>> 6fc381b (.)
 =======
 >>>>>>> bf127a0 (.)
+=======
+>>>>>>> c50df0e (.)
         $model2 = new TestSushiModel();
         $data2 = [
             '1' => [
@@ -206,6 +244,9 @@ class SushiToJsonIntegrationTest extends TestCase
         ];
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> c50df0e (.)
         
         $model2->saveToJson($data2);
         
@@ -216,6 +257,7 @@ class SushiToJsonIntegrationTest extends TestCase
         $tenant1Data = json_decode(File::get($this->tenant1Path . '/test_sushi.json'), true);
         $tenant2Data = json_decode(File::get($this->tenant2Path . '/test_sushi.json'), true);
         
+<<<<<<< HEAD
 =======
 =======
 >>>>>>> bf127a0 (.)
@@ -233,6 +275,8 @@ class SushiToJsonIntegrationTest extends TestCase
 >>>>>>> 6fc381b (.)
 =======
 >>>>>>> bf127a0 (.)
+=======
+>>>>>>> c50df0e (.)
         $this->assertEquals('Tenant 1 Item', $tenant1Data['1']['name']);
         $this->assertEquals('Tenant 2 Item', $tenant2Data['1']['name']);
         $this->assertNotEquals($tenant1Data, $tenant2Data);
@@ -243,6 +287,9 @@ class SushiToJsonIntegrationTest extends TestCase
      */
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> c50df0e (.)
     public function test_tenant_specific_file_paths(): void
     {
         $this->actingAs($this->createUserForTenant($this->tenant1));
@@ -251,6 +298,7 @@ class SushiToJsonIntegrationTest extends TestCase
         $model = new TestSushiModel();
         $path = $model->getJsonFile();
         
+<<<<<<< HEAD
 =======
 =======
 >>>>>>> bf127a0 (.)
@@ -266,6 +314,8 @@ class SushiToJsonIntegrationTest extends TestCase
 >>>>>>> 6fc381b (.)
 =======
 >>>>>>> bf127a0 (.)
+=======
+>>>>>>> c50df0e (.)
         // Verifica che il percorso contenga il nome del tenant
         $this->assertStringContainsString($this->tenant1->name, $path);
         $this->assertStringContainsString('database/content', $path);
@@ -277,6 +327,7 @@ class SushiToJsonIntegrationTest extends TestCase
      */
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     public function test_data_persistence_during_tenant_switch(): void
 =======
     public function testDataPersistenceDuringTenantSwitch(): void
@@ -284,10 +335,14 @@ class SushiToJsonIntegrationTest extends TestCase
 =======
     public function testDataPersistenceDuringTenantSwitch(): void
 >>>>>>> bf127a0 (.)
+=======
+    public function test_data_persistence_during_tenant_switch(): void
+>>>>>>> c50df0e (.)
     {
         // Crea dati per tenant 1
         $this->actingAs($this->createUserForTenant($this->tenant1));
         $this->setCurrentTenant($this->tenant1);
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
         
@@ -297,6 +352,9 @@ class SushiToJsonIntegrationTest extends TestCase
 =======
 
 >>>>>>> bf127a0 (.)
+=======
+        
+>>>>>>> c50df0e (.)
         $model1 = new TestSushiModel();
         $data1 = [
             '1' => ['id' => 1, 'name' => 'Tenant 1 Data'],
@@ -304,6 +362,9 @@ class SushiToJsonIntegrationTest extends TestCase
         ];
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> c50df0e (.)
         
         $model1->saveToJson($data1);
         
@@ -314,6 +375,7 @@ class SushiToJsonIntegrationTest extends TestCase
         $this->actingAs($this->createUserForTenant($this->tenant2));
         $this->setCurrentTenant($this->tenant2);
         
+<<<<<<< HEAD
 =======
 =======
 >>>>>>> bf127a0 (.)
@@ -331,12 +393,17 @@ class SushiToJsonIntegrationTest extends TestCase
 >>>>>>> 6fc381b (.)
 =======
 >>>>>>> bf127a0 (.)
+=======
+>>>>>>> c50df0e (.)
         $model2 = new TestSushiModel();
         $data2 = [
             '1' => ['id' => 1, 'name' => 'Tenant 2 Data'],
         ];
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> c50df0e (.)
         
         $model2->saveToJson($data2);
         
@@ -348,6 +415,7 @@ class SushiToJsonIntegrationTest extends TestCase
         $tenant1Data = json_decode(File::get($this->tenant1Path . '/test_sushi.json'), true);
         $tenant2Data = json_decode(File::get($this->tenant2Path . '/test_sushi.json'), true);
         
+<<<<<<< HEAD
 =======
 =======
 >>>>>>> bf127a0 (.)
@@ -366,6 +434,8 @@ class SushiToJsonIntegrationTest extends TestCase
 >>>>>>> 6fc381b (.)
 =======
 >>>>>>> bf127a0 (.)
+=======
+>>>>>>> c50df0e (.)
         $this->assertNotEquals($tenant1Data, $tenant2Data);
     }
 
@@ -374,6 +444,9 @@ class SushiToJsonIntegrationTest extends TestCase
      */
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> c50df0e (.)
     public function test_eloquent_events_in_multi_tenant_context(): void
     {
         $this->actingAs($this->createUserForTenant($this->tenant1));
@@ -390,6 +463,7 @@ class SushiToJsonIntegrationTest extends TestCase
         $this->assertFileExists($this->tenant1Path . '/test_sushi.json');
         
         $savedData = json_decode(File::get($this->tenant1Path . '/test_sushi.json'), true);
+<<<<<<< HEAD
 =======
 =======
 >>>>>>> bf127a0 (.)
@@ -413,6 +487,8 @@ class SushiToJsonIntegrationTest extends TestCase
 >>>>>>> 6fc381b (.)
 =======
 >>>>>>> bf127a0 (.)
+=======
+>>>>>>> c50df0e (.)
         $this->assertArrayHasKey($model->id, $savedData);
         $this->assertEquals('Test Item', $savedData[$model->id]['name']);
     }
@@ -422,6 +498,9 @@ class SushiToJsonIntegrationTest extends TestCase
      */
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> c50df0e (.)
     public function test_error_handling_in_multi_tenant_context(): void
     {
         $this->actingAs($this->createUserForTenant($this->tenant1));
@@ -430,6 +509,7 @@ class SushiToJsonIntegrationTest extends TestCase
         // Test con directory non scrivibile
         $nonWritablePath = '/non/writable/path';
         
+<<<<<<< HEAD
 =======
 =======
 >>>>>>> bf127a0 (.)
@@ -445,12 +525,17 @@ class SushiToJsonIntegrationTest extends TestCase
 >>>>>>> 6fc381b (.)
 =======
 >>>>>>> bf127a0 (.)
+=======
+>>>>>>> c50df0e (.)
         // Mock TenantService per restituire percorso non scrivibile
         $this->mock(TenantService::class, function ($mock) use ($nonWritablePath) {
             $mock->shouldReceive('filePath')
                 ->with('database/content/test_sushi.json')
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> c50df0e (.)
                 ->andReturn($nonWritablePath . '/test_sushi.json');
         });
         
@@ -459,6 +544,7 @@ class SushiToJsonIntegrationTest extends TestCase
         
         $result = $model->saveToJson($testData);
         
+<<<<<<< HEAD
 =======
 =======
 >>>>>>> bf127a0 (.)
@@ -474,12 +560,15 @@ class SushiToJsonIntegrationTest extends TestCase
 >>>>>>> 6fc381b (.)
 =======
 >>>>>>> bf127a0 (.)
+=======
+>>>>>>> c50df0e (.)
         $this->assertFalse($result);
     }
 
     /**
      * Test per la gestione di file JSON condivisi tra tenant.
      */
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
     public function test_shared_json_files_between_tenants(): void
@@ -489,6 +578,9 @@ class SushiToJsonIntegrationTest extends TestCase
 =======
     public function testSharedJsonFilesBetweenTenants(): void
 >>>>>>> bf127a0 (.)
+=======
+    public function test_shared_json_files_between_tenants(): void
+>>>>>>> c50df0e (.)
     {
         // Crea un file JSON condiviso
         $sharedData = [
@@ -497,6 +589,9 @@ class SushiToJsonIntegrationTest extends TestCase
         ];
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> c50df0e (.)
         
         $sharedPath = config_path('shared/database/content');
         if (!File::exists($sharedPath)) {
@@ -505,6 +600,7 @@ class SushiToJsonIntegrationTest extends TestCase
         
         File::put($sharedPath . '/test_sushi.json', json_encode($sharedData, JSON_PRETTY_PRINT));
         
+<<<<<<< HEAD
 =======
 =======
 >>>>>>> bf127a0 (.)
@@ -520,12 +616,17 @@ class SushiToJsonIntegrationTest extends TestCase
 >>>>>>> 6fc381b (.)
 =======
 >>>>>>> bf127a0 (.)
+=======
+>>>>>>> c50df0e (.)
         // Mock TenantService per restituire percorso condiviso
         $this->mock(TenantService::class, function ($mock) use ($sharedPath) {
             $mock->shouldReceive('filePath')
                 ->with('database/content/test_sushi.json')
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> c50df0e (.)
                 ->andReturn($sharedPath . '/test_sushi.json');
         });
         
@@ -547,6 +648,7 @@ class SushiToJsonIntegrationTest extends TestCase
         $this->assertEquals($rows1, $rows2);
         $this->assertEquals('Shared Item', $rows1['1']['name']);
         
+<<<<<<< HEAD
 =======
 =======
 >>>>>>> bf127a0 (.)
@@ -575,6 +677,8 @@ class SushiToJsonIntegrationTest extends TestCase
 >>>>>>> 6fc381b (.)
 =======
 >>>>>>> bf127a0 (.)
+=======
+>>>>>>> c50df0e (.)
         // Cleanup
         File::deleteDirectory(dirname($sharedPath));
     }
@@ -584,6 +688,7 @@ class SushiToJsonIntegrationTest extends TestCase
      */
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     public function test_crud_operations_in_multi_tenant_context(): void
 =======
     public function testCrudOperationsInMultiTenantContext(): void
@@ -591,10 +696,14 @@ class SushiToJsonIntegrationTest extends TestCase
 =======
     public function testCrudOperationsInMultiTenantContext(): void
 >>>>>>> bf127a0 (.)
+=======
+    public function test_crud_operations_in_multi_tenant_context(): void
+>>>>>>> c50df0e (.)
     {
         // Test con tenant 1
         $this->actingAs($this->createUserForTenant($this->tenant1));
         $this->setCurrentTenant($this->tenant1);
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
         
@@ -610,6 +719,11 @@ class SushiToJsonIntegrationTest extends TestCase
         $model1 = new TestSushiModel();
 
 >>>>>>> bf127a0 (.)
+=======
+        
+        $model1 = new TestSushiModel();
+        
+>>>>>>> c50df0e (.)
         // Create
         $data1 = [
             '1' => ['id' => 1, 'name' => 'Tenant 1 Item 1'],
@@ -618,6 +732,9 @@ class SushiToJsonIntegrationTest extends TestCase
         $model1->saveToJson($data1);
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> c50df0e (.)
         
         // Read
         $rows1 = $model1->getSushiRows();
@@ -645,6 +762,7 @@ class SushiToJsonIntegrationTest extends TestCase
         $model2 = new TestSushiModel();
         $rows2 = $model2->getSushiRows();
         
+<<<<<<< HEAD
 =======
 =======
 >>>>>>> bf127a0 (.)
@@ -679,6 +797,8 @@ class SushiToJsonIntegrationTest extends TestCase
 >>>>>>> 6fc381b (.)
 =======
 >>>>>>> bf127a0 (.)
+=======
+>>>>>>> c50df0e (.)
         // Verifica che il tenant 2 non veda i dati del tenant 1
         $this->assertEmpty($rows2);
     }
@@ -688,6 +808,9 @@ class SushiToJsonIntegrationTest extends TestCase
      */
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> c50df0e (.)
     public function test_json_file_permissions_in_multi_tenant_context(): void
     {
         $this->actingAs($this->createUserForTenant($this->tenant1));
@@ -706,6 +829,7 @@ class SushiToJsonIntegrationTest extends TestCase
         $permissions = substr(sprintf('%o', fileperms($filePath)), -4);
         $this->assertEquals('0644', $permissions);
         
+<<<<<<< HEAD
 =======
 =======
 >>>>>>> bf127a0 (.)
@@ -731,6 +855,8 @@ class SushiToJsonIntegrationTest extends TestCase
 >>>>>>> 6fc381b (.)
 =======
 >>>>>>> bf127a0 (.)
+=======
+>>>>>>> c50df0e (.)
         // Verifica permessi della directory
         $directoryPath = dirname($filePath);
         $dirPermissions = substr(sprintf('%o', fileperms($directoryPath)), -4);
@@ -742,11 +868,15 @@ class SushiToJsonIntegrationTest extends TestCase
      */
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> c50df0e (.)
     public function test_network_filesystem_errors_in_multi_tenant_context(): void
     {
         $this->actingAs($this->createUserForTenant($this->tenant1));
         $this->setCurrentTenant($this->tenant1);
         
+<<<<<<< HEAD
 =======
 =======
 >>>>>>> bf127a0 (.)
@@ -759,12 +889,15 @@ class SushiToJsonIntegrationTest extends TestCase
 >>>>>>> 6fc381b (.)
 =======
 >>>>>>> bf127a0 (.)
+=======
+>>>>>>> c50df0e (.)
         // Simula errore di rete (file system non disponibile)
         $this->mock(TenantService::class, function ($mock) {
             $mock->shouldReceive('filePath')
                 ->with('database/content/test_sushi.json')
                 ->andReturn('//unreachable/network/path/test_sushi.json');
         });
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
         
@@ -780,6 +913,11 @@ class SushiToJsonIntegrationTest extends TestCase
         $model = new TestSushiModel();
 
 >>>>>>> bf127a0 (.)
+=======
+        
+        $model = new TestSushiModel();
+        
+>>>>>>> c50df0e (.)
         // Test getSushiRows con errore di rete
         $this->expectException(\Exception::class);
         $model->getSushiRows();
@@ -793,10 +931,14 @@ class SushiToJsonIntegrationTest extends TestCase
         $user = \Modules\User\Models\User::factory()->create();
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> c50df0e (.)
         
         // Associa l'utente al tenant
         $user->tenants()->attach($tenant->id);
         
+<<<<<<< HEAD
 =======
 =======
 >>>>>>> bf127a0 (.)
@@ -808,6 +950,8 @@ class SushiToJsonIntegrationTest extends TestCase
 >>>>>>> 6fc381b (.)
 =======
 >>>>>>> bf127a0 (.)
+=======
+>>>>>>> c50df0e (.)
         return $user;
     }
 
@@ -820,6 +964,7 @@ class SushiToJsonIntegrationTest extends TestCase
         app()->instance('current_tenant', $tenant);
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
         
 =======
 
@@ -827,10 +972,14 @@ class SushiToJsonIntegrationTest extends TestCase
 =======
 
 >>>>>>> bf127a0 (.)
+=======
+        
+>>>>>>> c50df0e (.)
         // Mock TenantService per restituire percorsi specifici del tenant
         $this->mock(TenantService::class, function ($mock) use ($tenant) {
             $mock->shouldReceive('filePath')
                 ->with('database/content/test_sushi.json')
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
                 ->andReturn(config_path($tenant->name . '/database/content/test_sushi.json'));
@@ -840,6 +989,9 @@ class SushiToJsonIntegrationTest extends TestCase
 =======
                 ->andReturn(config_path($tenant->name.'/database/content/test_sushi.json'));
 >>>>>>> bf127a0 (.)
+=======
+                ->andReturn(config_path($tenant->name . '/database/content/test_sushi.json'));
+>>>>>>> c50df0e (.)
         });
     }
 }

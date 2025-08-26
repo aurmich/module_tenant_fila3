@@ -17,6 +17,7 @@ class DomainFactory extends Factory
      *
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
      * @var string
 =======
      * @var class-string<\Modules\Tenant\Models\Domain>
@@ -24,6 +25,9 @@ class DomainFactory extends Factory
 =======
      * @var class-string<\Modules\Tenant\Models\Domain>
 >>>>>>> bf127a0 (.)
+=======
+     * @var string
+>>>>>>> c50df0e (.)
      */
     protected $model = Domain::class;
 
