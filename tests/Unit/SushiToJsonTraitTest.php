@@ -4,11 +4,6 @@ declare(strict_types=1);
 
 namespace Modules\Tenant\Tests\Unit;
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> c50df0e (.)
 use Tests\TestCase;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Auth;
@@ -20,10 +15,7 @@ use Illuminate\Foundation\Testing\RefreshDatabase;
 /**
  * Test unitari per il trait SushiToJson.
  * 
-<<<<<<< HEAD
 =======
-=======
->>>>>>> bf127a0 (.)
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\File;
@@ -34,12 +26,7 @@ use Tests\TestCase;
 /**
  * Test unitari per il trait SushiToJson.
  *
-<<<<<<< HEAD
->>>>>>> 6fc381b (.)
 =======
->>>>>>> bf127a0 (.)
-=======
->>>>>>> c50df0e (.)
  * Testa tutte le funzionalità del trait in isolamento,
  * utilizzando mock per le dipendenze esterne.
  */
@@ -54,11 +41,6 @@ class SushiToJsonTraitTest extends TestCase
     protected function setUp(): void
     {
         parent::setUp();
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> c50df0e (.)
         
         // Configura il modello di test
         $this->model = new TestSushiModel();
@@ -72,10 +54,7 @@ class SushiToJsonTraitTest extends TestCase
             File::makeDirectory($this->testDirectory, 0755, true, true);
         }
         
-<<<<<<< HEAD
 =======
-=======
->>>>>>> bf127a0 (.)
 
         // Configura il modello di test
         $this->model = new TestSushiModel();
@@ -89,12 +68,7 @@ class SushiToJsonTraitTest extends TestCase
             File::makeDirectory($this->testDirectory, 0755, true, true);
         }
 
-<<<<<<< HEAD
->>>>>>> 6fc381b (.)
 =======
->>>>>>> bf127a0 (.)
-=======
->>>>>>> c50df0e (.)
         // Mock TenantService per i test
         $this->mockTenantService();
     }
@@ -105,31 +79,18 @@ class SushiToJsonTraitTest extends TestCase
         if (File::exists($this->testJsonPath)) {
             File::delete($this->testJsonPath);
         }
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> c50df0e (.)
         
         if (File::exists($this->testDirectory)) {
             File::deleteDirectory($this->testDirectory);
         }
         
-<<<<<<< HEAD
 =======
-=======
->>>>>>> bf127a0 (.)
 
         if (File::exists($this->testDirectory)) {
             File::deleteDirectory($this->testDirectory);
         }
 
-<<<<<<< HEAD
->>>>>>> 6fc381b (.)
 =======
->>>>>>> bf127a0 (.)
-=======
->>>>>>> c50df0e (.)
         parent::tearDown();
     }
 
@@ -175,29 +136,16 @@ class SushiToJsonTraitTest extends TestCase
     /**
      * Test per il metodo getJsonFile().
      */
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> c50df0e (.)
     public function test_get_json_file_returns_correct_path(): void
     {
         $path = $this->model->getJsonFile();
         
-<<<<<<< HEAD
 =======
-=======
->>>>>>> bf127a0 (.)
     public function testGetJsonFileReturnsCorrectPath(): void
     {
         $path = $this->model->getJsonFile();
 
-<<<<<<< HEAD
->>>>>>> 6fc381b (.)
 =======
->>>>>>> bf127a0 (.)
-=======
->>>>>>> c50df0e (.)
         $this->assertEquals($this->testJsonPath, $path);
         $this->assertStringEndsWith('test_sushi.json', $path);
     }
@@ -205,11 +153,6 @@ class SushiToJsonTraitTest extends TestCase
     /**
      * Test per il metodo getSushiRows() con file esistente.
      */
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> c50df0e (.)
     public function test_get_sushi_rows_loads_existing_data(): void
     {
         $testData = $this->createTestData();
@@ -217,10 +160,7 @@ class SushiToJsonTraitTest extends TestCase
         
         $rows = $this->model->getSushiRows();
         
-<<<<<<< HEAD
 =======
-=======
->>>>>>> bf127a0 (.)
     public function testGetSushiRowsLoadsExistingData(): void
     {
         $testData = $this->createTestData();
@@ -228,12 +168,7 @@ class SushiToJsonTraitTest extends TestCase
 
         $rows = $this->model->getSushiRows();
 
-<<<<<<< HEAD
->>>>>>> 6fc381b (.)
 =======
->>>>>>> bf127a0 (.)
-=======
->>>>>>> c50df0e (.)
         $this->assertIsArray($rows);
         $this->assertCount(2, $rows);
         $this->assertEquals('Test Item 1', $rows['1']['name']);
@@ -243,29 +178,16 @@ class SushiToJsonTraitTest extends TestCase
     /**
      * Test per il metodo getSushiRows() con file non esistente.
      */
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> c50df0e (.)
     public function test_get_sushi_rows_returns_empty_array_when_file_not_exists(): void
     {
         $rows = $this->model->getSushiRows();
         
-<<<<<<< HEAD
 =======
-=======
->>>>>>> bf127a0 (.)
     public function testGetSushiRowsReturnsEmptyArrayWhenFileNotExists(): void
     {
         $rows = $this->model->getSushiRows();
 
-<<<<<<< HEAD
->>>>>>> 6fc381b (.)
 =======
->>>>>>> bf127a0 (.)
-=======
->>>>>>> c50df0e (.)
         $this->assertIsArray($rows);
         $this->assertEmpty($rows);
     }
@@ -273,11 +195,6 @@ class SushiToJsonTraitTest extends TestCase
     /**
      * Test per il metodo getSushiRows() con JSON malformato.
      */
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> c50df0e (.)
     public function test_get_sushi_rows_throws_exception_with_malformed_json(): void
     {
         File::put($this->testJsonPath, 'invalid json content');
@@ -285,10 +202,7 @@ class SushiToJsonTraitTest extends TestCase
         $this->expectException(\Exception::class);
         $this->expectExceptionMessage('Data is not array');
         
-<<<<<<< HEAD
 =======
-=======
->>>>>>> bf127a0 (.)
     public function testGetSushiRowsThrowsExceptionWithMalformedJson(): void
     {
         File::put($this->testJsonPath, 'invalid json content');
@@ -296,23 +210,13 @@ class SushiToJsonTraitTest extends TestCase
         $this->expectException(\Exception::class);
         $this->expectExceptionMessage('Data is not array');
 
-<<<<<<< HEAD
->>>>>>> 6fc381b (.)
 =======
->>>>>>> bf127a0 (.)
-=======
->>>>>>> c50df0e (.)
         $this->model->getSushiRows();
     }
 
     /**
      * Test per il metodo getSushiRows() con dati non array.
      */
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> c50df0e (.)
     public function test_get_sushi_rows_throws_exception_with_non_array_data(): void
     {
         File::put($this->testJsonPath, '"string data"');
@@ -320,10 +224,7 @@ class SushiToJsonTraitTest extends TestCase
         $this->expectException(\Exception::class);
         $this->expectExceptionMessage('Data is not array');
         
-<<<<<<< HEAD
 =======
-=======
->>>>>>> bf127a0 (.)
     public function testGetSushiRowsThrowsExceptionWithNonArrayData(): void
     {
         File::put($this->testJsonPath, '"string data"');
@@ -331,31 +232,18 @@ class SushiToJsonTraitTest extends TestCase
         $this->expectException(\Exception::class);
         $this->expectExceptionMessage('Data is not array');
 
-<<<<<<< HEAD
->>>>>>> 6fc381b (.)
 =======
->>>>>>> bf127a0 (.)
-=======
->>>>>>> c50df0e (.)
         $this->model->getSushiRows();
     }
 
     /**
      * Test per il metodo getSushiRows() con normalizzazione array nidificati.
      */
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-    public function test_get_sushi_rows_normalizes_nested_arrays(): void
+    public function testGetSushiRowsNormalizesNestedArrays(): void
 =======
     public function testGetSushiRowsNormalizesNestedArrays(): void
->>>>>>> 6fc381b (.)
-=======
-    public function testGetSushiRowsNormalizesNestedArrays(): void
->>>>>>> bf127a0 (.)
 =======
     public function test_get_sushi_rows_normalizes_nested_arrays(): void
->>>>>>> c50df0e (.)
     {
         $testData = [
             '1' => [
@@ -365,31 +253,18 @@ class SushiToJsonTraitTest extends TestCase
                 'tags' => ['tag1', 'tag2'],
             ],
         ];
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> c50df0e (.)
         
         File::put($this->testJsonPath, json_encode($testData, JSON_PRETTY_PRINT));
         
         $rows = $this->model->getSushiRows();
         
-<<<<<<< HEAD
 =======
-=======
->>>>>>> bf127a0 (.)
 
         File::put($this->testJsonPath, json_encode($testData, JSON_PRETTY_PRINT));
 
         $rows = $this->model->getSushiRows();
 
-<<<<<<< HEAD
->>>>>>> 6fc381b (.)
 =======
->>>>>>> bf127a0 (.)
-=======
->>>>>>> c50df0e (.)
         $this->assertIsString($rows['1']['metadata']);
         $this->assertIsString($rows['1']['tags']);
         $this->assertEquals('{"nested":"value"}', $rows['1']['metadata']);
@@ -399,11 +274,6 @@ class SushiToJsonTraitTest extends TestCase
     /**
      * Test per il metodo saveToJson() con successo.
      */
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> c50df0e (.)
     public function test_save_to_json_saves_data_successfully(): void
     {
         $testData = $this->createTestData();
@@ -413,10 +283,7 @@ class SushiToJsonTraitTest extends TestCase
         $this->assertTrue($result);
         $this->assertFileExists($this->testJsonPath);
         
-<<<<<<< HEAD
 =======
-=======
->>>>>>> bf127a0 (.)
     public function testSaveToJsonSavesDataSuccessfully(): void
     {
         $testData = $this->createTestData();
@@ -426,12 +293,7 @@ class SushiToJsonTraitTest extends TestCase
         $this->assertTrue($result);
         $this->assertFileExists($this->testJsonPath);
 
-<<<<<<< HEAD
->>>>>>> 6fc381b (.)
 =======
->>>>>>> bf127a0 (.)
-=======
->>>>>>> c50df0e (.)
         $savedData = json_decode(File::get($this->testJsonPath), true);
         $this->assertEquals($testData, $savedData);
     }
@@ -439,42 +301,24 @@ class SushiToJsonTraitTest extends TestCase
     /**
      * Test per il metodo saveToJson() crea directory se non esiste.
      */
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> c50df0e (.)
     public function test_save_to_json_creates_directory_if_not_exists(): void
     {
         $newDirectory = storage_path('tests/sushi-json/new-dir');
         $newPath = $newDirectory . '/test.json';
         
-<<<<<<< HEAD
 =======
-=======
->>>>>>> bf127a0 (.)
     public function testSaveToJsonCreatesDirectoryIfNotExists(): void
     {
         $newDirectory = storage_path('tests/sushi-json/new-dir');
         $newPath = $newDirectory.'/test.json';
 
-<<<<<<< HEAD
->>>>>>> 6fc381b (.)
 =======
->>>>>>> bf127a0 (.)
-=======
->>>>>>> c50df0e (.)
         // Mock per nuovo percorso
         $this->mock(TenantService::class, function ($mock) use ($newPath) {
             $mock->shouldReceive('filePath')
                 ->with('database/content/test_sushi.json')
                 ->andReturn($newPath);
         });
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> c50df0e (.)
         
         $testData = ['test' => 'data'];
         $result = $this->model->saveToJson($testData);
@@ -483,10 +327,7 @@ class SushiToJsonTraitTest extends TestCase
         $this->assertDirectoryExists($newDirectory);
         $this->assertFileExists($newPath);
         
-<<<<<<< HEAD
 =======
-=======
->>>>>>> bf127a0 (.)
 
         $testData = ['test' => 'data'];
         $result = $this->model->saveToJson($testData);
@@ -495,12 +336,7 @@ class SushiToJsonTraitTest extends TestCase
         $this->assertDirectoryExists($newDirectory);
         $this->assertFileExists($newPath);
 
-<<<<<<< HEAD
->>>>>>> 6fc381b (.)
 =======
->>>>>>> bf127a0 (.)
-=======
->>>>>>> c50df0e (.)
         // Cleanup
         File::deleteDirectory(dirname($newDirectory));
     }
@@ -508,70 +344,39 @@ class SushiToJsonTraitTest extends TestCase
     /**
      * Test per il metodo saveToJson() con errori di scrittura.
      */
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> c50df0e (.)
     public function test_save_to_json_returns_false_on_write_error(): void
     {
         // Mock directory non scrivibile
         $this->testJsonPath = '/non/writable/path/test.json';
         
-<<<<<<< HEAD
 =======
-=======
->>>>>>> bf127a0 (.)
     public function testSaveToJsonReturnsFalseOnWriteError(): void
     {
         // Mock directory non scrivibile
         $this->testJsonPath = '/non/writable/path/test.json';
 
-<<<<<<< HEAD
->>>>>>> 6fc381b (.)
 =======
->>>>>>> bf127a0 (.)
-=======
->>>>>>> c50df0e (.)
         $this->mock(TenantService::class, function ($mock) {
             $mock->shouldReceive('filePath')
                 ->with('database/content/test_sushi.json')
                 ->andReturn($this->testJsonPath);
         });
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> c50df0e (.)
         
         $testData = ['test' => 'data'];
         $result = $this->model->saveToJson($testData);
         
-<<<<<<< HEAD
 =======
-=======
->>>>>>> bf127a0 (.)
 
         $testData = ['test' => 'data'];
         $result = $this->model->saveToJson($testData);
 
-<<<<<<< HEAD
->>>>>>> 6fc381b (.)
 =======
->>>>>>> bf127a0 (.)
-=======
->>>>>>> c50df0e (.)
         $this->assertFalse($result);
     }
 
     /**
      * Test per il metodo loadExistingData().
      */
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> c50df0e (.)
     public function test_load_existing_data_loads_data_correctly(): void
     {
         $testData = $this->createTestData();
@@ -579,10 +384,7 @@ class SushiToJsonTraitTest extends TestCase
         
         $data = $this->model->loadExistingData();
         
-<<<<<<< HEAD
 =======
-=======
->>>>>>> bf127a0 (.)
     public function testLoadExistingDataLoadsDataCorrectly(): void
     {
         $testData = $this->createTestData();
@@ -590,41 +392,23 @@ class SushiToJsonTraitTest extends TestCase
 
         $data = $this->model->loadExistingData();
 
-<<<<<<< HEAD
->>>>>>> 6fc381b (.)
 =======
->>>>>>> bf127a0 (.)
-=======
->>>>>>> c50df0e (.)
         $this->assertEquals($testData, $data);
     }
 
     /**
      * Test per il metodo loadExistingData() con file non esistente.
      */
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> c50df0e (.)
     public function test_load_existing_data_returns_empty_array_when_file_not_exists(): void
     {
         $data = $this->model->loadExistingData();
         
-<<<<<<< HEAD
 =======
-=======
->>>>>>> bf127a0 (.)
     public function testLoadExistingDataReturnsEmptyArrayWhenFileNotExists(): void
     {
         $data = $this->model->loadExistingData();
 
-<<<<<<< HEAD
->>>>>>> 6fc381b (.)
 =======
->>>>>>> bf127a0 (.)
-=======
->>>>>>> c50df0e (.)
         $this->assertIsArray($data);
         $this->assertEmpty($data);
     }
@@ -632,139 +416,79 @@ class SushiToJsonTraitTest extends TestCase
     /**
      * Test per il metodo getNextId() con dati esistenti.
      */
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-    public function test_get_next_id_returns_next_available_id(): void
+    public function testGetNextIdReturnsNextAvailableId(): void
 =======
     public function testGetNextIdReturnsNextAvailableId(): void
->>>>>>> 6fc381b (.)
-=======
-    public function testGetNextIdReturnsNextAvailableId(): void
->>>>>>> bf127a0 (.)
 =======
     public function test_get_next_id_returns_next_available_id(): void
->>>>>>> c50df0e (.)
     {
         $testData = [
             '1' => ['id' => 1, 'name' => 'Item 1'],
             '5' => ['id' => 5, 'name' => 'Item 5'],
             '10' => ['id' => 10, 'name' => 'Item 10'],
         ];
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> c50df0e (.)
         
         File::put($this->testJsonPath, json_encode($testData, JSON_PRETTY_PRINT));
         
         $nextId = $this->model->getNextId();
         
-<<<<<<< HEAD
 =======
-=======
->>>>>>> bf127a0 (.)
 
         File::put($this->testJsonPath, json_encode($testData, JSON_PRETTY_PRINT));
 
         $nextId = $this->model->getNextId();
 
-<<<<<<< HEAD
->>>>>>> 6fc381b (.)
 =======
->>>>>>> bf127a0 (.)
-=======
->>>>>>> c50df0e (.)
         $this->assertEquals(11, $nextId);
     }
 
     /**
      * Test per il metodo getNextId() senza dati esistenti.
      */
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> c50df0e (.)
     public function test_get_next_id_returns_one_when_no_existing_data(): void
     {
         $nextId = $this->model->getNextId();
         
-<<<<<<< HEAD
 =======
-=======
->>>>>>> bf127a0 (.)
     public function testGetNextIdReturnsOneWhenNoExistingData(): void
     {
         $nextId = $this->model->getNextId();
 
-<<<<<<< HEAD
->>>>>>> 6fc381b (.)
 =======
->>>>>>> bf127a0 (.)
-=======
->>>>>>> c50df0e (.)
         $this->assertEquals(1, $nextId);
     }
 
     /**
      * Test per il metodo getNextId() con ID non numerici.
      */
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-    public function test_get_next_id_returns_one_with_non_numeric_ids(): void
+    public function testGetNextIdReturnsOneWithNonNumericIds(): void
 =======
     public function testGetNextIdReturnsOneWithNonNumericIds(): void
->>>>>>> 6fc381b (.)
-=======
-    public function testGetNextIdReturnsOneWithNonNumericIds(): void
->>>>>>> bf127a0 (.)
 =======
     public function test_get_next_id_returns_one_with_non_numeric_ids(): void
->>>>>>> c50df0e (.)
     {
         $testData = [
             'abc' => ['id' => 'abc', 'name' => 'Item ABC'],
             'def' => ['id' => 'def', 'name' => 'Item DEF'],
         ];
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> c50df0e (.)
         
         File::put($this->testJsonPath, json_encode($testData, JSON_PRETTY_PRINT));
         
         $nextId = $this->model->getNextId();
         
-<<<<<<< HEAD
 =======
-=======
->>>>>>> bf127a0 (.)
 
         File::put($this->testJsonPath, json_encode($testData, JSON_PRETTY_PRINT));
 
         $nextId = $this->model->getNextId();
 
-<<<<<<< HEAD
->>>>>>> 6fc381b (.)
 =======
->>>>>>> bf127a0 (.)
-=======
->>>>>>> c50df0e (.)
         $this->assertEquals(1, $nextId);
     }
 
     /**
      * Test per il metodo getAuthId() con utente autenticato.
      */
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> c50df0e (.)
     public function test_get_auth_id_returns_authenticated_user_id(): void
     {
         $user = \Modules\User\Models\User::factory()->create();
@@ -772,10 +496,7 @@ class SushiToJsonTraitTest extends TestCase
         
         $authId = $this->model->getAuthId();
         
-<<<<<<< HEAD
 =======
-=======
->>>>>>> bf127a0 (.)
     public function testGetAuthIdReturnsAuthenticatedUserId(): void
     {
         $user = \Modules\User\Models\User::factory()->create();
@@ -783,91 +504,52 @@ class SushiToJsonTraitTest extends TestCase
 
         $authId = $this->model->getAuthId();
 
-<<<<<<< HEAD
->>>>>>> 6fc381b (.)
 =======
->>>>>>> bf127a0 (.)
-=======
->>>>>>> c50df0e (.)
         $this->assertEquals($user->id, $authId);
     }
 
     /**
      * Test per il metodo getAuthId() senza utente autenticato.
      */
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> c50df0e (.)
     public function test_get_auth_id_returns_null_when_not_authenticated(): void
     {
         Auth::logout();
         
         $authId = $this->model->getAuthId();
         
-<<<<<<< HEAD
 =======
-=======
->>>>>>> bf127a0 (.)
     public function testGetAuthIdReturnsNullWhenNotAuthenticated(): void
     {
         Auth::logout();
 
         $authId = $this->model->getAuthId();
 
-<<<<<<< HEAD
->>>>>>> 6fc381b (.)
 =======
->>>>>>> bf127a0 (.)
-=======
->>>>>>> c50df0e (.)
         $this->assertNull($authId);
     }
 
     /**
      * Test per la gestione degli eventi Eloquent - Creating.
      */
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-    public function test_creating_event_generates_id_and_timestamps(): void
+    public function testCreatingEventGeneratesIdAndTimestamps(): void
 =======
     public function testCreatingEventGeneratesIdAndTimestamps(): void
->>>>>>> 6fc381b (.)
-=======
-    public function testCreatingEventGeneratesIdAndTimestamps(): void
->>>>>>> bf127a0 (.)
 =======
     public function test_creating_event_generates_id_and_timestamps(): void
->>>>>>> c50df0e (.)
     {
         $model = new TestSushiModel();
         $model->name = 'New Item';
         $model->description = 'New Description';
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> c50df0e (.)
         
         // Simula evento creating
         $model->fireModelEvent('creating');
         
-<<<<<<< HEAD
 =======
-=======
->>>>>>> bf127a0 (.)
 
         // Simula evento creating
         $model->fireModelEvent('creating');
 
-<<<<<<< HEAD
->>>>>>> 6fc381b (.)
 =======
->>>>>>> bf127a0 (.)
-=======
->>>>>>> c50df0e (.)
         $this->assertNotNull($model->id);
         $this->assertNotNull($model->created_at);
         $this->assertNotNull($model->updated_at);
@@ -877,78 +559,44 @@ class SushiToJsonTraitTest extends TestCase
     /**
      * Test per la gestione degli eventi Eloquent - Updating.
      */
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-    public function test_updating_event_updates_timestamp(): void
+    public function testUpdatingEventUpdatesTimestamp(): void
 =======
     public function testUpdatingEventUpdatesTimestamp(): void
->>>>>>> 6fc381b (.)
-=======
-    public function testUpdatingEventUpdatesTimestamp(): void
->>>>>>> bf127a0 (.)
 =======
     public function test_updating_event_updates_timestamp(): void
->>>>>>> c50df0e (.)
     {
         $model = new TestSushiModel();
         $model->id = 1;
         $model->name = 'Updated Item';
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> c50df0e (.)
         
         $originalUpdatedAt = $model->updated_at;
         
         // Simula evento updating
         $model->fireModelEvent('updating');
         
-<<<<<<< HEAD
 =======
-=======
->>>>>>> bf127a0 (.)
 
         $originalUpdatedAt = $model->updated_at;
 
         // Simula evento updating
         $model->fireModelEvent('updating');
 
-<<<<<<< HEAD
->>>>>>> 6fc381b (.)
 =======
->>>>>>> bf127a0 (.)
-=======
->>>>>>> c50df0e (.)
         $this->assertNotEquals($originalUpdatedAt, $model->updated_at);
     }
 
     /**
      * Test per la gestione degli eventi Eloquent - Deleting.
      */
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-    public function test_deleting_event_removes_record_from_json(): void
+    public function testDeletingEventRemovesRecordFromJson(): void
 =======
     public function testDeletingEventRemovesRecordFromJson(): void
->>>>>>> 6fc381b (.)
-=======
-    public function testDeletingEventRemovesRecordFromJson(): void
->>>>>>> bf127a0 (.)
 =======
     public function test_deleting_event_removes_record_from_json(): void
->>>>>>> c50df0e (.)
     {
         // Crea dati di test
         $testData = $this->createTestData();
         File::put($this->testJsonPath, json_encode($testData, JSON_PRETTY_PRINT));
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> c50df0e (.)
         
         $model = new TestSushiModel();
         $model->id = 1;
@@ -956,10 +604,7 @@ class SushiToJsonTraitTest extends TestCase
         // Simula evento deleting
         $model->fireModelEvent('deleting');
         
-<<<<<<< HEAD
 =======
-=======
->>>>>>> bf127a0 (.)
 
         $model = new TestSushiModel();
         $model->id = 1;
@@ -967,12 +612,7 @@ class SushiToJsonTraitTest extends TestCase
         // Simula evento deleting
         $model->fireModelEvent('deleting');
 
-<<<<<<< HEAD
->>>>>>> 6fc381b (.)
 =======
->>>>>>> bf127a0 (.)
-=======
->>>>>>> c50df0e (.)
         // Verifica che il record sia stato rimosso
         $updatedData = json_decode(File::get($this->testJsonPath), true);
         $this->assertArrayNotHasKey('1', $updatedData);
@@ -982,76 +622,45 @@ class SushiToJsonTraitTest extends TestCase
     /**
      * Test per la gestione degli errori durante operazioni JSON.
      */
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> c50df0e (.)
     public function test_error_handling_during_json_operations(): void
     {
         // Test con file non leggibile
         $this->testJsonPath = '/dev/null/test.json';
         
-<<<<<<< HEAD
 =======
-=======
->>>>>>> bf127a0 (.)
     public function testErrorHandlingDuringJsonOperations(): void
     {
         // Test con file non leggibile
         $this->testJsonPath = '/dev/null/test.json';
 
-<<<<<<< HEAD
->>>>>>> 6fc381b (.)
 =======
->>>>>>> bf127a0 (.)
-=======
->>>>>>> c50df0e (.)
         $this->mock(TenantService::class, function ($mock) {
             $mock->shouldReceive('filePath')
                 ->with('database/content/test_sushi.json')
                 ->andReturn($this->testJsonPath);
         });
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-        
+
         $this->expectException(\Exception::class);
-        
+
 =======
 
         $this->expectException(\Exception::class);
 
->>>>>>> 6fc381b (.)
-=======
-
-        $this->expectException(\Exception::class);
-
->>>>>>> bf127a0 (.)
 =======
         
         $this->expectException(\Exception::class);
         
->>>>>>> c50df0e (.)
         $this->model->getSushiRows();
     }
 
     /**
      * Test per la validazione dei dati con schema definito.
      */
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-    public function test_data_validation_with_schema(): void
+    public function testDataValidationWithSchema(): void
 =======
     public function testDataValidationWithSchema(): void
->>>>>>> 6fc381b (.)
-=======
-    public function testDataValidationWithSchema(): void
->>>>>>> bf127a0 (.)
 =======
     public function test_data_validation_with_schema(): void
->>>>>>> c50df0e (.)
     {
         $model = new TestSushiModel();
         $model->schema = [
@@ -1059,19 +668,11 @@ class SushiToJsonTraitTest extends TestCase
             'description' => 'string',
             'status' => 'string',
         ];
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-        
+
 =======
 
->>>>>>> 6fc381b (.)
-=======
-
->>>>>>> bf127a0 (.)
 =======
         
->>>>>>> c50df0e (.)
         $testData = [
             '1' => [
                 'id' => 1,
@@ -1080,31 +681,18 @@ class SushiToJsonTraitTest extends TestCase
                 'status' => 'active',
             ],
         ];
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> c50df0e (.)
         
         File::put($this->testJsonPath, json_encode($testData, JSON_PRETTY_PRINT));
         
         $rows = $model->getSushiRows();
         
-<<<<<<< HEAD
 =======
-=======
->>>>>>> bf127a0 (.)
 
         File::put($this->testJsonPath, json_encode($testData, JSON_PRETTY_PRINT));
 
         $rows = $model->getSushiRows();
 
-<<<<<<< HEAD
->>>>>>> 6fc381b (.)
 =======
->>>>>>> bf127a0 (.)
-=======
->>>>>>> c50df0e (.)
         $this->assertArrayHasKey('1', $rows);
         $this->assertEquals('Valid Item', $rows['1']['name']);
     }
@@ -1112,58 +700,32 @@ class SushiToJsonTraitTest extends TestCase
     /**
      * Test per la performance con file JSON grandi.
      */
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> c50df0e (.)
     public function test_performance_with_large_json_files(): void
     {
         // Crea dati di test con molteplici record
         $largeData = [];
         for ($i = 1; $i <= 1000; $i++) {
-<<<<<<< HEAD
 =======
-=======
->>>>>>> bf127a0 (.)
     public function testPerformanceWithLargeJsonFiles(): void
     {
         // Crea dati di test con molteplici record
         $largeData = [];
         for ($i = 1; $i <= 1000; ++$i) {
-<<<<<<< HEAD
->>>>>>> 6fc381b (.)
 =======
->>>>>>> bf127a0 (.)
-=======
->>>>>>> c50df0e (.)
             $largeData[$i] = [
                 'id' => $i,
                 'name' => "Item {$i}",
                 'description' => "Description for item {$i}",
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-                'status' => ($i % 2 === 0) ? 'active' : 'inactive',
+                'status' => (0 === $i % 2) ? 'active' : 'inactive',
 =======
                 'status' => (0 === $i % 2) ? 'active' : 'inactive',
->>>>>>> 6fc381b (.)
-=======
-                'status' => (0 === $i % 2) ? 'active' : 'inactive',
->>>>>>> bf127a0 (.)
 =======
                 'status' => ($i % 2 === 0) ? 'active' : 'inactive',
->>>>>>> c50df0e (.)
                 'metadata' => ['key' => "value_{$i}"],
                 'created_at' => now()->toISOString(),
                 'updated_at' => now()->toISOString(),
             ];
         }
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> c50df0e (.)
         
         File::put($this->testJsonPath, json_encode($largeData, JSON_PRETTY_PRINT));
         
@@ -1173,10 +735,7 @@ class SushiToJsonTraitTest extends TestCase
         
         $executionTime = ($endTime - $startTime) * 1000; // Converti in millisecondi
         
-<<<<<<< HEAD
 =======
-=======
->>>>>>> bf127a0 (.)
 
         File::put($this->testJsonPath, json_encode($largeData, JSON_PRETTY_PRINT));
 
@@ -1186,12 +745,7 @@ class SushiToJsonTraitTest extends TestCase
 
         $executionTime = ($endTime - $startTime) * 1000; // Converti in millisecondi
 
-<<<<<<< HEAD
->>>>>>> 6fc381b (.)
 =======
->>>>>>> bf127a0 (.)
-=======
->>>>>>> c50df0e (.)
         $this->assertCount(1000, $rows);
         $this->assertLessThan(100, $executionTime, 'Caricamento file JSON troppo lento');
     }
@@ -1199,11 +753,6 @@ class SushiToJsonTraitTest extends TestCase
     /**
      * Test per la gestione della memoria con file JSON grandi.
      */
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> c50df0e (.)
     public function test_memory_usage_with_large_json_files(): void
     {
         $initialMemory = memory_get_usage();
@@ -1211,10 +760,7 @@ class SushiToJsonTraitTest extends TestCase
         // Crea dati di test con molteplici record
         $largeData = [];
         for ($i = 1; $i <= 500; $i++) {
-<<<<<<< HEAD
 =======
-=======
->>>>>>> bf127a0 (.)
     public function testMemoryUsageWithLargeJsonFiles(): void
     {
         $initialMemory = memory_get_usage();
@@ -1222,12 +768,7 @@ class SushiToJsonTraitTest extends TestCase
         // Crea dati di test con molteplici record
         $largeData = [];
         for ($i = 1; $i <= 500; ++$i) {
-<<<<<<< HEAD
->>>>>>> 6fc381b (.)
 =======
->>>>>>> bf127a0 (.)
-=======
->>>>>>> c50df0e (.)
             $largeData[$i] = [
                 'id' => $i,
                 'name' => "Item {$i}",
@@ -1236,11 +777,6 @@ class SushiToJsonTraitTest extends TestCase
                 'metadata' => ['key' => "value_{$i}"],
             ];
         }
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> c50df0e (.)
         
         File::put($this->testJsonPath, json_encode($largeData, JSON_PRETTY_PRINT));
         
@@ -1249,10 +785,7 @@ class SushiToJsonTraitTest extends TestCase
         $finalMemory = memory_get_usage();
         $memoryUsed = $finalMemory - $initialMemory;
         
-<<<<<<< HEAD
 =======
-=======
->>>>>>> bf127a0 (.)
 
         File::put($this->testJsonPath, json_encode($largeData, JSON_PRETTY_PRINT));
 
@@ -1261,12 +794,7 @@ class SushiToJsonTraitTest extends TestCase
         $finalMemory = memory_get_usage();
         $memoryUsed = $finalMemory - $initialMemory;
 
-<<<<<<< HEAD
->>>>>>> 6fc381b (.)
 =======
->>>>>>> bf127a0 (.)
-=======
->>>>>>> c50df0e (.)
         $this->assertCount(500, $rows);
         $this->assertLessThan(50 * 1024 * 1024, $memoryUsed, 'Utilizzo memoria eccessivo (>50MB)');
     }

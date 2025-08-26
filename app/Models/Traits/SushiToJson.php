@@ -168,24 +168,16 @@ trait SushiToJson
     {
         // Evento di creazione
         static::creating(
-<<<<<<< HEAD
-<<<<<<< HEAD
-            function ($model): void {
-<<<<<<< HEAD
-=======
             function (\Illuminate\Database\Eloquent\Model $model): void {
->>>>>>> 6fc381b (.)
                 $file = $model->getJsonFile();
 =======
                 /** @var static $modelWithTrait */
                 $modelWithTrait = $model;
                 /** @phpstan-ignore-next-line */
                 $file = $modelWithTrait->getJsonFile();
->>>>>>> bf127a0 (.)
 =======
             function ($model): void {
                 $file = $model->getJsonFile();
->>>>>>> c50df0e (.)
 
                 // Load existing rows
                 /** @var array<int, array<string, mixed>> $rows */
@@ -200,13 +192,7 @@ trait SushiToJson
                 // Compute next id
                 $maxId = 0;
                 foreach ($rows as $r) {
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-                    $maxId = max($maxId, (int) ($r['id'] ?? 0));
 =======
-=======
->>>>>>> bf127a0 (.)
                     // Ensure each row is an array before accessing offsets
                     if (!\is_array($r)) {
                         continue;
@@ -214,11 +200,7 @@ trait SushiToJson
                     $rawId = $r['id'] ?? 0;
                     $id = \is_numeric($rawId) ? (int) $rawId : 0;
                     $maxId = max($maxId, $id);
-<<<<<<< HEAD
->>>>>>> 6fc381b (.)
-=======
                     $maxId = max($maxId, (int) ($r['id'] ?? 0));
->>>>>>> c50df0e (.)
                 }
 
                 $model->id = $maxId + 1;
@@ -233,8 +215,6 @@ trait SushiToJson
 
                 // Append new row from attributes
                 $rows[] = $model->getAttributes();
-<<<<<<< HEAD
-=======
                 }
 
                 $modelWithTrait->setAttribute('id', $maxId + 1);
@@ -249,39 +229,24 @@ trait SushiToJson
 
                 // Append new row from attributes
                 $rows[] = $modelWithTrait->getAttributes();
->>>>>>> bf127a0 (.)
 =======
->>>>>>> c50df0e (.)
 
                 if (! File::exists(\dirname($file))) {
                     File::makeDirectory(\dirname($file), 0755, true, true);
                 }
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-                File::put($file, json_encode($rows, JSON_PRETTY_PRINT));
-=======
                 /** @var \Illuminate\Database\Eloquent\Model&\Modules\Tenant\Models\Traits\SushiToJson $modelWithTrait */
                 $modelWithTrait = $model;
                 $modelWithTrait->saveToJson($rows);
->>>>>>> 6fc381b (.)
 =======
                 File::put($file, json_encode($rows, JSON_PRETTY_PRINT));
->>>>>>> c50df0e (.)
             }
         );
 
         // Evento di aggiornamento
-<<<<<<< HEAD
-<<<<<<< HEAD
-        static::updating(function ($model): void {
-=======
         static::updating(function (\Illuminate\Database\Eloquent\Model $model): void {
->>>>>>> 6fc381b (.)
 =======
         static::updating(function ($model): void {
->>>>>>> c50df0e (.)
             $model->updated_at = now();
             
             if (\function_exists('authId')) {
@@ -289,47 +254,32 @@ trait SushiToJson
             }
             
             // Aggiorna i dati nel file JSON
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> c50df0e (.)
             $existingData = $model->loadExistingData();
             if (isset($model->id)) {
                 $existingData[$model->id] = $model->toArray();
                 $model->saveToJson($existingData);
-<<<<<<< HEAD
-=======
             /** @var \Illuminate\Database\Eloquent\Model&\Modules\Tenant\Models\Traits\SushiToJson $modelWithTrait */
             $modelWithTrait = $model;
             $existingData = $modelWithTrait->loadExistingData();
             if (isset($model->id)) {
                 $existingData[$model->id] = $model->toArray();
                 $modelWithTrait->saveToJson($existingData);
->>>>>>> 6fc381b (.)
 =======
                 /** @phpstan-ignore-next-line */
                 $modelWithTrait->saveToJson($rows);
->>>>>>> bf127a0 (.)
             }
         });
 
-<<<<<<< HEAD
-        // Evento di cancellazione
-<<<<<<< HEAD
-=======
             }
         });
 
         // Evento di cancellazione
->>>>>>> c50df0e (.)
         static::deleting(function ($model): void {
             // Rimuove il record dal file JSON
             if (isset($model->id)) {
                 $existingData = $model->loadExistingData();
                 unset($existingData[$model->id]);
                 $model->saveToJson($existingData);
-<<<<<<< HEAD
-=======
         static::deleting(function (\Illuminate\Database\Eloquent\Model $model): void {
             // Rimuove il record dal file JSON
             if (isset($model->id)) {
@@ -338,7 +288,6 @@ trait SushiToJson
                 $existingData = $modelWithTrait->loadExistingData();
                 unset($existingData[$model->id]);
                 $modelWithTrait->saveToJson($existingData);
->>>>>>> 6fc381b (.)
 =======
         // Evento di aggiornamento
         static::updating(function ($model): void {
@@ -373,18 +322,10 @@ trait SushiToJson
                 unset($existingData[$id]);
                 /** @phpstan-ignore-next-line */
                 $modelWithTrait->saveToJson($existingData);
->>>>>>> bf127a0 (.)
 =======
->>>>>>> c50df0e (.)
             }
         });
     }
 }
-<<<<<<< HEAD
-<<<<<<< HEAD
-
-=======
->>>>>>> bf127a0 (.)
 =======
 
->>>>>>> c50df0e (.)
