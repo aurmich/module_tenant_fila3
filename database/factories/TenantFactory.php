@@ -8,14 +8,30 @@ use Illuminate\Database\Eloquent\Factories\Factory;
 use Modules\User\Models\Tenant;
 
 /**
+<<<<<<< HEAD
  * @extends \Illuminate\Database\Eloquent\Factories\Factory<\Modules\User\Models\Tenant>
+=======
+<<<<<<< HEAD
+ * @extends \Illuminate\Database\Eloquent\Factories\Factory<\Modules\Tenant\Models\Tenant>
+=======
+ * @extends \Illuminate\Database\Eloquent\Factories\Factory<\Modules\User\Models\Tenant>
+>>>>>>> 6fc381b (.)
+>>>>>>> 5ea82dc (.)
  */
 class TenantFactory extends Factory
 {
     /**
      * The name of the factory's corresponding model.
      *
+<<<<<<< HEAD
      * @var class-string<\Modules\User\Models\Tenant>
+=======
+<<<<<<< HEAD
+     * @var string
+=======
+     * @var class-string<\Modules\User\Models\Tenant>
+>>>>>>> 6fc381b (.)
+>>>>>>> 5ea82dc (.)
      */
     protected $model = Tenant::class;
 
