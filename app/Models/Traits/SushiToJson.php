@@ -167,128 +167,55 @@ trait SushiToJson
     protected static function bootSushiToJson(): void
     {
         // Evento di creazione
-        static::creating(
-            function (\Illuminate\Database\Eloquent\Model $model): void {
-                $file = $model->getJsonFile();
-=======
-                /** @var static $modelWithTrait */
-                $modelWithTrait = $model;
-                /** @phpstan-ignore-next-line */
-                $file = $modelWithTrait->getJsonFile();
-=======
-            function ($model): void {
-                $file = $model->getJsonFile();
+        static::creating(function ($model): void {
+            /** @var static $modelWithTrait */
+            $modelWithTrait = $model;
+            $file = $modelWithTrait->getJsonFile();
 
-                // Load existing rows
-                /** @var array<int, array<string, mixed>> $rows */
-                $rows = [];
-                if (File::exists($file)) {
-                    $decoded = json_decode(file_get_contents($file), true);
-                    if (\is_array($decoded)) {
-                        $rows = $decoded;
-                    }
+            // Load existing rows
+            /** @var array<int, array<string, mixed>> $rows */
+            $rows = [];
+            if (File::exists($file)) {
+                $decoded = json_decode(file_get_contents($file), true);
+                if (\is_array($decoded)) {
+                    $rows = $decoded;
                 }
-
-                // Compute next id
-                $maxId = 0;
-                foreach ($rows as $r) {
-=======
-                    // Ensure each row is an array before accessing offsets
-                    if (!\is_array($r)) {
-                        continue;
-                    }
-                    $rawId = $r['id'] ?? 0;
-                    $id = \is_numeric($rawId) ? (int) $rawId : 0;
-                    $maxId = max($maxId, $id);
-                    $maxId = max($maxId, (int) ($r['id'] ?? 0));
-                }
-
-                $model->id = $maxId + 1;
-                $model->updated_at = now();
-                if (\function_exists('authId')) {
-                    $model->updated_by = authId();
-                }
-                $model->created_at = now();
-                if (\function_exists('authId')) {
-                    $model->created_by = authId();
-                }
-
-                // Append new row from attributes
-                $rows[] = $model->getAttributes();
-                }
-
-                $modelWithTrait->setAttribute('id', $maxId + 1);
-                $modelWithTrait->setAttribute('updated_at', now());
-                if (\function_exists('authId')) {
-                    $modelWithTrait->setAttribute('updated_by', authId());
-                }
-                $modelWithTrait->setAttribute('created_at', now());
-                if (\function_exists('authId')) {
-                    $modelWithTrait->setAttribute('created_by', authId());
-                }
-
-                // Append new row from attributes
-                $rows[] = $modelWithTrait->getAttributes();
-=======
-
-                if (! File::exists(\dirname($file))) {
-                    File::makeDirectory(\dirname($file), 0755, true, true);
-                }
-
-                /** @var \Illuminate\Database\Eloquent\Model&\Modules\Tenant\Models\Traits\SushiToJson $modelWithTrait */
-                $modelWithTrait = $model;
-                $modelWithTrait->saveToJson($rows);
-=======
-                File::put($file, json_encode($rows, JSON_PRETTY_PRINT));
             }
-        );
 
-        // Evento di aggiornamento
-        static::updating(function (\Illuminate\Database\Eloquent\Model $model): void {
-=======
-        static::updating(function ($model): void {
-            $model->updated_at = now();
-            
+            // Compute next id
+            $maxId = 0;
+            foreach ($rows as $r) {
+                // Ensure each row is an array before accessing offsets
+                if (!\is_array($r)) {
+                    continue;
+                }
+                $rawId = $r['id'] ?? 0;
+                $id = \is_numeric($rawId) ? (int) $rawId : 0;
+                $maxId = max($maxId, $id);
+            }
+
+            $modelWithTrait->setAttribute('id', $maxId + 1);
+            $modelWithTrait->setAttribute('updated_at', now());
             if (\function_exists('authId')) {
-                $model->updated_by = authId();
+                $modelWithTrait->setAttribute('updated_by', authId());
             }
-            
-            // Aggiorna i dati nel file JSON
-            $existingData = $model->loadExistingData();
-            if (isset($model->id)) {
-                $existingData[$model->id] = $model->toArray();
-                $model->saveToJson($existingData);
+            $modelWithTrait->setAttribute('created_at', now());
+            if (\function_exists('authId')) {
+                $modelWithTrait->setAttribute('created_by', authId());
+            }
+
+            // Append new row from attributes
+            $rows[] = $modelWithTrait->getAttributes();
+
+            if (! File::exists(\dirname($file))) {
+                File::makeDirectory(\dirname($file), 0755, true, true);
+            }
+
             /** @var \Illuminate\Database\Eloquent\Model&\Modules\Tenant\Models\Traits\SushiToJson $modelWithTrait */
             $modelWithTrait = $model;
-            $existingData = $modelWithTrait->loadExistingData();
-            if (isset($model->id)) {
-                $existingData[$model->id] = $model->toArray();
-                $modelWithTrait->saveToJson($existingData);
-=======
-                /** @phpstan-ignore-next-line */
-                $modelWithTrait->saveToJson($rows);
-            }
+            $modelWithTrait->saveToJson($rows);
         });
 
-            }
-        });
-
-        // Evento di cancellazione
-        static::deleting(function ($model): void {
-            // Rimuove il record dal file JSON
-            if (isset($model->id)) {
-                $existingData = $model->loadExistingData();
-                unset($existingData[$model->id]);
-                $model->saveToJson($existingData);
-        static::deleting(function (\Illuminate\Database\Eloquent\Model $model): void {
-            // Rimuove il record dal file JSON
-            if (isset($model->id)) {
-                /** @var \Illuminate\Database\Eloquent\Model&\Modules\Tenant\Models\Traits\SushiToJson $modelWithTrait */
-                $modelWithTrait = $model;
-                $existingData = $modelWithTrait->loadExistingData();
-                unset($existingData[$model->id]);
-                $modelWithTrait->saveToJson($existingData);
-=======
         // Evento di aggiornamento
         static::updating(function ($model): void {
             /** @var static $modelWithTrait */
@@ -322,10 +249,8 @@ trait SushiToJson
                 unset($existingData[$id]);
                 /** @phpstan-ignore-next-line */
                 $modelWithTrait->saveToJson($existingData);
-=======
             }
         });
     }
 }
-=======
 

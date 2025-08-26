@@ -16,10 +16,6 @@ class DomainFactory extends Factory
      * The name of the factory's corresponding model.
      *
      * @var class-string<\Modules\Tenant\Models\Domain>
-=======
-     * @var class-string<\Modules\Tenant\Models\Domain>
-=======
-     * @var string
      */
     protected $model = Domain::class;
 
