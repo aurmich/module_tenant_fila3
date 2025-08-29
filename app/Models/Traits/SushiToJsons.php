@@ -10,10 +10,11 @@ namespace Modules\Tenant\Models\Traits;
 
 use Illuminate\Support\Facades\File;
 use Modules\Tenant\Services\TenantService;
-use Webmozart\Assert\Assert;
 
 use function Safe\json_encode;
 use function Safe\unlink;
+
+use Webmozart\Assert\Assert;
 
 trait SushiToJsons
 {
@@ -45,8 +46,18 @@ trait SushiToJsons
     {
         Assert::string($tbl = $this->getTable());
         Assert::string($id = $this->getKey());
+        $key = $this->slug ?? $id;
+        $filename = 'database/content/'.$tbl.'/'.$key.'.json';
 
-        $filename = 'database/content/'.$tbl.'/'.$id.'.json';
+        $file = TenantService::filePath($filename);
+
+        return $file;
+    }
+
+    public function getJsonFileByKey(string $key): string
+    {
+        Assert::string($tbl = $this->getTable());
+        $filename = 'database/content/'.$tbl.'/'.$key.'.json';
 
         $file = TenantService::filePath($filename);
 
@@ -94,8 +105,13 @@ trait SushiToJsons
                 $file = $model->getJsonFile();
                 $model->updated_at = now();
                 $model->updated_by = authId();
+                $old_slug = $model->getOriginal('slug');
                 $content = $model->toJson(JSON_PRETTY_PRINT);
                 File::put($file, $content);
+                if ($old_slug !== $model->slug) {
+                    $file = $model->getJsonFileByKey($old_slug);
+                    unlink($file);
+                }
             }
         );
         // -------------------------------------------------------------------------------------
