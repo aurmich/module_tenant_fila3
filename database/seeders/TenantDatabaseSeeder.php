@@ -16,6 +16,10 @@ class TenantDatabaseSeeder extends Seeder
     {
         Model::unguard();
 
-        // $this->call("OthersTableSeeder");
+        // Seed test domains
+        $this->call([
+            DomainsSeeder::class,
+            TestSushiSeeder::class,
+        ]);
     }
 }

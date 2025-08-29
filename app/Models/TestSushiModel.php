@@ -4,24 +4,53 @@ declare(strict_types=1);
 
 namespace Modules\Tenant\Models;
 
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-<<<<<<< HEAD
-=======
 use Illuminate\Support\Facades\File;
->>>>>>> afc9385 (.)
+use Modules\Tenant\Database\Factories\TestSushiModelFactory;
 use Modules\Tenant\Models\Traits\SushiToJson;
 
 /**
  * Modello di test per il trait SushiToJson.
+ * 
  * Utilizzato esclusivamente per i test del trait.
+ *
+ * @property int $id
+ * @property string|null $name
+ * @property string|null $description
+ * @property string|null $status
+ * @property array<array-key, mixed>|null $metadata
+ * @property \Illuminate\Support\Carbon|null $created_at
+ * @property \Illuminate\Support\Carbon|null $updated_at
+ * @method static \Modules\Tenant\Database\Factories\TestSushiModelFactory factory($count = null, $state = [])
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|TestSushiModel newModelQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|TestSushiModel newQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|TestSushiModel query()
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|TestSushiModel whereCreatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|TestSushiModel whereDescription($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|TestSushiModel whereId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|TestSushiModel whereMetadata($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|TestSushiModel whereName($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|TestSushiModel whereStatus($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|TestSushiModel whereUpdatedAt($value)
+ * @mixin \Eloquent
  */
 class TestSushiModel extends Model
 {
+    use HasFactory;
     use SushiToJson;
 
     /**
-<<<<<<< HEAD
-=======
+     * Create a new factory instance for the model.
+     *
+     * @return TestSushiModelFactory
+     */
+    protected static function newFactory(): TestSushiModelFactory
+    {
+        return TestSushiModelFactory::new();
+    }
+
+    /**
      * Schema esplicito per Sushi quando non ci sono righe.
      *
      * @var array<string, string>
@@ -39,14 +68,11 @@ class TestSushiModel extends Model
     ];
 
     /**
->>>>>>> afc9385 (.)
      * La tabella associata al modello.
      */
     protected $table = 'test_sushi';
 
     /**
-<<<<<<< HEAD
-=======
      * Override del path JSON in ambiente di test per NON toccare config/local/saluteora/.
      */
     public function getJsonFile(): string
@@ -83,7 +109,6 @@ class TestSushiModel extends Model
      */
 
     /**
->>>>>>> afc9385 (.)
      * Gli attributi che sono assegnabili in massa.
      *
      * @var list<string>
@@ -93,11 +118,8 @@ class TestSushiModel extends Model
         'description',
         'status',
         'metadata',
-<<<<<<< HEAD
-=======
         'created_by',
         'updated_by',
->>>>>>> afc9385 (.)
     ];
 
     /**
@@ -111,11 +133,8 @@ class TestSushiModel extends Model
             'metadata' => 'array',
             'created_at' => 'datetime',
             'updated_at' => 'datetime',
-<<<<<<< HEAD
-=======
             'created_by' => 'integer',
             'updated_by' => 'integer',
->>>>>>> afc9385 (.)
         ];
     }
 }
