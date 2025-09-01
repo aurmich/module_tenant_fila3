@@ -2,9 +2,15 @@
 
 declare(strict_types=1);
 
+<<<<<<< HEAD
 use Mockery;
 use Modules\Tenant\Actions\Domains\GetDomainsArrayAction;
 use Modules\Tenant\Models\Domain;
+=======
+use Modules\Tenant\Models\Domain;
+use Modules\Tenant\Actions\Domains\GetDomainsArrayAction;
+use Mockery;
+>>>>>>> fe45b40 (.)
 
 uses(\Tests\TestCase::class);
 
@@ -17,8 +23,13 @@ afterEach(function () {
 });
 
 it('domain model can be instantiated', function () {
+<<<<<<< HEAD
     $domain = new Domain;
 
+=======
+    $domain = new Domain();
+    
+>>>>>>> fe45b40 (.)
     expect($domain)->toBeInstanceOf(Domain::class);
 });
 
@@ -34,7 +45,11 @@ it('get rows method works correctly', function () {
 
     $this->app->instance(GetDomainsArrayAction::class, $mockAction);
 
+<<<<<<< HEAD
     $domain = new Domain;
+=======
+    $domain = new Domain();
+>>>>>>> fe45b40 (.)
     $rows = $domain->getRows();
 
     expect($rows)->toBeArray()

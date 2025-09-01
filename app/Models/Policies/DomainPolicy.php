@@ -64,4 +64,8 @@ class DomainPolicy extends TenantBasePolicy
     {
         return $user->hasPermissionTo('domain.forceDelete');
     }
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> fe45b40 (.)

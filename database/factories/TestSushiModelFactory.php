@@ -81,10 +81,18 @@ class TestSushiModelFactory extends Factory
             /** @var array<string, mixed> $metadata */
             $metadata = is_array($attributes['metadata'] ?? null) ? $attributes['metadata'] : [];
             $metadata['priority'] = 'high';
+<<<<<<< HEAD
 
+=======
+            
+>>>>>>> fe45b40 (.)
             return [
                 'metadata' => $metadata,
             ];
         });
     }
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> fe45b40 (.)

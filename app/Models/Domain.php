@@ -11,18 +11,27 @@ use Sushi\Sushi;
 /**
  * @property int|null $id
  * @property string|null $name
+<<<<<<< HEAD
  *
+=======
+>>>>>>> fe45b40 (.)
  * @method static \Illuminate\Database\Eloquent\Builder|Domain newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|Domain newQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|Domain query()
  * @method static \Illuminate\Database\Eloquent\Builder|Domain whereId($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Domain whereName($value)
+<<<<<<< HEAD
  *
  * @property-read \Modules\Xot\Contracts\ProfileContract|null $creator
  * @property-read \Modules\Xot\Contracts\ProfileContract|null $updater
  *
  * @method static \Modules\Tenant\Database\Factories\DomainFactory factory($count = null, $state = [])
  *
+=======
+ * @property-read \Modules\Xot\Contracts\ProfileContract|null $creator
+ * @property-read \Modules\Xot\Contracts\ProfileContract|null $updater
+ * @method static \Modules\Tenant\Database\Factories\DomainFactory factory($count = null, $state = [])
+>>>>>>> fe45b40 (.)
  * @mixin IdeHelperDomain
  * @mixin \Eloquent
  */

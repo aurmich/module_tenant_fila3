@@ -15,9 +15,16 @@ uses(Tests\TestCase::class);
  * Testa tutte le funzionalità del trait in isolamento,
  * utilizzando mock per le dipendenze esterne.
  */
+<<<<<<< HEAD
 beforeEach(function () {
     // Configura il modello di test
     $this->model = new TestSushiModel;
+=======
+
+beforeEach(function () {
+    // Configura il modello di test
+    $this->model = new TestSushiModel();
+>>>>>>> fe45b40 (.)
 
     // Configura percorsi di test
     $this->testDirectory = storage_path('tests/sushi-json');
@@ -182,13 +189,21 @@ describe('SushiToJson Trait', function () {
             'description' => 'New Description',
         ];
 
+<<<<<<< HEAD
         $model = new TestSushiModel;
+=======
+        $model = new TestSushiModel();
+>>>>>>> fe45b40 (.)
         $model->fill($testData);
 
         // Test che il modello può essere creato con i dati
         expect($model->name)->toBe('New Item')
             ->and($model->description)->toBe('New Description');
+<<<<<<< HEAD
 
+=======
+        
+>>>>>>> fe45b40 (.)
         // Test che i metodi del trait funzionano
         expect($model->getJsonFile())->toBeString()
             ->toEndWith('test_sushi.json');
@@ -202,14 +217,22 @@ describe('SushiToJson Trait', function () {
         $testData = ($this->createTestData)();
         File::put($this->testJsonPath, json_encode($testData, JSON_PRETTY_PRINT));
 
+<<<<<<< HEAD
         $model = new TestSushiModel;
+=======
+        $model = new TestSushiModel();
+>>>>>>> fe45b40 (.)
         $model->id = 1;
         $model->fill(['name' => 'Updated Name']);
 
         // Test che il modello può essere aggiornato
         expect($model->name)->toBe('Updated Name')
             ->and($model->id)->toBe(1);
+<<<<<<< HEAD
 
+=======
+        
+>>>>>>> fe45b40 (.)
         // Test che i dati esistenti possono essere caricati
         $existingData = $model->loadExistingData();
         expect($existingData)->toHaveKey('1')
@@ -220,17 +243,29 @@ describe('SushiToJson Trait', function () {
         $testData = ($this->createTestData)();
         File::put($this->testJsonPath, json_encode($testData, JSON_PRETTY_PRINT));
 
+<<<<<<< HEAD
         $model = new TestSushiModel;
+=======
+        $model = new TestSushiModel();
+>>>>>>> fe45b40 (.)
         $model->id = 1;
 
         // Test che il modello può essere configurato per la cancellazione
         expect($model->id)->toBe(1);
+<<<<<<< HEAD
 
+=======
+        
+>>>>>>> fe45b40 (.)
         // Test che i dati esistenti possono essere caricati
         $existingData = $model->loadExistingData();
         expect($existingData)->toHaveKey('1')
             ->toHaveKey('2');
+<<<<<<< HEAD
 
+=======
+        
+>>>>>>> fe45b40 (.)
         // Test che il metodo saveToJson funziona
         $result = $model->saveToJson($existingData);
         expect($result)->toBeTrue();
@@ -238,9 +273,15 @@ describe('SushiToJson Trait', function () {
 
     it('integrates with tenant service correctly', function () {
         $tenantService = app(TenantService::class);
+<<<<<<< HEAD
 
         expect($tenantService)->toBeInstanceOf(TenantService::class);
 
+=======
+        
+        expect($tenantService)->toBeInstanceOf(TenantService::class);
+        
+>>>>>>> fe45b40 (.)
         // Verifica che il mock funzioni correttamente
         $path = $this->model->getJsonFile();
         expect($path)->toBe($this->testJsonPath);
@@ -261,15 +302,25 @@ describe('SushiToJson Trait', function () {
         }
 
         $startTime = microtime(true);
+<<<<<<< HEAD
 
         $result = $this->model->saveToJson($largeData);
 
+=======
+        
+        $result = $this->model->saveToJson($largeData);
+        
+>>>>>>> fe45b40 (.)
         $endTime = microtime(true);
         $executionTime = $endTime - $startTime;
 
         expect($result)->toBeTrue();
         expect($executionTime)->toBeLessThan(1.0);
+<<<<<<< HEAD
 
+=======
+        
+>>>>>>> fe45b40 (.)
         // Verifica caricamento
         $startTime = microtime(true);
         $rows = $this->model->getSushiRows();
@@ -280,6 +331,10 @@ describe('SushiToJson Trait', function () {
         expect($loadTime)->toBeLessThan(0.5);
     });
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> fe45b40 (.)
     it('logs errors appropriately', function () {
         // Mock Log facade per verificare logging
         $this->mock('log', function ($mock) {
@@ -310,7 +365,11 @@ describe('SushiToJson Trait', function () {
         // Aggiorna un record
         $updatedData = $originalData;
         $updatedData['1']['name'] = 'Updated Name';
+<<<<<<< HEAD
 
+=======
+        
+>>>>>>> fe45b40 (.)
         $result = $this->model->saveToJson($updatedData);
         expect($result)->toBeTrue();
 

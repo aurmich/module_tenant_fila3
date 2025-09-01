@@ -15,7 +15,11 @@ class TestSushiSeeder extends Seeder
     public function run(): void
     {
         // Only seed in testing or local environments
+<<<<<<< HEAD
         if (! app()->environment(['local', 'testing', 'development'])) {
+=======
+        if (!app()->environment(['local', 'testing', 'development'])) {
+>>>>>>> fe45b40 (.)
             return;
         }
 
@@ -69,4 +73,8 @@ class TestSushiSeeder extends Seeder
                 ->create();
         }
     }
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> fe45b40 (.)

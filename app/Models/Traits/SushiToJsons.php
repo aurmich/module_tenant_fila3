@@ -10,11 +10,19 @@ namespace Modules\Tenant\Models\Traits;
 
 use Illuminate\Support\Facades\File;
 use Modules\Tenant\Services\TenantService;
+<<<<<<< HEAD
 use Webmozart\Assert\Assert;
+=======
+>>>>>>> fe45b40 (.)
 
 use function Safe\json_encode;
 use function Safe\unlink;
 
+<<<<<<< HEAD
+=======
+use Webmozart\Assert\Assert;
+
+>>>>>>> fe45b40 (.)
 trait SushiToJsons
 {
     use \Sushi\Sushi;
@@ -45,8 +53,23 @@ trait SushiToJsons
     {
         Assert::string($tbl = $this->getTable());
         Assert::string($id = $this->getKey());
+<<<<<<< HEAD
 
         $filename = 'database/content/'.$tbl.'/'.$id.'.json';
+=======
+        $key = $this->slug ?? $id;
+        $filename = 'database/content/'.$tbl.'/'.$key.'.json';
+
+        $file = TenantService::filePath($filename);
+
+        return $file;
+    }
+
+    public function getJsonFileByKey(string $key): string
+    {
+        Assert::string($tbl = $this->getTable());
+        $filename = 'database/content/'.$tbl.'/'.$key.'.json';
+>>>>>>> fe45b40 (.)
 
         $file = TenantService::filePath($filename);
 
@@ -94,8 +117,18 @@ trait SushiToJsons
                 $file = $model->getJsonFile();
                 $model->updated_at = now();
                 $model->updated_by = authId();
+<<<<<<< HEAD
                 $content = $model->toJson(JSON_PRETTY_PRINT);
                 File::put($file, $content);
+=======
+                $old_slug = $model->getOriginal('slug');
+                $content = $model->toJson(JSON_PRETTY_PRINT);
+                File::put($file, $content);
+                if ($old_slug !== $model->slug) {
+                    $file = $model->getJsonFileByKey($old_slug);
+                    unlink($file);
+                }
+>>>>>>> fe45b40 (.)
             }
         );
         // -------------------------------------------------------------------------------------

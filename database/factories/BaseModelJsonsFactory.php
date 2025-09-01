@@ -33,4 +33,8 @@ class BaseModelJsonsFactory extends Factory
             'updated_by' => $this->faker->uuid(),
         ];
     }
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> fe45b40 (.)
