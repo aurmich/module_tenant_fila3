@@ -3,12 +3,11 @@
 declare(strict_types=1);
 
 use Rector\Config\RectorConfig;
-use Rector\Core\Configuration\Option;
+use Rector\Laravel\Rector\ClassMethod\RedirectRouteToToRouteHelperRector;
+use Rector\Laravel\Set\LaravelSetList;
 use Rector\PHPUnit\Set\PHPUnitLevelSetList;
 use Rector\Set\ValueObject\LevelSetList;
 use Rector\Set\ValueObject\SetList;
-use Rector\Laravel\Set\LaravelSetList;
-use Rector\Laravel\Rector\ClassMethod\RedirectRouteToToRouteHelperRector;
 
 return static function (RectorConfig $rectorConfig): void {
     // Paths da analizzare

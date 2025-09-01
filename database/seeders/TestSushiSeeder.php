@@ -15,7 +15,7 @@ class TestSushiSeeder extends Seeder
     public function run(): void
     {
         // Only seed in testing or local environments
-        if (!app()->environment(['local', 'testing', 'development'])) {
+        if (! app()->environment(['local', 'testing', 'development'])) {
             return;
         }
 

@@ -12,7 +12,7 @@ use Modules\Tenant\Models\Traits\SushiToJson;
 
 /**
  * Modello di test per il trait SushiToJson.
- * 
+ *
  * Utilizzato esclusivamente per i test del trait.
  *
  * @property int $id
@@ -22,6 +22,7 @@ use Modules\Tenant\Models\Traits\SushiToJson;
  * @property array<array-key, mixed>|null $metadata
  * @property \Illuminate\Support\Carbon|null $created_at
  * @property \Illuminate\Support\Carbon|null $updated_at
+ *
  * @method static \Modules\Tenant\Database\Factories\TestSushiModelFactory factory($count = null, $state = [])
  * @method static \Illuminate\Database\Eloquent\Builder<static>|TestSushiModel newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder<static>|TestSushiModel newQuery()
@@ -33,6 +34,7 @@ use Modules\Tenant\Models\Traits\SushiToJson;
  * @method static \Illuminate\Database\Eloquent\Builder<static>|TestSushiModel whereName($value)
  * @method static \Illuminate\Database\Eloquent\Builder<static>|TestSushiModel whereStatus($value)
  * @method static \Illuminate\Database\Eloquent\Builder<static>|TestSushiModel whereUpdatedAt($value)
+ *
  * @mixin \Eloquent
  */
 class TestSushiModel extends Model
@@ -42,8 +44,6 @@ class TestSushiModel extends Model
 
     /**
      * Create a new factory instance for the model.
-     *
-     * @return TestSushiModelFactory
      */
     protected static function newFactory(): TestSushiModelFactory
     {
@@ -82,6 +82,7 @@ class TestSushiModel extends Model
             if (! File::exists($dir)) {
                 File::makeDirectory($dir, 0755, true, true);
             }
+
             return $dir.'/test_sushi.json';
         }
 
@@ -89,6 +90,7 @@ class TestSushiModel extends Model
         $tbl = $this->getTable();
         /** @var class-string $tenantService */
         $tenantService = \Modules\Tenant\Services\TenantService::class;
+
         return $tenantService::filePath('database/content/'.$tbl.'.json');
     }
 

@@ -18,7 +18,7 @@ class TenantBusinessLogicTest extends TestCase
     {
         // Arrange
         $user = User::factory()->create();
-        
+
         // Act
         $tenant = Tenant::factory()->create([
             'name' => 'Test Studio',
@@ -47,7 +47,7 @@ class TenantBusinessLogicTest extends TestCase
     {
         // Arrange
         $tenant = Tenant::factory()->create();
-        
+
         // Act
         $domain = TenantDomain::factory()->create([
             'tenant_id' => $tenant->id,
@@ -76,7 +76,7 @@ class TenantBusinessLogicTest extends TestCase
     {
         // Arrange
         $tenant = Tenant::factory()->create();
-        
+
         // Act
         $setting = TenantSetting::factory()->create([
             'tenant_id' => $tenant->id,
@@ -105,7 +105,7 @@ class TenantBusinessLogicTest extends TestCase
     {
         // Arrange
         $tenant = Tenant::factory()->create();
-        
+
         // Act
         $subscription = TenantSubscription::factory()->create([
             'tenant_id' => $tenant->id,
@@ -140,7 +140,7 @@ class TenantBusinessLogicTest extends TestCase
         // Arrange
         $user1 = User::factory()->create();
         $user2 = User::factory()->create();
-        
+
         // Act
         $tenant1 = Tenant::factory()->create([
             'name' => 'Studio A',
@@ -202,7 +202,7 @@ class TenantBusinessLogicTest extends TestCase
     {
         // Arrange
         $tenant = Tenant::factory()->create();
-        
+
         // Act
         $domain = TenantDomain::factory()->create([
             'tenant_id' => $tenant->id,
@@ -325,7 +325,7 @@ class TenantBusinessLogicTest extends TestCase
     {
         // Arrange
         $tenant = Tenant::factory()->create();
-        
+
         // Act - Create multiple settings
         $appSetting = TenantSetting::factory()->create([
             'tenant_id' => $tenant->id,
@@ -374,7 +374,7 @@ class TenantBusinessLogicTest extends TestCase
     {
         // Arrange
         $tenant = Tenant::factory()->create();
-        
+
         // Act & Assert - Valid domains
         $validDomains = [
             'example.com',

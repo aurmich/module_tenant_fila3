@@ -4,12 +4,12 @@ declare(strict_types=1);
 
 namespace Modules\Tenant\Tests\Performance;
 
-use Illuminate\Foundation\Testing\RefreshDatabase;
+use Illuminate\Foundation\Testing\DatabaseTransactions;
 use Illuminate\Support\Facades\File;
 use Modules\Tenant\Models\TestSushiModel;
 use Modules\Tenant\Services\TenantService;
-use PHPUnit\Framework\Attributes\Test;
 use PHPUnit\Framework\Attributes\Group;
+use PHPUnit\Framework\Attributes\Test;
 use Tests\TestCase;
 
 /**
@@ -22,10 +22,12 @@ use Tests\TestCase;
 #[Group('sushi-json')]
 class SushiToJsonPerformanceTest extends TestCase
 {
-    use RefreshDatabase;
+
 
     private TestSushiModel $model;
+
     private string $testJsonPath;
+
     private string $testDirectory;
 
     protected function setUp(): void
@@ -33,7 +35,7 @@ class SushiToJsonPerformanceTest extends TestCase
         parent::setUp();
 
         // Configura il modello di test
-        $this->model = new TestSushiModel();
+        $this->model = new TestSushiModel;
 
         // Configura percorsi di test
         $this->testDirectory = storage_path('tests/sushi-json-performance');
@@ -80,12 +82,12 @@ class SushiToJsonPerformanceTest extends TestCase
     private function createTestData(int $recordCount): array
     {
         $data = [];
-        for ($i = 1; $i <= $recordCount; ++$i) {
+        for ($i = 1; $i <= $recordCount; $i++) {
             $data[$i] = [
                 'id' => $i,
                 'name' => "Test Item {$i}",
                 'description' => "This is a detailed description for test item {$i} with additional information to increase the size of the data",
-                'status' => (0 === $i % 2) ? 'active' : 'inactive',
+                'status' => ($i % 2 === 0) ? 'active' : 'inactive',
                 'category' => 'Category '.($i % 10 + 1),
                 'priority' => ($i % 5 + 1),
                 'tags' => ["tag{$i}", "priority{$i}", "category{$i}"],
@@ -120,7 +122,7 @@ class SushiToJsonPerformanceTest extends TestCase
         $result = $this->model->saveToJson($smallData);
         $saveTime = microtime(true) - $startTime;
 
-        $this->assertTrue($result);
+        expect($result);
         $this->assertLessThan(0.1, $saveTime, 'Salvataggio dataset piccolo deve essere molto veloce');
 
         // Testa caricamento
@@ -128,7 +130,7 @@ class SushiToJsonPerformanceTest extends TestCase
         $loadedData = $this->model->getSushiRows();
         $loadTime = microtime(true) - $startTime;
 
-        $this->assertCount(10, $loadedData);
+        expect(10, $loadedData);
         $this->assertLessThan(0.05, $loadTime, 'Caricamento dataset piccolo deve essere istantaneo');
     }
 
@@ -142,7 +144,7 @@ class SushiToJsonPerformanceTest extends TestCase
         $result = $this->model->saveToJson($mediumData);
         $saveTime = microtime(true) - $startTime;
 
-        $this->assertTrue($result);
+        expect($result);
         $this->assertLessThan(0.5, $saveTime, 'Salvataggio dataset medio deve essere veloce');
 
         // Testa caricamento
@@ -150,7 +152,7 @@ class SushiToJsonPerformanceTest extends TestCase
         $loadedData = $this->model->getSushiRows();
         $loadTime = microtime(true) - $startTime;
 
-        $this->assertCount(100, $loadedData);
+        expect(100, $loadedData);
         $this->assertLessThan(0.2, $loadTime, 'Caricamento dataset medio deve essere veloce');
     }
 
@@ -164,7 +166,7 @@ class SushiToJsonPerformanceTest extends TestCase
         $result = $this->model->saveToJson($largeData);
         $saveTime = microtime(true) - $startTime;
 
-        $this->assertTrue($result);
+        expect($result);
         $this->assertLessThan(2.0, $saveTime, 'Salvataggio dataset grande deve essere accettabile');
 
         // Testa caricamento
@@ -172,7 +174,7 @@ class SushiToJsonPerformanceTest extends TestCase
         $loadedData = $this->model->getSushiRows();
         $loadTime = microtime(true) - $startTime;
 
-        $this->assertCount(1000, $loadedData);
+        expect(1000, $loadedData);
         $this->assertLessThan(1.0, $loadTime, 'Caricamento dataset grande deve essere accettabile');
     }
 
@@ -190,14 +192,14 @@ class SushiToJsonPerformanceTest extends TestCase
 
         // Salva i dati
         $result = $this->model->saveToJson($largeData);
-        $this->assertTrue($result);
+        expect($result);
 
         $memoryAfterSave = memory_get_usage();
         $saveMemory = $memoryAfterSave - $memoryAfterDataCreation;
 
         // Carica i dati
         $loadedData = $this->model->getSushiRows();
-        $this->assertCount(500, $loadedData);
+        expect(500, $loadedData);
 
         $finalMemory = memory_get_usage();
         $loadMemory = $finalMemory - $memoryAfterSave;
@@ -224,7 +226,7 @@ class SushiToJsonPerformanceTest extends TestCase
             $result = $this->model->saveToJson($testData);
             $saveTime = microtime(true) - $startTime;
 
-            $this->assertTrue($result);
+            expect($result);
 
             // Verifica dimensione file
             $fileSize = File::size($this->testJsonPath);
@@ -239,7 +241,7 @@ class SushiToJsonPerformanceTest extends TestCase
             $loadedData = $this->model->getSushiRows();
             $loadTime = microtime(true) - $startTime;
 
-            $this->assertCount($size, $loadedData);
+            expect($size, $loadedData);
 
             // Verifica che il tempo di caricamento sia proporzionale alla dimensione
             $expectedMaxLoadTime = $size * 0.0005; // 0.5ms per record
@@ -255,7 +257,7 @@ class SushiToJsonPerformanceTest extends TestCase
 
         // Salva dati iniziali
         $result = $this->model->saveToJson($testData);
-        $this->assertTrue($result);
+        expect($result);
 
         // Simula accesso concorrente
         $concurrentOperations = 10;
@@ -263,7 +265,7 @@ class SushiToJsonPerformanceTest extends TestCase
 
         for ($i = 0; $i < $concurrentOperations; $i++) {
             $loadedData = $this->model->getSushiRows();
-            $this->assertCount(100, $loadedData);
+            expect(100, $loadedData);
         }
 
         $totalTime = microtime(true) - $startTime;
@@ -282,7 +284,7 @@ class SushiToJsonPerformanceTest extends TestCase
 
         // Salva dati
         $result = $this->model->saveToJson($testData);
-        $this->assertTrue($result);
+        expect($result);
 
         // Testa parsing JSON con diverse dimensioni
         $fileContent = File::get($this->testJsonPath);
@@ -293,7 +295,7 @@ class SushiToJsonPerformanceTest extends TestCase
         $parseTime = microtime(true) - $startTime;
 
         $this->assertIsArray($parsedData);
-        $this->assertCount(200, $parsedData);
+        expect(200, $parsedData);
 
         // Verifica che il parsing sia veloce
         $this->assertLessThan(0.1, $parseTime, 'Parsing JSON deve essere veloce');
@@ -311,14 +313,14 @@ class SushiToJsonPerformanceTest extends TestCase
 
         // Salva dati
         $result = $this->model->saveToJson($testData);
-        $this->assertTrue($result);
+        expect($result);
 
         // Testa normalizzazione
         $startTime = microtime(true);
         $normalizedData = $this->model->getSushiRows();
         $normalizeTime = microtime(true) - $startTime;
 
-        $this->assertCount(150, $normalizedData);
+        expect(150, $normalizedData);
 
         // Verifica che la normalizzazione sia veloce
         $this->assertLessThan(0.1, $normalizeTime, 'Normalizzazione dati deve essere veloce');
@@ -339,12 +341,12 @@ class SushiToJsonPerformanceTest extends TestCase
         File::put($this->testJsonPath, 'invalid json content');
 
         $startTime = microtime(true);
-        
+
         $this->expectException(\Exception::class);
         $this->expectExceptionMessage('Data is not array');
-        
+
         $this->model->getSushiRows();
-        
+
         $errorTime = microtime(true) - $startTime;
 
         // Verifica che la gestione degli errori sia veloce
@@ -364,7 +366,7 @@ class SushiToJsonPerformanceTest extends TestCase
         $writeResult = $this->model->saveToJson($testData);
         $writeTime = microtime(true) - $startTime;
 
-        $this->assertTrue($writeResult);
+        expect($writeResult);
         $this->assertLessThan(1.0, $writeTime, 'Scrittura file deve essere veloce');
 
         // Lettura
@@ -372,7 +374,7 @@ class SushiToJsonPerformanceTest extends TestCase
         $readResult = $this->model->getSushiRows();
         $readTime = microtime(true) - $startTime;
 
-        $this->assertCount(300, $readResult);
+        expect(300, $readResult);
         $this->assertLessThan(0.5, $readTime, 'Lettura file deve essere veloce');
 
         // Verifica che le operazioni siano proporzionali
@@ -394,14 +396,14 @@ class SushiToJsonPerformanceTest extends TestCase
             $result = $this->model->saveToJson($testData);
             $saveTime = microtime(true) - $startTime;
 
-            $this->assertTrue($result);
+            expect($result);
 
             // Misura tempo di caricamento
             $startTime = microtime(true);
             $loadedData = $this->model->getSushiRows();
             $loadTime = microtime(true) - $startTime;
 
-            $this->assertCount($size, $loadedData);
+            expect($size, $loadedData);
 
             $results[$size] = [
                 'save_time' => $saveTime,
@@ -419,7 +421,7 @@ class SushiToJsonPerformanceTest extends TestCase
 
                 // Il tempo dovrebbe crescere linearmente o sub-linearmente
                 $expectedMaxGrowth = 2.5; // Massimo 2.5x per raddoppio della dimensione
-                
+
                 $saveGrowth = $currentResults['save_time'] / $previousResults['save_time'];
                 $loadGrowth = $currentResults['load_time'] / $previousResults['load_time'];
 
@@ -448,7 +450,7 @@ class SushiToJsonPerformanceTest extends TestCase
             $result = $this->model->saveToJson($testData);
             $saveTime = microtime(true) - $startTime;
 
-            $this->assertTrue($result);
+            expect($result);
             $this->assertLessThan(
                 $benchmark['max_save'],
                 $saveTime,
@@ -460,7 +462,7 @@ class SushiToJsonPerformanceTest extends TestCase
             $loadedData = $this->model->getSushiRows();
             $loadTime = microtime(true) - $startTime;
 
-            $this->assertCount($benchmark['size'], $loadedData);
+            expect($benchmark['size'], $loadedData);
             $this->assertLessThan(
                 $benchmark['max_load'],
                 $loadTime,
@@ -481,11 +483,11 @@ class SushiToJsonPerformanceTest extends TestCase
 
             // Salva
             $result = $this->model->saveToJson($testData);
-            $this->assertTrue($result);
+            expect($result);
 
             // Carica
             $loadedData = $this->model->getSushiRows();
-            $this->assertCount(100, $loadedData);
+            expect(100, $loadedData);
 
             // Forza garbage collection
             if (function_exists('gc_collect_cycles')) {

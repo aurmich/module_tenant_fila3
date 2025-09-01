@@ -13,7 +13,7 @@ uses(TestCase::class);
 
 beforeEach(function () {
     // Configura il modello di test
-    $this->model = new TestSushiModel();
+    $this->model = new TestSushiModel;
 
     // Configura percorsi di test
     $this->testDirectory = storage_path('tests/sushi-json');
@@ -44,7 +44,7 @@ afterEach(function () {
 });
 
 describe('SushiToJson Trait', function () {
-    
+
     it('returns correct json file path', function () {
         $path = $this->model->getJsonFile();
 
@@ -73,7 +73,7 @@ describe('SushiToJson Trait', function () {
                 'updated_at' => now()->toISOString(),
             ],
         ];
-        
+
         File::put($this->testJsonPath, json_encode($testData, JSON_PRETTY_PRINT));
 
         $rows = $this->model->loadExistingData();
@@ -96,12 +96,12 @@ describe('SushiToJson Trait', function () {
 
         $this->model->getSushiRows();
     })->throws(\Exception::class, 'Syntax error')
-      ->group('getSushiRows', 'traits', 'sushi-json');
+        ->group('getSushiRows', 'traits', 'sushi-json');
 
     it('throws exception with non array data', function () {
         File::put($this->testJsonPath, json_encode('not an array'));
 
-        expect(fn() => $this->model->getSushiRows())
+        expect(fn () => $this->model->getSushiRows())
             ->toThrow(\Exception::class, 'JSON file must contain an array');
     })->group('getSushiRows', 'traits', 'sushi-json');
 
@@ -113,7 +113,7 @@ describe('SushiToJson Trait', function () {
                 'status' => 'active',
             ],
         ];
-        
+
         File::put($this->testJsonPath, json_encode($validData));
 
         $rows = $this->model->getSushiRows();
@@ -127,7 +127,7 @@ describe('SushiToJson Trait', function () {
 });
 
 describe('Business Logic Tests', function () {
-    
+
     it('handles large datasets efficiently', function () {
         $largeData = [];
         for ($i = 1; $i <= 1000; $i++) {
@@ -138,7 +138,7 @@ describe('Business Logic Tests', function () {
                 'created_at' => now()->toISOString(),
             ];
         }
-        
+
         File::put($this->testJsonPath, json_encode($largeData));
 
         $rows = $this->model->getSushiRows();
@@ -159,7 +159,7 @@ describe('Business Logic Tests', function () {
                 'created_at' => '2024-01-01T10:00:00Z', // string datetime
             ],
         ];
-        
+
         File::put($this->testJsonPath, json_encode($testData));
 
         $rows = $this->model->getSushiRows();

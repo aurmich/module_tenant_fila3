@@ -8,17 +8,17 @@ use Illuminate\Support\Facades\File;
 use Modules\Tenant\Services\TenantService;
 use Webmozart\Assert\Assert;
 
-use function Safe\json_encode;
-use function Safe\json_decode;
 use function Safe\file_get_contents;
+use function Safe\json_decode;
+use function Safe\json_encode;
 
 /**
  * Trait SushiToJson.
- * 
+ *
  * Questo trait permette ai modelli di utilizzare il pacchetto Sushi per leggere
  * dati da file JSON con isolamento per tenant. Ogni tenant ha i propri file JSON
  * nella directory config/{tenant_name}/database/content/.
- * 
+ *
  * @see https://github.com/calebporzio/sushi
  */
 trait SushiToJson
@@ -36,7 +36,7 @@ trait SushiToJson
         $tbl = $this->getTable();
         Assert::string($tbl);
         $path = TenantService::filePath('database/content/'.$tbl.'.json');
-        
+
         return $path;
     }
 
@@ -56,6 +56,7 @@ trait SushiToJson
      * I dati vengono normalizzati per garantire compatibilità con Eloquent.
      *
      * @return array<int, array<string, mixed>> Array di record per Sushi
+     *
      * @throws \Exception Se i dati non sono in formato array valido
      */
     public function getSushiRows(): array
@@ -99,18 +100,18 @@ trait SushiToJson
     public function loadExistingData(): array
     {
         $path = $this->getJsonFile();
-        
-        if (!File::exists($path)) {
+
+        if (! File::exists($path)) {
             return [];
         }
-        
+
         $content = file_get_contents($path);
         $data = json_decode($content, true);
-        
-        if (!is_array($data)) {
+
+        if (! is_array($data)) {
             return [];
         }
-        
+
         // Assicura che i dati abbiano la struttura corretta
         $result = [];
         foreach ($data as $item) {
@@ -118,7 +119,7 @@ trait SushiToJson
                 $result[] = $item;
             }
         }
-        
+
         return $result;
     }
 
@@ -127,7 +128,7 @@ trait SushiToJson
      * Crea la directory se non esiste e salva con formattazione JSON.
      * Utilizza JSON_PRETTY_PRINT e JSON_UNESCAPED_UNICODE per leggibilità.
      *
-     * @param array<int, array<string, mixed>> $data Array di record da salvare
+     * @param  array<int, array<string, mixed>>  $data  Array di record da salvare
      * @return bool True se il salvataggio è riuscito, false in caso di errore
      */
     public function saveToJson(array $data): bool
@@ -135,17 +136,18 @@ trait SushiToJson
         try {
             $file = $this->getJsonFile();
             $directory = dirname($file);
-            
-            if (!File::exists($directory)) {
+
+            if (! File::exists($directory)) {
                 File::makeDirectory($directory, 0755, true, true);
             }
-            
+
             $content = json_encode($data, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE);
             File::put($file, $content);
-            
+
             return true;
         } catch (\Exception $e) {
             report($e);
+
             return false;
         }
     }
@@ -158,17 +160,18 @@ trait SushiToJson
     protected function getNextId(): int
     {
         $existingData = $this->loadExistingData();
-        
+
         if (empty($existingData)) {
             return 1;
         }
-        
+
         $keys = array_keys($existingData);
         if (empty($keys)) {
             return 1;
         }
-        
+
         $maxId = max($keys);
+
         return is_numeric($maxId) ? (int) $maxId + 1 : 1;
     }
 
@@ -189,7 +192,7 @@ trait SushiToJson
             $rows = $existingData;
             $maxIdFromFile = 0;
             foreach ($rows as $r) {
-                if (!\is_array($r)) {
+                if (! \is_array($r)) {
                     continue;
                 }
                 $rawId = $r['id'] ?? 0;
@@ -212,7 +215,7 @@ trait SushiToJson
             $modelWithTrait->setAttribute('id', $nextId);
             $modelWithTrait->setAttribute('updated_at', now());
             $modelWithTrait->setAttribute('created_at', now());
-            
+
             // Set audit fields if available via helper
             $authId = $modelWithTrait->authId();
             if ($authId !== null) {
@@ -242,7 +245,7 @@ trait SushiToJson
             // Update existing record
             $existingData = $modelWithTrait->loadExistingData();
             $id = (int) ($modelWithTrait->getAttribute('id') ?? 0);
-            
+
             if ($id > 0) {
                 $index = $modelWithTrait->findRowIndexById($existingData, $id);
                 if ($index !== null) {
@@ -256,11 +259,11 @@ trait SushiToJson
             /** @var static $modelWithTrait */
             $modelWithTrait = $model;
             $id = (int) ($modelWithTrait->getAttribute('id') ?? 0);
-            
+
             if ($id > 0) {
                 $existingData = $modelWithTrait->loadExistingData();
                 $index = $modelWithTrait->findRowIndexById($existingData, $id);
-                
+
                 if ($index !== null) {
                     unset($existingData[$index]);
                     $existingData = array_values($existingData);
@@ -273,8 +276,7 @@ trait SushiToJson
     /**
      * Trova l'indice del record nell'array dato un id.
      *
-     * @param array<int, array<string, mixed>> $rows
-     * @param int $id
+     * @param  array<int, array<string, mixed>>  $rows
      * @return int|null Indice se trovato, altrimenti null
      */
     protected function findRowIndexById(array $rows, int $id): ?int
@@ -284,40 +286,35 @@ trait SushiToJson
                 return (int) $index;
             }
         }
+
         return null;
     }
 
     /**
      * Ottiene l'ID dell'utente autenticato per i campi di audit.
-     *
-     * @return int|string|null
      */
     protected function authId(): int|string|null
     {
         if (\function_exists('authId')) {
             return authId();
         }
-        
+
         if (class_exists('\Illuminate\Support\Facades\Auth')) {
             return \Illuminate\Support\Facades\Auth::id();
         }
-        
+
         return null;
     }
 
     /**
      * Assicura che la directory per il file JSON esista.
-     *
-     * @param string $filePath
-     * @return void
      */
     protected function ensureDirectoryExists(string $filePath): void
     {
         $directory = dirname($filePath);
-        
+
         if (! File::exists($directory)) {
             File::makeDirectory($directory, 0755, true, true);
         }
     }
 }
-

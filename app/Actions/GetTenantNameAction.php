@@ -26,12 +26,12 @@ class GetTenantNameAction
         if (! \is_string($default)) {
             $default = 'localhost';
         }
-        
+
         $default = Str::after($default, '//');
-        
+
         $server_name = $this->getServerName($default);
         $server_name = Str::of($server_name)->replace('www.', '')->toString();
-        
+
         /** @var Collection<int, string> $parts */
         $parts = collect(explode('.', $server_name))
             ->map(static fn (string $item): string => Str::slug($item))
@@ -55,9 +55,9 @@ class GetTenantNameAction
         }
 
         // Fallback al default
-        $part=explode('.', $default);
-        $inverted=array_reverse($part);
-        $default_path=implode('/', $inverted);
+        $part = explode('.', $default);
+        $inverted = array_reverse($part);
+        $default_path = implode('/', $inverted);
         if ($default_path !== '' && file_exists(base_path('config/'.$default_path))) {
             return $default_path;
         }
@@ -68,7 +68,7 @@ class GetTenantNameAction
     /**
      * Ottiene il nome del server con fallback al default.
      *
-     * @param string $default Il valore di default da usare
+     * @param  string  $default  Il valore di default da usare
      * @return string Il nome del server
      */
     private function getServerName(string $default): string
@@ -83,7 +83,7 @@ class GetTenantNameAction
     /**
      * Costruisce il percorso di configurazione.
      *
-     * @param Collection<int, string> $parts Le parti del percorso
+     * @param  Collection<int, string>  $parts  Le parti del percorso
      * @return string Il percorso completo
      */
     private function buildConfigPath(Collection $parts): string

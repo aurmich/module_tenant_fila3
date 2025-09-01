@@ -11,9 +11,10 @@ use Modules\Xot\Traits\Updater;
 
 /**
  * Class BaseModel.
+ *
  * @property-read \Modules\Xot\Contracts\ProfileContract|null $creator
  * @property-read \Modules\Xot\Contracts\ProfileContract|null $updater
-  */
+ */
 abstract class BaseModel extends EloquentModel
 {
     use HasFactory;

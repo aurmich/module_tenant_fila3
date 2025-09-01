@@ -11,14 +11,18 @@ use Sushi\Sushi;
 /**
  * @property int|null $id
  * @property string|null $name
+ *
  * @method static \Illuminate\Database\Eloquent\Builder|Domain newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|Domain newQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|Domain query()
  * @method static \Illuminate\Database\Eloquent\Builder|Domain whereId($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Domain whereName($value)
+ *
  * @property-read \Modules\Xot\Contracts\ProfileContract|null $creator
  * @property-read \Modules\Xot\Contracts\ProfileContract|null $updater
+ *
  * @method static \Modules\Tenant\Database\Factories\DomainFactory factory($count = null, $state = [])
+ *
  * @mixin IdeHelperDomain
  * @mixin \Eloquent
  */
