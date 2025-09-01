@@ -66,11 +66,4 @@ class DomainFactory extends Factory
         ]);
     }
 }
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
 
->>>>>>> fe45b40 (.)
-=======
-
->>>>>>> 5192c37 (.)

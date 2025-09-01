@@ -15,12 +15,8 @@ use Modules\Tenant\Tests\TestCase;
 |
 */
 
-<<<<<<< HEAD
 uses(TestCase::class)
     ->uses(\Illuminate\Foundation\Testing\DatabaseTransactions::class)
-=======
-pest()->extend(TestCase::class)
->>>>>>> fe45b40 (.)
     ->in('Feature', 'Unit');
 
 /*

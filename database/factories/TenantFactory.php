@@ -29,15 +29,7 @@ class TenantFactory extends Factory
         return [
             'name' => $this->faker->company(),
             'domain' => $this->faker->domainName(),
-<<<<<<< HEAD
-<<<<<<< HEAD
-            'database' => 'tenant_'.$this->faker->unique()->slug(),
-=======
             'database' => 'tenant_' . $this->faker->unique()->slug(),
->>>>>>> fe45b40 (.)
-=======
-            'database' => 'tenant_' . $this->faker->unique()->slug(),
->>>>>>> 5192c37 (.)
             'is_active' => $this->faker->boolean(80),
             'settings' => [
                 'timezone' => $this->faker->randomElement(['Europe/Rome', 'Europe/London', 'America/New_York']),

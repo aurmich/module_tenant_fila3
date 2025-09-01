@@ -21,8 +21,4 @@ abstract class TenantBasePolicy
 
         return null;
     }
-<<<<<<< HEAD
 }
-=======
-}
->>>>>>> fe45b40 (.)
