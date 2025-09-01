@@ -11,18 +11,31 @@ namespace Modules\Tenant\Models\Traits;
 use Illuminate\Support\Facades\File;
 use Modules\Tenant\Services\TenantService;
 <<<<<<< HEAD
+<<<<<<< HEAD
 use Webmozart\Assert\Assert;
 =======
 >>>>>>> fe45b40 (.)
+=======
+=======
+use Webmozart\Assert\Assert;
+>>>>>>> 626ef2b (.)
+>>>>>>> d1a1169 (.)
 
 use function Safe\json_encode;
 use function Safe\unlink;
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 use Webmozart\Assert\Assert;
 
 >>>>>>> fe45b40 (.)
+=======
+use Webmozart\Assert\Assert;
+
+=======
+>>>>>>> 626ef2b (.)
+>>>>>>> d1a1169 (.)
 trait SushiToJsons
 {
     use \Sushi\Sushi;
@@ -54,9 +67,12 @@ trait SushiToJsons
         Assert::string($tbl = $this->getTable());
         Assert::string($id = $this->getKey());
 <<<<<<< HEAD
+<<<<<<< HEAD
 
         $filename = 'database/content/'.$tbl.'/'.$id.'.json';
 =======
+=======
+>>>>>>> d1a1169 (.)
         $key = $this->slug ?? $id;
         $filename = 'database/content/'.$tbl.'/'.$key.'.json';
 
@@ -69,7 +85,14 @@ trait SushiToJsons
     {
         Assert::string($tbl = $this->getTable());
         $filename = 'database/content/'.$tbl.'/'.$key.'.json';
+<<<<<<< HEAD
 >>>>>>> fe45b40 (.)
+=======
+=======
+
+        $filename = 'database/content/'.$tbl.'/'.$id.'.json';
+>>>>>>> 626ef2b (.)
+>>>>>>> d1a1169 (.)
 
         $file = TenantService::filePath($filename);
 
@@ -118,9 +141,12 @@ trait SushiToJsons
                 $model->updated_at = now();
                 $model->updated_by = authId();
 <<<<<<< HEAD
+<<<<<<< HEAD
                 $content = $model->toJson(JSON_PRETTY_PRINT);
                 File::put($file, $content);
 =======
+=======
+>>>>>>> d1a1169 (.)
                 $old_slug = $model->getOriginal('slug');
                 $content = $model->toJson(JSON_PRETTY_PRINT);
                 File::put($file, $content);
@@ -128,7 +154,14 @@ trait SushiToJsons
                     $file = $model->getJsonFileByKey($old_slug);
                     unlink($file);
                 }
+<<<<<<< HEAD
 >>>>>>> fe45b40 (.)
+=======
+=======
+                $content = $model->toJson(JSON_PRETTY_PRINT);
+                File::put($file, $content);
+>>>>>>> 626ef2b (.)
+>>>>>>> d1a1169 (.)
             }
         );
         // -------------------------------------------------------------------------------------
