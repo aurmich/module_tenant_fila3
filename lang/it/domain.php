@@ -1,6 +1,7 @@
 <?php
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 return [
     'navigation' => [
         'plural' => 'Domini',
@@ -65,6 +66,8 @@ return [
     ],
 ];
 =======
+=======
+>>>>>>> 5192c37 (.)
 return array (
   'navigation' => 
   array (
@@ -145,4 +148,7 @@ return array (
     ),
   ),
 );
+<<<<<<< HEAD
 >>>>>>> fe45b40 (.)
+=======
+>>>>>>> 5192c37 (.)

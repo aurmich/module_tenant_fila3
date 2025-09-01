@@ -5,10 +5,14 @@ declare(strict_types=1);
 namespace Modules\Tenant\Tests\Integration;
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 use Illuminate\Foundation\Testing\DatabaseTransactions;
 =======
 use Illuminate\Foundation\Testing\RefreshDatabase;
 >>>>>>> fe45b40 (.)
+=======
+use Illuminate\Foundation\Testing\RefreshDatabase;
+>>>>>>> 5192c37 (.)
 use Illuminate\Support\Facades\File;
 use Modules\Tenant\Models\Tenant;
 use Modules\Tenant\Models\TestSushiModel;
@@ -28,13 +32,16 @@ use Tests\TestCase;
 class SushiToJsonIntegrationTest extends TestCase
 {
 <<<<<<< HEAD
+<<<<<<< HEAD
 
+=======
+    use RefreshDatabase;
+>>>>>>> 5192c37 (.)
 
     private Tenant $tenant1;
-
     private Tenant $tenant2;
-
     private string $tenant1Path;
+<<<<<<< HEAD
 
 =======
     use RefreshDatabase;
@@ -43,6 +50,8 @@ class SushiToJsonIntegrationTest extends TestCase
     private Tenant $tenant2;
     private string $tenant1Path;
 >>>>>>> fe45b40 (.)
+=======
+>>>>>>> 5192c37 (.)
     private string $tenant2Path;
 
     protected function setUp(): void
@@ -89,20 +98,28 @@ class SushiToJsonIntegrationTest extends TestCase
     #[Test]
     #[Group('tenant-isolation')]
 <<<<<<< HEAD
+<<<<<<< HEAD
     public function it_creates_json_file_with_tenant_isolation(): void
 =======
     public function itCreatesJsonFileWithTenantIsolation(): void
 >>>>>>> fe45b40 (.)
+=======
+    public function itCreatesJsonFileWithTenantIsolation(): void
+>>>>>>> 5192c37 (.)
     {
         // Configura tenant 1
         $this->actingAs($this->createUserForTenant($this->tenant1));
         $this->setCurrentTenant($this->tenant1);
 
 <<<<<<< HEAD
+<<<<<<< HEAD
         $model1 = new TestSushiModel;
 =======
         $model1 = new TestSushiModel();
 >>>>>>> fe45b40 (.)
+=======
+        $model1 = new TestSushiModel();
+>>>>>>> 5192c37 (.)
         $data1 = [
             '1' => [
                 'id' => 1,
@@ -123,10 +140,14 @@ class SushiToJsonIntegrationTest extends TestCase
         $this->setCurrentTenant($this->tenant2);
 
 <<<<<<< HEAD
+<<<<<<< HEAD
         $model2 = new TestSushiModel;
 =======
         $model2 = new TestSushiModel();
 >>>>>>> fe45b40 (.)
+=======
+        $model2 = new TestSushiModel();
+>>>>>>> 5192c37 (.)
         $data2 = [
             '1' => [
                 'id' => 1,
@@ -146,21 +167,30 @@ class SushiToJsonIntegrationTest extends TestCase
         $tenant2Data = json_decode(File::get($this->tenant2Path.'/test_sushi.json'), true);
 
 <<<<<<< HEAD
+<<<<<<< HEAD
         expect('Tenant 1 Item', $tenant1Data['1']['name']);
         expect('Tenant 2 Item', $tenant2Data['1']['name']);
 =======
         $this->assertEquals('Tenant 1 Item', $tenant1Data['1']['name']);
         $this->assertEquals('Tenant 2 Item', $tenant2Data['1']['name']);
 >>>>>>> fe45b40 (.)
+=======
+        $this->assertEquals('Tenant 1 Item', $tenant1Data['1']['name']);
+        $this->assertEquals('Tenant 2 Item', $tenant2Data['1']['name']);
+>>>>>>> 5192c37 (.)
     }
 
     #[Test]
     #[Group('tenant-isolation')]
 <<<<<<< HEAD
+<<<<<<< HEAD
     public function it_loads_data_with_tenant_isolation(): void
 =======
     public function itLoadsDataWithTenantIsolation(): void
 >>>>>>> fe45b40 (.)
+=======
+    public function itLoadsDataWithTenantIsolation(): void
+>>>>>>> 5192c37 (.)
     {
         // Crea dati per entrambi i tenant
         $this->createTenantData();
@@ -169,6 +199,7 @@ class SushiToJsonIntegrationTest extends TestCase
         $this->actingAs($this->createUserForTenant($this->tenant1));
         $this->setCurrentTenant($this->tenant1);
 
+<<<<<<< HEAD
 <<<<<<< HEAD
         $model1 = new TestSushiModel;
         $rows1 = $model1->getSushiRows();
@@ -184,11 +215,20 @@ class SushiToJsonIntegrationTest extends TestCase
         $this->assertEquals('Tenant 1 Item 1', $rows1['1']['name']);
         $this->assertEquals('Tenant 1 Item 2', $rows1['2']['name']);
 >>>>>>> fe45b40 (.)
+=======
+        $model1 = new TestSushiModel();
+        $rows1 = $model1->getSushiRows();
+
+        $this->assertCount(2, $rows1);
+        $this->assertEquals('Tenant 1 Item 1', $rows1['1']['name']);
+        $this->assertEquals('Tenant 1 Item 2', $rows1['2']['name']);
+>>>>>>> 5192c37 (.)
 
         // Testa caricamento dati tenant 2
         $this->actingAs($this->createUserForTenant($this->tenant2));
         $this->setCurrentTenant($this->tenant2);
 
+<<<<<<< HEAD
 <<<<<<< HEAD
         $model2 = new TestSushiModel;
         $rows2 = $model2->getSushiRows();
@@ -204,6 +244,14 @@ class SushiToJsonIntegrationTest extends TestCase
         $this->assertEquals('Tenant 2 Item 1', $rows2['1']['name']);
         $this->assertEquals('Tenant 2 Item 2', $rows2['2']['name']);
 >>>>>>> fe45b40 (.)
+=======
+        $model2 = new TestSushiModel();
+        $rows2 = $model2->getSushiRows();
+
+        $this->assertCount(2, $rows2);
+        $this->assertEquals('Tenant 2 Item 1', $rows2['1']['name']);
+        $this->assertEquals('Tenant 2 Item 2', $rows2['2']['name']);
+>>>>>>> 5192c37 (.)
 
         // Verifica che i dati siano completamente isolati
         $this->assertNotEquals($rows1, $rows2);
@@ -212,19 +260,27 @@ class SushiToJsonIntegrationTest extends TestCase
     #[Test]
     #[Group('data-integrity')]
 <<<<<<< HEAD
+<<<<<<< HEAD
     public function it_handles_complex_data_structures(): void
 =======
     public function itHandlesComplexDataStructures(): void
 >>>>>>> fe45b40 (.)
+=======
+    public function itHandlesComplexDataStructures(): void
+>>>>>>> 5192c37 (.)
     {
         $this->actingAs($this->createUserForTenant($this->tenant1));
         $this->setCurrentTenant($this->tenant1);
 
 <<<<<<< HEAD
+<<<<<<< HEAD
         $model = new TestSushiModel;
 =======
         $model = new TestSushiModel();
 >>>>>>> fe45b40 (.)
+=======
+        $model = new TestSushiModel();
+>>>>>>> 5192c37 (.)
         $complexData = [
             '1' => [
                 'id' => 1,
@@ -252,23 +308,32 @@ class SushiToJsonIntegrationTest extends TestCase
 
         $result = $model->saveToJson($complexData);
 <<<<<<< HEAD
+<<<<<<< HEAD
         expect($result);
 =======
         $this->assertTrue($result);
 >>>>>>> fe45b40 (.)
+=======
+        $this->assertTrue($result);
+>>>>>>> 5192c37 (.)
 
         // Verifica che i dati complessi siano caricati correttamente
         $loadedData = $model->getSushiRows();
         $this->assertArrayHasKey('1', $loadedData);
 <<<<<<< HEAD
+<<<<<<< HEAD
         expect('Complex Item', $loadedData['1']['name']);
 =======
         $this->assertEquals('Complex Item', $loadedData['1']['name']);
 >>>>>>> fe45b40 (.)
+=======
+        $this->assertEquals('Complex Item', $loadedData['1']['name']);
+>>>>>>> 5192c37 (.)
 
         // Verifica che gli array nidificati siano convertiti in stringhe JSON
         $this->assertIsString($loadedData['1']['metadata']);
         $metadata = json_decode($loadedData['1']['metadata'], true);
+<<<<<<< HEAD
 <<<<<<< HEAD
         expect(['tag1', 'tag2', 'tag3'], $metadata['tags']);
         expect(30.5, $metadata['settings']['timeout']);
@@ -278,24 +343,37 @@ class SushiToJsonIntegrationTest extends TestCase
         $this->assertEquals(30.5, $metadata['settings']['timeout']);
         $this->assertEquals('deep_value', $metadata['nested']['level1']['level2']['level3']);
 >>>>>>> fe45b40 (.)
+=======
+        $this->assertEquals(['tag1', 'tag2', 'tag3'], $metadata['tags']);
+        $this->assertEquals(30.5, $metadata['settings']['timeout']);
+        $this->assertEquals('deep_value', $metadata['nested']['level1']['level2']['level3']);
+>>>>>>> 5192c37 (.)
     }
 
     #[Test]
     #[Group('file-management')]
 <<<<<<< HEAD
+<<<<<<< HEAD
     public function it_manages_file_permissions_correctly(): void
 =======
     public function itManagesFilePermissionsCorrectly(): void
 >>>>>>> fe45b40 (.)
+=======
+    public function itManagesFilePermissionsCorrectly(): void
+>>>>>>> 5192c37 (.)
     {
         $this->actingAs($this->createUserForTenant($this->tenant1));
         $this->setCurrentTenant($this->tenant1);
 
 <<<<<<< HEAD
+<<<<<<< HEAD
         $model = new TestSushiModel;
 =======
         $model = new TestSushiModel();
 >>>>>>> fe45b40 (.)
+=======
+        $model = new TestSushiModel();
+>>>>>>> 5192c37 (.)
         $testData = [
             '1' => [
                 'id' => 1,
@@ -306,10 +384,14 @@ class SushiToJsonIntegrationTest extends TestCase
 
         $result = $model->saveToJson($testData);
 <<<<<<< HEAD
+<<<<<<< HEAD
         expect($result);
 =======
         $this->assertTrue($result);
 >>>>>>> fe45b40 (.)
+=======
+        $this->assertTrue($result);
+>>>>>>> 5192c37 (.)
 
         // Verifica che il file sia leggibile
         $this->assertFileIsReadable($this->tenant1Path.'/test_sushi.json');
@@ -325,19 +407,27 @@ class SushiToJsonIntegrationTest extends TestCase
     #[Test]
     #[Group('concurrency')]
 <<<<<<< HEAD
+<<<<<<< HEAD
     public function it_handles_concurrent_access_safely(): void
 =======
     public function itHandlesConcurrentAccessSafely(): void
 >>>>>>> fe45b40 (.)
+=======
+    public function itHandlesConcurrentAccessSafely(): void
+>>>>>>> 5192c37 (.)
     {
         $this->actingAs($this->createUserForTenant($this->tenant1));
         $this->setCurrentTenant($this->tenant1);
 
 <<<<<<< HEAD
+<<<<<<< HEAD
         $model = new TestSushiModel;
 =======
         $model = new TestSushiModel();
 >>>>>>> fe45b40 (.)
+=======
+        $model = new TestSushiModel();
+>>>>>>> 5192c37 (.)
         $initialData = [
             '1' => [
                 'id' => 1,
@@ -364,6 +454,7 @@ class SushiToJsonIntegrationTest extends TestCase
 
         $result = $model->saveToJson($concurrentData);
 <<<<<<< HEAD
+<<<<<<< HEAD
         expect($result);
 
         // Verifica che i dati siano stati salvati correttamente
@@ -380,19 +471,33 @@ class SushiToJsonIntegrationTest extends TestCase
         $this->assertEquals('Concurrent Update', $loadedData['1']['name']);
         $this->assertEquals('New Item', $loadedData['2']['name']);
 >>>>>>> fe45b40 (.)
+=======
+        $this->assertTrue($result);
+
+        // Verifica che i dati siano stati salvati correttamente
+        $loadedData = $model->getSushiRows();
+        $this->assertCount(2, $loadedData);
+        $this->assertEquals('Concurrent Update', $loadedData['1']['name']);
+        $this->assertEquals('New Item', $loadedData['2']['name']);
+>>>>>>> 5192c37 (.)
     }
 
     #[Test]
     #[Group('performance')]
 <<<<<<< HEAD
+<<<<<<< HEAD
     public function it_handles_large_datasets_efficiently(): void
 =======
     public function itHandlesLargeDatasetsEfficiently(): void
 >>>>>>> fe45b40 (.)
+=======
+    public function itHandlesLargeDatasetsEfficiently(): void
+>>>>>>> 5192c37 (.)
     {
         $this->actingAs($this->createUserForTenant($this->tenant1));
         $this->setCurrentTenant($this->tenant1);
 
+<<<<<<< HEAD
 <<<<<<< HEAD
         $model = new TestSushiModel;
 
@@ -406,15 +511,26 @@ class SushiToJsonIntegrationTest extends TestCase
         $largeData = [];
         for ($i = 1; $i <= 500; ++$i) {
 >>>>>>> fe45b40 (.)
+=======
+        $model = new TestSushiModel();
+
+        // Crea dataset grande (500 record)
+        $largeData = [];
+        for ($i = 1; $i <= 500; ++$i) {
+>>>>>>> 5192c37 (.)
             $largeData[$i] = [
                 'id' => $i,
                 'name' => "Large Dataset Item {$i}",
                 'description' => "Description for large dataset item {$i}",
 <<<<<<< HEAD
+<<<<<<< HEAD
                 'status' => $i % 2 === 0 ? 'active' : 'inactive',
 =======
                 'status' => 0 === $i % 2 ? 'active' : 'inactive',
 >>>>>>> fe45b40 (.)
+=======
+                'status' => 0 === $i % 2 ? 'active' : 'inactive',
+>>>>>>> 5192c37 (.)
                 'metadata' => [
                     'category' => 'Category '.($i % 10),
                     'priority' => $i % 5 + 1,
@@ -430,10 +546,14 @@ class SushiToJsonIntegrationTest extends TestCase
         $saveTime = microtime(true) - $startTime;
 
 <<<<<<< HEAD
+<<<<<<< HEAD
         expect($result);
 =======
         $this->assertTrue($result);
 >>>>>>> fe45b40 (.)
+=======
+        $this->assertTrue($result);
+>>>>>>> 5192c37 (.)
         $this->assertLessThan(2.0, $saveTime, 'Salvataggio dataset grande deve essere veloce');
 
         // Testa caricamento
@@ -442,29 +562,41 @@ class SushiToJsonIntegrationTest extends TestCase
         $loadTime = microtime(true) - $startTime;
 
 <<<<<<< HEAD
+<<<<<<< HEAD
         expect(500, $loadedData);
 =======
         $this->assertCount(500, $loadedData);
 >>>>>>> fe45b40 (.)
+=======
+        $this->assertCount(500, $loadedData);
+>>>>>>> 5192c37 (.)
         $this->assertLessThan(1.0, $loadTime, 'Caricamento dataset grande deve essere veloce');
     }
 
     #[Test]
     #[Group('unicode')]
 <<<<<<< HEAD
+<<<<<<< HEAD
     public function it_handles_unicode_and_special_characters(): void
 =======
     public function itHandlesUnicodeAndSpecialCharacters(): void
 >>>>>>> fe45b40 (.)
+=======
+    public function itHandlesUnicodeAndSpecialCharacters(): void
+>>>>>>> 5192c37 (.)
     {
         $this->actingAs($this->createUserForTenant($this->tenant1));
         $this->setCurrentTenant($this->tenant1);
 
 <<<<<<< HEAD
+<<<<<<< HEAD
         $model = new TestSushiModel;
 =======
         $model = new TestSushiModel();
 >>>>>>> fe45b40 (.)
+=======
+        $model = new TestSushiModel();
+>>>>>>> 5192c37 (.)
         $unicodeData = [
             '1' => [
                 'id' => 1,
@@ -482,6 +614,7 @@ class SushiToJsonIntegrationTest extends TestCase
 
         $result = $model->saveToJson($unicodeData);
 <<<<<<< HEAD
+<<<<<<< HEAD
         expect($result);
 
         // Verifica che i caratteri Unicode siano preservati
@@ -496,6 +629,14 @@ class SushiToJsonIntegrationTest extends TestCase
         $this->assertEquals('Café & Résumé 🚀', $loadedData['1']['name']);
         $this->assertEquals('Test con caratteri speciali: é, è, ñ, 中文, 🎉', $loadedData['1']['description']);
 >>>>>>> fe45b40 (.)
+=======
+        $this->assertTrue($result);
+
+        // Verifica che i caratteri Unicode siano preservati
+        $loadedData = $model->getSushiRows();
+        $this->assertEquals('Café & Résumé 🚀', $loadedData['1']['name']);
+        $this->assertEquals('Test con caratteri speciali: é, è, ñ, 中文, 🎉', $loadedData['1']['description']);
+>>>>>>> 5192c37 (.)
 
         // Verifica che gli array con caratteri speciali siano convertiti correttamente
         $this->assertIsString($loadedData['1']['tags']);
@@ -505,34 +646,48 @@ class SushiToJsonIntegrationTest extends TestCase
         $metadata = json_decode($loadedData['1']['metadata'], true);
 
 <<<<<<< HEAD
+<<<<<<< HEAD
         expect('tag-é', $tags[0]);
         expect('🚀-tag', $tags[4]);
         expect('你好世界', $metadata['chinese']);
         expect('こんにちは世界', $metadata['japanese']);
 =======
+=======
+>>>>>>> 5192c37 (.)
         $this->assertEquals('tag-é', $tags[0]);
         $this->assertEquals('🚀-tag', $tags[4]);
         $this->assertEquals('你好世界', $metadata['chinese']);
         $this->assertEquals('こんにちは世界', $metadata['japanese']);
+<<<<<<< HEAD
 >>>>>>> fe45b40 (.)
+=======
+>>>>>>> 5192c37 (.)
     }
 
     #[Test]
     #[Group('edge-cases')]
 <<<<<<< HEAD
+<<<<<<< HEAD
     public function it_handles_empty_and_null_values(): void
 =======
     public function itHandlesEmptyAndNullValues(): void
 >>>>>>> fe45b40 (.)
+=======
+    public function itHandlesEmptyAndNullValues(): void
+>>>>>>> 5192c37 (.)
     {
         $this->actingAs($this->createUserForTenant($this->tenant1));
         $this->setCurrentTenant($this->tenant1);
 
 <<<<<<< HEAD
+<<<<<<< HEAD
         $model = new TestSushiModel;
 =======
         $model = new TestSushiModel();
 >>>>>>> fe45b40 (.)
+=======
+        $model = new TestSushiModel();
+>>>>>>> 5192c37 (.)
         $edgeCaseData = [
             '1' => [
                 'id' => 1,
@@ -556,6 +711,7 @@ class SushiToJsonIntegrationTest extends TestCase
 
         $result = $model->saveToJson($edgeCaseData);
 <<<<<<< HEAD
+<<<<<<< HEAD
         expect($result);
 
         // Verifica che i valori vuoti e null siano gestiti correttamente
@@ -570,16 +726,26 @@ class SushiToJsonIntegrationTest extends TestCase
 
         // Verifica che i valori vuoti e null siano gestiti correttamente
         $loadedData = $model->getSushiRows();
+=======
+        $this->assertTrue($result);
+
+        // Verifica che i valori vuoti e null siano gestiti correttamente
+        $loadedData = $model->getSushiRows();
+>>>>>>> 5192c37 (.)
         $this->assertEquals('', $loadedData['1']['name']);
         $this->assertNull($loadedData['1']['description']);
         $this->assertEquals('[]', $loadedData['1']['metadata']); // Convertito in stringa JSON
         $this->assertNull($loadedData['1']['tags']);
         $this->assertFalse($loadedData['1']['status']);
+<<<<<<< HEAD
 >>>>>>> fe45b40 (.)
+=======
+>>>>>>> 5192c37 (.)
 
         // Verifica che gli array nidificati con valori vuoti siano convertiti correttamente
         $this->assertIsString($loadedData['1']['settings']);
         $settings = json_decode($loadedData['1']['settings'], true);
+<<<<<<< HEAD
 <<<<<<< HEAD
         expect($settings['enabled']);
         expect(0, $settings['max_retries']);
@@ -588,22 +754,31 @@ class SushiToJsonIntegrationTest extends TestCase
         expect($settings['null_value']);
         expect([], $settings['empty_array']);
 =======
+=======
+>>>>>>> 5192c37 (.)
         $this->assertFalse($settings['enabled']);
         $this->assertEquals(0, $settings['max_retries']);
         $this->assertEquals(0.0, $settings['timeout']);
         $this->assertEquals('', $settings['empty_string']);
         $this->assertNull($settings['null_value']);
         $this->assertEquals([], $settings['empty_array']);
+<<<<<<< HEAD
 >>>>>>> fe45b40 (.)
+=======
+>>>>>>> 5192c37 (.)
     }
 
     #[Test]
     #[Group('tenant-configuration')]
 <<<<<<< HEAD
+<<<<<<< HEAD
     public function it_works_with_different_tenant_configurations(): void
 =======
     public function itWorksWithDifferentTenantConfigurations(): void
 >>>>>>> fe45b40 (.)
+=======
+    public function itWorksWithDifferentTenantConfigurations(): void
+>>>>>>> 5192c37 (.)
     {
         // Testa con tenant che ha configurazioni diverse
         $customTenant = Tenant::factory()->create([
@@ -625,10 +800,14 @@ class SushiToJsonIntegrationTest extends TestCase
         }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
         $model = new TestSushiModel;
 =======
         $model = new TestSushiModel();
 >>>>>>> fe45b40 (.)
+=======
+        $model = new TestSushiModel();
+>>>>>>> 5192c37 (.)
         $testData = [
             '1' => [
                 'id' => 1,
@@ -639,10 +818,14 @@ class SushiToJsonIntegrationTest extends TestCase
 
         $result = $model->saveToJson($testData);
 <<<<<<< HEAD
+<<<<<<< HEAD
         expect($result);
 =======
         $this->assertTrue($result);
 >>>>>>> fe45b40 (.)
+=======
+        $this->assertTrue($result);
+>>>>>>> 5192c37 (.)
 
         // Verifica che i dati siano salvati nel percorso personalizzato
         $this->assertFileExists($customPath.'/test_sushi.json');
@@ -663,10 +846,14 @@ class SushiToJsonIntegrationTest extends TestCase
         $this->setCurrentTenant($this->tenant1);
 
 <<<<<<< HEAD
+<<<<<<< HEAD
         $model1 = new TestSushiModel;
 =======
         $model1 = new TestSushiModel();
 >>>>>>> fe45b40 (.)
+=======
+        $model1 = new TestSushiModel();
+>>>>>>> 5192c37 (.)
         $data1 = [
             '1' => [
                 'id' => 1,
@@ -688,10 +875,14 @@ class SushiToJsonIntegrationTest extends TestCase
         $this->setCurrentTenant($this->tenant2);
 
 <<<<<<< HEAD
+<<<<<<< HEAD
         $model2 = new TestSushiModel;
 =======
         $model2 = new TestSushiModel();
 >>>>>>> fe45b40 (.)
+=======
+        $model2 = new TestSushiModel();
+>>>>>>> 5192c37 (.)
         $data2 = [
             '1' => [
                 'id' => 1,

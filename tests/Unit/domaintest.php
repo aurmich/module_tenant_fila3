@@ -8,10 +8,14 @@ uses(Tests\TestCase::class);
 
 test('domain model can be instantiated', function (): void {
 <<<<<<< HEAD
+<<<<<<< HEAD
     $domain = new Domain;
 =======
     $domain = new Domain();
 >>>>>>> fe45b40 (.)
+=======
+    $domain = new Domain();
+>>>>>>> 5192c37 (.)
 
     expect($domain)->toBeInstanceOf(Domain::class);
 });
@@ -28,10 +32,14 @@ test('get rows method works correctly', function (): void {
     });
 
 <<<<<<< HEAD
+<<<<<<< HEAD
     $domain = new Domain;
 =======
     $domain = new Domain();
 >>>>>>> fe45b40 (.)
+=======
+    $domain = new Domain();
+>>>>>>> 5192c37 (.)
     $rows = $domain->getRows();
 
     expect($rows)->toBeArray();

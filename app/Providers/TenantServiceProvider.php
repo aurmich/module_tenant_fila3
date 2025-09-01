@@ -26,6 +26,7 @@ class TenantServiceProvider extends XotBaseServiceProvider
     {
         parent::boot();
 <<<<<<< HEAD
+<<<<<<< HEAD
 
         // Skip complex configuration during testing
         // if (! $this->app->environment('testing')) {
@@ -35,11 +36,18 @@ class TenantServiceProvider extends XotBaseServiceProvider
 =======
         
         // Skip complex configuration during testing
+=======
+        
+        // Skip complex configuration during testing
+>>>>>>> 5192c37 (.)
         //if (! $this->app->environment('testing')) {
            $this->mergeConfigs();
         //}
         
+<<<<<<< HEAD
 >>>>>>> fe45b40 (.)
+=======
+>>>>>>> 5192c37 (.)
         $this->registerDB();
         $this->registerMorphMap();
         $this->publishConfig();
@@ -66,9 +74,12 @@ class TenantServiceProvider extends XotBaseServiceProvider
         if ($this->app->environment('testing')) {
             Schema::defaultStringLength(191);
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 =======
 >>>>>>> fe45b40 (.)
+=======
+>>>>>>> 5192c37 (.)
             return;
         }
 

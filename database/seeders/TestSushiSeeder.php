@@ -16,10 +16,14 @@ class TestSushiSeeder extends Seeder
     {
         // Only seed in testing or local environments
 <<<<<<< HEAD
+<<<<<<< HEAD
         if (! app()->environment(['local', 'testing', 'development'])) {
 =======
         if (!app()->environment(['local', 'testing', 'development'])) {
 >>>>>>> fe45b40 (.)
+=======
+        if (!app()->environment(['local', 'testing', 'development'])) {
+>>>>>>> 5192c37 (.)
             return;
         }
 
@@ -74,7 +78,11 @@ class TestSushiSeeder extends Seeder
         }
     }
 <<<<<<< HEAD
+<<<<<<< HEAD
 }
 =======
 }
 >>>>>>> fe45b40 (.)
+=======
+}
+>>>>>>> 5192c37 (.)

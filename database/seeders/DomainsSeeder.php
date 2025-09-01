@@ -47,7 +47,11 @@ class DomainsSeeder extends Seeder
         }
     }
 <<<<<<< HEAD
+<<<<<<< HEAD
 }
 =======
 }
 >>>>>>> fe45b40 (.)
+=======
+}
+>>>>>>> 5192c37 (.)

@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 use Rector\Config\RectorConfig;
 <<<<<<< HEAD
+<<<<<<< HEAD
 use Rector\Laravel\Rector\ClassMethod\RedirectRouteToToRouteHelperRector;
 use Rector\Laravel\Set\LaravelSetList;
 use Rector\PHPUnit\Set\PHPUnitLevelSetList;
@@ -17,6 +18,14 @@ use Rector\Set\ValueObject\SetList;
 use Rector\Laravel\Set\LaravelSetList;
 use Rector\Laravel\Rector\ClassMethod\RedirectRouteToToRouteHelperRector;
 >>>>>>> fe45b40 (.)
+=======
+use Rector\Core\Configuration\Option;
+use Rector\PHPUnit\Set\PHPUnitLevelSetList;
+use Rector\Set\ValueObject\LevelSetList;
+use Rector\Set\ValueObject\SetList;
+use Rector\Laravel\Set\LaravelSetList;
+use Rector\Laravel\Rector\ClassMethod\RedirectRouteToToRouteHelperRector;
+>>>>>>> 5192c37 (.)
 
 return static function (RectorConfig $rectorConfig): void {
     // Paths da analizzare

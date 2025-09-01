@@ -8,9 +8,13 @@ use Modules\Xot\Database\Migrations\XotBaseMigration;
 return new class extends XotBaseMigration
 {
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
     
 >>>>>>> fe45b40 (.)
+=======
+    
+>>>>>>> 5192c37 (.)
     /**
      * Run the migrations.
      */
@@ -39,10 +43,14 @@ return new class extends XotBaseMigration
             }
         );
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 =======
         
 >>>>>>> fe45b40 (.)
+=======
+        
+>>>>>>> 5192c37 (.)
         // -- UPDATE --
         $this->tableUpdate(
             function (Blueprint $table): void {
@@ -52,8 +60,13 @@ return new class extends XotBaseMigration
         );
     }
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 
 
 >>>>>>> fe45b40 (.)
+=======
+
+
+>>>>>>> 5192c37 (.)
 };

@@ -19,10 +19,14 @@ class TenantBusinessLogicTest extends TestCase
         // Arrange
         $user = User::factory()->create();
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 =======
         
 >>>>>>> fe45b40 (.)
+=======
+        
+>>>>>>> 5192c37 (.)
         // Act
         $tenant = Tenant::factory()->create([
             'name' => 'Test Studio',
@@ -52,10 +56,14 @@ class TenantBusinessLogicTest extends TestCase
         // Arrange
         $tenant = Tenant::factory()->create();
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 =======
         
 >>>>>>> fe45b40 (.)
+=======
+        
+>>>>>>> 5192c37 (.)
         // Act
         $domain = TenantDomain::factory()->create([
             'tenant_id' => $tenant->id,
@@ -85,10 +93,14 @@ class TenantBusinessLogicTest extends TestCase
         // Arrange
         $tenant = Tenant::factory()->create();
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 =======
         
 >>>>>>> fe45b40 (.)
+=======
+        
+>>>>>>> 5192c37 (.)
         // Act
         $setting = TenantSetting::factory()->create([
             'tenant_id' => $tenant->id,
@@ -118,10 +130,14 @@ class TenantBusinessLogicTest extends TestCase
         // Arrange
         $tenant = Tenant::factory()->create();
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 =======
         
 >>>>>>> fe45b40 (.)
+=======
+        
+>>>>>>> 5192c37 (.)
         // Act
         $subscription = TenantSubscription::factory()->create([
             'tenant_id' => $tenant->id,
@@ -157,10 +173,14 @@ class TenantBusinessLogicTest extends TestCase
         $user1 = User::factory()->create();
         $user2 = User::factory()->create();
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 =======
         
 >>>>>>> fe45b40 (.)
+=======
+        
+>>>>>>> 5192c37 (.)
         // Act
         $tenant1 = Tenant::factory()->create([
             'name' => 'Studio A',
@@ -223,10 +243,14 @@ class TenantBusinessLogicTest extends TestCase
         // Arrange
         $tenant = Tenant::factory()->create();
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 =======
         
 >>>>>>> fe45b40 (.)
+=======
+        
+>>>>>>> 5192c37 (.)
         // Act
         $domain = TenantDomain::factory()->create([
             'tenant_id' => $tenant->id,
@@ -350,10 +374,14 @@ class TenantBusinessLogicTest extends TestCase
         // Arrange
         $tenant = Tenant::factory()->create();
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 =======
         
 >>>>>>> fe45b40 (.)
+=======
+        
+>>>>>>> 5192c37 (.)
         // Act - Create multiple settings
         $appSetting = TenantSetting::factory()->create([
             'tenant_id' => $tenant->id,
@@ -403,10 +431,14 @@ class TenantBusinessLogicTest extends TestCase
         // Arrange
         $tenant = Tenant::factory()->create();
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 =======
         
 >>>>>>> fe45b40 (.)
+=======
+        
+>>>>>>> 5192c37 (.)
         // Act & Assert - Valid domains
         $validDomains = [
             'example.com',

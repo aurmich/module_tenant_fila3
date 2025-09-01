@@ -24,10 +24,14 @@ abstract class TestCase extends BaseTestCase
         // Load Tenant module specific configurations
         $this->loadLaravelMigrations();
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 =======
         
 >>>>>>> fe45b40 (.)
+=======
+        
+>>>>>>> 5192c37 (.)
         // Seed any required data for Tenant tests
         $this->artisan('module:seed', ['module' => 'Tenant']);
     }
@@ -36,10 +40,14 @@ abstract class TestCase extends BaseTestCase
      * Get package providers.
      *
 <<<<<<< HEAD
+<<<<<<< HEAD
      * @param  \Illuminate\Foundation\Application  $app
 =======
      * @param \Illuminate\Foundation\Application $app
 >>>>>>> fe45b40 (.)
+=======
+     * @param \Illuminate\Foundation\Application $app
+>>>>>>> 5192c37 (.)
      * @return array<int, class-string>
      */
     protected function getPackageProviders($app): array
