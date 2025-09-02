@@ -45,6 +45,7 @@ $tenant = $createTenant->execute([
 Tenant::setCurrent($tenant);
 ```
 
+<<<<<<< HEAD
 ### 🗄️ **Database Isolation**
 ```php
 // Isolamento automatico database per tenant
@@ -106,10 +107,38 @@ class CreateTenantAction
         $this->events->dispatch(new TenantCreated($tenant));
         
         return $tenant;
+=======
+## Testing e Qualità del Codice
+
+### Principi Fondamentali
+
+Il modulo Tenant segue rigorosamente i principi di testing senza `RefreshDatabase` per garantire:
+
+- **Performance**: Test unitari < 100ms ciascuno
+- **Isolamento**: Ogni test è indipendente
+- **Velocità**: Suite completa < 30 secondi
+- **Manutenibilità**: Test chiari e semplici
+
+### ❌ Anti-Pattern VIETATI
+
+```php
+// ❌ VIETATO ASSOLUTAMENTE
+use Illuminate\Foundation\Testing\RefreshDatabase;
+
+class TenantTest extends TestCase
+{
+    use RefreshDatabase; // VIETATO!
+    
+    public function test_something()
+    {
+        $tenant = Tenant::factory()->create(); // VIETATO!
+        // ...
+>>>>>>> 3959779 (.)
     }
 }
 ```
 
+<<<<<<< HEAD
 ## 🎯 **Stato Qualità - Gennaio 2025**
 
 ### ✅ **PHPStan Level 9 Compliance**
@@ -456,3 +485,65 @@ php artisan tenant:check-session-isolation
 **🌐 Translation Standards**: File traduzione certificati ✅  
 **🚀 Performance**: 93/100 score
 
+=======
+### ✅ Pattern Corretti
+
+```php
+// ✅ CORRETTO - Test unitario con oggetti in-memory
+it('can process tenant data', function () {
+    $tenant = new Tenant([
+        'name' => 'Test Tenant',
+        'domain' => 'test.local'
+    ]);
+    
+    $processor = new TenantProcessor();
+    $result = $processor->process($tenant);
+    
+    expect($result)->toBe('processed');
+});
+
+// ✅ CORRETTO - Test con mock
+it('can handle tenant service', function () {
+    $mockService = Mockery::mock(TenantService::class);
+    $mockService->shouldReceive('validate')->andReturn(true);
+    
+    $handler = new TenantHandler($mockService);
+    $result = $handler->validate('test.local');
+    
+    expect($result)->toBeTrue();
+});
+```
+
+### Test di Performance
+
+Il modulo include test di performance specifici per operazioni JSON:
+
+```php
+// ✅ CORRETTO - Test performance senza database
+public function test_json_conversion_performance_1000_records(): void
+{
+    $data = $this->createTestData(1000); // Oggetti in-memory
+    $startTime = microtime(true);
+    
+    $jsonString = json_encode($data, JSON_PRETTY_PRINT);
+    
+    $executionTime = (microtime(true) - $startTime) * 1000;
+    
+    // Performance target: < 200ms per 1000 record
+    expect($executionTime)->toBeLessThan(200.0);
+}
+```
+
+### Best Practices
+
+1. **Test Unitari**: Solo logica di business, NO database
+2. **Mock e Stub**: Per dipendenze esterne
+3. **Oggetti In-Memory**: Per dati di test
+4. **Isolamento**: Test non devono interferire tra loro
+5. **Performance**: Ogni test < 100ms
+
+### Documentazione Completa
+
+Per informazioni dettagliate sui best practices di testing:
+- [Testing Best Practices](../../../docs/testing-best-practices-no-refresh-database.md)
+>>>>>>> 3959779 (.)
