@@ -6,13 +6,8 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\File;
 use Modules\Tenant\Models\TestSushiModel;
 use Modules\Tenant\Services\TenantService;
-<<<<<<< HEAD
-
-uses(Tests\TestCase::class);
-=======
 use Mockery;
 use Mockery\MockInterface;
->>>>>>> 3959779 (.)
 
 /**
  * Test unitari per il trait SushiToJson.
@@ -20,29 +15,17 @@ use Mockery\MockInterface;
  * Testa tutte le funzionalità del trait in isolamento,
  * utilizzando mock per le dipendenze esterne.
  */
-<<<<<<< HEAD
-
-beforeEach(function () {
-    // Configura il modello di test
-    $this->model = new TestSushiModel();
-=======
 class SushiToJsonTraitTest extends TestCase
 {
     private TestSushiModel $model;
     private string $testJsonPath;
     private string $testDirectory;
     private MockInterface $mockTenantService;
->>>>>>> 3959779 (.)
 
     // Configura percorsi di test
     $this->testDirectory = storage_path('tests/sushi-json');
     $this->testJsonPath = $this->testDirectory.'/test_sushi.json';
 
-<<<<<<< HEAD
-    // Crea directory di test
-    if (! File::exists($this->testDirectory)) {
-        File::makeDirectory($this->testDirectory, 0755, true, true);
-=======
         // Mock completo del TenantService
         $this->mockTenantService = Mockery::mock(TenantService::class);
         $this->app->instance(TenantService::class, $this->mockTenantService);
@@ -61,7 +44,6 @@ class SushiToJsonTraitTest extends TestCase
 
         // Mock TenantService per i test
         $this->mockTenantService();
->>>>>>> 3959779 (.)
     }
 
     // Mock TenantService per i test
@@ -71,10 +53,6 @@ class SushiToJsonTraitTest extends TestCase
             ->andReturn($this->testJsonPath);
     });
 
-<<<<<<< HEAD
-    // Helper per creare dati di test
-    $this->createTestData = function () {
-=======
         if (File::exists($this->testDirectory)) {
             File::deleteDirectory($this->testDirectory);
         }
@@ -97,7 +75,6 @@ class SushiToJsonTraitTest extends TestCase
      */
     private function createTestData(): array
     {
->>>>>>> 3959779 (.)
         return [
             '1' => [
                 'id' => 1,
@@ -211,14 +188,10 @@ describe('SushiToJson Trait', function () {
             File::deleteDirectory($this->testDirectory);
         }
 
-<<<<<<< HEAD
-        $testData = ($this->createTestData)();
-=======
         // Mock per nuovo percorso
         $this->mockTenantService->shouldReceive('filePath')
             ->with('database/content/test_sushi.json')
             ->andReturn($newPath);
->>>>>>> 3959779 (.)
 
         $result = $this->model->saveToJson($testData);
 
@@ -235,14 +208,11 @@ describe('SushiToJson Trait', function () {
 
         $testData = ($this->createTestData)();
 
-<<<<<<< HEAD
-=======
         $this->mockTenantService->shouldReceive('filePath')
             ->with('database/content/test_sushi.json')
             ->andReturn($this->testJsonPath);
 
         $testData = ['test' => 'data'];
->>>>>>> 3959779 (.)
         $result = $this->model->saveToJson($testData);
 
         expect($result)->toBeFalse();
@@ -322,10 +292,6 @@ describe('SushiToJson Trait', function () {
         expect($path)->toBe($this->testJsonPath);
     });
 
-<<<<<<< HEAD
-    it('handles large datasets efficiently', function () {
-        // Crea dataset grande (1000 record)
-=======
     /**
      * Test per la gestione degli errori durante operazioni JSON.
      */
@@ -378,7 +344,6 @@ describe('SushiToJson Trait', function () {
     public function testPerformanceWithLargeJsonFiles(): void
     {
         // Crea dati di test con molteplici record
->>>>>>> 3959779 (.)
         $largeData = [];
         for ($i = 1; $i <= 1000; $i++) {
             $largeData[$i] = [

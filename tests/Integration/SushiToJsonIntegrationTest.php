@@ -4,16 +4,10 @@ declare(strict_types=1);
 
 namespace Modules\Tenant\Tests\Integration;
 
-<<<<<<< HEAD
-use Illuminate\Foundation\Testing\RefreshDatabase;
-use Illuminate\Support\Facades\File;
-use Modules\Tenant\Models\Tenant;
-=======
 use Tests\TestCase;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Auth;
 use Modules\User\Models\Tenant;
->>>>>>> 3959779 (.)
 use Modules\Tenant\Models\TestSushiModel;
 use Modules\Tenant\Services\TenantService;
 use PHPUnit\Framework\Attributes\Group;
