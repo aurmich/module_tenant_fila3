@@ -1,5 +1,6 @@
 <?php
 
+<<<<<<< HEAD
 declare(strict_types=1);
 
 namespace Modules\Tenant\Database\Factories;
@@ -10,10 +11,17 @@ use Modules\Tenant\Models\Domain;
 /**
  * @extends \Illuminate\Database\Eloquent\Factories\Factory<\Modules\Tenant\Models\Domain>
  */
+=======
+namespace Modules\Tenant\Database\Factories;
+
+use Illuminate\Database\Eloquent\Factories\Factory;
+
+>>>>>>> 40aab39 (.)
 class DomainFactory extends Factory
 {
     /**
      * The name of the factory's corresponding model.
+<<<<<<< HEAD
      *
      * @var class-string<\Modules\Tenant\Models\Domain>
      */
@@ -67,3 +75,16 @@ class DomainFactory extends Factory
     }
 }
 
+=======
+     */
+    protected $model = \Modules\Tenant\Models\Domain::class;
+
+    /**
+     * Define the model's default state.
+     */
+    public function definition(): array
+    {
+        return [];
+    }
+}
+>>>>>>> 40aab39 (.)

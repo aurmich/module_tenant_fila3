@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # SushiToJson Trait - Implementazione Completa
 
 > **Boy Scout Rule Applied**: Documentazione aggiornata dopo studio approfondito e implementazione completa
@@ -53,6 +54,43 @@ Il metodo di boot implementa un pattern observer pulito per gli eventi del model
 **Logging**: Tutti i tentativi di modifica vengono loggati per debugging e audit trail.
 
 **Razionale**: Implementazione sicura che evita operazioni incomplete e fornisce feedback chiaro agli sviluppatori.
+=======
+# SushiToJsons Trait
+
+Il trait SushiToJsons estende le funzionalità di Sushi per gestire i dati dei modelli utilizzando file JSON come sorgente dati.
+
+## Caratteristiche principali
+
+- Integrazione con il package Sushi per l'accesso ai dati
+- Gestione automatica di file JSON come sorgente dati
+- Supporto per schema di dati personalizzato
+- Gestione automatica di timestamp e utenti per le modifiche
+
+## Metodi principali
+
+### `getSushiRows(): array`
+Recupera i dati dai file JSON nella directory del tenant e li converte in un array di record secondo lo schema definito.
+
+### `getJsonFile(): string`
+Determina il percorso del file JSON per un record specifico basato sulla tabella e l'ID.
+
+## Eventi gestiti
+
+### Creating
+- Genera automaticamente l'ID incrementale
+- Imposta i timestamp di creazione e aggiornamento
+- Registra l'utente che ha creato il record
+- Valida e converte i dati secondo lo schema
+- Crea il file JSON con i dati formattati
+
+### Updating
+- Aggiorna i timestamp
+- Registra l'utente che ha modificato il record
+- Aggiorna il file JSON con i nuovi dati
+
+### Deleting
+- Rimuove il file JSON associato al record
+>>>>>>> 40aab39 (.)
 
 ## Schema dei dati
 
@@ -65,6 +103,7 @@ protected $schema = [
 ];
 ```
 
+<<<<<<< HEAD
 ## Best Practices (Boy Scout Rule)
 
 - **Type Safety**: Utilizzare sempre tipizzazione esplicita e PHPDoc completi
@@ -80,10 +119,25 @@ protected $schema = [
 - **`webmozart/assert`**: Validazione robusta dei parametri
 - **`thecodingmachine/safe`**: Operazioni sicure su JSON e file I/O
 - **`illuminate/support`**: Per File facade e logging
+=======
+## Best Practices
+
+- Definire sempre uno schema completo per i dati
+- Validare i dati prima del salvataggio
+- Gestire correttamente le directory dei tenant
+- Implementare la gestione degli errori per le operazioni di I/O
+
+## Dipendenze
+
+- `sushi`: Per il comportamento base del modello
+- `webmozart/assert`: Per la validazione dei parametri
+- `safe`: Per operazioni sicure su JSON
+>>>>>>> 40aab39 (.)
 
 ## Esempio di utilizzo
 
 ```php
+<<<<<<< HEAD
 <?php
 
 declare(strict_types=1);
@@ -144,6 +198,23 @@ Il trait ha una suite di test completa e modernizzata con 52 test che coprono il
 
 **Vedi**: [Piano di Testing SushiToJson](sushi-to-json-testing-plan.md) per dettagli completi.
 
+=======
+use Modules\Tenant\Models\Traits\SushiToJsons;
+
+class MyModel extends Model
+{
+    use SushiToJsons;
+
+    protected $table = 'my_table';
+    
+    protected $schema = [
+        'name' => 'string',
+        'data' => 'array',
+        'active' => 'boolean'
+    ];
+}
+``` 
+>>>>>>> 40aab39 (.)
 ## Collegamenti tra versioni di sushi-to-jsons.md
 * [sushi-to-jsons.md](../../../Tenant/docs/traits/sushi-to-jsons.md)
 * [sushi-to-jsons.md](../../../Tenant/docs/models/traits/sushi-to-jsons.md)

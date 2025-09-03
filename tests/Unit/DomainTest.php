@@ -1,5 +1,6 @@
 <?php
 
+<<<<<<< HEAD
 declare(strict_types=1);
 
 use Modules\Tenant\Models\Domain;
@@ -33,12 +34,47 @@ it('get rows method works correctly', function () {
         ]);
 
     $this->app->instance(GetDomainsArrayAction::class, $mockAction);
+=======
+<<<<<<< HEAD
+declare(strict_types=1);
+=======
+namespace Modules\Tenant\Tests\Unit;
+>>>>>>> 5a2ca30 (.)
+
+use Modules\Tenant\Models\Domain;
+
+uses(Tests\TestCase::class);
+
+test('domain model can be instantiated', function (): void {
+    $domain = new Domain();
+
+    expect($domain)->toBeInstanceOf(Domain::class);
+});
+
+test('get rows method works correctly', function (): void {
+    // Mock della Action GetDomainsArrayAction
+    $this->mock(\Modules\Tenant\Actions\Domains\GetDomainsArrayAction::class, function ($mock) {
+        $mock->shouldReceive('execute')
+            ->once()
+            ->andReturn([
+                ['id' => 1, 'name' => 'test-domain.com'],
+                ['id' => 2, 'name' => 'example.org'],
+            ]);
+    });
+>>>>>>> 40aab39 (.)
 
     $domain = new Domain();
     $rows = $domain->getRows();
 
+<<<<<<< HEAD
     expect($rows)->toBeArray()
         ->toHaveCount(2)
         ->and($rows[0]['name'])->toBe('test-domain.com')
         ->and($rows[1]['name'])->toBe('example.org');
+=======
+    expect($rows)->toBeArray();
+    expect($rows)->toHaveCount(2);
+    expect($rows[0]['name'])->toBe('test-domain.com');
+    expect($rows[1]['name'])->toBe('example.org');
+>>>>>>> 40aab39 (.)
 });

@@ -19,7 +19,10 @@ use Sushi\Sushi;
  * @property-read \Modules\Xot\Contracts\ProfileContract|null $creator
  * @property-read \Modules\Xot\Contracts\ProfileContract|null $updater
  * @method static \Modules\Tenant\Database\Factories\DomainFactory factory($count = null, $state = [])
+<<<<<<< HEAD
  * @mixin IdeHelperDomain
+=======
+>>>>>>> 40aab39 (.)
  * @mixin \Eloquent
  */
 class Domain extends BaseModel

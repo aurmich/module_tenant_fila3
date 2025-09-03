@@ -1,5 +1,6 @@
 # Risoluzione Conflitti - Tenant
 
+<<<<<<< HEAD
 > **Boy Scout Rule Applied**: Documentazione aggiornata per riflettere il lavoro di analisi e pianificazione
 
 ## 📋 **Stato Attuale**
@@ -83,4 +84,10 @@
 ---
 
 **📝 Nota**: Questo documento riflette il lavoro di analisi e pianificazione completato. Ogni decisione è documentata e collegata alla documentazione correlata per mantenere tracciabilità completa.
+=======
+
+## File modificati
+
+## Decisioni adottate
+>>>>>>> 40aab39 (.)
 
