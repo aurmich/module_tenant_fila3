@@ -39,6 +39,7 @@ Here’s a quick preview of what some of the basic type styles will look like in
 
 # h1 Heading
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 ## h2 Heading
 
@@ -49,11 +50,21 @@ Here’s a quick preview of what some of the basic type styles will look like in
 ##### h5 Heading
 
 =======
+=======
+
+>>>>>>> e865d87 (.)
 ## h2 Heading
+
 ### h3 Heading
+
 #### h4 Heading
+
 ##### h5 Heading
+<<<<<<< HEAD
 >>>>>>> 40aab39 (.)
+=======
+
+>>>>>>> e865d87 (.)
 ###### h6 Heading
 
 The quick brown fox jumps over the lazy dog
@@ -86,9 +97,13 @@ class Foo extends bar
 
 </div>
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 =======
 >>>>>>> 40aab39 (.)
+=======
+
+>>>>>>> e865d87 (.)
 ### Versione HEAD
 
 

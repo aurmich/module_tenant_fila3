@@ -332,9 +332,13 @@ jobs:
 
 ```bash
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 =======
 >>>>>>> 40aab39 (.)
+=======
+
+>>>>>>> e865d87 (.)
 # phpunit.xml
 <coverage>
     <include>

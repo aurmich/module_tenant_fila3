@@ -22,9 +22,13 @@ app/
 
 ## Dipendenze
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 =======
 >>>>>>> 40aab39 (.)
+=======
+
+>>>>>>> e865d87 (.)
 ### Moduli Required
 - User
 - Media
@@ -32,9 +36,13 @@ app/
 
 ## Database
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 =======
 >>>>>>> 40aab39 (.)
+=======
+
+>>>>>>> e865d87 (.)
 ### Factories
 Namespace: `Modules\Tenant\Database\Factories`
 
@@ -62,9 +70,13 @@ composer format        # Formatta il codice
 
 ## Configurazione
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 =======
 >>>>>>> 40aab39 (.)
+=======
+
+>>>>>>> e865d87 (.)
 ### Tenant
 - Configurazione in `config/tenant.php`
 - Middleware in `app/Http/Middleware`
@@ -87,9 +99,13 @@ composer format        # Formatta il codice
 
 ## Troubleshooting
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 =======
 >>>>>>> 40aab39 (.)
+=======
+
+>>>>>>> e865d87 (.)
 ### Problemi Comuni
 1. **Errori di Isolamento**
    - Verificare middleware tenant
@@ -108,9 +124,13 @@ composer format        # Formatta il codice
 
 ## Sicurezza
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 =======
 >>>>>>> 40aab39 (.)
+=======
+
+>>>>>>> e865d87 (.)
 ### Isolamento
 - Separazione dati tra tenant
 - Autenticazione tenant-specific
@@ -129,9 +149,13 @@ composer format        # Formatta il codice
 
 ## Changelog
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 =======
 >>>>>>> 40aab39 (.)
+=======
+
+>>>>>>> e865d87 (.)
 ### Versione HEAD
 
 
@@ -161,9 +185,13 @@ app/
 
 ## Dipendenze
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 =======
 >>>>>>> 40aab39 (.)
+=======
+
+>>>>>>> e865d87 (.)
 ### Moduli Required
 - User
 - Media
@@ -171,9 +199,13 @@ app/
 
 ## Database
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 =======
 >>>>>>> 40aab39 (.)
+=======
+
+>>>>>>> e865d87 (.)
 ### Factories
 Namespace: `Modules\Tenant\Database\Factories`
 
@@ -201,9 +233,13 @@ composer format        # Formatta il codice
 
 ## Configurazione
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 =======
 >>>>>>> 40aab39 (.)
+=======
+
+>>>>>>> e865d87 (.)
 ### Tenant
 - Configurazione in `config/tenant.php`
 - Middleware in `app/Http/Middleware`
@@ -226,9 +262,13 @@ composer format        # Formatta il codice
 
 ## Troubleshooting
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 =======
 >>>>>>> 40aab39 (.)
+=======
+
+>>>>>>> e865d87 (.)
 ### Problemi Comuni
 1. **Errori di Isolamento**
    - Verificare middleware tenant
@@ -247,9 +287,13 @@ composer format        # Formatta il codice
 
 ## Sicurezza
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 =======
 >>>>>>> 40aab39 (.)
+=======
+
+>>>>>>> e865d87 (.)
 ### Isolamento
 - Separazione dati tra tenant
 - Autenticazione tenant-specific
