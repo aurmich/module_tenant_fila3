@@ -239,15 +239,15 @@ laravel/Modules/Tenant/
 ## 🔗 **Collegamenti e Riferimenti**
 
 ### Documentazione Correlata
-- [Boy Scout Rule](../../../docs/boy-scout-rule.md) - Principio sacro del progetto
+- [Boy Scout Rule](../../../project_docs/boy-scout-rule.md) - Principio sacro del progetto
 - [Testing Guidelines](../testing.md) - Strategie di testing
 - [Roadmap](../roadmap.md) - Priorità e stato modulo
 - [Conflicts Resolution](../resolution-conflitti.md) - Gestione conflitti
 
 ### Moduli Correlati
-- [User Module](../../User/docs/README.md) - Gestione utenti e autenticazione
-- [UI Module](../../UI/docs/README.md) - Componenti e interfacce
-- [Xot Module](../../Xot/docs/README.md) - Funzionalità base
+- [User Module](../../User/project_docs/README.md) - Gestione utenti e autenticazione
+- [UI Module](../../UI/project_docs/README.md) - Componenti e interfacce
+- [Xot Module](../../Xot/project_docs/README.md) - Funzionalità base
 
 ### Package e Dipendenze
 - [Sushi Package](https://github.com/calebporzio/sushi) - Package base per modelli in-memory

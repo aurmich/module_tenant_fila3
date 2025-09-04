@@ -1,6 +1,6 @@
 # SushiToJson – Implementation Plan and Test Strategy
 
-> Context: This plan complements the existing docs at `Modules/Tenant/docs/traits/sushi-to-jsons.md` and the analysis in `Modules/Geo/docs/sushi-to-jsons-analysis.md`. It aligns with TenantService path rules and Boy Scout Rule.
+> Context: This plan complements the existing docs at `Modules/Tenant/project_docs/traits/sushi-to-jsons.md` and the analysis in `Modules/Geo/project_docs/sushi-to-jsons-analysis.md`. It aligns with TenantService path rules and Boy Scout Rule.
 
 ## Goals
 - Provide a single-file JSON backing store per table for Sushi models using the `SushiToJson` trait.

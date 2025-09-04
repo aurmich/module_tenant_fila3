@@ -122,14 +122,14 @@ laravel/Modules/Tenant/Tests/
 ## 🔗 **Collegamenti Esterni**
 
 ### Moduli Correlati
-- [User Module](../../User/docs/README.md) - Gestione utenti e autenticazione
-- [UI Module](../../UI/docs/README.md) - Componenti e interfacce
-- [Xot Module](../../Xot/docs/README.md) - Funzionalità base e convenzioni
+- [User Module](../../User/project_docs/README.md) - Gestione utenti e autenticazione
+- [UI Module](../../UI/project_docs/README.md) - Componenti e interfacce
+- [Xot Module](../../Xot/project_docs/README.md) - Funzionalità base e convenzioni
 
 ### Documentazione Root
-- [Boy Scout Rule](../../../docs/boy-scout-rule.md) - Principio sacro del progetto
-- [Convenzioni Laraxot](../../../docs/laraxot-conventions.md) - Standard di sviluppo
-- [Best Practices](../../../docs/best-practices.md) - Linee guida generali
+- [Boy Scout Rule](../../../project_docs/boy-scout-rule.md) - Principio sacro del progetto
+- [Convenzioni Laraxot](../../../project_docs/laraxot-conventions.md) - Standard di sviluppo
+- [Best Practices](../../../project_docs/best-practices.md) - Linee guida generali
 
 ### Package e Dipendenze
 - [Sushi Package](https://github.com/calebporzio/sushi) - Package base per modelli in-memory

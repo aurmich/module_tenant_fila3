@@ -2,7 +2,7 @@
 
 Questo documento descrive i conflitti Git risolti nel modulo Tenant, con particolare attenzione ai file critici e alle strutture di namespace.
 
-> Per una panoramica completa della risoluzione dei conflitti in tutto il progetto, consulta il [documento principale sulla risoluzione dei conflitti](/docs/conflict_resolution_ui_tenant.md).
+> Per una panoramica completa della risoluzione dei conflitti in tutto il progetto, consulta il [documento principale sulla risoluzione dei conflitti](/project_docs/conflict_resolution_ui_tenant.md).
 
 ## Panoramica
 
@@ -149,11 +149,11 @@ Questo errore indica che ci sono ancora conflitti git non risolti in altri modul
 
 **Motivazione**: L'aggregazione delle entità pazienti e appuntamenti in moduli dedicati favorisce la modularità, la riusabilità e la scalabilità del sistema multi-tenant. L'utilizzo di un modulo "macro" come SaluteOra avrebbe introdotto una dipendenza non necessaria e ridotto la chiarezza delle responsabilità.
 
-**Backlink**: Consulta anche la [documentazione globale sulla risoluzione dei conflitti git](../../../docs/risoluzione_conflitti_git.md) per la procedura e le linee guida generali.
+**Backlink**: Consulta anche la [documentazione globale sulla risoluzione dei conflitti git](../../../project_docs/risoluzione_conflitti_git.md) per la procedura e le linee guida generali.
 
 ## Collegamenti Utili
 
 - [Documentazione Principale Tenant](module_tenant.md)
 - [Rapporti PHPStan](phpstan/)
-- [Panoramica della Risoluzione dei Conflitti](../../../docs/risoluzione_conflitti_git.md)
+- [Panoramica della Risoluzione dei Conflitti](../../../project_docs/risoluzione_conflitti_git.md)
 

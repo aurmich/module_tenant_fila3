@@ -77,8 +77,8 @@
 - [Piano Implementazione](traits/sushi-to-json-implementation-plan.md) - Piano dettagliato
 
 ### Documentazione Root
-- [Boy Scout Rule](../../../docs/boy-scout-rule.md) - Principio sacro del progetto
-- [Risoluzione Conflitti Git](../../../docs/risoluzione_conflitti_git.md) - Linee guida globali
+- [Boy Scout Rule](../../../project_docs/boy-scout-rule.md) - Principio sacro del progetto
+- [Risoluzione Conflitti Git](../../../project_docs/risoluzione_conflitti_git.md) - Linee guida globali
 
 ---
 

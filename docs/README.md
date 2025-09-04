@@ -3,8 +3,8 @@
 [![Laravel 12.x](https://img.shields.io/badge/Laravel-12.x-red.svg)](https://laravel.com/)
 [![Filament 3.x](https://img.shields.io/badge/Filament-3.x-blue.svg)](https://filamentphp.com/)
 [![PHPStan Level 9](https://img.shields.io/badge/PHPStan-Level%209-brightgreen.svg)](https://phpstan.org/)
-[![Translation Ready](https://img.shields.io/badge/Translation-IT%20%7C%20EN%20%7C%20DE-green.svg)](https://laravel.com/docs/localization)
-[![Multi-Tenancy](https://img.shields.io/badge/Multi-Tenancy-Ready-orange.svg)](https://laravel.com/docs/multi-tenancy)
+[![Translation Ready](https://img.shields.io/badge/Translation-IT%20%7C%20EN%20%7C%20DE-green.svg)](https://laravel.com/project_docs/localization)
+[![Multi-Tenancy](https://img.shields.io/badge/Multi-Tenancy-Ready-orange.svg)](https://laravel.com/project_docs/multi-tenancy)
 [![Database Isolation](https://img.shields.io/badge/Database-Isolation%20Ready-yellow.svg)](https://en.wikipedia.org/wiki/Multi-tenancy)
 [![Modular Monolith](https://img.shields.io/badge/Architecture-Modular%20Monolith-purple.svg)](https://martinfowler.com/articles/modular-monolith.html)
 [![Quality Score](https://img.shields.io/badge/Quality%20Score-93%25-brightgreen.svg)](https://github.com/laraxot/tenant-module)
@@ -308,7 +308,7 @@ php artisan tenant:test-isolation
 - [PHPStan Fixes](phpstan/README.md) - Log completo correzioni PHPStan
 - [Conflict Resolution](risoluzione_conflitti.md) - Risoluzione conflitti
 - [Best Practices](best-practices.md) - Linee guida sviluppo
-- [Testing Best Practices](../../../docs/testing-best-practices-no-refresh-database.md) - Dettagli sui test senza `RefreshDatabase`
+- [Testing Best Practices](../../../project_docs/testing-best-practices-no-refresh-database.md) - Dettagli sui test senza `RefreshDatabase`
 
 ## 🎨 **Componenti Filament**
 

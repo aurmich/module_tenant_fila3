@@ -318,29 +318,29 @@ tests/Unit
 
 ## Collegamenti alla documentazione generale
 
-- [Analisi strutturale complessiva](/docs/phpstan/modules_structure_analysis.md)
-- [Report PHPStan](/docs/phpstan/)
+- [Analisi strutturale complessiva](/project_docs/phpstan/modules_structure_analysis.md)
+- [Report PHPStan](/project_docs/phpstan/)
 
 ## Collegamenti sulla risoluzione dei conflitti
 
 - [Risoluzione conflitti nel modulo Tenant](risoluzione_conflitti.md)
-- [Linee guida globali per la risoluzione dei conflitti git](../../../docs/risoluzione_conflitti_git.md)
+- [Linee guida globali per la risoluzione dei conflitti git](../../../project_docs/risoluzione_conflitti_git.md)
 
 ## Collegamenti tra versioni di structure.md
-* [structure.md](bashscripts/docs/structure.md)
-* [structure.md](../../../Gdpr/docs/structure.md)
-* [structure.md](../../../Notify/docs/structure.md)
-* [structure.md](../../../Xot/docs/structure.md)
-* [structure.md](../../../Xot/docs/base/structure.md)
-* [structure.md](../../../Xot/docs/config/structure.md)
-* [structure.md](../../../User/docs/structure.md)
-* [structure.md](../../../UI/docs/structure.md)
-* [structure.md](../../../Lang/docs/structure.md)
-* [structure.md](../../../Job/docs/structure.md)
-* [structure.md](../../../Media/docs/structure.md)
-* [structure.md](../../../Tenant/docs/structure.md)
-* [structure.md](../../../Activity/docs/structure.md)
-* [structure.md](../../../Cms/docs/structure.md)
-* [structure.md](../../../Cms/docs/themes/structure.md)
-* [structure.md](../../../Cms/docs/components/structure.md)
+* [structure.md](bashscripts/project_docs/structure.md)
+* [structure.md](../../../Gdpr/project_docs/structure.md)
+* [structure.md](../../../Notify/project_docs/structure.md)
+* [structure.md](../../../Xot/project_docs/structure.md)
+* [structure.md](../../../Xot/project_docs/base/structure.md)
+* [structure.md](../../../Xot/project_docs/config/structure.md)
+* [structure.md](../../../User/project_docs/structure.md)
+* [structure.md](../../../UI/project_docs/structure.md)
+* [structure.md](../../../Lang/project_docs/structure.md)
+* [structure.md](../../../Job/project_docs/structure.md)
+* [structure.md](../../../Media/project_docs/structure.md)
+* [structure.md](../../../Tenant/project_docs/structure.md)
+* [structure.md](../../../Activity/project_docs/structure.md)
+* [structure.md](../../../Cms/project_docs/structure.md)
+* [structure.md](../../../Cms/project_docs/themes/structure.md)
+* [structure.md](../../../Cms/project_docs/components/structure.md)
 

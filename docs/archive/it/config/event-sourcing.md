@@ -114,7 +114,7 @@ return [
      * In production, you likely don't want the package to auto-discover the event handlers
      * on every request. The package can cache all registered event handlers.
      * More info:
-     * https://spatie.be/docs/laravel-event-sourcing/v7/advanced-usage/discovering-projectors-and-reactors#content-caching-discovered-projectors-and-reactors
+     * https://spatie.be/project_docs/laravel-event-sourcing/v7/advanced-usage/discovering-projectors-and-reactors#content-caching-discovered-projectors-and-reactors
      *
      * Here you can specify where the cache should be stored.
      */
@@ -131,8 +131,8 @@ return [
 
 
 ## Collegamenti tra versioni di event-sourcing.md
-* [event-sourcing.md](../../../Xot/docs/activity/event-sourcing.md)
-* [event-sourcing.md](../../../Tenant/docs/it/config/event-sourcing.md)
+* [event-sourcing.md](../../../Xot/project_docs/activity/event-sourcing.md)
+* [event-sourcing.md](../../../Tenant/project_docs/it/config/event-sourcing.md)
 
 
 ### Versione Incoming

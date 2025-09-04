@@ -912,10 +912,10 @@ class TenantHealthMonitor
 
 ## 🔗 Collegamenti
 
-- [Multi-Tenancy in Laravel](https://laravel.com/docs/database#multiple-database-connections)
-- [Filament Multi-Tenancy](https://filamentphp.com/docs/panels/tenancy)
-- [Database Isolation Patterns](../../../docs/database-isolation-patterns.md)
-- [Security Best Practices](../../../docs/security-best-practices.md)
+- [Multi-Tenancy in Laravel](https://laravel.com/project_docs/database#multiple-database-connections)
+- [Filament Multi-Tenancy](https://filamentphp.com/project_docs/panels/tenancy)
+- [Database Isolation Patterns](../../../project_docs/database-isolation-patterns.md)
+- [Security Best Practices](../../../project_docs/security-best-practices.md)
 
 ---
 
