@@ -216,7 +216,7 @@ class TenantService
         $config_data = Arr::sortRecursive($config_data);
 
         $path = self::filePath($name.'.php');
-        $content = '<?php'.\chr(13).\chr(13).' return '.var_export($config_data, true).';';
+        $content = '<'.'?php'.\chr(13).\chr(13).' return '.var_export($config_data, true).';';
         $content = str_replace('\\\\', '\\', $content);
 
         File::put($path.'', $content);
@@ -335,6 +335,20 @@ class TenantService
         }
 
         return $path;
+    }
+
+    
+
+    public static function trans(string $key): string
+    {
+
+        $lang = app()->getLocale();
+        $trans_file = Str::of($key)->before('.')->append('.php')->toString();
+        $arr_key=Str::of($key)->after('.')->toString();
+        $path = self::filePath('lang/'.$lang.'/'.$trans_file);
+        $data = File::getRequire($path);
+        Assert::string($res=Arr::get($data, $arr_key));
+        return $res;
     }
 
     public static function getConfigNames(): array

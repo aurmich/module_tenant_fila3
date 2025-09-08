@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-use Modules\Tenant\Models\Domain;
-use Modules\Tenant\Actions\Domains\GetDomainsArrayAction;
 use Mockery;
+use Modules\Tenant\Actions\Domains\GetDomainsArrayAction;
+use Modules\Tenant\Models\Domain;
 
 uses(\Tests\TestCase::class);
 
@@ -18,7 +18,7 @@ afterEach(function () {
 
 it('domain model can be instantiated', function () {
     $domain = new Domain();
-    
+
     expect($domain)->toBeInstanceOf(Domain::class);
 });
 

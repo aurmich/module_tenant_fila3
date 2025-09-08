@@ -4,26 +4,26 @@ declare(strict_types=1);
 
 namespace Modules\Tenant\Tests\Performance;
 
-use Tests\TestCase;
-use Modules\Tenant\Models\Traits\SushiToJson;
-use Modules\Tenant\Services\TenantService;
+use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Support\Facades\File;
-use Illuminate\Support\Facades\Storage;
+use Modules\Tenant\Models\TestSushiModel;
+use Modules\Tenant\Services\TenantService;
+use PHPUnit\Framework\Attributes\Test;
+use PHPUnit\Framework\Attributes\Group;
+use Tests\TestCase;
 
 /**
  * Test di performance per il trait SushiToJson.
  *
  * Testa le prestazioni del trait con file JSON di diverse dimensioni
  * e verifica che i tempi di esecuzione rimangano accettabili.
- * 
- * IMPORTANTE: NO RefreshDatabase - solo oggetti in-memory per performance
  */
 #[Group('performance')]
 #[Group('sushi-json')]
 class SushiToJsonPerformanceTest extends TestCase
 {
-    // NO RefreshDatabase - test di performance devono essere veloci!
-    
+    use RefreshDatabase;
+
     private TestSushiModel $model;
     private string $testJsonPath;
     private string $testDirectory;
@@ -32,7 +32,7 @@ class SushiToJsonPerformanceTest extends TestCase
     {
         parent::setUp();
 
-        // Configura il modello di test (NO database)
+        // Configura il modello di test
         $this->model = new TestSushiModel();
 
         // Configura percorsi di test
@@ -40,11 +40,11 @@ class SushiToJsonPerformanceTest extends TestCase
         $this->testJsonPath = $this->testDirectory.'/test_sushi.json';
 
         // Crea directory di test
-        if (!File::exists($this->testDirectory)) {
+        if (! File::exists($this->testDirectory)) {
             File::makeDirectory($this->testDirectory, 0755, true, true);
         }
 
-        // Mock TenantService per i test (NO database)
+        // Mock TenantService per i test
         $this->mockTenantService();
     }
 
@@ -63,7 +63,7 @@ class SushiToJsonPerformanceTest extends TestCase
     }
 
     /**
-     * Mock del TenantService per i test (NO database).
+     * Mock del TenantService per i test.
      */
     private function mockTenantService(): void
     {
@@ -75,7 +75,7 @@ class SushiToJsonPerformanceTest extends TestCase
     }
 
     /**
-     * Crea dati di test con dimensioni specifiche (NO database).
+     * Crea dati di test con dimensioni specifiche.
      */
     private function createTestData(int $recordCount): array
     {
@@ -110,280 +110,393 @@ class SushiToJsonPerformanceTest extends TestCase
         return $data;
     }
 
-    /**
-     * Test di performance per conversione JSON con 100 record.
-     */
-    public function test_json_conversion_performance_100_records(): void
+    #[Test]
+    #[Group('small-dataset')]
+    public function it_handles_small_datasets_efficiently(): void
     {
-        $data = $this->createTestData(100);
+        $smallData = $this->createTestData(10);
+
         $startTime = microtime(true);
+        $result = $this->model->saveToJson($smallData);
+        $saveTime = microtime(true) - $startTime;
 
-        $jsonString = json_encode($data, JSON_PRETTY_PRINT);
-        $endTime = microtime(true);
+        $this->assertTrue($result);
+        $this->assertLessThan(0.1, $saveTime, 'Salvataggio dataset piccolo deve essere molto veloce');
 
-        $executionTime = ($endTime - $startTime) * 1000; // Converti in millisecondi
+        // Testa caricamento
+        $startTime = microtime(true);
+        $loadedData = $this->model->getSushiRows();
+        $loadTime = microtime(true) - $startTime;
 
-        // Performance target: < 50ms per 100 record
-        expect($executionTime)->toBeLessThan(50.0);
-        expect($jsonString)->toBeString();
-        expect(json_decode($jsonString, true))->toBe($data);
+        $this->assertCount(10, $loadedData);
+        $this->assertLessThan(0.05, $loadTime, 'Caricamento dataset piccolo deve essere istantaneo');
     }
 
-    /**
-     * Test di performance per conversione JSON con 1000 record.
-     */
-    public function test_json_conversion_performance_1000_records(): void
+    #[Test]
+    #[Group('medium-dataset')]
+    public function it_handles_medium_datasets_efficiently(): void
     {
-        $data = $this->createTestData(1000);
+        $mediumData = $this->createTestData(100);
+
         $startTime = microtime(true);
+        $result = $this->model->saveToJson($mediumData);
+        $saveTime = microtime(true) - $startTime;
 
-        $jsonString = json_encode($data, JSON_PRETTY_PRINT);
-        $endTime = microtime(true);
+        $this->assertTrue($result);
+        $this->assertLessThan(0.5, $saveTime, 'Salvataggio dataset medio deve essere veloce');
 
-        $executionTime = ($endTime - $startTime) * 1000;
+        // Testa caricamento
+        $startTime = microtime(true);
+        $loadedData = $this->model->getSushiRows();
+        $loadTime = microtime(true) - $startTime;
 
-        // Performance target: < 200ms per 1000 record
-        expect($executionTime)->toBeLessThan(200.0);
-        expect($jsonString)->toBeString();
-        expect(json_decode($jsonString, true))->toBe($data);
+        $this->assertCount(100, $loadedData);
+        $this->assertLessThan(0.2, $loadTime, 'Caricamento dataset medio deve essere veloce');
     }
 
-    /**
-     * Test di performance per conversione JSON con 10000 record.
-     */
-    public function test_json_conversion_performance_10000_records(): void
+    #[Test]
+    #[Group('large-dataset')]
+    public function it_handles_large_datasets_efficiently(): void
     {
-        $data = $this->createTestData(10000);
+        $largeData = $this->createTestData(1000);
+
         $startTime = microtime(true);
+        $result = $this->model->saveToJson($largeData);
+        $saveTime = microtime(true) - $startTime;
 
-        $jsonString = json_encode($data, JSON_PRETTY_PRINT);
-        $endTime = microtime(true);
+        $this->assertTrue($result);
+        $this->assertLessThan(2.0, $saveTime, 'Salvataggio dataset grande deve essere accettabile');
 
-        $executionTime = ($endTime - $startTime) * 1000;
+        // Testa caricamento
+        $startTime = microtime(true);
+        $loadedData = $this->model->getSushiRows();
+        $loadTime = microtime(true) - $startTime;
 
-        // Performance target: < 1000ms per 10000 record
-        expect($executionTime)->toBeLessThan(1000.0);
-        expect($jsonString)->toBeString();
-        expect(json_decode($jsonString, true))->toBe($data);
+        $this->assertCount(1000, $loadedData);
+        $this->assertLessThan(1.0, $loadTime, 'Caricamento dataset grande deve essere accettabile');
     }
 
-    /**
-     * Test di performance per parsing JSON con 100 record.
-     */
-    public function test_json_parsing_performance_100_records(): void
+    #[Test]
+    #[Group('memory-usage')]
+    public function it_manages_memory_usage_efficiently(): void
     {
-        $data = $this->createTestData(100);
-        $jsonString = json_encode($data);
+        $initialMemory = memory_get_usage();
 
-        $startTime = microtime(true);
-        $parsedData = json_decode($jsonString, true);
-        $endTime = microtime(true);
+        // Crea dataset grande
+        $largeData = $this->createTestData(500);
 
-        $executionTime = ($endTime - $startTime) * 1000;
+        $memoryAfterDataCreation = memory_get_usage();
+        $dataCreationMemory = $memoryAfterDataCreation - $initialMemory;
 
-        // Performance target: < 10ms per parsing 100 record
-        expect($executionTime)->toBeLessThan(10.0);
-        expect($parsedData)->toBe($data);
+        // Salva i dati
+        $result = $this->model->saveToJson($largeData);
+        $this->assertTrue($result);
+
+        $memoryAfterSave = memory_get_usage();
+        $saveMemory = $memoryAfterSave - $memoryAfterDataCreation;
+
+        // Carica i dati
+        $loadedData = $this->model->getSushiRows();
+        $this->assertCount(500, $loadedData);
+
+        $finalMemory = memory_get_usage();
+        $loadMemory = $finalMemory - $memoryAfterSave;
+
+        // Verifica che l'utilizzo di memoria sia ragionevole
+        $this->assertLessThan(50 * 1024 * 1024, $dataCreationMemory, 'Creazione dati non deve usare troppa memoria (>50MB)');
+        $this->assertLessThan(20 * 1024 * 1024, $saveMemory, 'Salvataggio non deve usare troppa memoria (>20MB)');
+        $this->assertLessThan(30 * 1024 * 1024, $loadMemory, 'Caricamento non deve usare troppa memoria (>30MB)');
+
+        // Verifica che la memoria sia stata liberata
+        $this->assertLessThan($initialMemory + 100 * 1024 * 1024, $finalMemory, 'Memoria finale non deve essere eccessiva');
     }
 
-    /**
-     * Test di performance per parsing JSON con 1000 record.
-     */
-    public function test_json_parsing_performance_1000_records(): void
+    #[Test]
+    #[Group('file-size')]
+    public function it_handles_different_file_sizes_efficiently(): void
     {
-        $data = $this->createTestData(1000);
-        $jsonString = json_encode($data);
+        $sizes = [10, 50, 100, 250, 500];
 
-        $startTime = microtime(true);
-        $parsedData = json_decode($jsonString, true);
-        $endTime = microtime(true);
+        foreach ($sizes as $size) {
+            $testData = $this->createTestData($size);
 
-        $executionTime = ($endTime - $startTime) * 1000;
+            $startTime = microtime(true);
+            $result = $this->model->saveToJson($testData);
+            $saveTime = microtime(true) - $startTime;
 
-        // Performance target: < 50ms per parsing 1000 record
-        expect($executionTime)->toBeLessThan(50.0);
-        expect($parsedData)->toBe($data);
+            $this->assertTrue($result);
+
+            // Verifica dimensione file
+            $fileSize = File::size($this->testJsonPath);
+            $this->assertGreaterThan(0, $fileSize, 'File deve avere dimensione maggiore di 0');
+
+            // Verifica che il tempo di salvataggio sia proporzionale alla dimensione
+            $expectedMaxTime = $size * 0.001; // 1ms per record
+            $this->assertLessThan($expectedMaxTime, $saveTime, "Salvataggio {$size} record deve essere veloce");
+
+            // Testa caricamento
+            $startTime = microtime(true);
+            $loadedData = $this->model->getSushiRows();
+            $loadTime = microtime(true) - $startTime;
+
+            $this->assertCount($size, $loadedData);
+
+            // Verifica che il tempo di caricamento sia proporzionale alla dimensione
+            $expectedMaxLoadTime = $size * 0.0005; // 0.5ms per record
+            $this->assertLessThan($expectedMaxLoadTime, $loadTime, "Caricamento {$size} record deve essere veloce");
+        }
     }
 
-    /**
-     * Test di performance per parsing JSON con 10000 record.
-     */
-    public function test_json_parsing_performance_10000_records(): void
+    #[Test]
+    #[Group('concurrent-access')]
+    public function it_handles_concurrent_access_efficiently(): void
     {
-        $data = $this->createTestData(10000);
-        $jsonString = json_encode($data);
+        $testData = $this->createTestData(100);
 
+        // Salva dati iniziali
+        $result = $this->model->saveToJson($testData);
+        $this->assertTrue($result);
+
+        // Simula accesso concorrente
+        $concurrentOperations = 10;
         $startTime = microtime(true);
-        $parsedData = json_decode($jsonString, true);
-        $endTime = microtime(true);
 
-        $executionTime = ($endTime - $startTime) * 1000;
+        for ($i = 0; $i < $concurrentOperations; $i++) {
+            $loadedData = $this->model->getSushiRows();
+            $this->assertCount(100, $loadedData);
+        }
 
-        // Performance target: < 200ms per parsing 10000 record
-        expect($executionTime)->toBeLessThan(200.0);
-        expect($parsedData)->toBe($data);
+        $totalTime = microtime(true) - $startTime;
+        $averageTime = $totalTime / $concurrentOperations;
+
+        // Verifica che l'accesso concorrente sia efficiente
+        $this->assertLessThan(0.1, $averageTime, 'Accesso concorrente deve essere veloce');
+        $this->assertLessThan(1.0, $totalTime, 'Tempo totale per operazioni concorrenti deve essere accettabile');
     }
 
-    /**
-     * Test di performance per operazioni file con JSON.
-     */
-    public function test_file_operations_performance(): void
+    #[Test]
+    #[Group('json-parsing')]
+    public function it_parses_json_efficiently(): void
     {
-        $data = $this->createTestData(1000);
-        $jsonString = json_encode($data, JSON_PRETTY_PRINT);
+        $testData = $this->createTestData(200);
 
-        // Test scrittura file
+        // Salva dati
+        $result = $this->model->saveToJson($testData);
+        $this->assertTrue($result);
+
+        // Testa parsing JSON con diverse dimensioni
+        $fileContent = File::get($this->testJsonPath);
+        $fileSize = strlen($fileContent);
+
         $startTime = microtime(true);
-        File::put($this->testJsonPath, $jsonString);
-        $writeTime = (microtime(true) - $startTime) * 1000;
+        $parsedData = json_decode($fileContent, true);
+        $parseTime = microtime(true) - $startTime;
 
-        // Test lettura file
-        $startTime = microtime(true);
-        $readContent = File::get($this->testJsonPath);
-        $readTime = (microtime(true) - $startTime) * 1000;
+        $this->assertIsArray($parsedData);
+        $this->assertCount(200, $parsedData);
 
-        // Performance target: < 100ms per operazioni file
-        expect($writeTime)->toBeLessThan(100.0);
-        expect($readTime)->toBeLessThan(100.0);
-        expect($readContent)->toBe($jsonString);
+        // Verifica che il parsing sia veloce
+        $this->assertLessThan(0.1, $parseTime, 'Parsing JSON deve essere veloce');
+
+        // Verifica che il tempo sia proporzionale alla dimensione
+        $expectedMaxTime = $fileSize * 0.000001; // 1 microsecondo per byte
+        $this->assertLessThan($expectedMaxTime, $parseTime, 'Parsing deve essere proporzionale alla dimensione');
     }
 
-    /**
-     * Test di performance per operazioni di storage.
-     */
-    public function test_storage_operations_performance(): void
+    #[Test]
+    #[Group('data-normalization')]
+    public function it_normalizes_data_efficiently(): void
     {
-        $data = $this->createTestData(500);
-        $jsonString = json_encode($data, JSON_PRETTY_PRINT);
+        $testData = $this->createTestData(150);
 
-        // Test scrittura storage
+        // Salva dati
+        $result = $this->model->saveToJson($testData);
+        $this->assertTrue($result);
+
+        // Testa normalizzazione
         $startTime = microtime(true);
-        Storage::disk('local')->put('test_performance.json', $jsonString);
-        $writeTime = (microtime(true) - $startTime) * 1000;
+        $normalizedData = $this->model->getSushiRows();
+        $normalizeTime = microtime(true) - $startTime;
 
-        // Test lettura storage
-        $startTime = microtime(true);
-        $readContent = Storage::disk('local')->get('test_performance.json');
-        $readTime = (microtime(true) - $startTime) * 1000;
+        $this->assertCount(150, $normalizedData);
 
-        // Cleanup
-        Storage::disk('local')->delete('test_performance.json');
+        // Verifica che la normalizzazione sia veloce
+        $this->assertLessThan(0.1, $normalizeTime, 'Normalizzazione dati deve essere veloce');
 
-        // Performance target: < 150ms per operazioni storage
-        expect($writeTime)->toBeLessThan(150.0);
-        expect($readTime)->toBeLessThan(150.0);
-        expect($readContent)->toBe($jsonString);
+        // Verifica che gli array nidificati siano convertiti in stringhe JSON
+        foreach ($normalizedData as $record) {
+            $this->assertIsString($record['tags']);
+            $this->assertIsString($record['metadata']);
+            $this->assertIsString($record['timestamps']);
+        }
     }
 
-    /**
-     * Test di performance per operazioni multiple.
-     */
-    public function test_multiple_operations_performance(): void
+    #[Test]
+    #[Group('error-handling')]
+    public function it_handles_errors_efficiently(): void
     {
-        $data = $this->createTestData(1000);
-        
+        // Testa con file JSON malformato
+        File::put($this->testJsonPath, 'invalid json content');
+
         $startTime = microtime(true);
         
-        // Operazioni multiple
-        $jsonString = json_encode($data, JSON_PRETTY_PRINT);
-        $parsedData = json_decode($jsonString, true);
-        $compressed = gzencode($jsonString);
-        $decompressed = gzdecode($compressed);
+        $this->expectException(\Exception::class);
+        $this->expectExceptionMessage('Data is not array');
         
-        $endTime = microtime(true);
-        $totalTime = ($endTime - $startTime) * 1000;
+        $this->model->getSushiRows();
+        
+        $errorTime = microtime(true) - $startTime;
 
-        // Performance target: < 500ms per operazioni multiple
-        expect($totalTime)->toBeLessThan(500.0);
-        expect($parsedData)->toBe($data);
-        expect($decompressed)->toBe($jsonString);
+        // Verifica che la gestione degli errori sia veloce
+        $this->assertLessThan(0.1, $errorTime, 'Gestione errori deve essere veloce');
     }
 
-    /**
-     * Test di performance per operazioni con memoria.
-     */
-    public function test_memory_usage_performance(): void
+    #[Test]
+    #[Group('file-operations')]
+    public function it_performs_file_operations_efficiently(): void
     {
-        $data = $this->createTestData(10000);
-        
-        $memoryBefore = memory_get_usage();
-        $jsonString = json_encode($data, JSON_PRETTY_PRINT);
-        $memoryAfter = memory_get_usage();
-        
-        $memoryUsed = $memoryAfter - $memoryBefore;
-        
-        // Memory target: < 50MB per 10000 record
-        expect($memoryUsed)->toBeLessThan(50 * 1024 * 1024);
-        expect($jsonString)->toBeString();
+        $testData = $this->createTestData(300);
+
+        // Testa operazioni di file
+        $startTime = microtime(true);
+
+        // Scrittura
+        $writeResult = $this->model->saveToJson($testData);
+        $writeTime = microtime(true) - $startTime;
+
+        $this->assertTrue($writeResult);
+        $this->assertLessThan(1.0, $writeTime, 'Scrittura file deve essere veloce');
+
+        // Lettura
+        $startTime = microtime(true);
+        $readResult = $this->model->getSushiRows();
+        $readTime = microtime(true) - $startTime;
+
+        $this->assertCount(300, $readResult);
+        $this->assertLessThan(0.5, $readTime, 'Lettura file deve essere veloce');
+
+        // Verifica che le operazioni siano proporzionali
+        $this->assertLessThan($readTime * 3, $writeTime, 'Scrittura non deve essere eccessivamente più lenta della lettura');
     }
 
-    /**
-     * Test di performance per operazioni con cache.
-     */
-    public function test_cache_operations_performance(): void
+    #[Test]
+    #[Group('scalability')]
+    public function it_scales_efficiently_with_data_size(): void
     {
-        $data = $this->createTestData(1000);
-        $jsonString = json_encode($data, JSON_PRETTY_PRINT);
-        
-        // Test scrittura cache
-        $startTime = microtime(true);
-        cache(['test_performance' => $jsonString], 60);
-        $writeTime = (microtime(true) - $startTime) * 1000;
-        
-        // Test lettura cache
-        $startTime = microtime(true);
-        $cachedContent = cache('test_performance');
-        $readTime = (microtime(true) - $startTime) * 1000;
-        
-        // Cleanup
-        cache()->forget('test_performance');
-        
-        // Performance target: < 50ms per operazioni cache
-        expect($writeTime)->toBeLessThan(50.0);
-        expect($readTime)->toBeLessThan(50.0);
-        expect($cachedContent)->toBe($jsonString);
+        $sizes = [10, 25, 50, 100, 200];
+        $results = [];
+
+        foreach ($sizes as $size) {
+            $testData = $this->createTestData($size);
+
+            // Misura tempo di salvataggio
+            $startTime = microtime(true);
+            $result = $this->model->saveToJson($testData);
+            $saveTime = microtime(true) - $startTime;
+
+            $this->assertTrue($result);
+
+            // Misura tempo di caricamento
+            $startTime = microtime(true);
+            $loadedData = $this->model->getSushiRows();
+            $loadTime = microtime(true) - $startTime;
+
+            $this->assertCount($size, $loadedData);
+
+            $results[$size] = [
+                'save_time' => $saveTime,
+                'load_time' => $loadTime,
+                'total_time' => $saveTime + $loadTime,
+            ];
+        }
+
+        // Verifica scalabilità
+        foreach ($sizes as $size) {
+            if ($size > 10) {
+                $previousSize = $sizes[array_search($size, $sizes) - 1];
+                $previousResults = $results[$previousSize];
+                $currentResults = $results[$size];
+
+                // Il tempo dovrebbe crescere linearmente o sub-linearmente
+                $expectedMaxGrowth = 2.5; // Massimo 2.5x per raddoppio della dimensione
+                
+                $saveGrowth = $currentResults['save_time'] / $previousResults['save_time'];
+                $loadGrowth = $currentResults['load_time'] / $previousResults['load_time'];
+
+                $this->assertLessThan($expectedMaxGrowth, $saveGrowth, "Salvataggio deve scalare linearmente per {$size} record");
+                $this->assertLessThan($expectedMaxGrowth, $loadGrowth, "Caricamento deve scalare linearmente per {$size} record");
+            }
+        }
     }
 
-    /**
-     * Test di performance per operazioni con session.
-     */
-    public function test_session_operations_performance(): void
+    #[Test]
+    #[Group('benchmark')]
+    public function it_meets_performance_benchmarks(): void
     {
-        $data = $this->createTestData(500);
-        $jsonString = json_encode($data, JSON_PRETTY_PRINT);
-        
-        // Test scrittura session
-        $startTime = microtime(true);
-        session(['test_performance' => $jsonString]);
-        $writeTime = (microtime(true) - $startTime) * 1000;
-        
-        // Test lettura session
-        $startTime = microtime(true);
-        $sessionContent = session('test_performance');
-        $readTime = (microtime(true) - $startTime) * 1000;
-        
-        // Cleanup
-        session()->forget('test_performance');
-        
-        // Performance target: < 30ms per operazioni session
-        expect($writeTime)->toBeLessThan(30.0);
-        expect($readTime)->toBeLessThan(30.0);
-        expect($sessionContent)->toBe($jsonString);
+        $benchmarks = [
+            'small' => ['size' => 10, 'max_save' => 0.05, 'max_load' => 0.02],
+            'medium' => ['size' => 100, 'max_save' => 0.2, 'max_load' => 0.1],
+            'large' => ['size' => 500, 'max_save' => 1.0, 'max_load' => 0.5],
+            'xlarge' => ['size' => 1000, 'max_save' => 2.0, 'max_load' => 1.0],
+        ];
+
+        foreach ($benchmarks as $category => $benchmark) {
+            $testData = $this->createTestData($benchmark['size']);
+
+            // Benchmark salvataggio
+            $startTime = microtime(true);
+            $result = $this->model->saveToJson($testData);
+            $saveTime = microtime(true) - $startTime;
+
+            $this->assertTrue($result);
+            $this->assertLessThan(
+                $benchmark['max_save'],
+                $saveTime,
+                "Salvataggio {$category} dataset deve rispettare il benchmark"
+            );
+
+            // Benchmark caricamento
+            $startTime = microtime(true);
+            $loadedData = $this->model->getSushiRows();
+            $loadTime = microtime(true) - $startTime;
+
+            $this->assertCount($benchmark['size'], $loadedData);
+            $this->assertLessThan(
+                $benchmark['max_load'],
+                $loadTime,
+                "Caricamento {$category} dataset deve rispettare il benchmark"
+            );
+        }
     }
-}
 
-/**
- * Modello di test che usa il trait SushiToJson (NO database).
- */
-class TestSushiModel
-{
-    use SushiToJson;
-
-    protected $table = 'test_sushi';
-    protected $guarded = [];
-
-    public function getSushiConnection()
+    #[Test]
+    #[Group('memory-leaks')]
+    public function it_does_not_create_memory_leaks(): void
     {
-        return 'testing';
+        $initialMemory = memory_get_usage();
+
+        // Esegui operazioni multiple
+        for ($i = 0; $i < 5; $i++) {
+            $testData = $this->createTestData(100);
+
+            // Salva
+            $result = $this->model->saveToJson($testData);
+            $this->assertTrue($result);
+
+            // Carica
+            $loadedData = $this->model->getSushiRows();
+            $this->assertCount(100, $loadedData);
+
+            // Forza garbage collection
+            if (function_exists('gc_collect_cycles')) {
+                gc_collect_cycles();
+            }
+        }
+
+        $finalMemory = memory_get_usage();
+        $memoryIncrease = $finalMemory - $initialMemory;
+
+        // Verifica che non ci siano memory leaks significativi
+        $this->assertLessThan(10 * 1024 * 1024, $memoryIncrease, 'Non devono esserci memory leaks significativi (>10MB)');
     }
 }

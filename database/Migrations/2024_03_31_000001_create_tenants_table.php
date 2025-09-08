@@ -5,14 +5,14 @@ declare(strict_types=1);
 use Illuminate\Database\Schema\Blueprint;
 use Modules\Xot\Database\Migrations\XotBaseMigration;
 
-return new class extends XotBaseMigration
+return new class() extends XotBaseMigration
 {
     /**
      * Nome della tabella.
      *
      * @var string
      */
-    //protected string $table = 'tenants';
+    // protected string $table = 'tenants';
 
     /**
      * Run the migrations.
@@ -41,7 +41,7 @@ return new class extends XotBaseMigration
                 $table->string('vat_number')->nullable();
             }
         );
-        
+
         // -- UPDATE --
         $this->tableUpdate(
             function (Blueprint $table): void {
@@ -50,6 +50,4 @@ return new class extends XotBaseMigration
             }
         );
     }
-
-
 };

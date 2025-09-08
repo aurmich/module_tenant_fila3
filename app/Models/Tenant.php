@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace Modules\Tenant\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Modules\User\Models\User;
@@ -15,8 +14,6 @@ use Modules\User\Models\User;
 class Tenant extends BaseModel
 {
     // use SoftDeletes;
-
-
 
     /**
      * Gli attributi che sono mass assignable.
@@ -54,8 +51,6 @@ class Tenant extends BaseModel
 
     /**
      * Relazione con gli utenti associati al tenant.
-     *
-     * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
     public function users(): HasMany
     {
@@ -64,8 +59,6 @@ class Tenant extends BaseModel
 
     /**
      * Relazione con i pazienti associati al tenant.
-     *
-     * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
     public function patients(): HasMany
     {
@@ -74,8 +67,6 @@ class Tenant extends BaseModel
 
     /**
      * Relazione con gli appuntamenti associati al tenant.
-     *
-     * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
     public function appointments(): HasMany
     {
@@ -84,8 +75,6 @@ class Tenant extends BaseModel
 
     /**
      * Verifica se il tenant è attivo.
-     *
-     * @return bool
      */
     public function isActive(): bool
     {
@@ -94,9 +83,6 @@ class Tenant extends BaseModel
 
     /**
      * Genera lo slug dal nome se non fornito.
-     *
-     * @param string $value
-     * @return void
      */
     public function setNameAttribute(string $value): void
     {
@@ -109,8 +95,6 @@ class Tenant extends BaseModel
 
     /**
      * Restituisce l'URL del tenant.
-     *
-     * @return string
      */
     public function getUrlAttribute(): string
     {
