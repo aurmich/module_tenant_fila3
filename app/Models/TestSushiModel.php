@@ -12,7 +12,7 @@ use Modules\Tenant\Models\Traits\SushiToJson;
 
 /**
  * Modello di test per il trait SushiToJson.
- *
+ * 
  * Utilizzato esclusivamente per i test del trait.
  *
  * @property int $id
@@ -22,7 +22,6 @@ use Modules\Tenant\Models\Traits\SushiToJson;
  * @property array<array-key, mixed>|null $metadata
  * @property \Illuminate\Support\Carbon|null $created_at
  * @property \Illuminate\Support\Carbon|null $updated_at
- *
  * @method static \Modules\Tenant\Database\Factories\TestSushiModelFactory factory($count = null, $state = [])
  * @method static \Illuminate\Database\Eloquent\Builder<static>|TestSushiModel newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder<static>|TestSushiModel newQuery()
@@ -34,20 +33,6 @@ use Modules\Tenant\Models\Traits\SushiToJson;
  * @method static \Illuminate\Database\Eloquent\Builder<static>|TestSushiModel whereName($value)
  * @method static \Illuminate\Database\Eloquent\Builder<static>|TestSushiModel whereStatus($value)
  * @method static \Illuminate\Database\Eloquent\Builder<static>|TestSushiModel whereUpdatedAt($value)
- *
- * @property int|null $created_by
- * @property int|null $updated_by
- *
- * @method static \Illuminate\Database\Eloquent\Builder<static>|TestSushiModel whereCreatedBy($value)
- * @method static \Illuminate\Database\Eloquent\Builder<static>|TestSushiModel whereUpdatedBy($value)
- * @method static TestSushiModel|null first()
- * @method static \Illuminate\Database\Eloquent\Collection<int, TestSushiModel> get()
- * @method static TestSushiModel create(array $attributes = [])
- * @method static TestSushiModel firstOrCreate(array $attributes = [], array $values = [])
- * @method static \Illuminate\Database\Eloquent\Builder<static>|TestSushiModel where(string|\Closure $column, mixed $operator = null, mixed $value = null, string $boolean = 'and')
- * @method static \Illuminate\Database\Eloquent\Builder<static>|TestSushiModel whereNotNull(string|\Illuminate\Contracts\Database\Query\Expression $columns)
- * @method static int count(string $columns = '*')
- *
  * @mixin \Eloquent
  */
 class TestSushiModel extends Model
@@ -57,6 +42,8 @@ class TestSushiModel extends Model
 
     /**
      * Create a new factory instance for the model.
+     *
+     * @return TestSushiModelFactory
      */
     protected static function newFactory(): TestSushiModelFactory
     {
@@ -95,7 +82,6 @@ class TestSushiModel extends Model
             if (! File::exists($dir)) {
                 File::makeDirectory($dir, 0755, true, true);
             }
-
             return $dir.'/test_sushi.json';
         }
 
@@ -103,7 +89,6 @@ class TestSushiModel extends Model
         $tbl = $this->getTable();
         /** @var class-string $tenantService */
         $tenantService = \Modules\Tenant\Services\TenantService::class;
-
         return $tenantService::filePath('database/content/'.$tbl.'.json');
     }
 

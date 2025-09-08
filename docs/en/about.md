@@ -35,9 +35,9 @@ The module_tenant package makes it easy to set up and manage multi-tenancy in yo
 
 
 ## Collegamenti tra versioni di about.md
-* [about.md](../../../Xot/project_docs/about.md)
-* [about.md](../../../Tenant/project_docs/en/about.md)
-* [about.md](../../../Tenant/project_docs/it/about.md)
+* [about.md](../../../Xot/docs/about.md)
+* [about.md](../../../Tenant/docs/en/about.md)
+* [about.md](../../../Tenant/docs/it/about.md)
 
 
 ### Versione Incoming

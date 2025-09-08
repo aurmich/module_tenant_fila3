@@ -145,6 +145,6 @@ Il trait ha una suite di test completa e modernizzata con 52 test che coprono il
 **Vedi**: [Piano di Testing SushiToJson](sushi-to-json-testing-plan.md) per dettagli completi.
 
 ## Collegamenti tra versioni di sushi-to-jsons.md
-* [sushi-to-jsons.md](../../../Tenant/project_docs/traits/sushi-to-jsons.md)
-* [sushi-to-jsons.md](../../../Tenant/project_docs/models/traits/sushi-to-jsons.md)
+* [sushi-to-jsons.md](../../../Tenant/docs/traits/sushi-to-jsons.md)
+* [sushi-to-jsons.md](../../../Tenant/docs/models/traits/sushi-to-jsons.md)
 

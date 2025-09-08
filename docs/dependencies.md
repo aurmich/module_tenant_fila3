@@ -365,4 +365,4 @@ class TenantException extends \Exception
 
 - [Struttura del Modulo](structure.md)
 - [Best Practices](README.md#best-practices)
-- [Documentazione Laravel Service Container](https://laravel.com/project_docs/container) 
+- [Documentazione Laravel Service Container](https://laravel.com/docs/container) 

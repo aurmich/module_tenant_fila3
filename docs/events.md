@@ -326,4 +326,4 @@ class HandleTenantCreated
 
 - [Struttura del Modulo](structure.md)
 - [Best Practices](README.md#best-practices)
-- [Documentazione Laravel Events](https://laravel.com/project_docs/events) 
+- [Documentazione Laravel Events](https://laravel.com/docs/events) 

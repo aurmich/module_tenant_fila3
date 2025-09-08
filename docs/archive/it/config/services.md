@@ -39,8 +39,8 @@ return [
 
 
 ## Collegamenti tra versioni di services.md
-* [services.md](../../../Xot/project_docs/services.md)
-* [services.md](../../../Tenant/project_docs/it/config/services.md)
+* [services.md](../../../Xot/docs/services.md)
+* [services.md](../../../Tenant/docs/it/config/services.md)
 
 
 ### Versione Incoming

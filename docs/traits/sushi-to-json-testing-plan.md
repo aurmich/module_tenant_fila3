@@ -192,7 +192,7 @@ Il trait è pronto per l'uso in produzione con la massima affidabilità e qualit
 - [Documentazione Trait SushiToJson](sushi-to-jsons.md)
 - [Modulo Tenant - README](../../README.md)
 - [Testing Guidelines](../../testing.md)
-- [Documentazione Root](../../../../project_docs/README.md)
+- [Documentazione Root](../../../../docs/README.md)
 
 ---
 

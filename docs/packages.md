@@ -3,8 +3,8 @@
 ## Pacchetti Utilizzati
 
 ### Core
-- [laraxot/module_xot_fila3](../Xot/project_docs/packages.md) - Modulo base per funzionalità comuni
-- [laraxot/module_ui](../UI/project_docs/packages.md) - Componenti UI e temi
+- [laraxot/module_xot_fila3](../Xot/docs/packages.md) - Modulo base per funzionalità comuni
+- [laraxot/module_ui](../UI/docs/packages.md) - Componenti UI e temi
 - [stancl/tenancy](https://github.com/stancl/tenancy) - Gestione multi-tenant
 
 ### Database
@@ -56,15 +56,15 @@
 
 
 ## Collegamenti tra versioni di packages.md
-* [packages.md](../../../Gdpr/project_docs/packages.md)
-* [packages.md](../../../Notify/project_docs/packages.md)
-* [packages.md](../../../Xot/project_docs/packages.md)
-* [packages.md](../../../User/project_docs/packages.md)
-* [packages.md](../../../UI/project_docs/packages.md)
-* [packages.md](../../../Lang/project_docs/packages.md)
-* [packages.md](../../../Job/project_docs/packages.md)
-* [packages.md](../../../Media/project_docs/packages.md)
-* [packages.md](../../../Tenant/project_docs/packages.md)
+* [packages.md](../../../Gdpr/docs/packages.md)
+* [packages.md](../../../Notify/docs/packages.md)
+* [packages.md](../../../Xot/docs/packages.md)
+* [packages.md](../../../User/docs/packages.md)
+* [packages.md](../../../UI/docs/packages.md)
+* [packages.md](../../../Lang/docs/packages.md)
+* [packages.md](../../../Job/docs/packages.md)
+* [packages.md](../../../Media/docs/packages.md)
+* [packages.md](../../../Tenant/docs/packages.md)
 
 
 ### Versione Incoming
@@ -73,7 +73,7 @@
 ## Collegamenti sulla risoluzione dei conflitti
 
 - [Risoluzione conflitti nel modulo Tenant](risoluzione_conflitti.md)
-- [Linee guida globali per la risoluzione dei conflitti git](../../../project_docs/risoluzione_conflitti_git.md)
+- [Linee guida globali per la risoluzione dei conflitti git](../../../docs/risoluzione_conflitti_git.md)
 
 
 ---
