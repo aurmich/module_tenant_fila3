@@ -10,6 +10,27 @@ use Modules\User\Models\User;
 
 /**
  * Modello Tenant per la gestione multi-tenant dell'applicazione.
+ *
+ * @property-read \Modules\Predict\Models\Profile|null $creator
+ * @property-read string $url
+ * @property-write mixed $name
+ * @property-read \Modules\Predict\Models\Profile|null $updater
+ * @property-read \Illuminate\Database\Eloquent\Collection<int, User> $users
+ * @property-read int|null $users_count
+ *
+ * @method static \Modules\Tenant\Database\Factories\TenantFactory factory($count = null, $state = [])
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|Tenant newModelQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|Tenant newQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|Tenant query()
+ * @method static Tenant|null first()
+ * @method static \Illuminate\Database\Eloquent\Collection<int, Tenant> get()
+ * @method static Tenant create(array $attributes = [])
+ * @method static Tenant firstOrCreate(array $attributes = [], array $values = [])
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|Tenant where(string|\Closure $column, mixed $operator = null, mixed $value = null, string $boolean = 'and')
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|Tenant whereNotNull(string|\Illuminate\Contracts\Database\Query\Expression $columns)
+ * @method static int count(string $columns = '*')
+ *
+ * @mixin \Eloquent
  */
 class Tenant extends BaseModel
 {

@@ -211,9 +211,13 @@ php artisan tenant:test-isolation
 - [Conflict Resolution](risoluzione_conflitti.md) - Risoluzione conflitti
 - [Best Practices](best-practices.md) - Linee guida sviluppo
 <<<<<<< HEAD
+<<<<<<< HEAD
 - [Testing Best Practices](../../../project_docs/testing-best-practices-no-refresh-database.md) - Dettagli sui test senza `RefreshDatabase`
 =======
 >>>>>>> e5cc938 (.)
+=======
+- [Testing Best Practices](../../../project_docs/testing-best-practices-no-refresh-database.md) - Dettagli sui test senza `RefreshDatabase`
+>>>>>>> f61e292 (.)
 
 ## 🎨 **Componenti Filament**
 
