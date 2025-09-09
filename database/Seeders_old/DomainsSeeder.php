@@ -46,4 +46,8 @@ class DomainsSeeder extends Seeder
                 ->create();
         }
     }
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> 228afec (.)

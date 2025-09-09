@@ -6,16 +6,21 @@ namespace Modules\Tenant\Models\Policies;
 
 use Modules\Tenant\Models\Domain;
 <<<<<<< HEAD
+<<<<<<< HEAD
 use Modules\Xot\Contracts\UserContract;
 =======
 use Modules\Xot\Contracts\ProfileContract;
 >>>>>>> 1cbc182 (.)
+=======
+use Modules\Xot\Contracts\UserContract;
+>>>>>>> 228afec (.)
 
 class DomainPolicy extends TenantBasePolicy
 {
     /**
      * Determine whether the user can view any models.
      */
+<<<<<<< HEAD
 <<<<<<< HEAD
     public function viewAny(UserContract $user): bool
     {
@@ -25,11 +30,17 @@ class DomainPolicy extends TenantBasePolicy
     {
         return $user->hasPermissionTo('domain.viewAny'); /** @phpstan-ignore method.nonObject */
 >>>>>>> 1cbc182 (.)
+=======
+    public function viewAny(UserContract $user): bool
+    {
+        return $user->hasPermissionTo('domain.viewAny');
+>>>>>>> 228afec (.)
     }
 
     /**
      * Determine whether the user can view the model.
      */
+<<<<<<< HEAD
 <<<<<<< HEAD
     public function view(UserContract $user, Domain $domain): bool
     {
@@ -39,11 +50,17 @@ class DomainPolicy extends TenantBasePolicy
     {
         return $user->hasPermissionTo('domain.view'); /** @phpstan-ignore method.nonObject */
 >>>>>>> 1cbc182 (.)
+=======
+    public function view(UserContract $user, Domain $domain): bool
+    {
+        return $user->hasPermissionTo('domain.view');
+>>>>>>> 228afec (.)
     }
 
     /**
      * Determine whether the user can create models.
      */
+<<<<<<< HEAD
 <<<<<<< HEAD
     public function create(UserContract $user): bool
     {
@@ -53,11 +70,17 @@ class DomainPolicy extends TenantBasePolicy
     {
         return $user->hasPermissionTo('domain.create'); /** @phpstan-ignore method.nonObject */
 >>>>>>> 1cbc182 (.)
+=======
+    public function create(UserContract $user): bool
+    {
+        return $user->hasPermissionTo('domain.create');
+>>>>>>> 228afec (.)
     }
 
     /**
      * Determine whether the user can update the model.
      */
+<<<<<<< HEAD
 <<<<<<< HEAD
     public function update(UserContract $user, Domain $domain): bool
     {
@@ -67,11 +90,17 @@ class DomainPolicy extends TenantBasePolicy
     {
         return $user->hasPermissionTo('domain.update'); /** @phpstan-ignore method.nonObject */
 >>>>>>> 1cbc182 (.)
+=======
+    public function update(UserContract $user, Domain $domain): bool
+    {
+        return $user->hasPermissionTo('domain.update');
+>>>>>>> 228afec (.)
     }
 
     /**
      * Determine whether the user can delete the model.
      */
+<<<<<<< HEAD
 <<<<<<< HEAD
     public function delete(UserContract $user, Domain $domain): bool
     {
@@ -81,11 +110,17 @@ class DomainPolicy extends TenantBasePolicy
     {
         return $user->hasPermissionTo('domain.delete'); /** @phpstan-ignore method.nonObject */
 >>>>>>> 1cbc182 (.)
+=======
+    public function delete(UserContract $user, Domain $domain): bool
+    {
+        return $user->hasPermissionTo('domain.delete');
+>>>>>>> 228afec (.)
     }
 
     /**
      * Determine whether the user can restore the model.
      */
+<<<<<<< HEAD
 <<<<<<< HEAD
     public function restore(UserContract $user, Domain $domain): bool
     {
@@ -95,11 +130,17 @@ class DomainPolicy extends TenantBasePolicy
     {
         return $user->hasPermissionTo('domain.restore'); /** @phpstan-ignore method.nonObject */
 >>>>>>> 1cbc182 (.)
+=======
+    public function restore(UserContract $user, Domain $domain): bool
+    {
+        return $user->hasPermissionTo('domain.restore');
+>>>>>>> 228afec (.)
     }
 
     /**
      * Determine whether the user can permanently delete the model.
      */
+<<<<<<< HEAD
 <<<<<<< HEAD
     public function forceDelete(UserContract $user, Domain $domain): bool
     {
@@ -108,8 +149,11 @@ class DomainPolicy extends TenantBasePolicy
 }
 =======
     public function forceDelete(ProfileContract $user, Domain $domain): bool
+=======
+    public function forceDelete(UserContract $user, Domain $domain): bool
+>>>>>>> 228afec (.)
     {
-        return $user->hasPermissionTo('domain.forceDelete'); /** @phpstan-ignore method.nonObject */
+        return $user->hasPermissionTo('domain.forceDelete');
     }
 }
 >>>>>>> 1cbc182 (.)

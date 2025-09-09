@@ -348,9 +348,13 @@ class TenantService
         $path = self::filePath('lang/'.$lang.'/'.$trans_file);
         $data = File::getRequire($path);
 <<<<<<< HEAD
+<<<<<<< HEAD
         Assert::isArray($data);
 =======
 >>>>>>> 1cbc182 (.)
+=======
+        Assert::isArray($data);
+>>>>>>> 228afec (.)
         Assert::string($res=Arr::get($data, $arr_key));
         return $res;
     }

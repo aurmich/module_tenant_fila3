@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Modules\Tenant\Tests\Unit\Traits;
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 use Tests\TestCase;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Auth;
@@ -13,6 +14,9 @@ use Modules\Tenant\Models\TestSushiModel;
 use Modules\Tenant\Services\TenantService;
 use Mockery;
 =======
+=======
+use Illuminate\Foundation\Testing\RefreshDatabase;
+>>>>>>> 228afec (.)
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\File;
 use Mockery;
@@ -27,10 +31,15 @@ use Tests\TestCase;
 class SushiToJsonTest extends TestCase
 {
 <<<<<<< HEAD
+<<<<<<< HEAD
     use RefreshDatabase;
 
     private TestSushiModel $model;
 =======
+=======
+    use RefreshDatabase;
+
+>>>>>>> 228afec (.)
     private TestSushiModel $model;
 
 >>>>>>> 1cbc182 (.)
@@ -46,7 +55,7 @@ class SushiToJsonTest extends TestCase
         
 =======
 
-        $this->model = new TestSushiModel();
+        $this->model = new TestSushiModel;
         $this->testJsonPath = TenantService::filePath('database/content/test_sushi.json');
 
 >>>>>>> 1cbc182 (.)
@@ -421,7 +430,7 @@ class SushiToJsonTest extends TestCase
 
 >>>>>>> 1cbc182 (.)
         // Crea un nuovo modello
-        $newModel = new TestSushiModel();
+        $newModel = new TestSushiModel;
         $newModel->name = 'New Item';
         $newModel->description = 'New Description';
 <<<<<<< HEAD
@@ -489,7 +498,7 @@ class SushiToJsonTest extends TestCase
 
 >>>>>>> 1cbc182 (.)
         // Carica il modello esistente
-        $existingModel = new TestSushiModel();
+        $existingModel = new TestSushiModel;
         $existingModel->id = 1;
         $existingModel->name = 'Updated Name';
         $existingModel->description = 'Updated Description';
@@ -549,7 +558,7 @@ class SushiToJsonTest extends TestCase
 =======
 
         // Carica il modello da eliminare
-        $modelToDelete = new TestSushiModel();
+        $modelToDelete = new TestSushiModel;
         $modelToDelete->id = 1;
 
         // Simula l'evento deleting
