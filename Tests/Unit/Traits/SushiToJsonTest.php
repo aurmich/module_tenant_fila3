@@ -21,10 +21,13 @@ use Tests\TestCase;
 class SushiToJsonTest extends TestCase
 {
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
     use RefreshDatabase;
 
 >>>>>>> ffdd879 (.)
+=======
+>>>>>>> 02a1647 (.)
     private TestSushiModel $model;
 
     private string $testJsonPath;
