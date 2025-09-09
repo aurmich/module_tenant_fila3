@@ -93,8 +93,6 @@ class Foo extends bar
 * [customizing-your-site.md](../../../UI/docs/customizing-your-site.md)
 * [customizing-your-site.md](../../../Tenant/docs/it/customizing-your-site.md)
 * [customizing-your-site.md](../../../Cms/docs/customizing-your-site.md)
-=======
-
 
 ### Versione Incoming
 

@@ -11,7 +11,7 @@ Trovati 2 errori al livello 2.
 
 ## Errori e suggerimenti
 
-### File: `/var/www/html/saluteora/laravel/Modules/Tenant/app/Models/Domain.php`
+### File: `/var/www/html/_bases/base_techplanner_fila3_mono/laravel/Modules/Tenant/app/Models/Domain.php`
 
 #### Linea 26: PHPDoc tag @property-read for property Modules\Tenant\Models\Domain::$creator contains unknown class Modules\Broker\Models\Profile.
 
