@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Tenant Module Documentation
 
 Tenant module for Laraxot PTVX providing specialized functionality and business logic.
@@ -35,6 +36,53 @@ Tenant module for Laraxot PTVX providing specialized functionality and business 
 ```php
 // Basic usage example
 $result = app(TenantService::class)->process($data);
+=======
+# 🏢 **Tenant Module** - Sistema Avanzato Multi-Tenancy
+
+[![Laravel 12.x](https://img.shields.io/badge/Laravel-12.x-red.svg)](https://laravel.com/)
+[![Filament 3.x](https://img.shields.io/badge/Filament-3.x-blue.svg)](https://filamentphp.com/)
+[![PHPStan Level 9](https://img.shields.io/badge/PHPStan-Level%209-brightgreen.svg)](https://phpstan.org/)
+[![Translation Ready](https://img.shields.io/badge/Translation-IT%20%7C%20EN%20%7C%20DE-green.svg)](https://laravel.com/docs/localization)
+[![Multi-Tenancy](https://img.shields.io/badge/Multi-Tenancy-Ready-orange.svg)](https://laravel.com/docs/multi-tenancy)
+[![Database Isolation](https://img.shields.io/badge/Database-Isolation%20Ready-yellow.svg)](https://en.wikipedia.org/wiki/Multi-tenancy)
+[![Modular Monolith](https://img.shields.io/badge/Architecture-Modular%20Monolith-purple.svg)](https://martinfowler.com/articles/modular-monolith.html)
+[![Quality Score](https://img.shields.io/badge/Quality%20Score-93%25-brightgreen.svg)](https://github.com/laraxot/tenant-module)
+
+> **🚀 Modulo Tenant**: Sistema completo per multi-tenancy con isolamento dati, architettura modular monolith e gestione avanzata di tenant multipli.
+
+## 📋 **Panoramica**
+
+Il modulo **Tenant** è il cuore del sistema multi-tenancy dell'applicazione, fornendo:
+
+- 🏢 **Multi-Tenancy Avanzato** - Gestione completa di tenant multipli
+- 🗄️ **Database Isolation** - Isolamento completo dei dati per tenant
+- 🏗️ **Modular Monolith** - Architettura modulare scalabile
+- 🔐 **Security Isolation** - Isolamento di sicurezza per ogni tenant
+- 📊 **Tenant Analytics** - Analytics dettagliati per ogni tenant
+- ⚡ **Performance Optimization** - Ottimizzazioni per tenant multipli
+
+## ⚡ **Funzionalità Core**
+
+### 🏢 **Tenant Management**
+```php
+// Creazione tenant con isolamento automatico
+use Modules\Tenant\Actions\CreateTenantAction;
+
+$createTenant = new CreateTenantAction();
+$tenant = $createTenant->execute([
+    'name' => 'Acme Corporation',
+    'domain' => 'acme.example.com',
+    'database' => 'acme_tenant_db',
+    'settings' => [
+        'timezone' => 'Europe/Rome',
+        'locale' => 'it',
+        'currency' => 'EUR',
+    ],
+]);
+
+// Switch automatico al tenant corrente
+Tenant::setCurrent($tenant);
+>>>>>>> ffdd879 (.)
 ```
 
 ### 🗄️ **Database Isolation**

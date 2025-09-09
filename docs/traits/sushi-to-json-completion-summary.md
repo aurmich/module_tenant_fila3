@@ -197,3 +197,8 @@ Il trait è ora pronto per l'uso in produzione con la **massima affidabilità e 
 
 
 
+<<<<<<< HEAD
+=======
+
+
+>>>>>>> ffdd879 (.)

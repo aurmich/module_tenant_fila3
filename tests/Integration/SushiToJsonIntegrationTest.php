@@ -26,11 +26,16 @@ class SushiToJsonIntegrationTest extends TestCase
     use RefreshDatabase;
 
     private Tenant $tenant1;
+<<<<<<< HEAD
 
     private Tenant $tenant2;
 
     private string $tenant1Path;
 
+=======
+    private Tenant $tenant2;
+    private string $tenant1Path;
+>>>>>>> ffdd879 (.)
     private string $tenant2Path;
 
     protected function setUp(): void
@@ -76,13 +81,21 @@ class SushiToJsonIntegrationTest extends TestCase
 
     #[Test]
     #[Group('tenant-isolation')]
+<<<<<<< HEAD
     public function it_creates_json_file_with_tenant_isolation(): void
+=======
+    public function itCreatesJsonFileWithTenantIsolation(): void
+>>>>>>> ffdd879 (.)
     {
         // Configura tenant 1
         $this->actingAs($this->createUserForTenant($this->tenant1));
         $this->setCurrentTenant($this->tenant1);
 
+<<<<<<< HEAD
         $model1 = new TestSushiModel;
+=======
+        $model1 = new TestSushiModel();
+>>>>>>> ffdd879 (.)
         $data1 = [
             '1' => [
                 'id' => 1,
@@ -102,7 +115,11 @@ class SushiToJsonIntegrationTest extends TestCase
         $this->actingAs($this->createUserForTenant($this->tenant2));
         $this->setCurrentTenant($this->tenant2);
 
+<<<<<<< HEAD
         $model2 = new TestSushiModel;
+=======
+        $model2 = new TestSushiModel();
+>>>>>>> ffdd879 (.)
         $data2 = [
             '1' => [
                 'id' => 1,
@@ -127,7 +144,11 @@ class SushiToJsonIntegrationTest extends TestCase
 
     #[Test]
     #[Group('tenant-isolation')]
+<<<<<<< HEAD
     public function it_loads_data_with_tenant_isolation(): void
+=======
+    public function itLoadsDataWithTenantIsolation(): void
+>>>>>>> ffdd879 (.)
     {
         // Crea dati per entrambi i tenant
         $this->createTenantData();
@@ -136,7 +157,11 @@ class SushiToJsonIntegrationTest extends TestCase
         $this->actingAs($this->createUserForTenant($this->tenant1));
         $this->setCurrentTenant($this->tenant1);
 
+<<<<<<< HEAD
         $model1 = new TestSushiModel;
+=======
+        $model1 = new TestSushiModel();
+>>>>>>> ffdd879 (.)
         $rows1 = $model1->getSushiRows();
 
         $this->assertCount(2, $rows1);
@@ -147,7 +172,11 @@ class SushiToJsonIntegrationTest extends TestCase
         $this->actingAs($this->createUserForTenant($this->tenant2));
         $this->setCurrentTenant($this->tenant2);
 
+<<<<<<< HEAD
         $model2 = new TestSushiModel;
+=======
+        $model2 = new TestSushiModel();
+>>>>>>> ffdd879 (.)
         $rows2 = $model2->getSushiRows();
 
         $this->assertCount(2, $rows2);
@@ -160,12 +189,20 @@ class SushiToJsonIntegrationTest extends TestCase
 
     #[Test]
     #[Group('data-integrity')]
+<<<<<<< HEAD
     public function it_handles_complex_data_structures(): void
+=======
+    public function itHandlesComplexDataStructures(): void
+>>>>>>> ffdd879 (.)
     {
         $this->actingAs($this->createUserForTenant($this->tenant1));
         $this->setCurrentTenant($this->tenant1);
 
+<<<<<<< HEAD
         $model = new TestSushiModel;
+=======
+        $model = new TestSushiModel();
+>>>>>>> ffdd879 (.)
         $complexData = [
             '1' => [
                 'id' => 1,
@@ -209,12 +246,20 @@ class SushiToJsonIntegrationTest extends TestCase
 
     #[Test]
     #[Group('file-management')]
+<<<<<<< HEAD
     public function it_manages_file_permissions_correctly(): void
+=======
+    public function itManagesFilePermissionsCorrectly(): void
+>>>>>>> ffdd879 (.)
     {
         $this->actingAs($this->createUserForTenant($this->tenant1));
         $this->setCurrentTenant($this->tenant1);
 
+<<<<<<< HEAD
         $model = new TestSushiModel;
+=======
+        $model = new TestSushiModel();
+>>>>>>> ffdd879 (.)
         $testData = [
             '1' => [
                 'id' => 1,
@@ -239,12 +284,20 @@ class SushiToJsonIntegrationTest extends TestCase
 
     #[Test]
     #[Group('concurrency')]
+<<<<<<< HEAD
     public function it_handles_concurrent_access_safely(): void
+=======
+    public function itHandlesConcurrentAccessSafely(): void
+>>>>>>> ffdd879 (.)
     {
         $this->actingAs($this->createUserForTenant($this->tenant1));
         $this->setCurrentTenant($this->tenant1);
 
+<<<<<<< HEAD
         $model = new TestSushiModel;
+=======
+        $model = new TestSushiModel();
+>>>>>>> ffdd879 (.)
         $initialData = [
             '1' => [
                 'id' => 1,
@@ -281,21 +334,37 @@ class SushiToJsonIntegrationTest extends TestCase
 
     #[Test]
     #[Group('performance')]
+<<<<<<< HEAD
     public function it_handles_large_datasets_efficiently(): void
+=======
+    public function itHandlesLargeDatasetsEfficiently(): void
+>>>>>>> ffdd879 (.)
     {
         $this->actingAs($this->createUserForTenant($this->tenant1));
         $this->setCurrentTenant($this->tenant1);
 
+<<<<<<< HEAD
         $model = new TestSushiModel;
 
         // Crea dataset grande (500 record)
         $largeData = [];
         for ($i = 1; $i <= 500; $i++) {
+=======
+        $model = new TestSushiModel();
+
+        // Crea dataset grande (500 record)
+        $largeData = [];
+        for ($i = 1; $i <= 500; ++$i) {
+>>>>>>> ffdd879 (.)
             $largeData[$i] = [
                 'id' => $i,
                 'name' => "Large Dataset Item {$i}",
                 'description' => "Description for large dataset item {$i}",
+<<<<<<< HEAD
                 'status' => $i % 2 === 0 ? 'active' : 'inactive',
+=======
+                'status' => 0 === $i % 2 ? 'active' : 'inactive',
+>>>>>>> ffdd879 (.)
                 'metadata' => [
                     'category' => 'Category '.($i % 10),
                     'priority' => $i % 5 + 1,
@@ -324,12 +393,20 @@ class SushiToJsonIntegrationTest extends TestCase
 
     #[Test]
     #[Group('unicode')]
+<<<<<<< HEAD
     public function it_handles_unicode_and_special_characters(): void
+=======
+    public function itHandlesUnicodeAndSpecialCharacters(): void
+>>>>>>> ffdd879 (.)
     {
         $this->actingAs($this->createUserForTenant($this->tenant1));
         $this->setCurrentTenant($this->tenant1);
 
+<<<<<<< HEAD
         $model = new TestSushiModel;
+=======
+        $model = new TestSushiModel();
+>>>>>>> ffdd879 (.)
         $unicodeData = [
             '1' => [
                 'id' => 1,
@@ -368,12 +445,20 @@ class SushiToJsonIntegrationTest extends TestCase
 
     #[Test]
     #[Group('edge-cases')]
+<<<<<<< HEAD
     public function it_handles_empty_and_null_values(): void
+=======
+    public function itHandlesEmptyAndNullValues(): void
+>>>>>>> ffdd879 (.)
     {
         $this->actingAs($this->createUserForTenant($this->tenant1));
         $this->setCurrentTenant($this->tenant1);
 
+<<<<<<< HEAD
         $model = new TestSushiModel;
+=======
+        $model = new TestSushiModel();
+>>>>>>> ffdd879 (.)
         $edgeCaseData = [
             '1' => [
                 'id' => 1,
@@ -419,7 +504,11 @@ class SushiToJsonIntegrationTest extends TestCase
 
     #[Test]
     #[Group('tenant-configuration')]
+<<<<<<< HEAD
     public function it_works_with_different_tenant_configurations(): void
+=======
+    public function itWorksWithDifferentTenantConfigurations(): void
+>>>>>>> ffdd879 (.)
     {
         // Testa con tenant che ha configurazioni diverse
         $customTenant = Tenant::factory()->create([
@@ -440,7 +529,11 @@ class SushiToJsonIntegrationTest extends TestCase
             File::makeDirectory($customPath, 0755, true, true);
         }
 
+<<<<<<< HEAD
         $model = new TestSushiModel;
+=======
+        $model = new TestSushiModel();
+>>>>>>> ffdd879 (.)
         $testData = [
             '1' => [
                 'id' => 1,
@@ -470,7 +563,11 @@ class SushiToJsonIntegrationTest extends TestCase
         $this->actingAs($this->createUserForTenant($this->tenant1));
         $this->setCurrentTenant($this->tenant1);
 
+<<<<<<< HEAD
         $model1 = new TestSushiModel;
+=======
+        $model1 = new TestSushiModel();
+>>>>>>> ffdd879 (.)
         $data1 = [
             '1' => [
                 'id' => 1,
@@ -491,7 +588,11 @@ class SushiToJsonIntegrationTest extends TestCase
         $this->actingAs($this->createUserForTenant($this->tenant2));
         $this->setCurrentTenant($this->tenant2);
 
+<<<<<<< HEAD
         $model2 = new TestSushiModel;
+=======
+        $model2 = new TestSushiModel();
+>>>>>>> ffdd879 (.)
         $data2 = [
             '1' => [
                 'id' => 1,

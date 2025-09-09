@@ -4,6 +4,10 @@ declare(strict_types=1);
 
 namespace Modules\Tenant\Tests\Unit\Traits;
 
+<<<<<<< HEAD
+=======
+use Illuminate\Foundation\Testing\RefreshDatabase;
+>>>>>>> ffdd879 (.)
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\File;
 use Mockery;
@@ -16,6 +20,11 @@ use Tests\TestCase;
  */
 class SushiToJsonTest extends TestCase
 {
+<<<<<<< HEAD
+=======
+    use RefreshDatabase;
+
+>>>>>>> ffdd879 (.)
     private TestSushiModel $model;
 
     private string $testJsonPath;
