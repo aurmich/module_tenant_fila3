@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Modules\Tenant\Tests\Unit\Traits;
 
+<<<<<<< HEAD
 use Tests\TestCase;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Auth;
@@ -11,29 +12,53 @@ use Illuminate\Foundation\Testing\RefreshDatabase;
 use Modules\Tenant\Models\TestSushiModel;
 use Modules\Tenant\Services\TenantService;
 use Mockery;
+=======
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\File;
+use Mockery;
+use Modules\Tenant\Models\TestSushiModel;
+use Modules\Tenant\Services\TenantService;
+use Tests\TestCase;
+>>>>>>> 1cbc182 (.)
 
 /**
  * Test unitari per il trait SushiToJson.
  */
 class SushiToJsonTest extends TestCase
 {
+<<<<<<< HEAD
     use RefreshDatabase;
 
     private TestSushiModel $model;
+=======
+    private TestSushiModel $model;
+
+>>>>>>> 1cbc182 (.)
     private string $testJsonPath;
 
     protected function setUp(): void
     {
         parent::setUp();
+<<<<<<< HEAD
         
         $this->model = new TestSushiModel();
         $this->testJsonPath = TenantService::filePath('database/content/test_sushi.json');
         
+=======
+
+        $this->model = new TestSushiModel();
+        $this->testJsonPath = TenantService::filePath('database/content/test_sushi.json');
+
+>>>>>>> 1cbc182 (.)
         // Pulisce eventuali file di test esistenti
         if (File::exists($this->testJsonPath)) {
             File::delete($this->testJsonPath);
         }
+<<<<<<< HEAD
         
+=======
+
+>>>>>>> 1cbc182 (.)
         // Rimuove la directory se esiste
         $directory = dirname($this->testJsonPath);
         if (File::exists($directory)) {
@@ -47,12 +72,20 @@ class SushiToJsonTest extends TestCase
         if (File::exists($this->testJsonPath)) {
             File::delete($this->testJsonPath);
         }
+<<<<<<< HEAD
         
+=======
+
+>>>>>>> 1cbc182 (.)
         $directory = dirname($this->testJsonPath);
         if (File::exists($directory)) {
             File::deleteDirectory($directory);
         }
+<<<<<<< HEAD
         
+=======
+
+>>>>>>> 1cbc182 (.)
         Mockery::close();
         parent::tearDown();
     }
@@ -62,7 +95,11 @@ class SushiToJsonTest extends TestCase
     {
         $expectedPath = TenantService::filePath('database/content/test_sushi.json');
         $actualPath = $this->model->getJsonFile();
+<<<<<<< HEAD
         
+=======
+
+>>>>>>> 1cbc182 (.)
         expect($actualPath)->toBe($expectedPath);
     }
 
@@ -70,7 +107,11 @@ class SushiToJsonTest extends TestCase
     public function it_returns_empty_array_when_json_file_not_exists(): void
     {
         $rows = $this->model->getSushiRows();
+<<<<<<< HEAD
         
+=======
+
+>>>>>>> 1cbc182 (.)
         expect($rows)->toBe([]);
     }
 
@@ -81,8 +122,13 @@ class SushiToJsonTest extends TestCase
         $directory = dirname($this->testJsonPath);
         File::makeDirectory($directory, 0755, true, true);
         File::put($this->testJsonPath, 'invalid json content');
+<<<<<<< HEAD
         
         expect(fn() => $this->model->getSushiRows())
+=======
+
+        expect(fn () => $this->model->getSushiRows())
+>>>>>>> 1cbc182 (.)
             ->toThrow(\Exception::class, 'Data is not array ['.$this->testJsonPath.']');
     }
 
@@ -105,14 +151,24 @@ class SushiToJsonTest extends TestCase
                 'metadata' => ['key' => 'value2'],
             ],
         ];
+<<<<<<< HEAD
         
+=======
+
+>>>>>>> 1cbc182 (.)
         // Crea il file JSON di test
         $directory = dirname($this->testJsonPath);
         File::makeDirectory($directory, 0755, true, true);
         File::put($this->testJsonPath, json_encode($testData, JSON_PRETTY_PRINT));
+<<<<<<< HEAD
         
         $rows = $this->model->getSushiRows();
         
+=======
+
+        $rows = $this->model->getSushiRows();
+
+>>>>>>> 1cbc182 (.)
         expect($rows)->toBe($testData);
     }
 
@@ -127,14 +183,24 @@ class SushiToJsonTest extends TestCase
                 'tags' => ['tag1', 'tag2'],
             ],
         ];
+<<<<<<< HEAD
         
+=======
+
+>>>>>>> 1cbc182 (.)
         // Crea il file JSON di test
         $directory = dirname($this->testJsonPath);
         File::makeDirectory($directory, 0755, true, true);
         File::put($this->testJsonPath, json_encode($testData, JSON_PRETTY_PRINT));
+<<<<<<< HEAD
         
         $rows = $this->model->getSushiRows();
         
+=======
+
+        $rows = $this->model->getSushiRows();
+
+>>>>>>> 1cbc182 (.)
         expect($rows['1']['metadata'])->toBeString();
         expect($rows['1']['tags'])->toBeString();
         expect(json_decode($rows['1']['metadata'], true))->toBe(['nested' => ['deep' => 'value']]);
@@ -148,6 +214,7 @@ class SushiToJsonTest extends TestCase
             '1' => ['id' => 1, 'name' => 'Test Item'],
             '2' => ['id' => 2, 'name' => 'Another Item'],
         ];
+<<<<<<< HEAD
         
         $result = $this->model->saveToJson($testData);
         
@@ -157,6 +224,17 @@ class SushiToJsonTest extends TestCase
         $savedContent = File::get($this->testJsonPath);
         $savedData = json_decode($savedContent, true);
         
+=======
+
+        $result = $this->model->saveToJson($testData);
+
+        expect($result)->toBeTrue();
+        expect(File::exists($this->testJsonPath))->toBeTrue();
+
+        $savedContent = File::get($this->testJsonPath);
+        $savedData = json_decode($savedContent, true);
+
+>>>>>>> 1cbc182 (.)
         expect($savedData)->toBe($testData);
     }
 
@@ -164,9 +242,15 @@ class SushiToJsonTest extends TestCase
     public function it_creates_directory_if_not_exists_when_saving(): void
     {
         $testData = ['1' => ['id' => 1, 'name' => 'Test']];
+<<<<<<< HEAD
         
         $result = $this->model->saveToJson($testData);
         
+=======
+
+        $result = $this->model->saveToJson($testData);
+
+>>>>>>> 1cbc182 (.)
         expect($result)->toBeTrue();
         expect(File::exists(dirname($this->testJsonPath)))->toBeTrue();
         expect(File::exists($this->testJsonPath))->toBeTrue();
@@ -178,9 +262,15 @@ class SushiToJsonTest extends TestCase
         // Mock del metodo getJsonFile per simulare un errore
         $mockModel = Mockery::mock(TestSushiModel::class)->makePartial();
         $mockModel->shouldReceive('getJsonFile')->andReturn('/invalid/path/that/cannot/be/created');
+<<<<<<< HEAD
         
         $result = $mockModel->saveToJson(['test' => 'data']);
         
+=======
+
+        $result = $mockModel->saveToJson(['test' => 'data']);
+
+>>>>>>> 1cbc182 (.)
         expect($result)->toBeFalse();
     }
 
@@ -190,14 +280,24 @@ class SushiToJsonTest extends TestCase
         $testData = [
             '1' => ['id' => 1, 'name' => 'Existing Item'],
         ];
+<<<<<<< HEAD
         
+=======
+
+>>>>>>> 1cbc182 (.)
         // Crea il file JSON di test
         $directory = dirname($this->testJsonPath);
         File::makeDirectory($directory, 0755, true, true);
         File::put($this->testJsonPath, json_encode($testData, JSON_PRETTY_PRINT));
+<<<<<<< HEAD
         
         $existingData = $this->model->loadExistingData();
         
+=======
+
+        $existingData = $this->model->loadExistingData();
+
+>>>>>>> 1cbc182 (.)
         expect($existingData)->toBe($testData);
     }
 
@@ -205,7 +305,11 @@ class SushiToJsonTest extends TestCase
     public function it_returns_empty_array_when_no_existing_data(): void
     {
         $existingData = $this->model->loadExistingData();
+<<<<<<< HEAD
         
+=======
+
+>>>>>>> 1cbc182 (.)
         expect($existingData)->toBe([]);
     }
 
@@ -218,6 +322,7 @@ class SushiToJsonTest extends TestCase
             '5' => ['id' => 5, 'name' => 'Item 5'],
             '10' => ['id' => 10, 'name' => 'Item 10'],
         ];
+<<<<<<< HEAD
         
         $directory = dirname($this->testJsonPath);
         File::makeDirectory($directory, 0755, true, true);
@@ -225,6 +330,15 @@ class SushiToJsonTest extends TestCase
         
         $nextId = $this->model->getNextId();
         
+=======
+
+        $directory = dirname($this->testJsonPath);
+        File::makeDirectory($directory, 0755, true, true);
+        File::put($this->testJsonPath, json_encode($testData, JSON_PRETTY_PRINT));
+
+        $nextId = $this->model->getNextId();
+
+>>>>>>> 1cbc182 (.)
         expect($nextId)->toBe(11);
     }
 
@@ -232,7 +346,11 @@ class SushiToJsonTest extends TestCase
     public function it_returns_id_1_when_no_existing_data(): void
     {
         $nextId = $this->model->getNextId();
+<<<<<<< HEAD
         
+=======
+
+>>>>>>> 1cbc182 (.)
         expect($nextId)->toBe(1);
     }
 
@@ -241,11 +359,19 @@ class SushiToJsonTest extends TestCase
     {
         $user = Mockery::mock('stdClass');
         $user->id = 123;
+<<<<<<< HEAD
         
         Auth::shouldReceive('id')->once()->andReturn(123);
         
         $authId = $this->model->getAuthId();
         
+=======
+
+        Auth::shouldReceive('id')->once()->andReturn(123);
+
+        $authId = $this->model->getAuthId();
+
+>>>>>>> 1cbc182 (.)
         expect($authId)->toBe(123);
     }
 
@@ -253,9 +379,15 @@ class SushiToJsonTest extends TestCase
     public function it_returns_null_when_user_is_not_authenticated(): void
     {
         Auth::shouldReceive('id')->once()->andReturn(null);
+<<<<<<< HEAD
         
         $authId = $this->model->getAuthId();
         
+=======
+
+        $authId = $this->model->getAuthId();
+
+>>>>>>> 1cbc182 (.)
         expect($authId)->toBeNull();
     }
 
@@ -265,21 +397,34 @@ class SushiToJsonTest extends TestCase
         $testData = [
             '1' => ['id' => 1, 'name' => 'Existing Item'],
         ];
+<<<<<<< HEAD
         
+=======
+
+>>>>>>> 1cbc182 (.)
         // Crea il file JSON di test
         $directory = dirname($this->testJsonPath);
         File::makeDirectory($directory, 0755, true, true);
         File::put($this->testJsonPath, json_encode($testData, JSON_PRETTY_PRINT));
+<<<<<<< HEAD
         
+=======
+
+>>>>>>> 1cbc182 (.)
         // Mock dell'utente autenticato
         $user = Mockery::mock('stdClass');
         $user->id = 456;
         Auth::shouldReceive('id')->andReturn(456);
+<<<<<<< HEAD
         
+=======
+
+>>>>>>> 1cbc182 (.)
         // Crea un nuovo modello
         $newModel = new TestSushiModel();
         $newModel->name = 'New Item';
         $newModel->description = 'New Description';
+<<<<<<< HEAD
         
         // Simula l'evento creating
         $newModel->fireModelEvent('creating');
@@ -290,6 +435,18 @@ class SushiToJsonTest extends TestCase
         $savedContent = File::get($this->testJsonPath);
         $savedData = json_decode($savedContent, true);
         
+=======
+
+        // Simula l'evento creating
+        $newModel->fireModelEvent('creating');
+
+        // Verifica che i dati siano stati salvati nel file JSON
+        expect(File::exists($this->testJsonPath))->toBeTrue();
+
+        $savedContent = File::get($this->testJsonPath);
+        $savedData = json_decode($savedContent, true);
+
+>>>>>>> 1cbc182 (.)
         expect($savedData)->toHaveKey('2'); // Nuovo ID dovrebbe essere 2
         expect($savedData['2']['name'])->toBe('New Item');
         expect($savedData['2']['created_by'])->toBe(456);
@@ -308,22 +465,35 @@ class SushiToJsonTest extends TestCase
                 'updated_at' => now()->subDay()->toISOString(),
             ],
         ];
+<<<<<<< HEAD
         
+=======
+
+>>>>>>> 1cbc182 (.)
         // Crea il file JSON di test
         $directory = dirname($this->testJsonPath);
         File::makeDirectory($directory, 0755, true, true);
         File::put($this->testJsonPath, json_encode($testData, JSON_PRETTY_PRINT));
+<<<<<<< HEAD
         
+=======
+
+>>>>>>> 1cbc182 (.)
         // Mock dell'utente autenticato
         $user = Mockery::mock('stdClass');
         $user->id = 789;
         Auth::shouldReceive('id')->andReturn(789);
+<<<<<<< HEAD
         
+=======
+
+>>>>>>> 1cbc182 (.)
         // Carica il modello esistente
         $existingModel = new TestSushiModel();
         $existingModel->id = 1;
         $existingModel->name = 'Updated Name';
         $existingModel->description = 'Updated Description';
+<<<<<<< HEAD
         
         // Simula l'evento updating
         $existingModel->fireModelEvent('updating');
@@ -332,6 +502,16 @@ class SushiToJsonTest extends TestCase
         $savedContent = File::get($this->testJsonPath);
         $savedData = json_decode($savedContent, true);
         
+=======
+
+        // Simula l'evento updating
+        $existingModel->fireModelEvent('updating');
+
+        // Verifica che i dati siano stati aggiornati nel file JSON
+        $savedContent = File::get($this->testJsonPath);
+        $savedData = json_decode($savedContent, true);
+
+>>>>>>> 1cbc182 (.)
         expect($savedData['1']['name'])->toBe('Updated Name');
         expect($savedData['1']['description'])->toBe('Updated Description');
         expect($savedData['1']['updated_by'])->toBe(789);
@@ -344,11 +524,16 @@ class SushiToJsonTest extends TestCase
             '1' => ['id' => 1, 'name' => 'Item to Delete'],
             '2' => ['id' => 2, 'name' => 'Item to Keep'],
         ];
+<<<<<<< HEAD
         
+=======
+
+>>>>>>> 1cbc182 (.)
         // Crea il file JSON di test
         $directory = dirname($this->testJsonPath);
         File::makeDirectory($directory, 0755, true, true);
         File::put($this->testJsonPath, json_encode($testData, JSON_PRETTY_PRINT));
+<<<<<<< HEAD
         
         // Carica il modello da eliminare
         $modelToDelete = new TestSushiModel();
@@ -361,6 +546,20 @@ class SushiToJsonTest extends TestCase
         $savedContent = File::get($this->testJsonPath);
         $savedData = json_decode($savedContent, true);
         
+=======
+
+        // Carica il modello da eliminare
+        $modelToDelete = new TestSushiModel();
+        $modelToDelete->id = 1;
+
+        // Simula l'evento deleting
+        $modelToDelete->fireModelEvent('deleting');
+
+        // Verifica che il record sia stato rimosso dal file JSON
+        $savedContent = File::get($this->testJsonPath);
+        $savedData = json_decode($savedContent, true);
+
+>>>>>>> 1cbc182 (.)
         expect($savedData)->not->toHaveKey('1');
         expect($savedData)->toHaveKey('2');
         expect($savedData['2']['name'])->toBe('Item to Keep');
@@ -383,15 +582,26 @@ class SushiToJsonTest extends TestCase
                 'status' => 'inactive',
             ],
         ];
+<<<<<<< HEAD
         
+=======
+
+>>>>>>> 1cbc182 (.)
         // Crea il file JSON di test
         $directory = dirname($this->testJsonPath);
         File::makeDirectory($directory, 0755, true, true);
         File::put($this->testJsonPath, json_encode($testData, JSON_PRETTY_PRINT));
+<<<<<<< HEAD
         
         // Testa l'integrazione con Sushi
         $rows = $this->model->getSushiRows();
         
+=======
+
+        // Testa l'integrazione con Sushi
+        $rows = $this->model->getSushiRows();
+
+>>>>>>> 1cbc182 (.)
         expect($rows)->toBe($testData);
         expect($rows)->toHaveCount(2);
         expect($rows['1']['name'])->toBe('Sushi Item 1');

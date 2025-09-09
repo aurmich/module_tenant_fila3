@@ -2,11 +2,14 @@
 
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 <<<<<<< HEAD
 >>>>>>> 40aab39 (.)
 =======
 >>>>>>> e53d43b (.)
+=======
+>>>>>>> 1cbc182 (.)
 return array (
   'navigation' => 
   array (
@@ -59,17 +62,23 @@ return array (
     ),
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> e53d43b (.)
+=======
+>>>>>>> 1cbc182 (.)
     'reorderRecords' => 
     array (
       'label' => 'reorderRecords',
     ),
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> 40aab39 (.)
 =======
 >>>>>>> e53d43b (.)
+=======
+>>>>>>> 1cbc182 (.)
   ),
   'actions' => 
   array (
@@ -96,6 +105,7 @@ return array (
     ),
   ),
 );
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 =======
@@ -161,3 +171,5 @@ return [
 >>>>>>> 40aab39 (.)
 =======
 >>>>>>> e53d43b (.)
+=======
+>>>>>>> 1cbc182 (.)

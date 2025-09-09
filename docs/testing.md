@@ -82,12 +82,16 @@ class TenantIntegrationTest extends TestCase
 I test funzionali verificano il comportamento del modulo dal punto di vista dell'utente finale.
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 **Nota**: Seguendo le regole Laraxot, evitare l'uso di `RefreshDatabase` nei test.
 =======
 >>>>>>> 40aab39 (.)
 =======
 **Nota**: Seguendo le regole Laraxot, evitare l'uso di `RefreshDatabase` nei test.
 >>>>>>> e53d43b (.)
+=======
+**Nota**: Seguendo le regole Laraxot, evitare l'uso di `RefreshDatabase` nei test.
+>>>>>>> 1cbc182 (.)
 
 ```php
 namespace Modules\Tenant\Tests\Feature;
@@ -96,8 +100,11 @@ use Tests\TestCase;
 use Modules\Tenant\Models\Tenant;
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> e53d43b (.)
+=======
+>>>>>>> 1cbc182 (.)
 
 class TenantControllerTest extends TestCase
 {
@@ -109,6 +116,7 @@ class TenantControllerTest extends TestCase
         
         // Crea dati di test nel filesystem temporaneo
         $this->createTestTenantData($tempDir);
+<<<<<<< HEAD
 <<<<<<< HEAD
 =======
 use Illuminate\Foundation\Testing\RefreshDatabase;
@@ -123,6 +131,8 @@ class TenantControllerTest extends TestCase
 >>>>>>> 40aab39 (.)
 =======
 >>>>>>> e53d43b (.)
+=======
+>>>>>>> 1cbc182 (.)
 
         $response = $this->get(route('tenants.index'));
 
@@ -131,8 +141,11 @@ class TenantControllerTest extends TestCase
                 ->assertViewHas('tenants');
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> e53d43b (.)
+=======
+>>>>>>> 1cbc182 (.)
                 
         // Cleanup
         $this->cleanupTestData($tempDir);
@@ -150,10 +163,13 @@ class TenantControllerTest extends TestCase
             File::deleteDirectory($path);
         }
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> 40aab39 (.)
 =======
 >>>>>>> e53d43b (.)
+=======
+>>>>>>> 1cbc182 (.)
     }
 }
 ```
@@ -183,8 +199,11 @@ Tests/
 
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> e53d43b (.)
+=======
+>>>>>>> 1cbc182 (.)
 **Nota**: Seguendo le regole Laraxot, evitare l'uso di `RefreshDatabase`. Utilizzare invece dati temporanei e cleanup manuale.
 
 ```php
@@ -225,6 +244,7 @@ class TenantDatabaseTest extends TestCase
             File::deleteDirectory($path);
         }
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 ```php
 use RefreshDatabase;
@@ -242,6 +262,8 @@ class TenantDatabaseTest extends TestCase
 >>>>>>> 40aab39 (.)
 =======
 >>>>>>> e53d43b (.)
+=======
+>>>>>>> 1cbc182 (.)
     }
 }
 ```
@@ -356,6 +378,7 @@ jobs:
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 =======
 >>>>>>> 40aab39 (.)
@@ -365,6 +388,9 @@ jobs:
 =======
 
 >>>>>>> e53d43b (.)
+=======
+
+>>>>>>> 1cbc182 (.)
 # phpunit.xml
 <coverage>
     <include>

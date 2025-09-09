@@ -2,6 +2,7 @@
 
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 /**
  * @see https://dev.to/hasanmn/automatically-update-createdby-and-updatedby-in-laravel-using-bootable-traits-28g9.
@@ -10,6 +11,8 @@
 >>>>>>> 40aab39 (.)
 =======
 >>>>>>> e53d43b (.)
+=======
+>>>>>>> 1cbc182 (.)
 declare(strict_types=1);
 
 namespace Modules\Tenant\Models\Traits;
@@ -23,8 +26,11 @@ use function Safe\json_decode;
 use function Safe\file_get_contents;
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> e53d43b (.)
+=======
+>>>>>>> 1cbc182 (.)
 
 /**
  * Trait SushiToJson.
@@ -36,20 +42,26 @@ use function Safe\file_get_contents;
  * @see https://github.com/calebporzio/sushi
  */
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 use function Safe\unlink;
 
 >>>>>>> 40aab39 (.)
 =======
 >>>>>>> e53d43b (.)
+=======
+>>>>>>> 1cbc182 (.)
 trait SushiToJson
 {
     use \Sushi\Sushi;
 
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> e53d43b (.)
+=======
+>>>>>>> 1cbc182 (.)
     /**
      * Ottiene il percorso del file JSON per il modello corrente.
      * Il file è specifico per il tenant corrente e la tabella del modello.
@@ -347,6 +359,7 @@ trait SushiToJson
 }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
     public function getJsonFile(): string
     {
@@ -452,3 +465,5 @@ trait SushiToJson
 >>>>>>> 40aab39 (.)
 =======
 >>>>>>> e53d43b (.)
+=======
+>>>>>>> 1cbc182 (.)

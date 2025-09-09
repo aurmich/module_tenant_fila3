@@ -1,7 +1,10 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> e53d43b (.)
+=======
+>>>>>>> 1cbc182 (.)
 # 🏢 **Tenant Module** - Sistema Avanzato Multi-Tenancy
 
 [![Laravel 12.x](https://img.shields.io/badge/Laravel-12.x-red.svg)](https://laravel.com/)
@@ -110,6 +113,7 @@ class CreateTenantAction
         $this->events->dispatch(new TenantCreated($tenant));
         
         return $tenant;
+<<<<<<< HEAD
 <<<<<<< HEAD
 =======
 # Modulo Tenant - Modular Monolith
@@ -295,10 +299,13 @@ class TenantServiceProvider extends ServiceProvider
         $this->loadRoutesFrom(__DIR__.'/../Routes/web.php');
 =======
 >>>>>>> e53d43b (.)
+=======
+>>>>>>> 1cbc182 (.)
     }
 }
 ```
 
+<<<<<<< HEAD
 <<<<<<< HEAD
 ### 2. Eventi tra Moduli
 
@@ -347,6 +354,8 @@ class TenantIntegrationTest extends TestCase
 <<<<<<< HEAD
 =======
 >>>>>>> e53d43b (.)
+=======
+>>>>>>> 1cbc182 (.)
 ## 🎯 **Stato Qualità - Gennaio 2025**
 
 ### ✅ **PHPStan Level 9 Compliance**
@@ -386,6 +395,7 @@ php artisan tenant:setup-default
 
 ### ⚙️ **Configurazione**
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 ## Deployment
 
@@ -399,10 +409,13 @@ php artisan tenant:setup-default
 >>>>>>> 40aab39 (.)
 =======
 >>>>>>> e53d43b (.)
+=======
+>>>>>>> 1cbc182 (.)
 ```php
 // config/tenant.php
 return [
     'default' => env('TENANT_CONNECTION', 'tenant'),
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
     
@@ -411,6 +424,9 @@ return [
 =======
     
 >>>>>>> e53d43b (.)
+=======
+    
+>>>>>>> 1cbc182 (.)
     'connections' => [
         'tenant' => [
             'driver' => 'mysql',
@@ -424,8 +440,11 @@ return [
     ],
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> e53d43b (.)
+=======
+>>>>>>> 1cbc182 (.)
     
     'isolation' => [
         'database' => true,
@@ -508,6 +527,7 @@ class TenantResource extends XotBaseResource
                 ->keyLabel('Setting')
                 ->valueLabel('Value'),
         ];
+<<<<<<< HEAD
 <<<<<<< HEAD
 =======
 ];
@@ -639,14 +659,19 @@ class Tenant extends XotBaseTenant
 >>>>>>> 40aab39 (.)
 =======
 >>>>>>> e53d43b (.)
+=======
+>>>>>>> 1cbc182 (.)
     }
 }
 ```
 
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> e53d43b (.)
+=======
+>>>>>>> 1cbc182 (.)
 ### 📊 **Tenant Stats Widget**
 ```php
 // Widget statistiche tenant
@@ -681,6 +706,7 @@ class User extends TenantAwareModel
     }
     
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 ### 2. Trait HasTenant
 ```php
@@ -690,6 +716,8 @@ class User extends Model
 >>>>>>> 40aab39 (.)
 =======
 >>>>>>> e53d43b (.)
+=======
+>>>>>>> 1cbc182 (.)
     public function tenant()
     {
         return $this->belongsTo(Tenant::class);
@@ -698,8 +726,11 @@ class User extends Model
 
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> e53d43b (.)
+=======
+>>>>>>> 1cbc182 (.)
 // Query automaticamente filtrate per tenant
 $users = User::all(); // Solo utenti del tenant corrente
 ```
@@ -866,6 +897,7 @@ php artisan tenant:check-session-isolation
 **🐛 PHPStan Level 9**: File core certificati ✅  
 **🌐 Translation Standards**: File traduzione certificati ✅  
 **🚀 Performance**: 93/100 score
+<<<<<<< HEAD
 <<<<<<< HEAD
 =======
 // ✅ FARE QUESTO
@@ -1121,4 +1153,6 @@ docs/
 >>>>>>> 40aab39 (.)
 =======
 >>>>>>> e53d43b (.)
+=======
+>>>>>>> 1cbc182 (.)
 

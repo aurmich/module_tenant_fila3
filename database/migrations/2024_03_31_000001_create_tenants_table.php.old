@@ -7,10 +7,6 @@ use Modules\Xot\Database\Migrations\XotBaseMigration;
 
 return new class extends XotBaseMigration
 {
-<<<<<<< HEAD
-<<<<<<< HEAD
-    
-=======
     /**
      * Nome della tabella.
      *
@@ -18,10 +14,6 @@ return new class extends XotBaseMigration
      */
     //protected string $table = 'tenants';
 
->>>>>>> e865d87 (.)
-=======
-    
->>>>>>> 1cbc182 (.)
     /**
      * Run the migrations.
      */

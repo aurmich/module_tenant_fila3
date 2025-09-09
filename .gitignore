@@ -1,7 +1,10 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> e53d43b (.)
+=======
+>>>>>>> 1cbc182 (.)
 # Dependencies
 vendor/
 node_modules/
@@ -37,6 +40,7 @@ storage/*.key
 
 # Environment and configuration
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 /vendor/
 vendor/
@@ -64,14 +68,19 @@ storage/*.key
 >>>>>>> 40aab39 (.)
 =======
 >>>>>>> e53d43b (.)
+=======
+>>>>>>> 1cbc182 (.)
 .env
 Homestead.yaml
 Homestead.json
 /.vagrant
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> e53d43b (.)
+=======
+>>>>>>> 1cbc182 (.)
 
 # Git related
 .git-rewrite/
@@ -88,6 +97,7 @@ docs/phpstan/
 
 # Other
 -e
+<<<<<<< HEAD
 <<<<<<< HEAD
 =======
 .phpunit.result.cache
@@ -129,3 +139,5 @@ docs/phpstan/
 >>>>>>> 40aab39 (.)
 =======
 >>>>>>> e53d43b (.)
+=======
+>>>>>>> 1cbc182 (.)
