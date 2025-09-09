@@ -2,10 +2,6 @@
 
 declare(strict_types=1);
 
-<<<<<<< HEAD
-use Illuminate\Database\Eloquent\Model;
-use Modules\Tenant\Models\BaseModel;
-=======
 namespace Modules\Tenant\Tests\Unit\Models;
 
 use Illuminate\Database\Eloquent\Model;
@@ -14,7 +10,6 @@ use Modules\Tenant\Models\BaseModel;
 use Tests\TestCase;
 
 uses(TestCase::class, RefreshDatabase::class);
->>>>>>> ffdd879 (.)
 
 beforeEach(function () {
     $this->baseModel = new class extends BaseModel

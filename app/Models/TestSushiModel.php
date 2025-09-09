@@ -33,10 +33,6 @@ use Modules\Tenant\Models\Traits\SushiToJson;
  * @method static \Illuminate\Database\Eloquent\Builder<static>|TestSushiModel whereName($value)
  * @method static \Illuminate\Database\Eloquent\Builder<static>|TestSushiModel whereStatus($value)
  * @method static \Illuminate\Database\Eloquent\Builder<static>|TestSushiModel whereUpdatedAt($value)
- * @property int|null $created_by
- * @property int|null $updated_by
- * @method static \Illuminate\Database\Eloquent\Builder<static>|TestSushiModel whereCreatedBy($value)
- * @method static \Illuminate\Database\Eloquent\Builder<static>|TestSushiModel whereUpdatedBy($value)
  * @mixin \Eloquent
  */
 class TestSushiModel extends Model

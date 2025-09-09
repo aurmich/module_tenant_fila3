@@ -337,18 +337,6 @@ class TenantService
         return $path;
     }
 
-<<<<<<< HEAD
-    public static function trans(string $key): string
-    {
-        $lang = app()->getLocale();
-        $trans_file = Str::of($key)->before('.')->append('.php')->toString();
-        $arr_key = Str::of($key)->after('.')->toString();
-        $path = self::filePath('lang/'.$lang.'/'.$trans_file);
-        $data = File::getRequire($path);
-        Assert::isArray($data);
-        Assert::string($res = Arr::get($data, $arr_key));
-
-=======
     
 
     public static function trans(string $key): string
@@ -361,7 +349,6 @@ class TenantService
         $data = File::getRequire($path);
         Assert::isArray($data);
         Assert::string($res=Arr::get($data, $arr_key));
->>>>>>> ffdd879 (.)
         return $res;
     }
 

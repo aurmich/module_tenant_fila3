@@ -8,13 +8,8 @@ use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Support\Facades\File;
 use Modules\Tenant\Models\TestSushiModel;
 use Modules\Tenant\Services\TenantService;
-<<<<<<< HEAD
-use PHPUnit\Framework\Attributes\Group;
-use PHPUnit\Framework\Attributes\Test;
-=======
 use PHPUnit\Framework\Attributes\Test;
 use PHPUnit\Framework\Attributes\Group;
->>>>>>> ffdd879 (.)
 use Tests\TestCase;
 
 /**
@@ -30,13 +25,7 @@ class SushiToJsonPerformanceTest extends TestCase
     use RefreshDatabase;
 
     private TestSushiModel $model;
-<<<<<<< HEAD
-
     private string $testJsonPath;
-
-=======
-    private string $testJsonPath;
->>>>>>> ffdd879 (.)
     private string $testDirectory;
 
     protected function setUp(): void
@@ -44,11 +33,7 @@ class SushiToJsonPerformanceTest extends TestCase
         parent::setUp();
 
         // Configura il modello di test
-<<<<<<< HEAD
-        $this->model = new TestSushiModel;
-=======
         $this->model = new TestSushiModel();
->>>>>>> ffdd879 (.)
 
         // Configura percorsi di test
         $this->testDirectory = storage_path('tests/sushi-json-performance');
@@ -95,20 +80,12 @@ class SushiToJsonPerformanceTest extends TestCase
     private function createTestData(int $recordCount): array
     {
         $data = [];
-<<<<<<< HEAD
-        for ($i = 1; $i <= $recordCount; $i++) {
-=======
         for ($i = 1; $i <= $recordCount; ++$i) {
->>>>>>> ffdd879 (.)
             $data[$i] = [
                 'id' => $i,
                 'name' => "Test Item {$i}",
                 'description' => "This is a detailed description for test item {$i} with additional information to increase the size of the data",
-<<<<<<< HEAD
-                'status' => ($i % 2 === 0) ? 'active' : 'inactive',
-=======
                 'status' => (0 === $i % 2) ? 'active' : 'inactive',
->>>>>>> ffdd879 (.)
                 'category' => 'Category '.($i % 10 + 1),
                 'priority' => ($i % 5 + 1),
                 'tags' => ["tag{$i}", "priority{$i}", "category{$i}"],
@@ -362,21 +339,12 @@ class SushiToJsonPerformanceTest extends TestCase
         File::put($this->testJsonPath, 'invalid json content');
 
         $startTime = microtime(true);
-<<<<<<< HEAD
-
-        $this->expectException(\Exception::class);
-        $this->expectExceptionMessage('Data is not array');
-
-        $this->model->getSushiRows();
-
-=======
         
         $this->expectException(\Exception::class);
         $this->expectExceptionMessage('Data is not array');
         
         $this->model->getSushiRows();
         
->>>>>>> ffdd879 (.)
         $errorTime = microtime(true) - $startTime;
 
         // Verifica che la gestione degli errori sia veloce
@@ -451,11 +419,7 @@ class SushiToJsonPerformanceTest extends TestCase
 
                 // Il tempo dovrebbe crescere linearmente o sub-linearmente
                 $expectedMaxGrowth = 2.5; // Massimo 2.5x per raddoppio della dimensione
-<<<<<<< HEAD
-
-=======
                 
->>>>>>> ffdd879 (.)
                 $saveGrowth = $currentResults['save_time'] / $previousResults['save_time'];
                 $loadGrowth = $currentResults['load_time'] / $previousResults['load_time'];
 
