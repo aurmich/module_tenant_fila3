@@ -36,7 +36,6 @@ Tenant module for Laraxot PTVX providing specialized functionality and business 
 // Basic usage example
 $result = app(TenantService::class)->process($data);
 ```
-<<<<<<< HEAD
 
 ### 🗄️ **Database Isolation**
 ```php
@@ -449,5 +448,3 @@ php artisan tenant:check-session-isolation
 **🌐 Translation Standards**: File traduzione certificati ✅  
 **🚀 Performance**: 93/100 score
 
-=======
->>>>>>> 864e16e (.)

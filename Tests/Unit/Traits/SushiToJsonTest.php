@@ -24,7 +24,7 @@ class SushiToJsonTest extends TestCase
     {
         parent::setUp();
 
-        $this->model = new TestSushiModel();
+        $this->model = new TestSushiModel;
         $this->testJsonPath = TenantService::filePath('database/content/test_sushi.json');
 
         // Pulisce eventuali file di test esistenti
@@ -275,7 +275,7 @@ class SushiToJsonTest extends TestCase
         Auth::shouldReceive('id')->andReturn(456);
 
         // Crea un nuovo modello
-        $newModel = new TestSushiModel();
+        $newModel = new TestSushiModel;
         $newModel->name = 'New Item';
         $newModel->description = 'New Description';
 
@@ -318,7 +318,7 @@ class SushiToJsonTest extends TestCase
         Auth::shouldReceive('id')->andReturn(789);
 
         // Carica il modello esistente
-        $existingModel = new TestSushiModel();
+        $existingModel = new TestSushiModel;
         $existingModel->id = 1;
         $existingModel->name = 'Updated Name';
         $existingModel->description = 'Updated Description';
@@ -349,7 +349,7 @@ class SushiToJsonTest extends TestCase
         File::put($this->testJsonPath, json_encode($testData, JSON_PRETTY_PRINT));
 
         // Carica il modello da eliminare
-        $modelToDelete = new TestSushiModel();
+        $modelToDelete = new TestSushiModel;
         $modelToDelete->id = 1;
 
         // Simula l'evento deleting
