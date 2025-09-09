@@ -273,9 +273,17 @@ private function generateRealisticDomain(string $tenantName, string $sector): st
 **Autore**: Sistema Laraxot
 
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+=======
+>>>>>>> e53d43b (.)
+
+
+
+
+<<<<<<< HEAD
+>>>>>>> f08917b (.)
 =======
 
 
-
-
->>>>>>> f08917b (.)
+>>>>>>> e53d43b (.)

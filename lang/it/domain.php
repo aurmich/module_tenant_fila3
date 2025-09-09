@@ -1,9 +1,12 @@
 <?php
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 <<<<<<< HEAD
 >>>>>>> 40aab39 (.)
+=======
+>>>>>>> e53d43b (.)
 return array (
   'navigation' => 
   array (
@@ -55,12 +58,18 @@ return array (
       'label' => 'toggleColumns',
     ),
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> e53d43b (.)
     'reorderRecords' => 
     array (
       'label' => 'reorderRecords',
     ),
+<<<<<<< HEAD
 =======
 >>>>>>> 40aab39 (.)
+=======
+>>>>>>> e53d43b (.)
   ),
   'actions' => 
   array (
@@ -87,6 +96,7 @@ return array (
     ),
   ),
 );
+<<<<<<< HEAD
 <<<<<<< HEAD
 =======
 =======
@@ -149,3 +159,5 @@ return [
 ];
 >>>>>>> 5a2ca30 (.)
 >>>>>>> 40aab39 (.)
+=======
+>>>>>>> e53d43b (.)

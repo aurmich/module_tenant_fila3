@@ -81,9 +81,13 @@ class TenantIntegrationTest extends TestCase
 
 I test funzionali verificano il comportamento del modulo dal punto di vista dell'utente finale.
 <<<<<<< HEAD
+<<<<<<< HEAD
 **Nota**: Seguendo le regole Laraxot, evitare l'uso di `RefreshDatabase` nei test.
 =======
 >>>>>>> 40aab39 (.)
+=======
+**Nota**: Seguendo le regole Laraxot, evitare l'uso di `RefreshDatabase` nei test.
+>>>>>>> e53d43b (.)
 
 ```php
 namespace Modules\Tenant\Tests\Feature;
@@ -91,6 +95,9 @@ namespace Modules\Tenant\Tests\Feature;
 use Tests\TestCase;
 use Modules\Tenant\Models\Tenant;
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> e53d43b (.)
 
 class TenantControllerTest extends TestCase
 {
@@ -102,6 +109,7 @@ class TenantControllerTest extends TestCase
         
         // Crea dati di test nel filesystem temporaneo
         $this->createTestTenantData($tempDir);
+<<<<<<< HEAD
 =======
 use Illuminate\Foundation\Testing\RefreshDatabase;
 
@@ -113,6 +121,8 @@ class TenantControllerTest extends TestCase
     {
         $tenants = Tenant::factory()->count(3)->create();
 >>>>>>> 40aab39 (.)
+=======
+>>>>>>> e53d43b (.)
 
         $response = $this->get(route('tenants.index'));
 
@@ -120,6 +130,9 @@ class TenantControllerTest extends TestCase
                 ->assertViewIs('tenant::index')
                 ->assertViewHas('tenants');
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> e53d43b (.)
                 
         // Cleanup
         $this->cleanupTestData($tempDir);
@@ -136,8 +149,11 @@ class TenantControllerTest extends TestCase
         if (File::exists($path)) {
             File::deleteDirectory($path);
         }
+<<<<<<< HEAD
 =======
 >>>>>>> 40aab39 (.)
+=======
+>>>>>>> e53d43b (.)
     }
 }
 ```
@@ -166,6 +182,9 @@ Tests/
 ### 2. Database Testing
 
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> e53d43b (.)
 **Nota**: Seguendo le regole Laraxot, evitare l'uso di `RefreshDatabase`. Utilizzare invece dati temporanei e cleanup manuale.
 
 ```php
@@ -205,6 +224,7 @@ class TenantDatabaseTest extends TestCase
         if (File::exists($path)) {
             File::deleteDirectory($path);
         }
+<<<<<<< HEAD
 =======
 ```php
 use RefreshDatabase;
@@ -220,6 +240,8 @@ class TenantDatabaseTest extends TestCase
 
         $this->assertSoftDeleted($tenant);
 >>>>>>> 40aab39 (.)
+=======
+>>>>>>> e53d43b (.)
     }
 }
 ```
@@ -333,12 +355,16 @@ jobs:
 ```bash
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 =======
 >>>>>>> 40aab39 (.)
 =======
 
 >>>>>>> e865d87 (.)
+=======
+
+>>>>>>> e53d43b (.)
 # phpunit.xml
 <coverage>
     <include>

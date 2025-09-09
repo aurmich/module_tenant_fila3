@@ -1,4 +1,7 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> e53d43b (.)
 # SushiToJson Trait - Implementazione Completa
 
 > **Boy Scout Rule Applied**: Documentazione aggiornata dopo studio approfondito e implementazione completa
@@ -54,6 +57,7 @@ Il metodo di boot implementa un pattern observer pulito per gli eventi del model
 **Logging**: Tutti i tentativi di modifica vengono loggati per debugging e audit trail.
 
 **Razionale**: Implementazione sicura che evita operazioni incomplete e fornisce feedback chiaro agli sviluppatori.
+<<<<<<< HEAD
 =======
 # SushiToJsons Trait
 
@@ -91,6 +95,8 @@ Determina il percorso del file JSON per un record specifico basato sulla tabella
 ### Deleting
 - Rimuove il file JSON associato al record
 >>>>>>> 40aab39 (.)
+=======
+>>>>>>> e53d43b (.)
 
 ## Schema dei dati
 
@@ -104,6 +110,9 @@ protected $schema = [
 ```
 
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> e53d43b (.)
 ## Best Practices (Boy Scout Rule)
 
 - **Type Safety**: Utilizzare sempre tipizzazione esplicita e PHPDoc completi
@@ -119,6 +128,7 @@ protected $schema = [
 - **`webmozart/assert`**: Validazione robusta dei parametri
 - **`thecodingmachine/safe`**: Operazioni sicure su JSON e file I/O
 - **`illuminate/support`**: Per File facade e logging
+<<<<<<< HEAD
 =======
 ## Best Practices
 
@@ -133,11 +143,16 @@ protected $schema = [
 - `webmozart/assert`: Per la validazione dei parametri
 - `safe`: Per operazioni sicure su JSON
 >>>>>>> 40aab39 (.)
+=======
+>>>>>>> e53d43b (.)
 
 ## Esempio di utilizzo
 
 ```php
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> e53d43b (.)
 <?php
 
 declare(strict_types=1);
@@ -198,6 +213,7 @@ Il trait ha una suite di test completa e modernizzata con 52 test che coprono il
 
 **Vedi**: [Piano di Testing SushiToJson](sushi-to-json-testing-plan.md) per dettagli completi.
 
+<<<<<<< HEAD
 =======
 use Modules\Tenant\Models\Traits\SushiToJsons;
 
@@ -215,6 +231,8 @@ class MyModel extends Model
 }
 ``` 
 >>>>>>> 40aab39 (.)
+=======
+>>>>>>> e53d43b (.)
 ## Collegamenti tra versioni di sushi-to-jsons.md
 * [sushi-to-jsons.md](../../../Tenant/docs/traits/sushi-to-jsons.md)
 * [sushi-to-jsons.md](../../../Tenant/docs/models/traits/sushi-to-jsons.md)
