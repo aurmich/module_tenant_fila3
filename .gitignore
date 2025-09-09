@@ -1,10 +1,3 @@
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> e53d43b (.)
-=======
->>>>>>> 1cbc182 (.)
 # Dependencies
 vendor/
 node_modules/
@@ -39,48 +32,10 @@ public_html/hot
 storage/*.key
 
 # Environment and configuration
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-/vendor/
-vendor/
-node_modules/
-npm-debug.log
-*.cache
-*.phar
-*.lock
-package-lock.json
-yarn-error.log
-
-# Laravel 4 specific
-bootstrap/compiled.php
-app/storage/
-
-# Laravel 5 & Lumen specific
-public/storage
-public/hot
-
-# Laravel 5 & Lumen specific with changed public path
-public_html/storage
-public_html/hot
-
-storage/*.key
->>>>>>> 40aab39 (.)
-=======
->>>>>>> e53d43b (.)
-=======
->>>>>>> 1cbc182 (.)
 .env
 Homestead.yaml
 Homestead.json
 /.vagrant
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> e53d43b (.)
-=======
->>>>>>> 1cbc182 (.)
 
 # Git related
 .git-rewrite/
@@ -97,47 +52,3 @@ docs/phpstan/
 
 # Other
 -e
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-.phpunit.result.cache
-
-*.stackdump
-*.log
-.git-rewrite
-/docs/package-lock.json
-/build
-.git-blame-ignore-revs
-.php-cs-fixer.cache
-.git-rewrite/
-.php-cs-fixer.cache
-node_modules
-.git-blame-ignore-revs
-.git-blame-ignore-revs
-node_modules
-vendor
-build/
-vendor/
-build/
-node_modules
-./node_modules/
-node_modules/
-node_modules/*
-docs/cache/
-cache/
-.git-blame-ignore-revs
-.php-cs-fixer.cache
-*.exe
-*:Zone.Identifier
-*:Zone.Identifier
-
-# Backup files
-*.bak
--e 
-# PHPStan documentation
-docs/phpstan/
->>>>>>> 40aab39 (.)
-=======
->>>>>>> e53d43b (.)
-=======
->>>>>>> 1cbc182 (.)

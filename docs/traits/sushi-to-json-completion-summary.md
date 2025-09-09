@@ -192,30 +192,10 @@ Il trait è ora pronto per l'uso in produzione con la **massima affidabilità e 
 **Qualità**: ✅ PHPSTAN LEVEL 9+  
 **Documentazione**: ✅ AGGIORNATA E SINCRONIZZATA
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-=======
->>>>>>> e53d43b (.)
-=======
->>>>>>> 1cbc182 (.)
 
 
 
 
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
->>>>>>> f08917b (.)
-=======
 
 
->>>>>>> e53d43b (.)
-=======
->>>>>>> 1cbc182 (.)
-=======
-
-
->>>>>>> 228afec (.)

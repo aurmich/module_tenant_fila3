@@ -4,25 +4,12 @@ declare(strict_types=1);
 
 namespace Modules\Tenant\Tests\Integration\Traits;
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-use Tests\TestCase;
-use Illuminate\Support\Facades\File;
-use Illuminate\Support\Facades\Auth;
 use Illuminate\Foundation\Testing\RefreshDatabase;
-use Modules\Tenant\Models\TestSushiModel;
-use Modules\Tenant\Services\TenantService;
-use Modules\Tenant\Models\Tenant;
-=======
-=======
-use Illuminate\Foundation\Testing\RefreshDatabase;
->>>>>>> 228afec (.)
 use Illuminate\Support\Facades\File;
 use Modules\Tenant\Models\Tenant;
 use Modules\Tenant\Models\TestSushiModel;
 use Modules\Tenant\Services\TenantService;
 use Tests\TestCase;
->>>>>>> 1cbc182 (.)
 
 /**
  * Test di integrazione per il trait SushiToJson.
@@ -30,46 +17,23 @@ use Tests\TestCase;
  */
 class SushiToJsonIntegrationTest extends TestCase
 {
-<<<<<<< HEAD
-<<<<<<< HEAD
     use RefreshDatabase;
 
-    private TestSushiModel $model;
-    private string $testJsonPath;
-=======
-=======
-    use RefreshDatabase;
-
->>>>>>> 228afec (.)
     private TestSushiModel $model;
 
     private string $testJsonPath;
 
->>>>>>> 1cbc182 (.)
     private Tenant $tenant;
 
     protected function setUp(): void
     {
         parent::setUp();
-<<<<<<< HEAD
-        
-=======
 
->>>>>>> 1cbc182 (.)
         // Crea un tenant di test
         $this->tenant = Tenant::factory()->create([
             'name' => 'test-tenant',
             'domain' => 'test.example.com',
         ]);
-<<<<<<< HEAD
-        
-        // Imposta il tenant corrente
-        app('tenant')->setCurrent($this->tenant);
-        
-        $this->model = new TestSushiModel();
-        $this->testJsonPath = TenantService::filePath('database/content/test_sushi.json');
-        
-=======
 
         // Imposta il tenant corrente
         app('tenant')->setCurrent($this->tenant);
@@ -77,16 +41,11 @@ class SushiToJsonIntegrationTest extends TestCase
         $this->model = new TestSushiModel;
         $this->testJsonPath = TenantService::filePath('database/content/test_sushi.json');
 
->>>>>>> 1cbc182 (.)
         // Pulisce eventuali file di test esistenti
         if (File::exists($this->testJsonPath)) {
             File::delete($this->testJsonPath);
         }
-<<<<<<< HEAD
-        
-=======
 
->>>>>>> 1cbc182 (.)
         // Rimuove la directory se esiste
         $directory = dirname($this->testJsonPath);
         if (File::exists($directory)) {
@@ -100,20 +59,12 @@ class SushiToJsonIntegrationTest extends TestCase
         if (File::exists($this->testJsonPath)) {
             File::delete($this->testJsonPath);
         }
-<<<<<<< HEAD
-        
-=======
 
->>>>>>> 1cbc182 (.)
         $directory = dirname($this->testJsonPath);
         if (File::exists($directory)) {
             File::deleteDirectory($directory);
         }
-<<<<<<< HEAD
-        
-=======
 
->>>>>>> 1cbc182 (.)
         parent::tearDown();
     }
 
@@ -128,22 +79,6 @@ class SushiToJsonIntegrationTest extends TestCase
                 'tenant_id' => $this->tenant->id,
             ],
         ];
-<<<<<<< HEAD
-        
-        $result = $this->model->saveToJson($testData);
-        
-        expect($result)->toBeTrue();
-        expect(File::exists($this->testJsonPath))->toBeTrue();
-        
-        // Verifica che il file sia nella directory del tenant corretto
-        $expectedPath = TenantService::filePath('database/content/test_sushi.json');
-        expect($this->testJsonPath)->toBe($expectedPath);
-        
-        // Verifica che il contenuto sia corretto
-        $savedContent = File::get($this->testJsonPath);
-        $savedData = json_decode($savedContent, true);
-        
-=======
 
         $result = $this->model->saveToJson($testData);
 
@@ -158,7 +93,6 @@ class SushiToJsonIntegrationTest extends TestCase
         $savedContent = File::get($this->testJsonPath);
         $savedData = json_decode($savedContent, true);
 
->>>>>>> 1cbc182 (.)
         expect($savedData)->toBe($testData);
         expect($savedData['1']['tenant_id'])->toBe($this->tenant->id);
     }
@@ -178,30 +112,17 @@ class SushiToJsonIntegrationTest extends TestCase
                 'tenant_id' => $this->tenant->id,
             ],
         ];
-<<<<<<< HEAD
-        
-=======
 
->>>>>>> 1cbc182 (.)
         // Crea il file JSON di test
         $directory = dirname($this->testJsonPath);
         File::makeDirectory($directory, 0755, true, true);
         File::put($this->testJsonPath, json_encode($testData, JSON_PRETTY_PRINT));
-<<<<<<< HEAD
-        
-        $rows = $this->model->getSushiRows();
-        
-        expect($rows)->toBe($testData);
-        expect($rows)->toHaveCount(2);
-        
-=======
 
         $rows = $this->model->getSushiRows();
 
         expect($rows)->toBe($testData);
         expect($rows)->toHaveCount(2);
 
->>>>>>> 1cbc182 (.)
         // Verifica che tutti gli elementi appartengano al tenant corrente
         foreach ($rows as $row) {
             expect($row['tenant_id'])->toBe($this->tenant->id);
@@ -235,26 +156,11 @@ class SushiToJsonIntegrationTest extends TestCase
                 'updated_at' => now()->toISOString(),
             ],
         ];
-<<<<<<< HEAD
-        
-=======
 
->>>>>>> 1cbc182 (.)
         // Crea il file JSON di test
         $directory = dirname($this->testJsonPath);
         File::makeDirectory($directory, 0755, true, true);
         File::put($this->testJsonPath, json_encode($testData, JSON_PRETTY_PRINT));
-<<<<<<< HEAD
-        
-        $rows = $this->model->getSushiRows();
-        
-        expect($rows)->toHaveKey('1');
-        expect($rows['1']['name'])->toBe('Complex Item');
-        
-        // Verifica che gli array nidificati siano stati convertiti in stringhe JSON
-        expect($rows['1']['metadata'])->toBeString();
-        
-=======
 
         $rows = $this->model->getSushiRows();
 
@@ -264,7 +170,6 @@ class SushiToJsonIntegrationTest extends TestCase
         // Verifica che gli array nidificati siano stati convertiti in stringhe JSON
         expect($rows['1']['metadata'])->toBeString();
 
->>>>>>> 1cbc182 (.)
         $decodedMetadata = json_decode($rows['1']['metadata'], true);
         expect($decodedMetadata)->toBe($testData['1']['metadata']);
         expect($decodedMetadata['tags'])->toBe(['tag1', 'tag2', 'tag3']);
@@ -275,20 +180,6 @@ class SushiToJsonIntegrationTest extends TestCase
     public function it_manages_file_permissions_correctly(): void
     {
         $testData = ['1' => ['id' => 1, 'name' => 'Permission Test']];
-<<<<<<< HEAD
-        
-        $result = $this->model->saveToJson($testData);
-        
-        expect($result)->toBeTrue();
-        
-        // Verifica che la directory abbia i permessi corretti
-        $directory = dirname($this->testJsonPath);
-        expect(File::exists($directory))->toBeTrue();
-        
-        // Verifica che il file abbia i permessi corretti
-        expect(File::exists($this->testJsonPath))->toBeTrue();
-        
-=======
 
         $result = $this->model->saveToJson($testData);
 
@@ -301,7 +192,6 @@ class SushiToJsonIntegrationTest extends TestCase
         // Verifica che il file abbia i permessi corretti
         expect(File::exists($this->testJsonPath))->toBeTrue();
 
->>>>>>> 1cbc182 (.)
         // Verifica che il file sia leggibile
         $content = File::get($this->testJsonPath);
         expect($content)->toBeString();
@@ -312,43 +202,18 @@ class SushiToJsonIntegrationTest extends TestCase
     public function it_handles_concurrent_access_safely(): void
     {
         // Simula accesso concorrente creando più istanze del modello
-<<<<<<< HEAD
-        $model1 = new TestSushiModel();
-        $model2 = new TestSushiModel();
-        $model3 = new TestSushiModel();
-<<<<<<< HEAD
-        
-        $testData1 = ['1' => ['id' => 1, 'name' => 'Concurrent Item 1']];
-        $testData2 = ['2' => ['id' => 2, 'name' => 'Concurrent Item 2']];
-        $testData3 = ['3' => ['id' => 3, 'name' => 'Concurrent Item 3']];
-        
-=======
-=======
         $model1 = new TestSushiModel;
         $model2 = new TestSushiModel;
         $model3 = new TestSushiModel;
->>>>>>> 228afec (.)
 
         $testData1 = ['1' => ['id' => 1, 'name' => 'Concurrent Item 1']];
         $testData2 = ['2' => ['id' => 2, 'name' => 'Concurrent Item 2']];
         $testData3 = ['3' => ['id' => 3, 'name' => 'Concurrent Item 3']];
 
->>>>>>> 1cbc182 (.)
         // Salva i dati in sequenza
         $result1 = $model1->saveToJson($testData1);
         $result2 = $model2->saveToJson($testData2);
         $result3 = $model3->saveToJson($testData3);
-<<<<<<< HEAD
-        
-        expect($result1)->toBeTrue();
-        expect($result2)->toBeTrue();
-        expect($result3)->toBeTrue();
-        
-        // Verifica che tutti i dati siano stati salvati correttamente
-        $finalContent = File::get($this->testJsonPath);
-        $finalData = json_decode($finalContent, true);
-        
-=======
 
         expect($result1)->toBeTrue();
         expect($result2)->toBeTrue();
@@ -358,7 +223,6 @@ class SushiToJsonIntegrationTest extends TestCase
         $finalContent = File::get($this->testJsonPath);
         $finalData = json_decode($finalContent, true);
 
->>>>>>> 1cbc182 (.)
         expect($finalData)->toHaveKey('1');
         expect($finalData)->toHaveKey('2');
         expect($finalData)->toHaveKey('3');
@@ -380,27 +244,6 @@ class SushiToJsonIntegrationTest extends TestCase
                 'status' => $i % 2 === 0 ? 'active' : 'inactive',
                 'metadata' => [
                     'index' => $i,
-<<<<<<< HEAD
-                    'category' => "category_" . ($i % 10),
-                    'tags' => ["tag{$i}", "tag" . ($i + 1)],
-                ],
-            ];
-        }
-        
-        $startTime = microtime(true);
-        $result = $this->model->saveToJson($largeDataset);
-        $saveTime = microtime(true) - $startTime;
-        
-        expect($result)->toBeTrue();
-        expect($saveTime)->toBeLessThan(5.0); // Dovrebbe essere completato in meno di 5 secondi
-        
-        // Verifica che il file sia stato creato e contenga tutti i dati
-        expect(File::exists($this->testJsonPath))->toBeTrue();
-        
-        $fileSize = File::size($this->testJsonPath);
-        expect($fileSize)->toBeGreaterThan(0);
-        
-=======
                     'category' => 'category_'.($i % 10),
                     'tags' => ["tag{$i}", 'tag'.($i + 1)],
                 ],
@@ -420,22 +263,14 @@ class SushiToJsonIntegrationTest extends TestCase
         $fileSize = File::size($this->testJsonPath);
         expect($fileSize)->toBeGreaterThan(0);
 
->>>>>>> 1cbc182 (.)
         // Testa il caricamento dei dati
         $startTime = microtime(true);
         $rows = $this->model->getSushiRows();
         $loadTime = microtime(true) - $startTime;
-<<<<<<< HEAD
-        
-        expect($rows)->toHaveCount(1000);
-        expect($loadTime)->toBeLessThan(2.0); // Dovrebbe essere caricato in meno di 2 secondi
-        
-=======
 
         expect($rows)->toHaveCount(1000);
         expect($loadTime)->toBeLessThan(2.0); // Dovrebbe essere caricato in meno di 2 secondi
 
->>>>>>> 1cbc182 (.)
         // Verifica alcuni elementi specifici
         expect($rows[1]['name'])->toBe('Large Item 1');
         expect($rows[500]['name'])->toBe('Large Item 500');
@@ -457,23 +292,6 @@ class SushiToJsonIntegrationTest extends TestCase
                 ],
             ],
         ];
-<<<<<<< HEAD
-        
-        $result = $this->model->saveToJson($testData);
-        
-        expect($result)->toBeTrue();
-        
-        // Verifica che il file sia stato creato
-        expect(File::exists($this->testJsonPath))->toBeTrue();
-        
-        // Carica i dati e verifica che i caratteri speciali siano preservati
-        $rows = $this->model->getSushiRows();
-        
-        expect($rows)->toHaveKey('1');
-        expect($rows['1']['name'])->toBe('Item con caratteri speciali: à, è, ì, ò, ù');
-        expect($rows['1']['description'])->toBe('Descrizione con emoji 🚀 e simboli €$£¥');
-        
-=======
 
         $result = $this->model->saveToJson($testData);
 
@@ -489,7 +307,6 @@ class SushiToJsonIntegrationTest extends TestCase
         expect($rows['1']['name'])->toBe('Item con caratteri speciali: à, è, ì, ò, ù');
         expect($rows['1']['description'])->toBe('Descrizione con emoji 🚀 e simboli €$£¥');
 
->>>>>>> 1cbc182 (.)
         // Verifica i metadati
         $metadata = json_decode($rows['1']['metadata'], true);
         expect($metadata['special_chars'])->toBe('Caratteri: <>&"\'');
@@ -516,19 +333,6 @@ class SushiToJsonIntegrationTest extends TestCase
                 'status' => '',
             ],
         ];
-<<<<<<< HEAD
-        
-        $result = $this->model->saveToJson($testData);
-        
-        expect($result)->toBeTrue();
-        
-        // Carica i dati e verifica che i valori vuoti e null siano gestiti correttamente
-        $rows = $this->model->getSushiRows();
-        
-        expect($rows)->toHaveKey('1');
-        expect($rows)->toHaveKey('2');
-        
-=======
 
         $result = $this->model->saveToJson($testData);
 
@@ -540,16 +344,11 @@ class SushiToJsonIntegrationTest extends TestCase
         expect($rows)->toHaveKey('1');
         expect($rows)->toHaveKey('2');
 
->>>>>>> 1cbc182 (.)
         // Verifica il primo elemento
         expect($rows['1']['name'])->toBe('');
         expect($rows['1']['description'])->toBeNull();
         expect($rows['1']['metadata'])->toBe('[]');
-<<<<<<< HEAD
-        
-=======
 
->>>>>>> 1cbc182 (.)
         // Verifica il secondo elemento
         expect($rows['2']['name'])->toBe('Valid Item');
         expect($rows['2']['description'])->toBe('Valid Description');
@@ -565,15 +364,6 @@ class SushiToJsonIntegrationTest extends TestCase
             'name' => 'second-tenant',
             'domain' => 'second.example.com',
         ]);
-<<<<<<< HEAD
-        
-        // Imposta il secondo tenant come corrente
-        app('tenant')->setCurrent($secondTenant);
-        
-        $secondModel = new TestSushiModel();
-        $secondJsonPath = TenantService::filePath('database/content/test_sushi.json');
-        
-=======
 
         // Imposta il secondo tenant come corrente
         app('tenant')->setCurrent($secondTenant);
@@ -581,7 +371,6 @@ class SushiToJsonIntegrationTest extends TestCase
         $secondModel = new TestSushiModel;
         $secondJsonPath = TenantService::filePath('database/content/test_sushi.json');
 
->>>>>>> 1cbc182 (.)
         $testData = [
             '1' => [
                 'id' => 1,
@@ -589,18 +378,6 @@ class SushiToJsonIntegrationTest extends TestCase
                 'tenant_id' => $secondTenant->id,
             ],
         ];
-<<<<<<< HEAD
-        
-        $result = $secondModel->saveToJson($testData);
-        
-        expect($result)->toBeTrue();
-        expect($secondJsonPath)->not->toBe($this->testJsonPath);
-        
-        // Verifica che i file siano separati
-        expect(File::exists($this->testJsonPath))->toBeFalse(); // Primo tenant
-        expect(File::exists($secondJsonPath))->toBeTrue(); // Secondo tenant
-        
-=======
 
         $result = $secondModel->saveToJson($testData);
 
@@ -611,16 +388,11 @@ class SushiToJsonIntegrationTest extends TestCase
         expect(File::exists($this->testJsonPath))->toBeFalse(); // Primo tenant
         expect(File::exists($secondJsonPath))->toBeTrue(); // Secondo tenant
 
->>>>>>> 1cbc182 (.)
         // Pulisce il secondo tenant
         if (File::exists($secondJsonPath)) {
             File::delete($secondJsonPath);
         }
-<<<<<<< HEAD
-        
-=======
 
->>>>>>> 1cbc182 (.)
         $directory = dirname($secondJsonPath);
         if (File::exists($directory)) {
             File::deleteDirectory($directory);

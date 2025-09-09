@@ -80,31 +80,13 @@ class TenantIntegrationTest extends TestCase
 ### 3. Test Funzionali
 
 I test funzionali verificano il comportamento del modulo dal punto di vista dell'utente finale.
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
 **Nota**: Seguendo le regole Laraxot, evitare l'uso di `RefreshDatabase` nei test.
-=======
->>>>>>> 40aab39 (.)
-=======
-**Nota**: Seguendo le regole Laraxot, evitare l'uso di `RefreshDatabase` nei test.
->>>>>>> e53d43b (.)
-=======
-**Nota**: Seguendo le regole Laraxot, evitare l'uso di `RefreshDatabase` nei test.
->>>>>>> 1cbc182 (.)
 
 ```php
 namespace Modules\Tenant\Tests\Feature;
 
 use Tests\TestCase;
 use Modules\Tenant\Models\Tenant;
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> e53d43b (.)
-=======
->>>>>>> 1cbc182 (.)
 
 class TenantControllerTest extends TestCase
 {
@@ -116,36 +98,12 @@ class TenantControllerTest extends TestCase
         
         // Crea dati di test nel filesystem temporaneo
         $this->createTestTenantData($tempDir);
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-use Illuminate\Foundation\Testing\RefreshDatabase;
-
-class TenantControllerTest extends TestCase
-{
-    use RefreshDatabase;
-
-    public function test_can_view_tenant_list()
-    {
-        $tenants = Tenant::factory()->count(3)->create();
->>>>>>> 40aab39 (.)
-=======
->>>>>>> e53d43b (.)
-=======
->>>>>>> 1cbc182 (.)
 
         $response = $this->get(route('tenants.index'));
 
         $response->assertStatus(200)
                 ->assertViewIs('tenant::index')
                 ->assertViewHas('tenants');
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> e53d43b (.)
-=======
->>>>>>> 1cbc182 (.)
                 
         // Cleanup
         $this->cleanupTestData($tempDir);
@@ -162,14 +120,6 @@ class TenantControllerTest extends TestCase
         if (File::exists($path)) {
             File::deleteDirectory($path);
         }
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> 40aab39 (.)
-=======
->>>>>>> e53d43b (.)
-=======
->>>>>>> 1cbc182 (.)
     }
 }
 ```
@@ -197,13 +147,6 @@ Tests/
 
 ### 2. Database Testing
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> e53d43b (.)
-=======
->>>>>>> 1cbc182 (.)
 **Nota**: Seguendo le regole Laraxot, evitare l'uso di `RefreshDatabase`. Utilizzare invece dati temporanei e cleanup manuale.
 
 ```php
@@ -243,27 +186,6 @@ class TenantDatabaseTest extends TestCase
         if (File::exists($path)) {
             File::deleteDirectory($path);
         }
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-```php
-use RefreshDatabase;
-
-class TenantDatabaseTest extends TestCase
-{
-    use RefreshDatabase;
-
-    public function test_tenant_soft_deletes()
-    {
-        $tenant = Tenant::factory()->create();
-        $tenant->delete();
-
-        $this->assertSoftDeleted($tenant);
->>>>>>> 40aab39 (.)
-=======
->>>>>>> e53d43b (.)
-=======
->>>>>>> 1cbc182 (.)
     }
 }
 ```
@@ -375,22 +297,7 @@ jobs:
 ### 2. Code Coverage
 
 ```bash
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
 
-=======
->>>>>>> 40aab39 (.)
-=======
-
->>>>>>> e865d87 (.)
-=======
-
->>>>>>> e53d43b (.)
-=======
-
->>>>>>> 1cbc182 (.)
 # phpunit.xml
 <coverage>
     <include>

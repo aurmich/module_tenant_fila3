@@ -10,40 +10,11 @@ namespace Modules\Tenant\Models\Traits;
 
 use Illuminate\Support\Facades\File;
 use Modules\Tenant\Services\TenantService;
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
 use Webmozart\Assert\Assert;
->>>>>>> 626ef2b (.)
-=======
-use Webmozart\Assert\Assert;
->>>>>>> 40aab39 (.)
-=======
-use Webmozart\Assert\Assert;
->>>>>>> e53d43b (.)
-=======
-use Webmozart\Assert\Assert;
->>>>>>> 1cbc182 (.)
 
 use function Safe\json_encode;
 use function Safe\unlink;
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-use Webmozart\Assert\Assert;
-
-=======
->>>>>>> 626ef2b (.)
-=======
->>>>>>> 40aab39 (.)
-=======
->>>>>>> e53d43b (.)
-=======
->>>>>>> 1cbc182 (.)
 trait SushiToJsons
 {
     use \Sushi\Sushi;
@@ -74,38 +45,8 @@ trait SushiToJsons
     {
         Assert::string($tbl = $this->getTable());
         Assert::string($id = $this->getKey());
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-        $key = $this->slug ?? $id;
-        $filename = 'database/content/'.$tbl.'/'.$key.'.json';
-
-        $file = TenantService::filePath($filename);
-
-        return $file;
-    }
-
-    public function getJsonFileByKey(string $key): string
-    {
-        Assert::string($tbl = $this->getTable());
-        $filename = 'database/content/'.$tbl.'/'.$key.'.json';
-=======
 
         $filename = 'database/content/'.$tbl.'/'.$id.'.json';
->>>>>>> 626ef2b (.)
-=======
-
-        $filename = 'database/content/'.$tbl.'/'.$id.'.json';
->>>>>>> 40aab39 (.)
-=======
-
-        $filename = 'database/content/'.$tbl.'/'.$id.'.json';
->>>>>>> e53d43b (.)
-=======
-
-        $filename = 'database/content/'.$tbl.'/'.$id.'.json';
->>>>>>> 1cbc182 (.)
 
         $file = TenantService::filePath($filename);
 
@@ -153,33 +94,8 @@ trait SushiToJsons
                 $file = $model->getJsonFile();
                 $model->updated_at = now();
                 $model->updated_by = authId();
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-                $old_slug = $model->getOriginal('slug');
                 $content = $model->toJson(JSON_PRETTY_PRINT);
                 File::put($file, $content);
-                if ($old_slug !== $model->slug) {
-                    $file = $model->getJsonFileByKey($old_slug);
-                    unlink($file);
-                }
-=======
-                $content = $model->toJson(JSON_PRETTY_PRINT);
-                File::put($file, $content);
->>>>>>> 626ef2b (.)
-=======
-                $content = $model->toJson(JSON_PRETTY_PRINT);
-                File::put($file, $content);
->>>>>>> 40aab39 (.)
-=======
-                $content = $model->toJson(JSON_PRETTY_PRINT);
-                File::put($file, $content);
->>>>>>> e53d43b (.)
-=======
-                $content = $model->toJson(JSON_PRETTY_PRINT);
-                File::put($file, $content);
->>>>>>> 1cbc182 (.)
             }
         );
         // -------------------------------------------------------------------------------------
