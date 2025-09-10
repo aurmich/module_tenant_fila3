@@ -19,7 +19,7 @@ class TenantDatabaseSeeder extends Seeder
         // Seed test domains
         $this->call([
             DomainsSeeder::class,
-            TestSushiSeeder::class,
+            
         ]);
     }
 }

@@ -256,6 +256,6 @@ laravel/Modules/Tenant/
 
 ---
 
-**📝 Nota**: Questo piano segue rigorosamente la Boy Scout Rule del progetto SaluteOra. Ogni modifica deve migliorare la codebase esistente, non degradarla.
+**📝 Nota**: Questo piano segue rigorosamente la Boy Scout Rule del progetto . Ogni modifica deve migliorare la codebase esistente, non degradarla.
 
 **🎯 Obiettivo Finale**: Un trait SushiToJson completo, ben testato e documentato che rispetti tutti gli standard di qualità del progetto.

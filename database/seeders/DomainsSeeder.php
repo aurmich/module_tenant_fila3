@@ -16,7 +16,11 @@ class DomainsSeeder extends Seeder
     {
         $domains = [
             [
+<<<<<<< HEAD
                 'domain' => 'example.localhost',
+=======
+                'domain' => 'techplanner.localhost',
+>>>>>>> ebbb7d3 (.)
                 'is_primary' => true,
                 'is_ssl_enabled' => false,
                 'is_active' => true,
@@ -28,7 +32,11 @@ class DomainsSeeder extends Seeder
                 'is_active' => true,
             ],
             [
+<<<<<<< HEAD
                 'domain' => 'demo.example.com',
+=======
+                'domain' => 'demo.techplanner.it',
+>>>>>>> ebbb7d3 (.)
                 'is_primary' => false,
                 'is_ssl_enabled' => true,
                 'is_active' => false,
