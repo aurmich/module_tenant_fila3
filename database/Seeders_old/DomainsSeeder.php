@@ -22,7 +22,7 @@ class DomainsSeeder extends Seeder
                 'is_active' => true,
             ],
             [
-                'domain' => 'salutemo.localhost',
+                'domain' => 'example.localhost',
                 'is_primary' => false,
                 'is_ssl_enabled' => false,
                 'is_active' => true,
