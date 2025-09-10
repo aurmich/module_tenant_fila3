@@ -164,6 +164,10 @@ Ogni modifica ai traits deve:
 
 ---
 
+<<<<<<< HEAD
 **🎯 Obiettivo**: Traits completi, ben testati e documentati che rispettino tutti gli standard di qualità del progetto SaluteOra.
+=======
+**🎯 Obiettivo**: Traits completi, ben testati e documentati che rispettino tutti gli standard di qualità del progetto .
+>>>>>>> 01b26b3 (.)
 
 **📚 Documentazione**: Aggiornata costantemente per riflettere lo stato attuale e le decisioni architetturali.
