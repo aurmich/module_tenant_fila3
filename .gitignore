@@ -1,54 +1,57 @@
-# Dependencies
-vendor/
+
+# Dependencies and packages
+/docs/package-lock.json
 node_modules/
-package-lock.json
-yarn-error.log
 npm-debug.log
+package-lock.json
+vendor/
+yarn-error.log
 
 # Build and compiled files
-/build
-/docs/package-lock.json
-docs/cache/
-cache/
-
-# Cache and temporary files
 *.cache
 *.lock
 *.phar
-*.log
-*.stackdump
-*.exe
-*:Zone.Identifier
-.phpunit.result.cache
 .php-cs-fixer.cache
+.phpunit.result.cache
+/build
+
+# Log files
+*.log
 
 # Laravel specific
-bootstrap/compiled.php
-app/storage/
-public/storage
-public/hot
-public_html/storage
-public_html/hot
-storage/*.key
-
-# Environment and configuration
 .env
-Homestead.yaml
-Homestead.json
-/.vagrant
+app/storage/
+bootstrap/compiled.php
+public/hot
+public/storage
+public_html/hot
+public_html/storage
 
-# Git related
-.git-rewrite/
+# Local configurations
+/.vagrant
+Homestead.json
+Homestead.yaml
+
+# Git specific
 .git-blame-ignore-revs
+.git-rewrite/
+
+# Temporary and system files
+*.exe
+*.stackdump
+*:Zone.Identifier
 
 # Backup files
-*.old
-*.old1
 *.backup
 *.bak
+*.old
+*.old1
 
-# PHPStan documentation
+# Documentation and cache
+cache/
+docs/cache/
 docs/phpstan/
 
 # Other
+storage/*.key
 -e

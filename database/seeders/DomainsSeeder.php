@@ -16,31 +16,19 @@ class DomainsSeeder extends Seeder
     {
         $domains = [
             [
-<<<<<<< HEAD
-                'domain' => 'saluteora.localhost',
-=======
                 'domain' => 'techplanner.localhost',
->>>>>>> 01b26b3 (.)
                 'is_primary' => true,
                 'is_ssl_enabled' => false,
                 'is_active' => true,
             ],
             [
-<<<<<<< HEAD
-                'domain' => 'salutemo.localhost',
-=======
                 'domain' => 'example.localhost',
->>>>>>> 01b26b3 (.)
                 'is_primary' => false,
                 'is_ssl_enabled' => false,
                 'is_active' => true,
             ],
             [
-<<<<<<< HEAD
-                'domain' => 'demo.saluteora.it',
-=======
                 'domain' => 'demo.techplanner.it',
->>>>>>> 01b26b3 (.)
                 'is_primary' => false,
                 'is_ssl_enabled' => true,
                 'is_active' => false,
