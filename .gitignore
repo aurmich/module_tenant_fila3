@@ -1,26 +1,28 @@
-# Dependencies
-vendor/
-node_modules/
+# Dependencies and packages
+/vendor/
+/node_modules/
+/docs/vendor/
+
+# Lock files and cache
+*.lock
+*.cache
+*.phar
+*.jar
 package-lock.json
 yarn-error.log
 npm-debug.log
-
-# Build and compiled files
-/build
-/docs/package-lock.json
-docs/cache/
-cache/
-
-# Cache and temporary files
-*.cache
-*.lock
-*.phar
-*.log
-*.stackdump
-*.exe
-*:Zone.Identifier
+composer.lock
 .phpunit.result.cache
 .php-cs-fixer.cache
+
+# Log files
+*.log
+error_log
+
+# Build directories
+/build/
+/build
+build/
 
 # Laravel specific
 bootstrap/compiled.php
@@ -30,26 +32,47 @@ public/hot
 public_html/storage
 public_html/hot
 storage/*.key
-
-# Environment and configuration
 .env
+
+# Database directories
+database/Factories_
+database/Factories_old
+database/Migrations_old
+
+# Local configurations
 Homestead.yaml
 Homestead.json
 /.vagrant
 
-# Git related
-.git-rewrite/
-.git-blame-ignore-revs
+# IDE specific
+/.idea
+.phpintel
 
-# Backup files
+# Git specific
+.git-blame-ignore-revs
+.git-rewrite/
+.git-rewrite
+
+# Temporary and system files
+*.tmp
+*.swp
+*.swo
+*.stackdump
+*.exe
+*:Zone.Identifier
+.DS_Store
 *.old
 *.old1
 *.backup
 *.backup.*
 *.bak
+*.new
 
-# PHPStan documentation
+# Documentation and cache
 docs/phpstan/
+docs/cache/
+cache/
 
-# Other
--e
+# Development tools
+.windsurf/
+.cursor/
