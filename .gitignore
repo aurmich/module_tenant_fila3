@@ -1,4 +1,5 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 # Dependencies and packages
 /vendor/
 /node_modules/
@@ -26,6 +27,8 @@ error_log
 build/
 
 =======
+=======
+>>>>>>> 6e0a081 (.)
 # Dependencies
 vendor/
 node_modules/
@@ -50,7 +53,10 @@ cache/
 .phpunit.result.cache
 .php-cs-fixer.cache
 
+<<<<<<< HEAD
 >>>>>>> b2010ec (.)
+=======
+>>>>>>> 6e0a081 (.)
 # Laravel specific
 bootstrap/compiled.php
 app/storage/
@@ -59,6 +65,7 @@ public/hot
 public_html/storage
 public_html/hot
 storage/*.key
+<<<<<<< HEAD
 <<<<<<< HEAD
 .env
 
@@ -73,10 +80,16 @@ database/Migrations_old
 # Environment and configuration
 .env
 >>>>>>> b2010ec (.)
+=======
+
+# Environment and configuration
+.env
+>>>>>>> 6e0a081 (.)
 Homestead.yaml
 Homestead.json
 /.vagrant
 
+<<<<<<< HEAD
 <<<<<<< HEAD
 # IDE specific
 /.idea
@@ -96,11 +109,14 @@ Homestead.json
 *:Zone.Identifier
 .DS_Store
 =======
+=======
+>>>>>>> 6e0a081 (.)
 # Git related
 .git-rewrite/
 .git-blame-ignore-revs
 
 # Backup files
+<<<<<<< HEAD
 >>>>>>> b2010ec (.)
 *.old
 *.old1
@@ -119,10 +135,17 @@ cache/
 .windsurf/
 .cursor/
 =======
+=======
+*.old
+*.old1
+*.backup
+*.bak
+>>>>>>> 6e0a081 (.)
 
 # PHPStan documentation
 docs/phpstan/
 
+<<<<<<< HEAD
 # Old directories
 resources/views/Components_old
 database/Migrations_old
@@ -140,3 +163,7 @@ database/Seeders_old
 database/Factories_old
 database_old
 >>>>>>> b2010ec (.)
+=======
+# Other
+-e
+>>>>>>> 6e0a081 (.)

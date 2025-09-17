@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Modules\Tenant\Models\Traits;
 
+<<<<<<< HEAD
 use Illuminate\Support\Arr;
 use Webmozart\Assert\Assert;
 use function Safe\json_decode;
@@ -12,6 +13,15 @@ use function Safe\json_encode;
 use function Safe\file_get_contents;
 use Illuminate\Support\Facades\File;
 use Modules\Tenant\Services\TenantService;
+=======
+use Illuminate\Support\Facades\File;
+use Modules\Tenant\Services\TenantService;
+use Webmozart\Assert\Assert;
+
+use function Safe\json_encode;
+use function Safe\json_decode;
+use function Safe\file_get_contents;
+>>>>>>> 6e0a081 (.)
 
 /**
  * Trait SushiToJson.
@@ -62,7 +72,11 @@ trait SushiToJson
     public function getSushiRows(): array
     {
         $path = $this->getJsonFile();
+<<<<<<< HEAD
         $schema = $this->getSchema();
+=======
+
+>>>>>>> 6e0a081 (.)
         if (! File::exists($path)) {
             return [];
         }
@@ -86,6 +100,7 @@ trait SushiToJson
             }
         }
 
+<<<<<<< HEAD
         $normalizedData=Arr::map($normalizedData,function($item) use ($schema){
             foreach($schema as $key => $type){
                 if(!isset($item[$key])){
@@ -95,6 +110,8 @@ trait SushiToJson
             return $item;
         });
 
+=======
+>>>>>>> 6e0a081 (.)
         Assert::isArray($normalizedData);
 
         return $normalizedData;
