@@ -29,6 +29,7 @@ pest()->extend(TestCase::class)
 |
 */
 
+<<<<<<< HEAD
 expect()->extend('toBeTenant', function () {
     return $this->toBeInstanceOf(\Modules\Tenant\Models\Tenant::class);
 });
@@ -36,6 +37,11 @@ expect()->extend('toBeTenant', function () {
 expect()->extend('toBeTenantUser', function () {
     return $this->toBeInstanceOf(\Modules\Tenant\Models\TenantUser::class);
 });
+=======
+expect()->extend('toBeTenant', fn () => $this->toBeInstanceOf(\Modules\Tenant\Models\Tenant::class));
+
+expect()->extend('toBeTenantUser', fn () => $this->toBeInstanceOf(\Modules\Tenant\Models\TenantUser::class));
+>>>>>>> 3b7794c (.)
 
 /*
 |--------------------------------------------------------------------------

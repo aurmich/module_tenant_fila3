@@ -14,6 +14,10 @@ class DomainResource extends XotBaseResource
 {
     protected static ?string $model = Domain::class;
 
+<<<<<<< HEAD
+=======
+    #[\Override]
+>>>>>>> 3b7794c (.)
     public static function getFormSchema(): array
     {
         return [
@@ -44,12 +48,20 @@ class DomainResource extends XotBaseResource
         ];
     }
 
+<<<<<<< HEAD
+=======
+    #[\Override]
+>>>>>>> 3b7794c (.)
     public static function getRelations(): array
     {
         return [
         ];
     }
 
+<<<<<<< HEAD
+=======
+    #[\Override]
+>>>>>>> 3b7794c (.)
     public static function getPages(): array
     {
         return [

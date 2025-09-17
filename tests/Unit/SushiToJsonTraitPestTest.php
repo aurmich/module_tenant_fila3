@@ -101,7 +101,11 @@ describe('SushiToJson Trait', function () {
     it('throws exception with non array data', function () {
         File::put($this->testJsonPath, json_encode('not an array'));
 
+<<<<<<< HEAD
         expect(fn() => $this->model->getSushiRows())
+=======
+        expect($this->model->getSushiRows(...))
+>>>>>>> 3b7794c (.)
             ->toThrow(\Exception::class, 'JSON file must contain an array');
     })->group('getSushiRows', 'traits', 'sushi-json');
 

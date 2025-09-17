@@ -83,7 +83,11 @@ class SushiToJsonTest extends TestCase
         File::makeDirectory($directory, 0755, true, true);
         File::put($this->testJsonPath, 'invalid json content');
 
+<<<<<<< HEAD
         expect(fn () => $this->model->getSushiRows())
+=======
+        expect($this->model->getSushiRows(...))
+>>>>>>> 3b7794c (.)
             ->toThrow(\Exception::class, 'Data is not array ['.$this->testJsonPath.']');
     }
 
