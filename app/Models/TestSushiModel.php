@@ -12,7 +12,7 @@ use Modules\Tenant\Models\Traits\SushiToJson;
 
 /**
  * Modello di test per il trait SushiToJson.
- * 
+ *
  * Utilizzato esclusivamente per i test del trait.
  *
  * @property int $id
@@ -79,17 +79,17 @@ class TestSushiModel extends Model
     {
         if (app()->environment('testing')) {
             $dir = storage_path('tests/sushi-json');
-            if (! File::exists($dir)) {
-                File::makeDirectory($dir, 0755, true, true);
+            if (!File::exists($dir)) {
+                File::makeDirectory($dir, 0o755, true, true);
             }
-            return $dir.'/test_sushi.json';
+            return $dir . '/test_sushi.json';
         }
 
         // fallback: usa il comportamento del trait (replicato qui)
         $tbl = $this->getTable();
         /** @var class-string $tenantService */
         $tenantService = \Modules\Tenant\Services\TenantService::class;
-        return $tenantService::filePath('database/content/'.$tbl.'.json');
+        return $tenantService::filePath('database/content/' . $tbl . '.json');
     }
 
     /**

@@ -5,21 +5,21 @@ declare(strict_types=1);
 namespace Modules\Tenant\Models\Traits;
 
 use Illuminate\Support\Arr;
-use Webmozart\Assert\Assert;
-use function Safe\json_decode;
-
-use function Safe\json_encode;
-use function Safe\file_get_contents;
 use Illuminate\Support\Facades\File;
 use Modules\Tenant\Services\TenantService;
+use Webmozart\Assert\Assert;
+
+use function Safe\file_get_contents;
+use function Safe\json_decode;
+use function Safe\json_encode;
 
 /**
  * Trait SushiToJson.
- * 
+ *
  * Questo trait permette ai modelli di utilizzare il pacchetto Sushi per leggere
  * dati da file JSON con isolamento per tenant. Ogni tenant ha i propri file JSON
  * nella directory config/{tenant_name}/database/content/.
- * 
+ *
  * @see https://github.com/calebporzio/sushi
  */
 trait SushiToJson
@@ -35,9 +35,9 @@ trait SushiToJson
     public function getJsonFile(): string
     {
         $tbl = $this->getTable();
-        Assert::string($tbl);
-        $path = TenantService::filePath('database/content/'.$tbl.'.json');
-        
+        Assert::string($tbl, __FILE__ . ':' . __LINE__ . ' - ' . class_basename(__CLASS__));
+        $path = TenantService::filePath('database/content/' . $tbl . '.json');
+
         return $path;
     }
 
@@ -63,13 +63,13 @@ trait SushiToJson
     {
         $path = $this->getJsonFile();
         $schema = $this->getSchema();
-        if (! File::exists($path)) {
+        if (!File::exists($path)) {
             return [];
         }
 
         $data = json_decode(file_get_contents($path), true);
-        if (! \is_array($data)) {
-            throw new \Exception('Data is not array ['.$path.']');
+        if (!\is_array($data)) {
+            throw new \Exception('Data is not array [' . $path . ']');
         }
 
         // Normalize nested arrays/objects into JSON strings for Sushi
@@ -86,9 +86,9 @@ trait SushiToJson
             }
         }
 
-        $normalizedData=Arr::map($normalizedData,function($item) use ($schema){
-            foreach($schema as $key => $type){
-                if(!isset($item[$key])){
+        $normalizedData = Arr::map($normalizedData, function ($item) use ($schema) {
+            foreach ($schema as $key => $type) {
+                if (!isset($item[$key])) {
                     $item[$key] = null;
                 }
             }
@@ -109,18 +109,18 @@ trait SushiToJson
     public function loadExistingData(): array
     {
         $path = $this->getJsonFile();
-        
+
         if (!File::exists($path)) {
             return [];
         }
-        
+
         $content = file_get_contents($path);
         $data = json_decode($content, true);
-        
+
         if (!is_array($data)) {
             return [];
         }
-        
+
         // Assicura che i dati abbiano la struttura corretta
         $result = [];
         foreach ($data as $item) {
@@ -128,7 +128,7 @@ trait SushiToJson
                 $result[] = $item;
             }
         }
-        
+
         return $result;
     }
 
@@ -145,14 +145,14 @@ trait SushiToJson
         try {
             $file = $this->getJsonFile();
             $directory = dirname($file);
-            
+
             if (!File::exists($directory)) {
-                File::makeDirectory($directory, 0755, true, true);
+                File::makeDirectory($directory, 0o755, true, true);
             }
-            
+
             $content = json_encode($data, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE);
             File::put($file, $content);
-            
+
             return true;
         } catch (\Exception $e) {
             report($e);
@@ -168,18 +168,18 @@ trait SushiToJson
     protected function getNextId(): int
     {
         $existingData = $this->loadExistingData();
-        
+
         if (empty($existingData)) {
             return 1;
         }
-        
+
         $keys = array_keys($existingData);
         if (empty($keys)) {
             return 1;
         }
-        
+
         $maxId = max($keys);
-        return is_numeric($maxId) ? (int) $maxId + 1 : 1;
+        return is_numeric($maxId) ? (((int) $maxId) + 1) : 1;
     }
 
     /**
@@ -203,7 +203,7 @@ trait SushiToJson
                     continue;
                 }
                 $rawId = $r['id'] ?? 0;
-                $id = \is_numeric($rawId) ? (int) $rawId : 0;
+                $id = \is_numeric($rawId) ? ((int) $rawId) : 0;
                 $maxIdFromFile = max($maxIdFromFile, $id);
             }
             // Safely read current max id from table (Sushi in-memory)
@@ -222,7 +222,7 @@ trait SushiToJson
             $modelWithTrait->setAttribute('id', $nextId);
             $modelWithTrait->setAttribute('updated_at', now());
             $modelWithTrait->setAttribute('created_at', now());
-            
+
             // Set audit fields if available via helper
             $authId = $modelWithTrait->authId();
             if ($authId !== null) {
@@ -252,7 +252,7 @@ trait SushiToJson
             // Update existing record
             $existingData = $modelWithTrait->loadExistingData();
             $id = (int) ($modelWithTrait->getAttribute('id') ?? 0);
-            
+
             if ($id > 0) {
                 $index = $modelWithTrait->findRowIndexById($existingData, $id);
                 if ($index !== null) {
@@ -266,11 +266,11 @@ trait SushiToJson
             /** @var static $modelWithTrait */
             $modelWithTrait = $model;
             $id = (int) ($modelWithTrait->getAttribute('id') ?? 0);
-            
+
             if ($id > 0) {
                 $existingData = $modelWithTrait->loadExistingData();
                 $index = $modelWithTrait->findRowIndexById($existingData, $id);
-                
+
                 if ($index !== null) {
                     unset($existingData[$index]);
                     $existingData = array_values($existingData);
@@ -287,10 +287,10 @@ trait SushiToJson
      * @param int $id
      * @return int|null Indice se trovato, altrimenti null
      */
-    protected function findRowIndexById(array $rows, int $id): ?int
+    protected function findRowIndexById(array $rows, int $id): null|int
     {
         foreach ($rows as $index => $row) {
-            if (is_array($row) && (int) ($row['id'] ?? 0) === $id) {
+            if (is_array($row) && ((int) ($row['id'] ?? 0)) === $id) {
                 return (int) $index;
             }
         }
@@ -307,11 +307,11 @@ trait SushiToJson
         if (\function_exists('authId')) {
             return authId();
         }
-        
+
         if (class_exists('\Illuminate\Support\Facades\Auth')) {
             return \Illuminate\Support\Facades\Auth::id();
         }
-        
+
         return null;
     }
 
@@ -324,10 +324,9 @@ trait SushiToJson
     protected function ensureDirectoryExists(string $filePath): void
     {
         $directory = dirname($filePath);
-        
-        if (! File::exists($directory)) {
-            File::makeDirectory($directory, 0755, true, true);
+
+        if (!File::exists($directory)) {
+            File::makeDirectory($directory, 0o755, true, true);
         }
     }
 }
-

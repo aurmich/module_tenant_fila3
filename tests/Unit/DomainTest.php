@@ -8,7 +8,7 @@ use Modules\Tenant\Models\Domain;
 uses(Tests\TestCase::class);
 
 test('domain model can be instantiated', function (): void {
-    $domain = new Domain;
+    $domain = new Domain();
 
     expect($domain)->toBeInstanceOf(Domain::class);
 });
@@ -16,14 +16,15 @@ test('domain model can be instantiated', function (): void {
 test('get rows method works correctly', function (): void {
     // Mock della Action GetDomainsArrayAction
     $mockAction = $this->mock(GetDomainsArrayAction::class);
-    $mockAction->shouldReceive('execute')
+    $mockAction
+        ->shouldReceive('execute')
         ->twice()
         ->andReturn([
             ['id' => 1, 'name' => 'test-domain.com'],
             ['id' => 2, 'name' => 'example.org'],
         ]);
 
-    $domain = new Domain;
+    $domain = new Domain();
     $rows = $domain->getRows();
 
     expect($rows)->toBeArray();

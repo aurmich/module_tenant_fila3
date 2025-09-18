@@ -20,7 +20,7 @@ class DomainPolicy extends TenantBasePolicy
     /**
      * Determine whether the user can view the model.
      */
-    public function view(UserContract $user, Domain $domain): bool
+    public function view(UserContract $user, Domain $_domain): bool
     {
         return $user->hasPermissionTo('domain.view');
     }
@@ -36,7 +36,7 @@ class DomainPolicy extends TenantBasePolicy
     /**
      * Determine whether the user can update the model.
      */
-    public function update(UserContract $user, Domain $domain): bool
+    public function update(UserContract $user, Domain $_domain): bool
     {
         return $user->hasPermissionTo('domain.update');
     }
@@ -44,7 +44,7 @@ class DomainPolicy extends TenantBasePolicy
     /**
      * Determine whether the user can delete the model.
      */
-    public function delete(UserContract $user, Domain $domain): bool
+    public function delete(UserContract $user, Domain $_domain): bool
     {
         return $user->hasPermissionTo('domain.delete');
     }
@@ -52,7 +52,7 @@ class DomainPolicy extends TenantBasePolicy
     /**
      * Determine whether the user can restore the model.
      */
-    public function restore(UserContract $user, Domain $domain): bool
+    public function restore(UserContract $user, Domain $_domain): bool
     {
         return $user->hasPermissionTo('domain.restore');
     }

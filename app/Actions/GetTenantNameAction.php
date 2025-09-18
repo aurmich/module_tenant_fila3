@@ -23,18 +23,18 @@ class GetTenantNameAction
     public function execute(): string
     {
         $default = config('app.url');
-        if (! \is_string($default)) {
+        if (!\is_string($default)) {
             $default = 'localhost';
         }
-        
+
         $default = Str::after($default, '//');
-        
+
         $server_name = $this->getServerName($default);
         $server_name = Str::of($server_name)->replace('www.', '')->toString();
-        
+
         /** @var Collection<int, string> $parts */
         $parts = collect(explode('.', $server_name))
-            ->map(fn($item) => Str::slug($item))
+            ->map(fn (string $part): string => Str::slug($part))
             ->reverse()
             ->values();
 
@@ -55,10 +55,10 @@ class GetTenantNameAction
         }
 
         // Fallback al default
-        $part=explode('.', $default);
-        $inverted=array_reverse($part);
-        $default_path=implode('/', $inverted);
-        if ($default_path !== '' && file_exists(base_path('config/'.$default_path))) {
+        $part = explode('.', $default);
+        $inverted = array_reverse($part);
+        $default_path = implode('/', $inverted);
+        if ($default_path !== '' && file_exists(base_path('config/' . $default_path))) {
             return $default_path;
         }
 
@@ -73,7 +73,11 @@ class GetTenantNameAction
      */
     private function getServerName(string $default): string
     {
-        if (isset($_SERVER['SERVER_NAME']) && $_SERVER['SERVER_NAME'] !== '127.0.0.1' && is_string($_SERVER['SERVER_NAME'])) {
+        if (
+            isset($_SERVER['SERVER_NAME']) &&
+                $_SERVER['SERVER_NAME'] !== '127.0.0.1' &&
+                is_string($_SERVER['SERVER_NAME'])
+        ) {
             return $_SERVER['SERVER_NAME'];
         }
 

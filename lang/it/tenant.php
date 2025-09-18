@@ -13,7 +13,6 @@ return [
             'label' => 'Multi-tenant',
         ],
     ],
-
     'sections' => [
         'building' => [
             'navigation' => [
@@ -35,7 +34,6 @@ return [
                 'notes' => 'Note',
             ],
         ],
-
         'unit' => [
             'navigation' => [
                 'name' => 'Unità Immobiliari',
@@ -63,7 +61,6 @@ return [
                 'warehouse' => 'Magazzino',
             ],
         ],
-
         'tenant' => [
             'navigation' => [
                 'name' => 'Inquilini',
@@ -87,7 +84,6 @@ return [
             ],
         ],
     ],
-
     'common' => [
         'status' => [
             'active' => 'Attivo',

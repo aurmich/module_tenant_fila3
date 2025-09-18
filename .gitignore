@@ -1,6 +1,3 @@
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
 # ==============================================
 # LARAXOT MODULE TENANT - .GITIGNORE
 # ==============================================
@@ -12,15 +9,21 @@
 # DEPENDENCIES & PACKAGES
 # ==============================================
 vendor/
+/vendor/
 node_modules/
+/node_modules/
+/docs/vendor/
 package-lock.json
+/docs/package-lock.json
 yarn.lock
+yarn-error.log
 composer.lock
 
 # ==============================================
 # BUILD & COMPILED FILES
 # ==============================================
 /build
+/build/
 build/
 dist/
 docs/cache/
@@ -37,6 +40,7 @@ cache/
 *.swp
 *.swo
 *.stackdump
+*.exe
 *:Zone.Identifier
 v8-compile-cache-*
 .php-cs-fixer.cache
@@ -48,78 +52,13 @@ v8-compile-cache-*
 *.log
 error_log
 npm-debug.log*
+npm-debug.log
 yarn-error.log*
 lerna-debug.log*
 
 # ==============================================
 # LARAVEL SPECIFIC
 # ==============================================
-=======
-=======
->>>>>>> 7f1d6dde (.)
-=======
->>>>>>> f0ea4d24 (.)
-# Dependencies and packages
-/vendor/
-/node_modules/
-/docs/vendor/
-
-# Lock files and cache
-*.lock
-*.cache
-*.phar
-*.jar
-package-lock.json
-yarn-error.log
-npm-debug.log
-composer.lock
-.phpunit.result.cache
-.php-cs-fixer.cache
-
-# Log files
-*.log
-error_log
-
-# Build directories
-/build/
-/build
-build/
-
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-=======
->>>>>>> f0ea4d24 (.)
-# Dependencies
-vendor/
-node_modules/
-package-lock.json
-yarn-error.log
-npm-debug.log
-
-# Build and compiled files
-/build
-/docs/package-lock.json
-docs/cache/
-cache/
-
-# Cache and temporary files
-*.cache
-*.lock
-*.phar
-*.log
-*.stackdump
-*.exe
-*:Zone.Identifier
-.phpunit.result.cache
-.php-cs-fixer.cache
-
-<<<<<<< HEAD
->>>>>>> 7f1d6dde (.)
-=======
->>>>>>> f0ea4d24 (.)
-# Laravel specific
->>>>>>> 3b7794c (.)
 bootstrap/compiled.php
 app/storage/
 public/storage
@@ -128,7 +67,6 @@ public_html/storage
 public_html/hot
 storage/*.key
 .env
-<<<<<<< HEAD
 .env.*
 !.env.example
 
@@ -145,6 +83,7 @@ Homestead.json
 # GIT SPECIFIC
 # ==============================================
 .git-rewrite/
+.git-rewrite
 .git-blame-ignore-revs
 
 # ==============================================
@@ -187,10 +126,16 @@ docs/cache/
 # OLD DIRECTORIES (LEGACY CLEANUP)
 # ==============================================
 resources/views/Components_old/
+resources/views/Components_old
 database/Migrations_old/
+database/Migrations_old
 database/Seeders_old/
+database/Seeders_old
 database/Factories_old/
+database/Factories_old
+database/Factories_
 database_old/
+database_old
 
 # ==============================================
 # MODULE SPECIFIC - TENANT
@@ -210,103 +155,3 @@ test_tenants.sql
 # ==============================================
 # END OF TENANT .GITIGNORE
 # ==============================================
-=======
-
-# Database directories
-database/Factories_
-database/Factories_old
-database/Migrations_old
-
-# Local configurations
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-
-# Environment and configuration
-.env
->>>>>>> 7f1d6dde (.)
-=======
-
-# Environment and configuration
-.env
->>>>>>> f0ea4d24 (.)
-Homestead.yaml
-Homestead.json
-/.vagrant
-
-# IDE specific
-/.idea
-.phpintel
-
-# Git specific
-.git-blame-ignore-revs
-.git-rewrite/
-.git-rewrite
-
-# Temporary and system files
-*.tmp
-*.swp
-*.swo
-*.stackdump
-*.exe
-*:Zone.Identifier
-.DS_Store
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-=======
->>>>>>> f0ea4d24 (.)
-# Git related
-.git-rewrite/
-.git-blame-ignore-revs
-
-# Backup files
-<<<<<<< HEAD
->>>>>>> 7f1d6dde (.)
-=======
->>>>>>> f0ea4d24 (.)
-*.old
-*.old1
-*.backup
-*.backup.*
-*.bak
-*.new
-
-# Documentation and cache
-docs/phpstan/
-docs/cache/
-cache/
-
-# Development tools
-.windsurf/
-.cursor/
-<<<<<<< HEAD
-<<<<<<< HEAD
->>>>>>> 3b7794c (.)
-=======
-=======
->>>>>>> f0ea4d24 (.)
-
-# PHPStan documentation
-docs/phpstan/
-
-# Old directories
-resources/views/Components_old
-database/Migrations_old
-database/Seeders_old
-database/Factories_old
-database_old
-
-# Other
--e
-
-# Old directories to ignore
-resources/views/Components_old
-database/Migrations_old
-database/Seeders_old
-database/Factories_old
-database_old
-<<<<<<< HEAD
->>>>>>> 7f1d6dde (.)
-=======
->>>>>>> f0ea4d24 (.)

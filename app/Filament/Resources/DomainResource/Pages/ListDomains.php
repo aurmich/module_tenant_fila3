@@ -20,9 +20,7 @@ class ListDomains extends XotBaseListRecords
                 ->numeric()
                 ->sortable()
                 ->searchable(),
-            'domain' => Tables\Columns\TextColumn::make('domain')
-                ->sortable()
-                ->searchable(),
+            'domain' => Tables\Columns\TextColumn::make('domain')->sortable()->searchable(),
             'tenant_id' => Tables\Columns\TextColumn::make('tenant_id')
                 ->numeric()
                 ->sortable()
@@ -57,7 +55,7 @@ class ListDomains extends XotBaseListRecords
 //         ->columns([
 //             // thumbnail
 //             ImageColumn::make('thumbnail')
-//
+
 //                 ->rounded(),
 
 //             // title

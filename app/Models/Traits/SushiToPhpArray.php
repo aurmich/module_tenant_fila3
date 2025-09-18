@@ -27,24 +27,25 @@ trait SushiToPhpArray
         $items = array_values($rows);
 
         return $items;
-        /*
-        $files = File::glob($path.'/*.json');
-        $rows = [];
-        foreach ($files as $id => $file) {
-            $json = File::json($file);
-            $item = [];
-            foreach ($this->schema as $name => $type) {
-                $value = $json[$name] ?? null;
-                if (is_array($value)) {
-                    $value = json_encode($value, JSON_PRETTY_PRINT);
-                }
-                $item[$name] = $value;
-            }
-            $rows[] = $item;
-        }
 
-        return $rows;
-        */
+        /*
+         * $files = File::glob($path.'/*.json');
+         * $rows = [];
+         * foreach ($files as $id => $file) {
+         * $json = File::json($file);
+         * $item = [];
+         * foreach ($this->schema as $name => $type) {
+         * $value = $json[$name] ?? null;
+         * if (is_array($value)) {
+         * $value = json_encode($value, JSON_PRETTY_PRINT);
+         * }
+         * $item[$name] = $value;
+         * }
+         * $rows[] = $item;
+         * }
+         *
+         * return $rows;
+         */
     }
 
     /**
@@ -56,35 +57,31 @@ trait SushiToPhpArray
          * During a model create Eloquent will also update the updated_at field so
          * need to have the updated_by field here as well.
          */
-        static::creating(
-            function ($model): void {
-                // Arr::keyBy($array,
+        static::creating(function ($model): void {
+            // Arr::keyBy($array,
 
-                dd($model->toArray());
-            }
-        );
+            dd($model->toArray());
+        });
         /*
          * updating.
          */
-        static::updating(
-            function ($model): void {
-                dd($model->toArray());
-            }
-        );
+        static::updating(function ($model): void {
+            dd($model->toArray());
+        });
         // -------------------------------------------------------------------------------------
         /*
          * Deleting a model is slightly different than creating or deleting.
          * For deletes we need to save the model first with the deleted_by field
-        */
+         */
 
-        static::deleting(
-            function ($model): void {
-                dd('WIP');
-            }
-        );
+        static::deleting(function ($_model): void {
+            dd('WIP');
+        });
 
         // ----------------------
     }
 
     // end function boot
-}// end trait Updater
+}
+
+// end trait Updater

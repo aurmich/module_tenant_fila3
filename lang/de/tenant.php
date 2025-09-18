@@ -13,7 +13,6 @@ return [
             'label' => 'Multi-tenant',
         ],
     ],
-
     'sections' => [
         'building' => [
             'navigation' => [
@@ -35,7 +34,6 @@ return [
                 'notes' => 'Notizen',
             ],
         ],
-
         'unit' => [
             'navigation' => [
                 'name' => 'Wohneinheiten',
@@ -63,7 +61,6 @@ return [
                 'warehouse' => 'Lager',
             ],
         ],
-
         'tenant' => [
             'navigation' => [
                 'name' => 'Mieter',
@@ -87,7 +84,6 @@ return [
             ],
         ],
     ],
-
     'common' => [
         'status' => [
             'active' => 'Aktiv',

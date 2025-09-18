@@ -4,27 +4,27 @@ declare(strict_types=1);
 
 use Rector\Config\RectorConfig;
 use Rector\Core\Configuration\Option;
+use Rector\Laravel\Rector\ClassMethod\RedirectRouteToToRouteHelperRector;
+use Rector\Laravel\Set\LaravelSetList;
 use Rector\PHPUnit\Set\PHPUnitLevelSetList;
 use Rector\Set\ValueObject\LevelSetList;
 use Rector\Set\ValueObject\SetList;
-use Rector\Laravel\Set\LaravelSetList;
-use Rector\Laravel\Rector\ClassMethod\RedirectRouteToToRouteHelperRector;
 
 return static function (RectorConfig $rectorConfig): void {
     // Paths da analizzare
     safe_object_call($rectorConfig, 'paths', [
-        __DIR__.'/Actions',
-        __DIR__.'/Casts',
-        __DIR__.'/Facades',
-        __DIR__.'/Models',
+        __DIR__ . '/Actions',
+        __DIR__ . '/Casts',
+        __DIR__ . '/Facades',
+        __DIR__ . '/Models',
     ]);
 
     // Files e cartelle da ignorare
     safe_object_call($rectorConfig, 'skip', [
-        __DIR__.'/vendor',
-        __DIR__.'/database',
-        __DIR__.'/resources',
-        __DIR__.'/node_modules',
+        __DIR__ . '/vendor',
+        __DIR__ . '/database',
+        __DIR__ . '/resources',
+        __DIR__ . '/node_modules',
     ]);
 
     // Regole specifiche
@@ -47,7 +47,6 @@ return static function (RectorConfig $rectorConfig): void {
     // register a single rule
     // $rectorConfig->rule(InlineConstructorDefaultToPropertyRector::class);
     // $rectorConfig->rule(RedirectRouteToToRouteHelperRector::class);
-
     // define sets of rules
     // $rectorConfig->sets(
     //     [
@@ -56,7 +55,6 @@ return static function (RectorConfig $rectorConfig): void {
     //         // SetList::CODE_QUALITY,
     //         LevelSetList::UP_TO_PHP_81,
     //         LaravelSetList::LARAVEL_100,
-
     //         // SetList::NAMING, //problemi con injuction
     //         SetList::TYPE_DECLARATION,
     //         // SetList::CODING_STYLE,

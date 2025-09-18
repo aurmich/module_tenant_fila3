@@ -26,12 +26,12 @@ class TenantServiceProvider extends XotBaseServiceProvider
     public function boot(): void
     {
         parent::boot();
-        
+
         // Skip complex configuration during testing
         //if (! $this->app->environment('testing')) {
-           $this->mergeConfigs();
+        $this->mergeConfigs();
         //}
-        
+
         $this->registerDB();
         $this->registerMorphMap();
         $this->publishConfig();
@@ -45,7 +45,7 @@ class TenantServiceProvider extends XotBaseServiceProvider
     public function registerMorphMap(): void
     {
         $map = TenantService::config('morph_map');
-        if (! \is_array($map)) {
+        if (!\is_array($map)) {
             $map = [];
         }
 
@@ -81,13 +81,13 @@ class TenantServiceProvider extends XotBaseServiceProvider
     public function mergeConfigs(): void
     {
         /*
-        dddx([
-            'base_path' => base_path(),
-            'path1' => realpath(__DIR__ . '/../../../'),
-            'run' => $this->app->runningUnitTests(),
-            'run1' => $this->app->runningInConsole(),
-        ]);
-        */
+         * dddx([
+         * 'base_path' => base_path(),
+         * 'path1' => realpath(__DIR__ . '/../../../'),
+         * 'run' => $this->app->runningUnitTests(),
+         * 'run1' => $this->app->runningInConsole(),
+         * ]);
+         */
         // if ($this->app->runningUnitTests()) {
         // if (base_path() !== realpath(__DIR__ . '/../../../')) {
         //     // $this->publishes([
