@@ -1,4 +1,5 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 # ==============================================
 # LARAXOT MODULE TENANT - .GITIGNORE
 # ==============================================
@@ -53,6 +54,8 @@ lerna-debug.log*
 # LARAVEL SPECIFIC
 # ==============================================
 =======
+=======
+>>>>>>> 7f1d6dde (.)
 # Dependencies and packages
 /vendor/
 /node_modules/
@@ -79,6 +82,33 @@ error_log
 /build
 build/
 
+<<<<<<< HEAD
+=======
+# Dependencies
+vendor/
+node_modules/
+package-lock.json
+yarn-error.log
+npm-debug.log
+
+# Build and compiled files
+/build
+/docs/package-lock.json
+docs/cache/
+cache/
+
+# Cache and temporary files
+*.cache
+*.lock
+*.phar
+*.log
+*.stackdump
+*.exe
+*:Zone.Identifier
+.phpunit.result.cache
+.php-cs-fixer.cache
+
+>>>>>>> 7f1d6dde (.)
 # Laravel specific
 >>>>>>> 3b7794c (.)
 bootstrap/compiled.php
@@ -179,6 +209,12 @@ database/Factories_old
 database/Migrations_old
 
 # Local configurations
+<<<<<<< HEAD
+=======
+
+# Environment and configuration
+.env
+>>>>>>> 7f1d6dde (.)
 Homestead.yaml
 Homestead.json
 /.vagrant
@@ -200,6 +236,14 @@ Homestead.json
 *.exe
 *:Zone.Identifier
 .DS_Store
+<<<<<<< HEAD
+=======
+# Git related
+.git-rewrite/
+.git-blame-ignore-revs
+
+# Backup files
+>>>>>>> 7f1d6dde (.)
 *.old
 *.old1
 *.backup
@@ -215,4 +259,27 @@ cache/
 # Development tools
 .windsurf/
 .cursor/
+<<<<<<< HEAD
 >>>>>>> 3b7794c (.)
+=======
+
+# PHPStan documentation
+docs/phpstan/
+
+# Old directories
+resources/views/Components_old
+database/Migrations_old
+database/Seeders_old
+database/Factories_old
+database_old
+
+# Other
+-e
+
+# Old directories to ignore
+resources/views/Components_old
+database/Migrations_old
+database/Seeders_old
+database/Factories_old
+database_old
+>>>>>>> 7f1d6dde (.)
