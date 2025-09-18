@@ -327,11 +327,7 @@ class TenantService
 
         $path = Arr::first(
             $paths,
-<<<<<<< HEAD
-            static fn ($path): bool => file_exists($path)
-=======
             file_exists(...)
->>>>>>> 3b7794c (.)
         );
         if (! \is_string($path)) {
             return '#';

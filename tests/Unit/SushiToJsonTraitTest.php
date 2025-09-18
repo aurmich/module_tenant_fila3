@@ -37,12 +37,7 @@ beforeEach(function () {
     });
 
     // Helper per creare dati di test
-<<<<<<< HEAD
-    $this->createTestData = function () {
-        return [
-=======
     $this->createTestData = fn () => [
->>>>>>> 3b7794c (.)
             '1' => [
                 'id' => 1,
                 'name' => 'Test Item 1',
@@ -62,10 +57,6 @@ beforeEach(function () {
                 'updated_at' => now()->toISOString(),
             ],
         ];
-<<<<<<< HEAD
-    };
-=======
->>>>>>> 3b7794c (.)
 });
 
 afterEach(function () {
@@ -109,22 +100,14 @@ describe('SushiToJson Trait', function () {
     it('throws exception with malformed json', function () {
         File::put($this->testJsonPath, 'invalid json content');
 
-<<<<<<< HEAD
-        expect(fn () => $this->model->getSushiRows())
-=======
         expect($this->model->getSushiRows(...))
->>>>>>> 3b7794c (.)
             ->toThrow(\Exception::class, 'Syntax error');
     });
 
     it('throws exception with non array data', function () {
         File::put($this->testJsonPath, '"string data"');
 
-<<<<<<< HEAD
-        expect(fn () => $this->model->getSushiRows())
-=======
         expect($this->model->getSushiRows(...))
->>>>>>> 3b7794c (.)
             ->toThrow(\Exception::class, 'Data is not array');
     });
 

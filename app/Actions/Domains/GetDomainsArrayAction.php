@@ -19,19 +19,10 @@ class GetDomainsArrayAction
     {
         $res = $this->recurse(config_path());
         $res1 = $this->collapse($res);
-<<<<<<< HEAD
-        $res2 = Arr::map($res1, function (string $value) {
-            return [
-                'id' => $value,
-                'name' => $value,
-            ];
-        });
-=======
         $res2 = Arr::map($res1, fn (string $value) => [
                 'id' => $value,
                 'name' => $value,
             ]);
->>>>>>> 3b7794c (.)
 
         return $res2;
     }
