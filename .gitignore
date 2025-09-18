@@ -155,3 +155,8 @@ test_tenants.sql
 # ==============================================
 # END OF TENANT .GITIGNORE
 # ==============================================
+
+# 🚫 File specifici del progetto
+*.fila2
+laravel
+public_html
