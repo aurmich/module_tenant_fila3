@@ -7,7 +7,10 @@ namespace Modules\Tenant\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\File;
+<<<<<<< HEAD
 use Modules\Tenant\Database\Factories\TestSushiModelFactory;
+=======
+>>>>>>> 864e16e (.)
 use Modules\Tenant\Models\Traits\SushiToJson;
 
 /**
@@ -45,6 +48,7 @@ class TestSushiModel extends Model
     use SushiToJson;
 
     /**
+<<<<<<< HEAD
      * Create a new factory instance for the model.
      *
      * @return TestSushiModelFactory
@@ -55,6 +59,8 @@ class TestSushiModel extends Model
     }
 
     /**
+=======
+>>>>>>> 864e16e (.)
      * Schema esplicito per Sushi quando non ci sono righe.
      *
      * @var array<string, string>

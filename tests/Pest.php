@@ -54,8 +54,12 @@ expect()->extend('toBeTenantUser', fn() => $this->toBeInstanceOf(\Modules\Tenant
 |
 */
 
+<<<<<<< HEAD
 uses(TestCase::class)
     ->uses(\Illuminate\Foundation\Testing\DatabaseTransactions::class)
+=======
+pest()->extend(TestCase::class)
+>>>>>>> 864e16e (.)
     ->in('Feature', 'Unit');
 
 /*
