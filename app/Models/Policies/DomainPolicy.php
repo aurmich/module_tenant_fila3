@@ -7,6 +7,7 @@ namespace Modules\Tenant\Models\Policies;
 use Modules\Tenant\Models\Domain;
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 use Modules\Xot\Contracts\UserContract;
 =======
 use Modules\Xot\Contracts\ProfileContract;
@@ -17,6 +18,8 @@ use Modules\Xot\Contracts\ProfileContract;
 use Modules\Xot\Contracts\UserContract;
 >>>>>>> 864e16e (.)
 >>>>>>> 564de7e (.)
+=======
+>>>>>>> cdf4ed4 (.)
 
 class DomainPolicy extends TenantBasePolicy
 {
@@ -25,6 +28,7 @@ class DomainPolicy extends TenantBasePolicy
      */
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     public function viewAny(UserContract $user): bool
     {
         return $user->hasPermissionTo('domain.viewAny');
@@ -43,11 +47,14 @@ class DomainPolicy extends TenantBasePolicy
         return $user->hasPermissionTo('domain.viewAny');
 >>>>>>> 864e16e (.)
 >>>>>>> 564de7e (.)
+=======
+>>>>>>> cdf4ed4 (.)
     }
 
     /**
      * Determine whether the user can view the model.
      */
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
     public function view(UserContract $user, Domain $_domain): bool
@@ -68,11 +75,14 @@ class DomainPolicy extends TenantBasePolicy
         return $user->hasPermissionTo('domain.view');
 >>>>>>> 864e16e (.)
 >>>>>>> 564de7e (.)
+=======
+>>>>>>> cdf4ed4 (.)
     }
 
     /**
      * Determine whether the user can create models.
      */
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
     public function create(UserContract $user): bool
@@ -93,11 +103,14 @@ class DomainPolicy extends TenantBasePolicy
         return $user->hasPermissionTo('domain.create');
 >>>>>>> 864e16e (.)
 >>>>>>> 564de7e (.)
+=======
+>>>>>>> cdf4ed4 (.)
     }
 
     /**
      * Determine whether the user can update the model.
      */
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
     public function update(UserContract $user, Domain $_domain): bool
@@ -118,11 +131,14 @@ class DomainPolicy extends TenantBasePolicy
         return $user->hasPermissionTo('domain.update');
 >>>>>>> 864e16e (.)
 >>>>>>> 564de7e (.)
+=======
+>>>>>>> cdf4ed4 (.)
     }
 
     /**
      * Determine whether the user can delete the model.
      */
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
     public function delete(UserContract $user, Domain $_domain): bool
@@ -143,11 +159,14 @@ class DomainPolicy extends TenantBasePolicy
         return $user->hasPermissionTo('domain.delete');
 >>>>>>> 864e16e (.)
 >>>>>>> 564de7e (.)
+=======
+>>>>>>> cdf4ed4 (.)
     }
 
     /**
      * Determine whether the user can restore the model.
      */
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
     public function restore(UserContract $user, Domain $_domain): bool
@@ -168,11 +187,14 @@ class DomainPolicy extends TenantBasePolicy
         return $user->hasPermissionTo('domain.restore');
 >>>>>>> 864e16e (.)
 >>>>>>> 564de7e (.)
+=======
+>>>>>>> cdf4ed4 (.)
     }
 
     /**
      * Determine whether the user can permanently delete the model.
      */
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
     public function forceDelete(UserContract $user, Domain $domain): bool
@@ -194,3 +216,5 @@ class DomainPolicy extends TenantBasePolicy
     }
 }
 >>>>>>> 864e16e (.)
+=======
+>>>>>>> cdf4ed4 (.)

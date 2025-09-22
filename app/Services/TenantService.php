@@ -517,6 +517,7 @@ class TenantService
         $arr_key=Str::of($key)->after('.')->toString();
         $path = self::filePath('lang/'.$lang.'/'.$trans_file);
         $data = File::getRequire($path);
+        Assert::isArray($data);
         Assert::string($res=Arr::get($data, $arr_key));
 >>>>>>> 1cbc182 (.)
         return $res;

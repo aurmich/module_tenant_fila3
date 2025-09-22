@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 use Modules\Tenant\Actions\Domains\GetDomainsArrayAction;
 use Modules\Tenant\Models\Domain;
 
@@ -20,11 +21,14 @@ namespace Modules\Tenant\Tests\Unit;
 
 use Tests\TestCase;
 >>>>>>> 864e16e (.)
+=======
+>>>>>>> cdf4ed4 (.)
 use Modules\Tenant\Models\Domain;
 use Modules\Tenant\Actions\Domains\GetDomainsArrayAction;
 use PHPUnit\Framework\Attributes\Test;
 use Mockery;
 
+<<<<<<< HEAD
 <<<<<<< HEAD
 uses(\Tests\TestCase::class);
 
@@ -122,3 +126,8 @@ class DomainTest extends TestCase
     }
 }
 >>>>>>> 864e16e (.)
+=======
+
+        $this->app->instance(GetDomainsArrayAction::class, $mockAction);
+
+>>>>>>> cdf4ed4 (.)

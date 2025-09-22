@@ -7,6 +7,7 @@ namespace Modules\Tenant\Models\Policies;
 use Illuminate\Auth\Access\HandlesAuthorization;
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 use Modules\Xot\Contracts\UserContract;
 =======
 use Modules\Xot\Contracts\ProfileContract;
@@ -17,12 +18,16 @@ use Modules\Xot\Contracts\ProfileContract;
 use Modules\Xot\Contracts\UserContract;
 >>>>>>> 864e16e (.)
 >>>>>>> 564de7e (.)
+=======
+use Modules\Xot\Contracts\UserContract;
+>>>>>>> cdf4ed4 (.)
 use Modules\Xot\Datas\XotData;
 
 abstract class TenantBasePolicy
 {
     use HandlesAuthorization;
 
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
     public function before(UserContract $user, string $_ability): null|bool
@@ -40,19 +45,20 @@ abstract class TenantBasePolicy
 >>>>>>> 1cbc182 (.)
 =======
 =======
+=======
+>>>>>>> cdf4ed4 (.)
     public function before(UserContract $user, string $ability): ?bool
     {
         $xotData = XotData::make();
         if ($user->hasRole('super-admin')) {
+<<<<<<< HEAD
 >>>>>>> 864e16e (.)
 >>>>>>> 564de7e (.)
+=======
+>>>>>>> cdf4ed4 (.)
             return true;
         }
 
         return null;
     }
-<<<<<<< HEAD
 }
-=======
-}
->>>>>>> 864e16e (.)
