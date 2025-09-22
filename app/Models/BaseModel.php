@@ -13,7 +13,11 @@ use Modules\Xot\Traits\Updater;
  * Class BaseModel.
  * @property-read \Modules\Xot\Contracts\ProfileContract|null $creator
  * @property-read \Modules\Xot\Contracts\ProfileContract|null $updater
+<<<<<<< HEAD
  */
+=======
+  */
+>>>>>>> 1cbc182 (.)
 abstract class BaseModel extends EloquentModel
 {
     use HasFactory;
@@ -71,10 +75,20 @@ abstract class BaseModel extends EloquentModel
             'id' => 'string',
             'uuid' => 'string',
             'published_at' => 'datetime',
+<<<<<<< HEAD
             'verified_at' => 'datetime',
             'created_at' => 'datetime',
             'updated_at' => 'datetime',
             'deleted_at' => 'datetime',
+=======
+
+            'verified_at' => 'datetime',
+
+            'created_at' => 'datetime',
+            'updated_at' => 'datetime',
+            'deleted_at' => 'datetime',
+
+>>>>>>> 1cbc182 (.)
             'updated_by' => 'string',
             'created_by' => 'string',
             'deleted_by' => 'string',

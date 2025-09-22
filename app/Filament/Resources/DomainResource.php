@@ -12,9 +12,14 @@ use Modules\Xot\Filament\Resources\XotBaseResource;
 
 class DomainResource extends XotBaseResource
 {
+<<<<<<< HEAD
     protected static null|string $model = Domain::class;
 
     #[\Override]
+=======
+    protected static ?string $model = Domain::class;
+
+>>>>>>> 1cbc182 (.)
     public static function getFormSchema(): array
     {
         return [
@@ -30,7 +35,13 @@ class DomainResource extends XotBaseResource
                 ->required()
                 ->string()
                 ->maxLength(255),
+<<<<<<< HEAD
             'description' => RichEditor::make('description')->required()->string(),
+=======
+            'description' => RichEditor::make('description')
+                ->required()
+                ->string(),
+>>>>>>> 1cbc182 (.)
             'price' => TextInput::make('price')
                 ->required()
                 ->numeric()
@@ -43,6 +54,7 @@ class DomainResource extends XotBaseResource
         ];
     }
 
+<<<<<<< HEAD
     #[\Override]
     public static function getRelations(): array
     {
@@ -50,6 +62,14 @@ class DomainResource extends XotBaseResource
     }
 
     #[\Override]
+=======
+    public static function getRelations(): array
+    {
+        return [
+        ];
+    }
+
+>>>>>>> 1cbc182 (.)
     public static function getPages(): array
     {
         return [

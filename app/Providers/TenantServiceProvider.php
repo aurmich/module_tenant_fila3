@@ -22,6 +22,7 @@ class TenantServiceProvider extends XotBaseServiceProvider
 
     protected string $module_ns = __NAMESPACE__;
 
+<<<<<<< HEAD
     #[\Override]
     public function boot(): void
     {
@@ -32,6 +33,17 @@ class TenantServiceProvider extends XotBaseServiceProvider
         $this->mergeConfigs();
         //}
 
+=======
+    public function boot(): void
+    {
+        parent::boot();
+        
+        // Skip complex configuration during testing
+        //if (! $this->app->environment('testing')) {
+           $this->mergeConfigs();
+        //}
+        
+>>>>>>> 1cbc182 (.)
         $this->registerDB();
         $this->registerMorphMap();
         $this->publishConfig();
@@ -45,7 +57,11 @@ class TenantServiceProvider extends XotBaseServiceProvider
     public function registerMorphMap(): void
     {
         $map = TenantService::config('morph_map');
+<<<<<<< HEAD
         if (!\is_array($map)) {
+=======
+        if (! \is_array($map)) {
+>>>>>>> 1cbc182 (.)
             $map = [];
         }
 
@@ -71,7 +87,10 @@ class TenantServiceProvider extends XotBaseServiceProvider
         Schema::defaultStringLength(191);
     }
 
+<<<<<<< HEAD
     #[\Override]
+=======
+>>>>>>> 1cbc182 (.)
     public function register(): void
     {
         parent::register();
@@ -81,6 +100,7 @@ class TenantServiceProvider extends XotBaseServiceProvider
     public function mergeConfigs(): void
     {
         /*
+<<<<<<< HEAD
          * dddx([
          * 'base_path' => base_path(),
          * 'path1' => realpath(__DIR__ . '/../../../'),
@@ -88,6 +108,15 @@ class TenantServiceProvider extends XotBaseServiceProvider
          * 'run1' => $this->app->runningInConsole(),
          * ]);
          */
+=======
+        dddx([
+            'base_path' => base_path(),
+            'path1' => realpath(__DIR__ . '/../../../'),
+            'run' => $this->app->runningUnitTests(),
+            'run1' => $this->app->runningInConsole(),
+        ]);
+        */
+>>>>>>> 1cbc182 (.)
         // if ($this->app->runningUnitTests()) {
         // if (base_path() !== realpath(__DIR__ . '/../../../')) {
         //     // $this->publishes([

@@ -15,8 +15,12 @@ test('domain model can be instantiated', function (): void {
 test('get rows method works correctly', function (): void {
     // Mock della Action GetDomainsArrayAction
     $this->mock(\Modules\Tenant\Actions\Domains\GetDomainsArrayAction::class, function ($mock) {
+<<<<<<< HEAD
         $mock
             ->shouldReceive('execute')
+=======
+        $mock->shouldReceive('execute')
+>>>>>>> 1cbc182 (.)
             ->once()
             ->andReturn([
                 ['id' => 1, 'name' => 'test-domain.com'],

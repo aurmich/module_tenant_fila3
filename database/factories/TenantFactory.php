@@ -46,7 +46,11 @@ class TenantFactory extends Factory
      */
     public function active(): static
     {
+<<<<<<< HEAD
         return $this->state(fn(array $_attributes) => [
+=======
+        return $this->state(fn (array $attributes) => [
+>>>>>>> 1cbc182 (.)
             'is_active' => true,
         ]);
     }
@@ -56,7 +60,11 @@ class TenantFactory extends Factory
      */
     public function inactive(): static
     {
+<<<<<<< HEAD
         return $this->state(fn(array $_attributes) => [
+=======
+        return $this->state(fn (array $attributes) => [
+>>>>>>> 1cbc182 (.)
             'is_active' => false,
         ]);
     }
