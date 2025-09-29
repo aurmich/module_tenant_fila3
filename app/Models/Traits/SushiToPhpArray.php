@@ -27,27 +27,6 @@ trait SushiToPhpArray
         $items = array_values($rows);
 
         return $items;
-<<<<<<< HEAD
-
-        /*
-         * $files = File::glob($path.'/*.json');
-         * $rows = [];
-         * foreach ($files as $id => $file) {
-         * $json = File::json($file);
-         * $item = [];
-         * foreach ($this->schema as $name => $type) {
-         * $value = $json[$name] ?? null;
-         * if (is_array($value)) {
-         * $value = json_encode($value, JSON_PRETTY_PRINT);
-         * }
-         * $item[$name] = $value;
-         * }
-         * $rows[] = $item;
-         * }
-         *
-         * return $rows;
-         */
-=======
         /*
         $files = File::glob($path.'/*.json');
         $rows = [];
@@ -66,7 +45,6 @@ trait SushiToPhpArray
 
         return $rows;
         */
->>>>>>> 1cbc182 (.)
     }
 
     /**
@@ -78,19 +56,6 @@ trait SushiToPhpArray
          * During a model create Eloquent will also update the updated_at field so
          * need to have the updated_by field here as well.
          */
-<<<<<<< HEAD
-        static::creating(function ($model): void {
-            // Arr::keyBy($array,
-
-            dd($model->toArray());
-        });
-        /*
-         * updating.
-         */
-        static::updating(function ($model): void {
-            dd($model->toArray());
-        });
-=======
         static::creating(
             function ($model): void {
                 // Arr::keyBy($array,
@@ -106,18 +71,10 @@ trait SushiToPhpArray
                 dd($model->toArray());
             }
         );
->>>>>>> 1cbc182 (.)
         // -------------------------------------------------------------------------------------
         /*
          * Deleting a model is slightly different than creating or deleting.
          * For deletes we need to save the model first with the deleted_by field
-<<<<<<< HEAD
-         */
-
-        static::deleting(function ($_model): void {
-            dd('WIP');
-        });
-=======
         */
 
         static::deleting(
@@ -125,16 +82,9 @@ trait SushiToPhpArray
                 dd('WIP');
             }
         );
->>>>>>> 1cbc182 (.)
 
         // ----------------------
     }
 
     // end function boot
-<<<<<<< HEAD
-}
-
-// end trait Updater
-=======
 }// end trait Updater
->>>>>>> 1cbc182 (.)

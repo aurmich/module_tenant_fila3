@@ -13,10 +13,7 @@ return [
             'label' => 'Multi-tenant',
         ],
     ],
-<<<<<<< HEAD
-=======
 
->>>>>>> 1cbc182 (.)
     'sections' => [
         'building' => [
             'navigation' => [
@@ -38,10 +35,7 @@ return [
                 'notes' => 'Note',
             ],
         ],
-<<<<<<< HEAD
-=======
 
->>>>>>> 1cbc182 (.)
         'unit' => [
             'navigation' => [
                 'name' => 'Unità Immobiliari',
@@ -69,10 +63,7 @@ return [
                 'warehouse' => 'Magazzino',
             ],
         ],
-<<<<<<< HEAD
-=======
 
->>>>>>> 1cbc182 (.)
         'tenant' => [
             'navigation' => [
                 'name' => 'Inquilini',
@@ -96,10 +87,7 @@ return [
             ],
         ],
     ],
-<<<<<<< HEAD
-=======
 
->>>>>>> 1cbc182 (.)
     'common' => [
         'status' => [
             'active' => 'Attivo',

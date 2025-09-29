@@ -41,11 +41,7 @@ class DomainFactory extends Factory
      */
     public function primary(): static
     {
-<<<<<<< HEAD
-        return $this->state(fn(array $_attributes) => [
-=======
         return $this->state(fn (array $attributes) => [
->>>>>>> 1cbc182 (.)
             'is_primary' => true,
         ]);
     }
@@ -55,11 +51,7 @@ class DomainFactory extends Factory
      */
     public function active(): static
     {
-<<<<<<< HEAD
-        return $this->state(fn(array $_attributes) => [
-=======
         return $this->state(fn (array $attributes) => [
->>>>>>> 1cbc182 (.)
             'is_active' => true,
         ]);
     }
@@ -69,16 +61,9 @@ class DomainFactory extends Factory
      */
     public function sslEnabled(): static
     {
-<<<<<<< HEAD
-        return $this->state(fn(array $_attributes) => [
-=======
         return $this->state(fn (array $attributes) => [
->>>>>>> 1cbc182 (.)
             'is_ssl_enabled' => true,
         ]);
     }
 }
-<<<<<<< HEAD
-=======
 
->>>>>>> 1cbc182 (.)

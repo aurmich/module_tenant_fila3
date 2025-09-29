@@ -276,14 +276,7 @@ private function generateRealisticDomain(string $tenantName, string $sector): st
 
 
 
-<<<<<<< HEAD
-<<<<<<< HEAD
 
 
 
 
-=======
->>>>>>> 1cbc182 (.)
-=======
-
->>>>>>> cdf4ed4 (.)

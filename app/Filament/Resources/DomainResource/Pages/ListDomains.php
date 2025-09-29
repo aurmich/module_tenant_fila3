@@ -12,10 +12,6 @@ class ListDomains extends XotBaseListRecords
 {
     protected static string $resource = DomainResource::class;
 
-<<<<<<< HEAD
-    #[\Override]
-=======
->>>>>>> 1cbc182 (.)
     public function getTableColumns(): array
     {
         return [
@@ -23,13 +19,9 @@ class ListDomains extends XotBaseListRecords
                 ->numeric()
                 ->sortable()
                 ->searchable(),
-<<<<<<< HEAD
-            'domain' => Tables\Columns\TextColumn::make('domain')->sortable()->searchable(),
-=======
             'domain' => Tables\Columns\TextColumn::make('domain')
                 ->sortable()
                 ->searchable(),
->>>>>>> 1cbc182 (.)
             'tenant_id' => Tables\Columns\TextColumn::make('tenant_id')
                 ->numeric()
                 ->sortable()
@@ -64,11 +56,7 @@ class ListDomains extends XotBaseListRecords
 //         ->columns([
 //             // thumbnail
 //             ImageColumn::make('thumbnail')
-<<<<<<< HEAD
-
-=======
 //
->>>>>>> 1cbc182 (.)
 //                 ->rounded(),
 
 //             // title

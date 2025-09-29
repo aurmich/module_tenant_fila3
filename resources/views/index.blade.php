@@ -1,11 +1,3 @@
-<<<<<<< HEAD
-<?php
-
-declare(strict_types=1);
-
-?>
-=======
->>>>>>> 1cbc182 (.)
 @extends('tenant::layouts.master')
 
 @section('content')

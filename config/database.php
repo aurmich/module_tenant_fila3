@@ -4,10 +4,7 @@ declare(strict_types=1);
 
 return [
     'default' => env('DB_CONNECTION', 'sqlite'),
-<<<<<<< HEAD
-=======
 
->>>>>>> 1cbc182 (.)
     'connections' => [
         'sqlite' => [
             'driver' => 'sqlite',
@@ -16,10 +13,7 @@ return [
             'prefix' => '',
             'foreign_key_constraints' => env('DB_FOREIGN_KEYS', true),
         ],
-<<<<<<< HEAD
-=======
 
->>>>>>> 1cbc182 (.)
         'mysql' => [
             'driver' => 'mysql',
             'url' => env('DB_URL'),
@@ -35,16 +29,9 @@ return [
             'prefix_indexes' => true,
             'strict' => true,
             'engine' => null,
-<<<<<<< HEAD
-            'options' => extension_loaded('pdo_mysql')
-                ? array_filter([
-                    PDO::MYSQL_ATTR_SSL_CA => env('MYSQL_ATTR_SSL_CA'),
-                ]) : [],
-=======
             'options' => extension_loaded('pdo_mysql') ? array_filter([
                 PDO::MYSQL_ATTR_SSL_CA => env('MYSQL_ATTR_SSL_CA'),
             ]) : [],
->>>>>>> 1cbc182 (.)
         ],
     ],
 ];

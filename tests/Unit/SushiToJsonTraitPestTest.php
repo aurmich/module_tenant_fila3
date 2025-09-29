@@ -17,30 +17,18 @@ beforeEach(function () {
 
     // Configura percorsi di test
     $this->testDirectory = storage_path('tests/sushi-json');
-<<<<<<< HEAD
-    $this->testJsonPath = $this->testDirectory . '/test_sushi.json';
-
-    // Crea directory di test
-    if (!File::exists($this->testDirectory)) {
-        File::makeDirectory($this->testDirectory, 0o755, true, true);
-=======
     $this->testJsonPath = $this->testDirectory.'/test_sushi.json';
 
     // Crea directory di test
     if (! File::exists($this->testDirectory)) {
         File::makeDirectory($this->testDirectory, 0755, true, true);
->>>>>>> 1cbc182 (.)
     }
 
     // Mock TenantService per i test
     $this->mock(TenantService::class, function ($mock) {
-<<<<<<< HEAD
-        $mock->shouldReceive('filePath')->with('database/content/test_sushi.json')->andReturn($this->testJsonPath);
-=======
         $mock->shouldReceive('filePath')
             ->with('database/content/test_sushi.json')
             ->andReturn($this->testJsonPath);
->>>>>>> 1cbc182 (.)
     });
 });
 
@@ -56,10 +44,7 @@ afterEach(function () {
 });
 
 describe('SushiToJson Trait', function () {
-<<<<<<< HEAD
-=======
     
->>>>>>> 1cbc182 (.)
     it('returns correct json file path', function () {
         $path = $this->model->getJsonFile();
 
@@ -88,11 +73,7 @@ describe('SushiToJson Trait', function () {
                 'updated_at' => now()->toISOString(),
             ],
         ];
-<<<<<<< HEAD
-
-=======
         
->>>>>>> 1cbc182 (.)
         File::put($this->testJsonPath, json_encode($testData, JSON_PRETTY_PRINT));
 
         $rows = $this->model->loadExistingData();
@@ -114,24 +95,14 @@ describe('SushiToJson Trait', function () {
         File::put($this->testJsonPath, 'invalid json content');
 
         $this->model->getSushiRows();
-<<<<<<< HEAD
-    })
-        ->throws(\Exception::class, 'Syntax error')
-        ->group('getSushiRows', 'traits', 'sushi-json');
-=======
     })->throws(\Exception::class, 'Syntax error')
       ->group('getSushiRows', 'traits', 'sushi-json');
->>>>>>> 1cbc182 (.)
 
     it('throws exception with non array data', function () {
         File::put($this->testJsonPath, json_encode('not an array'));
 
-<<<<<<< HEAD
-        expect($this->model->getSushiRows(...))->toThrow(\Exception::class, 'JSON file must contain an array');
-=======
         expect(fn() => $this->model->getSushiRows())
             ->toThrow(\Exception::class, 'JSON file must contain an array');
->>>>>>> 1cbc182 (.)
     })->group('getSushiRows', 'traits', 'sushi-json');
 
     it('validates json file structure', function () {
@@ -142,11 +113,7 @@ describe('SushiToJson Trait', function () {
                 'status' => 'active',
             ],
         ];
-<<<<<<< HEAD
-
-=======
         
->>>>>>> 1cbc182 (.)
         File::put($this->testJsonPath, json_encode($validData));
 
         $rows = $this->model->getSushiRows();
@@ -160,30 +127,18 @@ describe('SushiToJson Trait', function () {
 });
 
 describe('Business Logic Tests', function () {
-<<<<<<< HEAD
-=======
     
->>>>>>> 1cbc182 (.)
     it('handles large datasets efficiently', function () {
         $largeData = [];
         for ($i = 1; $i <= 1000; $i++) {
             $largeData[(string) $i] = [
                 'id' => $i,
-<<<<<<< HEAD
-                'name' => "Item {$i}",
-                'status' => ($i % 2) === 0 ? 'active' : 'inactive',
-                'created_at' => now()->toISOString(),
-            ];
-        }
-
-=======
                 'name' => "Item $i",
                 'status' => $i % 2 === 0 ? 'active' : 'inactive',
                 'created_at' => now()->toISOString(),
             ];
         }
         
->>>>>>> 1cbc182 (.)
         File::put($this->testJsonPath, json_encode($largeData));
 
         $rows = $this->model->getSushiRows();
@@ -204,11 +159,7 @@ describe('Business Logic Tests', function () {
                 'created_at' => '2024-01-01T10:00:00Z', // string datetime
             ],
         ];
-<<<<<<< HEAD
-
-=======
         
->>>>>>> 1cbc182 (.)
         File::put($this->testJsonPath, json_encode($testData));
 
         $rows = $this->model->getSushiRows();
@@ -220,8 +171,4 @@ describe('Business Logic Tests', function () {
         expect($rows['1']['metadata'])->toBeArray();
         expect($rows['1']['created_at'])->toBeString();
     })->group('data-types', 'traits', 'sushi-json');
-<<<<<<< HEAD
 });
-=======
-});
->>>>>>> 1cbc182 (.)

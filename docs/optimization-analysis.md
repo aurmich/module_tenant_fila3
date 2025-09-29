@@ -4,11 +4,7 @@
 
 ### 📊 Stato Attuale del Modulo
 
-<<<<<<< HEAD
 Il modulo Tenant gestisce la **multi-tenancy** del sistema , fornendo:
-=======
-Il modulo Tenant gestisce la **multi-tenancy** del sistema SaluteOra, fornendo:
->>>>>>> 1cbc182 (.)
 - **Isolamento Dati** tra studi medici diversi
 - **Database Separation** per tenant
 - **Domain-based Routing** per accesso tenant-specific

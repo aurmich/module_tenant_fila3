@@ -23,10 +23,6 @@ class TestCommand extends Command
     public function handle()
     {
         $name = TenantService::getName();
-<<<<<<< HEAD
-        $this->info('tenant name :' . $name);
-=======
         $this->info('tenant name :'.$name);
->>>>>>> 1cbc182 (.)
     }
 }

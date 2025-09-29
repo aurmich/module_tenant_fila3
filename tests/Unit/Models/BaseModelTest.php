@@ -2,7 +2,6 @@
 
 declare(strict_types=1);
 
-<<<<<<< HEAD
 namespace Modules\Tenant\Tests\Unit\Models;
 
 use Illuminate\Database\Eloquent\Model;
@@ -13,15 +12,8 @@ use Tests\TestCase;
 uses(TestCase::class, RefreshDatabase::class);
 
 beforeEach(function () {
-    $this->baseModel = new class extends BaseModel {
-=======
-use Illuminate\Database\Eloquent\Model;
-use Modules\Tenant\Models\BaseModel;
-
-beforeEach(function () {
-    $this->baseModel = new class() extends BaseModel
+    $this->baseModel = new class extends BaseModel
     {
->>>>>>> 1cbc182 (.)
         protected $table = 'test_tenant_table';
     };
 });

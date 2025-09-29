@@ -47,11 +47,7 @@ class TestSushiModelFactory extends Factory
      */
     public function active(): static
     {
-<<<<<<< HEAD
-        return $this->state(fn(array $_attributes) => [
-=======
         return $this->state(fn (array $attributes) => [
->>>>>>> 1cbc182 (.)
             'status' => 'active',
         ]);
     }
@@ -61,11 +57,7 @@ class TestSushiModelFactory extends Factory
      */
     public function inactive(): static
     {
-<<<<<<< HEAD
-        return $this->state(fn(array $_attributes) => [
-=======
         return $this->state(fn (array $attributes) => [
->>>>>>> 1cbc182 (.)
             'status' => 'inactive',
         ]);
     }
@@ -75,11 +67,7 @@ class TestSushiModelFactory extends Factory
      */
     public function pending(): static
     {
-<<<<<<< HEAD
-        return $this->state(fn(array $_attributes) => [
-=======
         return $this->state(fn (array $attributes) => [
->>>>>>> 1cbc182 (.)
             'status' => 'pending',
         ]);
     }
@@ -93,18 +81,10 @@ class TestSushiModelFactory extends Factory
             /** @var array<string, mixed> $metadata */
             $metadata = is_array($attributes['metadata'] ?? null) ? $attributes['metadata'] : [];
             $metadata['priority'] = 'high';
-<<<<<<< HEAD
-
-=======
             
->>>>>>> 1cbc182 (.)
             return [
                 'metadata' => $metadata,
             ];
         });
     }
-<<<<<<< HEAD
 }
-=======
-}
->>>>>>> 1cbc182 (.)
